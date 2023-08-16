@@ -1,0 +1,13 @@
+name: wes_env
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8.2
+  - snakemake=7.16.0
+  - bioconda::sra-tools=2.11.0
+  - bioconda::bwa=0.7.17
+  - bioconda::samtools=1.9
+  - bioconda::picard=2.21.6
+  - bioconda::gatk=3.8

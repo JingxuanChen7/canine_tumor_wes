@@ -1,0 +1,6 @@
+name: mutect
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
