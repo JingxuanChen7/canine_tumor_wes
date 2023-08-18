@@ -1,6 +1,8 @@
-name: mutect
+name: annovar_env
 channels:
   - bioconda
   - conda-forge
   - defaults
 dependencies:
+  - python
+  - conda-forge::perl=5.26.1

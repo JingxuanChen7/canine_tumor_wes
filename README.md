@@ -17,3 +17,4 @@
   - Another potential data source, Dog Genome Project: https://www.broadinstitute.org/scientific-community/science/projects/mammals-models/dog/dog-genome-links
   - Dog SNP database: https://academic.oup.com/nar/article/51/D1/D816/6775385
   - New reference genome (keep using canFam3 for this project): https://www.nature.com/articles/s42003-021-01698-x
+  - ONLY PAIRED-END data included in this study.
