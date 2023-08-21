@@ -1,8 +1,9 @@
-name: mutect2_env
+name: strelka_env
 channels:
   - bioconda
   - conda-forge
   - defaults
 dependencies:
+  - conda-forge::python=2.7
   - bioconda::samtools=1.9
-  - bioconda::gatk4=4.1.6.0
+  - bioconda::strelka=2.9.2

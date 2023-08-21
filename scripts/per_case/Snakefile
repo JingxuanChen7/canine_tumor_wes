@@ -1,233 +1,247 @@
 # define output folder structure
+bam_out=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 MuTect_out=config['out']['outdir']+"/results/Mutect/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 MuTect2_out=config['out']['outdir']+"/results/Mutect2/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 Germline_out=config['out']['outdir']+"/results/Germline/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 DepthOfCoverage_out=config['out']['outdir']+"/results/DepthOfCoverage/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 strelka_out=config['out']['outdir']+"/results/strelka/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
+SRRLIST = [config['in']['Normal_Run'], config['in']['Tumor_Run']]
 
 
 rule all:
     input:
         # config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
         # config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam"
-        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.bam_call_stats.txt",
-        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.bam_coverage.wig",
-        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf"
+        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName",
+        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName",
+        expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST),
+        expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST),
+        expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST),
+        MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt",
+        strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName"
 
-rule download_normal:
-    output:
-        normal_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"+config['in']['Normal_Run']+"_1.fastq.gz",
-        normal_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"+config['in']['Normal_Run']+"_2.fastq.gz"
-    params:
-        Normal_Run=config['in']['Normal_Run'],
-        normal_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"
-    conda:
-        config['envs']['wesenv']
-    threads:
-        1
-    shell:
-        '''
-        fasterq-dump --split-files {params.Normal_Run} -O {params.normal_dir}
-        gzip -f {params.normal_dir}/{params.Normal_Run}_1.fastq
-        gzip -f {params.normal_dir}/{params.Normal_Run}_2.fastq
-        '''
+#### read mapping and realigning ####
 
-rule download_tumor:
-    output:
-        tumor_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"+config['in']['Tumor_Run']+"_1.fastq.gz",
-        tumor_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"+config['in']['Tumor_Run']+"_2.fastq.gz"
-    params:
-        Tumor_Run=config['in']['Tumor_Run'],
-        tumor_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"
-    conda:
-        config['envs']['wesenv']
-    threads:
-        1
-    shell:
-        '''
-        fasterq-dump --split-files {params.Tumor_Run} -O {params.tumor_dir}
-        gzip -f {params.tumor_dir}/{params.Tumor_Run}_1.fastq
-        gzip -f {params.tumor_dir}/{params.Tumor_Run}_2.fastq
-        '''
+# rule download_normal:
+#     output:
+#         normal_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"+config['in']['Normal_Run']+"_1.fastq.gz",
+#         normal_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"+config['in']['Normal_Run']+"_2.fastq.gz"
+#     params:
+#         Normal_Run=config['in']['Normal_Run'],
+#         normal_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         1
+#     shell:
+#         '''
+#         fasterq-dump --split-files {params.Normal_Run} -O {params.normal_dir}
+#         gzip -f {params.normal_dir}/{params.Normal_Run}_1.fastq
+#         gzip -f {params.normal_dir}/{params.Normal_Run}_2.fastq
+#         '''
 
-# wildcard SRR = Normal_Run or Tumor_Run
-rule read_mapping:
-    input:
-        read_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_1.fastq.gz",
-        read_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_2.fastq.gz"
-    output:
-        config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}.sam"
-    params:
-        out_dir=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName'],
-        ref=config['in']['ref']
-    conda:
-        config['envs']['wesenv']
-    threads:
-        config['resources']['threads']
-    resources:
-        mem=config['resources']['mem']
-    shell:
-        '''
-        bwa aln -t {threads} {params.ref} {input.read_1} > {params.out_dir}/{wildcards.SRR}_1.sai
-        bwa aln -t {threads} {params.ref} {input.read_2} > {params.out_dir}/{wildcards.SRR}_2.sai
-        bwa sampe {params.ref} \
-            {params.out_dir}/{wildcards.SRR}_1.sai \
-            {params.out_dir}/{wildcards.SRR}_2.sai \
-            {input.read_1} \
-            {input.read_2} \
-            > {output}
-        '''
+# rule download_tumor:
+#     output:
+#         tumor_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"+config['in']['Tumor_Run']+"_1.fastq.gz",
+#         tumor_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"+config['in']['Tumor_Run']+"_2.fastq.gz"
+#     params:
+#         Tumor_Run=config['in']['Tumor_Run'],
+#         tumor_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         1
+#     shell:
+#         '''
+#         fasterq-dump --split-files {params.Tumor_Run} -O {params.tumor_dir}
+#         gzip -f {params.tumor_dir}/{params.Tumor_Run}_1.fastq
+#         gzip -f {params.tumor_dir}/{params.Tumor_Run}_2.fastq
+#         '''
 
-rule get_header:
-    input:
-        config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}.sam"
-    output:
-        config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/header_{SRR}"
-    conda:
-        config['envs']['wesenv']
-    threads:
-        1
-    shell:
-        '''
-        samtools view -H {input} > {output}
-        '''
-
-rule remove_unmapped:
-    input:
-        sam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}.sam",
-        header=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/header_{SRR}"
-    output:
-        cleaned_sam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}-cleaned.sam"
-    conda:
-        config['envs']['wesenv']
-    params:
-        out_dir=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
-    threads:
-        1
-    shell:
-        '''
-        cat {input.header} > {output.cleaned_sam}
-        awk 'BEGIN{{FS="\\t";OFS="\\t"}}{{if($2%16==3) print $0}}' {input.sam} >> {output.cleaned_sam}
-        '''
-
-rule sort_sam:
-    input:
-        cleaned_sam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}-cleaned.sam"
-    output:
-        sorted_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted.bam",
-    conda:
-        config['envs']['wesenv']
-    threads:
-        config['resources']['threads']
-    resources:
-        mem=config['resources']['mem']
-    shell:
-        '''
-        picard AddOrReplaceReadGroups I={input.cleaned_sam} \
-            O={output.sorted_bam} \
-            SO=coordinate RGID=4 RGLB=lib1 RGPL=illumina RGPU=unit1 RGSM={wildcards.SRR}
-        '''
-
-rule remove_duplicate:
-    input:
-        sorted_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted.bam"
-    output:
-        nodup_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.bam",
-        dup_matrix=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}-outputdup.metrics"
-    conda:
-        config['envs']['wesenv']
-    threads:
-        1
-    shell:
-        '''
-        picard MarkDuplicates I={input.sorted_bam} \
-            O={output.nodup_bam} CREATE_INDEX=true \
-            VALIDATION_STRINGENCY=SILENT M={output.dup_matrix} REMOVE_SEQUENCING_DUPLICATES=true
-        '''
-
-rule prepare_realign:
-    input:
-        nodup_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.bam",
-        ref=config['in']['ref']
-    output:
-        intervals=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.intervals"
-    conda:
-        config['envs']['wesenv']
-    threads:
-        config['resources']['threads']
-    resources:
-        mem=config['resources']['mem']
-    shell:
-        '''
-        GenomeAnalysisTK -T RealignerTargetCreator -R {input.ref} \
-            -I {input.nodup_bam} \
-            -nt {threads} \
-            --allow_potentially_misencoded_quality_scores \
-            -o {output.intervals} 
-        '''
-
-# IndelRealigner doesn't support parallel execution
-rule realign:
-    input:
-        nodup_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.bam",
-        intervals=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.intervals",
-        ref=config['in']['ref']
-    output:
-        realign_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam"
-    conda:
-        config['envs']['wesenv']
-    threads:
-        1
-    shell:
-        '''
-        GenomeAnalysisTK -T IndelRealigner -R {input.ref} \
-            -I {input.nodup_bam} \
-            --monitorThreadEfficiency \
-            -targetIntervals {input.intervals} \
-            --allow_potentially_misencoded_quality_scores \
-            -o {output.realign_bam}
-        '''
+# # wildcard SRR = Normal_Run or Tumor_Run
+# rule read_mapping:
+#     input:
+#         read_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_1.fastq.gz",
+#         read_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_2.fastq.gz"
+#     output:
+#         config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}.sam"
+#     params:
+#         out_dir=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName'],
+#         ref=config['in']['ref']
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         config['resources']['threads']
+#     resources:
+#         mem=config['resources']['mem']
+#     shell:
+#         '''
+#         bwa aln -t {threads} {params.ref} {input.read_1} > {params.out_dir}/{wildcards.SRR}_1.sai
+#         bwa aln -t {threads} {params.ref} {input.read_2} > {params.out_dir}/{wildcards.SRR}_2.sai
+#         bwa sampe {params.ref} \
+#             {params.out_dir}/{wildcards.SRR}_1.sai \
+#             {params.out_dir}/{wildcards.SRR}_2.sai \
+#             {input.read_1} \
+#             {input.read_2} \
+#             > {output}
+#         '''
 
 
-# cannot find a stable version of mutect in bioconda
-# only work with gacrc software support!!
-# DbSNP_canFam3_version151-DogSD_Feb2020_V4.vcf is missing
-# use DbSNP_canFam3_version151-DogSD_Broad_March2022.vcf instead
-rule Mutect:
-    input:
-        normal=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
-        tumor=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
-        ref=config['in']['ref'],
-        snp=config['in']['snp'],
-        interval=config['in']['interval']
-    output:
-        call_stats=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.bam_call_stats.txt",
-        coverage_file=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.bam_coverage.wig",
-        vcf=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf"
-    params:
-        defaultBaseQualities=30
-    conda:
-        config['envs']['wesenv']
-    threads:
-        config['resources']['threads']
-    resources:
-        mem=config['resources']['mem']
-    shell:
-        '''
-        module load MuTect/1.1.7-Java-1.7.0_80
-        java -jar $EBROOTMUTECT/mutect-1.1.7.jar --analysis_type MuTect \
-            -nt {threads} \
-            --reference_sequence {input.ref} \
-            --dbsnp {input.snp} \
-            --defaultBaseQualities {params.defaultBaseQualities} \
-            --intervals {input.interval} \
-            --input_file:normal {input.normal} \
-            --input_file:tumor {input.tumor} \
-            --out {output.call_stats} \
-            --coverage_file {output.coverage_file} \
-            --vcf {output.vcf}
-        module unload MuTect/1.1.7-Java-1.7.0_80
-        '''
+# rule get_header:
+#     input:
+#         config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}.sam"
+#     output:
+#         header=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/header_{SRR}",
+#         bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}.bam"
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         config['resources']['threads']
+#     resources:
+#         mem=config['resources']['mem']
+#     shell:
+#         '''
+#         samtools view -H {input} > {output.header}
+#         samtools view -bS {input} > {output.bam}
+#         '''
+
+# rule remove_unmapped:
+#     input:
+#         sam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}.sam",
+#         header=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/header_{SRR}"
+#     output:
+#         cleaned_sam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}-cleaned.sam"
+#     conda:
+#         config['envs']['wesenv']
+#     params:
+#         out_dir=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
+#     threads:
+#         1
+#     shell:
+#         '''
+#         cat {input.header} > {output.cleaned_sam}
+#         awk 'BEGIN{{FS="\\t";OFS="\\t"}}{{if($2%16==3) print $0}}' {input.sam} >> {output.cleaned_sam}
+#         '''
+
+# rule sort_sam:
+#     input:
+#         cleaned_sam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}-cleaned.sam"
+#     output:
+#         sorted_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted.bam",
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         config['resources']['threads']
+#     resources:
+#         mem=config['resources']['mem']
+#     shell:
+#         '''
+#         picard AddOrReplaceReadGroups I={input.cleaned_sam} \
+#             O={output.sorted_bam} \
+#             SO=coordinate RGID=4 RGLB=lib1 RGPL=illumina RGPU=unit1 RGSM={wildcards.SRR}
+#         '''
+
+# rule remove_duplicate:
+#     input:
+#         sorted_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted.bam"
+#     output:
+#         nodup_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.bam",
+#         dup_matrix=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}-outputdup.metrics"
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         1
+#     shell:
+#         '''
+#         picard MarkDuplicates I={input.sorted_bam} \
+#             O={output.nodup_bam} CREATE_INDEX=true \
+#             VALIDATION_STRINGENCY=SILENT M={output.dup_matrix} REMOVE_SEQUENCING_DUPLICATES=true
+#         '''
+
+# rule prepare_realign:
+#     input:
+#         nodup_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.bam",
+#         ref=config['in']['ref']
+#     output:
+#         intervals=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.intervals"
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         config['resources']['threads']
+#     resources:
+#         mem=config['resources']['mem']
+#     shell:
+#         '''
+#         GenomeAnalysisTK -T RealignerTargetCreator -R {input.ref} \
+#             -I {input.nodup_bam} \
+#             -nt {threads} \
+#             --allow_potentially_misencoded_quality_scores \
+#             -o {output.intervals} 
+#         '''
+
+# # IndelRealigner doesn't support parallel execution
+# rule realign:
+#     input:
+#         nodup_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.bam",
+#         intervals=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.intervals",
+#         ref=config['in']['ref']
+#     output:
+#         realign_bam=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam"
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         1
+#     shell:
+#         '''
+#         GenomeAnalysisTK -T IndelRealigner -R {input.ref} \
+#             -I {input.nodup_bam} \
+#             --monitorThreadEfficiency \
+#             -targetIntervals {input.intervals} \
+#             --allow_potentially_misencoded_quality_scores \
+#             -o {output.realign_bam}
+#         '''
+
+#### run mutect ####
+
+# # cannot find a stable version of mutect in bioconda
+# # only work with gacrc software support!!
+# # DbSNP_canFam3_version151-DogSD_Feb2020_V4.vcf is missing
+# # use DbSNP_canFam3_version151-DogSD_Broad_March2022.vcf instead
+# rule Mutect:
+#     input:
+#         normal=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
+#         tumor=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
+#         ref=config['in']['ref'],
+#         snp=config['in']['snp'],
+#         interval=config['in']['interval']
+#     output:
+#         call_stats=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.bam_call_stats.txt",
+#         coverage_file=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.bam_coverage.wig",
+#         vcf=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf"
+#     params:
+#         defaultBaseQualities=30
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         config['resources']['threads']
+#     resources:
+#         mem=config['resources']['mem']
+#     shell:
+#         '''
+#         module load MuTect/1.1.7-Java-1.7.0_80
+#         java -jar $EBROOTMUTECT/mutect-1.1.7.jar --analysis_type MuTect \
+#             -nt {threads} \
+#             --reference_sequence {input.ref} \
+#             --dbsnp {input.snp} \
+#             --defaultBaseQualities {params.defaultBaseQualities} \
+#             --intervals {input.interval} \
+#             --input_file:normal {input.normal} \
+#             --input_file:tumor {input.tumor} \
+#             --out {output.call_stats} \
+#             --coverage_file {output.coverage_file} \
+#             --vcf {output.vcf}
+#         module unload MuTect/1.1.7-Java-1.7.0_80
+#         '''
 
 rule Mutect_Annovar:
     input:
@@ -253,7 +267,7 @@ rule Mutect_Annovar:
         '''
         cd {params.MuTect_out}
         # Extract PASS records from vcf
-        awk '$7 == "PASS" {print $0}' {input.vcf} > {output.vcf_pass}
+        awk '$7 == "PASS" {{print $0}}' {input.vcf} > {output.vcf_pass}
         # annovar input preparation
         perl {params.annovar_dir}/convert2annovar.pl -format vcf4old {output.vcf_pass} > {output.vcf_pass_avinput}
         # annovar annotate
@@ -264,12 +278,23 @@ rule Mutect_Annovar:
 
 rule five_step_filter_Annovar:
     input:
-        call_stats=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.bam_call_stats.txt"
+        call_stats=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.bam_call_stats.txt",
+        vcf_pass=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS",
+        genename=config['in']['genename']
     output:
+        mutect1_pass=MuTect_out+"/"+config['in']['CaseName']+"_PASS.stat",
+        before=MuTect_out+"/"+config['in']['CaseName']+"_vaf_before.txt",
+        after=MuTect_out+"/"+config['in']['CaseName']+"_vaf_after.txt",
+        whyout=MuTect_out+"/"+config['in']['CaseName']+"_whyout.txt",
+        fivestep_out=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut",
+        fivestep_out_avinput=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput",
+        annovar_out=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function",
+        add_genename=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName"
     params:
         annovar_dir=config['scripts']['annovar_dir'],
         share_dir=config['scripts']['share_dir'],
-        MuTect_out=MuTect_out
+        MuTect_out=MuTect_out,
+        CaseName=config['in']['CaseName']
     conda:
         config['envs']['annovarenv']
     threads:
@@ -279,8 +304,373 @@ rule five_step_filter_Annovar:
     shell:
         '''
         cd {params.MuTect_out}
-        # 5 Steps filtering
-        awk '$7 == "PASS" {print $0}' {input.vcf} > {output.vcf_pass}
+        # prepare input file for 5 steps filtering script
+        grep -w KEEP {input.call_stats} | cut -f1,2,26,27,38,39 > {output.mutect1_pass}
+        python {params.share_dir}/Filter_MutectStat_5steps.py \
+            {output.mutect1_pass} \
+            {input.vcf_pass} \
+            {output.before} \
+            {output.after} \
+            {output.whyout} \
+            {params.CaseName} 
+        # annovar input preparation
+        perl {params.annovar_dir}/convert2annovar.pl -format vcf4old {output.fivestep_out} > {output.fivestep_out_avinput}
+        # annovar annotate
+        perl {params.annovar_dir}/annotate_variation.pl --buildver canFam3 {output.fivestep_out_avinput} {params.annovar_dir}
+        # add gene name
+        python {params.share_dir}/Add_GeneName_N_Signature.py {output.annovar_out} {input.genename}
+        '''
+
+
+#### germline mutation preparation ####
+# wildcard SRR = Normal_Run or Tumor_Run
+rule germline_calling:
+    input:
+        realign_bam=bam_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam",
+        ref=config['in']['ref']
+    output:
+        germ_vcf=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.vcf"
+    params:
+        stand_call_conf=20.0
+    conda:
+        config['envs']['wesenv']
+    threads:
+        1
+    shell:
+        '''
+        GenomeAnalysisTK -T HaplotypeCaller -R {input.ref} \
+            -I {input.realign_bam} -dontUseSoftClippedBases \
+            -stand_call_conf {params.stand_call_conf} \
+            -o {output.germ_vcf}
+        '''
+
+rule germline_filtering:
+    input:
+        germ_vcf=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.vcf",
+        ref=config['in']['ref']
+    output:
+        germ_vcf_fil=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"
+    conda:
+        config['envs']['wesenv']
+    threads:
+        1
+    shell:
+        '''
+        GenomeAnalysisTK -T VariantFiltration -R {input.ref} \
+            -V {input.germ_vcf} \
+            -filterName FS -filter "FS > 30.0" \
+            -filterName QD -filter "QD < 2.0" \
+            -o {output.germ_vcf_fil}
+        '''
+
+rule germline_Annovar:
+    input:
+        vcf=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf",
+        genename=config['in']['genename']
+    output:
+        vcf_pass=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS",
+        vcf_pass_avinput=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput",
+        annovar_out=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function",
+        add_genename=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName"
+    params:
+        annovar_dir=config['scripts']['annovar_dir'],
+        share_dir=config['scripts']['share_dir'],
+        Germline_out=Germline_out
+    conda:
+        config['envs']['annovarenv']
+    threads:
+        1
+    shell:
+        '''
+        cd {params.Germline_out}
+        # Extract PASS records from vcf
+        awk '$7 == "PASS" {{print $0}}' {input.vcf} > {output.vcf_pass}
+        # annovar input preparation
+        perl {params.annovar_dir}/convert2annovar.pl -format vcf4old {output.vcf_pass} > {output.vcf_pass_avinput}
+        # annovar annotate
+        perl {params.annovar_dir}/annotate_variation.pl --buildver canFam3 {output.vcf_pass_avinput} {params.annovar_dir}
+        # add gene name
+        python {params.share_dir}/Add_GeneName_N_Signature.py {output.annovar_out} {input.genename}
+        '''
+
+rule gatk_callable:
+    input:
+        realign_bam=bam_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam",
+        ref=config['in']['ref']
+    output:
+        summary=Germline_out+"/{SRR}_table.txt",
+        out_bed=Germline_out+"/{SRR}_callable_status.bed"
+    conda:
+        config['envs']['wesenv']
+    threads:
+        1
+    shell:
+        '''
+        GenomeAnalysisTK -T CallableLoci \
+            -R {input.ref} \
+            -I {input.realign_bam} \
+            -summary {output.summary} \
+            -o {output.out_bed}
+        '''
+
+#### germline mutation preparation end ####
+
+#### DepthofCoverage ####
+
+rule gatk_DepthofCoverage:
+    input:
+        realign_bam=bam_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam",
+        ref=config['in']['ref'],
+        interval=config['in']['interval']
+    output:
+        out_bed=DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed"
+    params:
+        minBaseQuality=10,
+        minMappingQuality=10
+    conda:
+        config['envs']['wesenv']
+    threads:
+        1
+    shell:
+        '''
+        GenomeAnalysisTK -T DepthOfCoverage \
+            -R {input.ref} \
+            -I {input.realign_bam} \
+            --minBaseQuality {params.minBaseQuality} \
+            --minMappingQuality {params.minMappingQuality} \
+            -L {input.interval} \
+            -o {output.out_bed}
+        '''
+
+#### Mutect2 ####
+
+rule Mutect2:
+    input:
+        normal=bam_out+"/"+config['in']['Normal_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
+        tumor=bam_out+"/"+config['in']['Tumor_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
+        ref=config['in']['ref'],
+        intervalMutect2=config['in']['intervalMutect2'],
+        panelOfNormals=config['in']['panelOfNormals']
+    output:
+        vcf=MuTect2_out+"/"+config['in']['CaseName']+"_MuTect2_GATK4_noDBSNP.vcf",
+        f1r2_tar_gz=MuTect2_out+"/"+config['in']['CaseName']+"-f1r2.tar.gz"
+    params:
+        normal=config['in']['Normal_Run'],
+        callable_depth=8,
+        dont_use_soft_clipped_bases="true",
+        initial_tumor_lod=2.0,
+        normal_lod=2.2,
+        tumor_lod_to_emit=3.0,
+        pcr_indel_model="CONSERVATIVE"
+    conda:
+        config['envs']['mutect2_env']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        gatk Mutect2 \
+            -R {input.ref} \
+            -I {input.tumor} \
+            -I {input.normal} \
+            -L {input.intervalMutect2} \
+            -normal {params.normal} \
+            --callable-depth {params.callable_depth} \
+            --dont-use-soft-clipped-bases {params.dont_use_soft_clipped_bases} \
+            --panel-of-normals {input.panelOfNormals} \
+            --initial-tumor-lod {params.initial_tumor_lod} \
+            --normal-lod {params.normal_lod} \
+            --tumor-lod-to-emit {params.tumor_lod_to_emit} \
+            --pcr-indel-model {params.pcr_indel_model} \
+            --f1r2-tar-gz {output.f1r2_tar_gz} \
+            -O {output.vcf}
+        '''
+    
+rule LearnReadOrientationModel:
+    input:
+        f1r2_tar_gz=MuTect2_out+"/"+config['in']['CaseName']+"-f1r2.tar.gz"
+    output:
+        read_orientation_model=MuTect2_out+"/read-orientation-model.tar.gz"
+    conda:
+        config['envs']['mutect2_env']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        gatk LearnReadOrientationModel \
+            -I {input.f1r2_tar_gz} \
+            -O {output.read_orientation_model}
+        '''
+
+rule FilterMutectCalls:
+    input:
+        vcf=MuTect2_out+"/"+config['in']['CaseName']+"_MuTect2_GATK4_noDBSNP.vcf",
+        read_orientation_model=MuTect2_out+"/read-orientation-model.tar.gz",
+        ref=config['in']['ref']
+    output:
+        filtered_vcf=MuTect2_out+"/filtered-"+config['in']['CaseName']+"_MuTect2_GATK4_noDBSNP.vcf"
+    conda:
+        config['envs']['mutect2_env']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        gatk FilterMutectCalls -R {input.ref} \
+            -ob-priors {input.read_orientation_model} \
+            -V {input.vcf} \
+            -O {output.filtered_vcf}
+        '''
+
+rule Mutect2_DbSNP_filter:
+    input:
+        snp=config['in']['snp'],
+        filtered_vcf=MuTect2_out+"/filtered-"+config['in']['CaseName']+"_MuTect2_GATK4_noDBSNP.vcf"
+    output:
+        fil_out1=MuTect2_out+"/DbSNP_filtered-"+config['in']['CaseName']+"_MuTect2_GATK4.vcf",
+        fil_out2=MuTect2_out+"/PON_DbSNP_filtered-"+config['in']['CaseName']+"_MuTect2_GATK4.vcf"
+    params:
+        share_dir=config['scripts']['share_dir'],
+        MuTect2_out=MuTect2_out
+    conda:
+        config['envs']['mutect2_env']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        cd {params.MuTect2_out}
+        # with DbSNP
+        java -cp {params.share_dir} DbSNP_filtering \
+            {input.snp} \
+            {input.filtered_vcf} \
+            {output.fil_out1}
+        # with PON
+        java -cp {params.share_dir} DbSNP_filtering \
+            {input.snp} \
+            {output.fil_out1} \
+            {output.fil_out2}
+        '''
+
+
+rule Mutect2_five_step_filter:
+    input:
+        fil_out2=MuTect2_out+"/PON_DbSNP_filtered-"+config['in']['CaseName']+"_MuTect2_GATK4.vcf"
+    output:
+        before=MuTect2_out+"/"+config['in']['CaseName']+"_VAF_Before.txt",
+        after=MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt"
+    params:
+        share_dir=config['scripts']['share_dir'],
+        MuTect2_out=MuTect2_out,
+        CaseName=config['in']['CaseName']
+    conda:
+        config['envs']['mutect2_env']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        cd {params.MuTect2_out}
+        python {params.share_dir}/Mutect2_5Steps_filtering.py \
+            {input.fil_out2} \
+            {input.fil_out2} \
+            {output.before} \
+            {output.after} \
+            {params.CaseName}
+        '''
+
+#### Strelka ####
+rule config_strelka:
+    input:
+        normal=bam_out+"/"+config['in']['Normal_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
+        tumor=bam_out+"/"+config['in']['Tumor_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
+        ref=config['in']['ref']
+    output:
+        workflow=strelka_out+"/runWorkflow.py"
+    params:
+        strelka_out=strelka_out
+    conda:
+        config['envs']['strelka_env']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        configureStrelkaSomaticWorkflow.py \
+            --normalBam {input.normal} \
+            --tumorBam {input.tumor} \
+            --referenceFasta {input.ref} \
+            --runDir {params.strelka_out}
+        '''
+
+rule run_strelka:
+    input:
+        workflow=strelka_out+"/runWorkflow.py"
+    output:
+        vcf_gz=strelka_out+"/results/variants/somatic.indels.vcf.gz"
+    params:
+        strelka_out=strelka_out
+    conda:
+        config['envs']['strelka_env']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        {input.workflow} -m local -j {threads}
+        '''
+
+rule limit_vcf_to_CDS:
+    input:
+        vcf_gz=strelka_out+"/results/variants/somatic.indels.vcf.gz",
+        interval=config['in']['interval']
+    output:
+        limited_vcf=strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS"
+    params:
+        share_dir=config['scripts']['share_dir']
+    conda:
+        config['envs']['strelka_env']
+    threads:
+        1
+    shell:
+        '''
+        python2 {params.share_dir}/Limit_vcf_to_CDS.py \
+            {input.vcf_gz} \
+            {input.interval}
+        '''
+
+rule strelka_Annovar:
+    input:
+        vcf=strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS",
+        genename=config['in']['genename']
+    output:
+        vcf_pass=strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS",
+        vcf_pass_avinput=strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput",
+        annovar_out=strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function",
+        add_genename=strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName"
+    params:
+        annovar_dir=config['scripts']['annovar_dir'],
+        share_dir=config['scripts']['share_dir'],
+        strelka_out=strelka_out+"/results"
+    conda:
+        config['envs']['annovarenv']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        cd {params.strelka_out}
+        # Extract PASS records from vcf
+        awk '$7 == "PASS" {{print $0}}' {input.vcf} > {output.vcf_pass}
         # annovar input preparation
         perl {params.annovar_dir}/convert2annovar.pl -format vcf4old {output.vcf_pass} > {output.vcf_pass_avinput}
         # annovar annotate
@@ -290,8 +680,26 @@ rule five_step_filter_Annovar:
         '''
 
 
-rule germline_mutation:
-
-
 # remove unuseful intermediate files to save disc space
-rule remove_intermediate:
+READPAIR=[1,2]
+rule remove_intermediates:
+    input:
+        expand(config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_{READ}.fastq.gz", SRR = SRRLIST, READ = READPAIR),
+        expand(bam_out+"/{SRR}.sam", SRR = SRRLIST),
+        expand(bam_out+"/{SRR}-cleaned.sam", SRR = SRRLIST),
+        expand(bam_out+"/{SRR}_{READ}.sai", SRR = SRRLIST, READ = READPAIR),
+        expand(bam_out+"/{SRR}_rg_added_sorted.bam", SRR = SRRLIST),
+        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS",
+        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput",
+        expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS", SRR = SRRLIST),
+        expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput", SRR = SRRLIST)
+
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        rm {input}
+        '''
+

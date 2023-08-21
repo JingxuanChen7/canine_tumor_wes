@@ -5,4 +5,4 @@ channels:
   - defaults
 dependencies:
   - python
-  - conda-forge::perl=5.26.1
+  - conda-forge::perl=5.26.2
