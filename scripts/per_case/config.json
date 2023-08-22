@@ -10,6 +10,7 @@
         "interval": "/work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval_list",
         "genename": "/work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.chr.gtf_geneNamePair.txt",
         "panelOfNormals": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/pon.vcf.gz",
+        "panelOfNormalstxt": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/pon.vcf.txt",
         "intervalMutect2": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/Uniq-Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval.list"
     },
     "out": {
@@ -17,13 +18,18 @@
     },
     "resources": {
         "threads": 8,
-        "mem": "60G"
+        "mem": "60G",
+        "threads_2parallel": 4,
+        "mem_2parallel": "30G",
+        "threads_4parallel": 2,
+        "mem_4parallel": "15G"
     },
     "envs": {
         "wesenv": "wes_env",
         "annovarenv": "annovar_env",
         "mutect2_env": "mutect2_env",
-        "strelka_env": "strelka_env"
+        "strelka_env": "strelka_env",
+        "java17": "java17"
     },
     "scripts": {
         "annovar_dir": "/work/szlab/Lab_shared_PanCancer/source/annovar_CanFam3.1.99.gtf",

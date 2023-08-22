@@ -1,0 +1,7 @@
+name: java17
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - conda-forge::openjdk=17.0.3
