@@ -11,15 +11,13 @@ SRRLIST = [config['in']['Normal_Run'], config['in']['Tumor_Run']]
 
 rule all:
     input:
-        # config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam",
-        # config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"_rg_added_sorted_dedupped_removed.realigned.bam"
-        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName",
-        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName",
+        # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName",
+        # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName",
+        # MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt",
+        # strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName",
         expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST),
         expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST),
-        expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST),
-        MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt",
-        strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName"
+        expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST)
 
 #### read mapping and realigning ####
 
@@ -558,7 +556,7 @@ rule Mutect2:
         mem=config['resources']['mem']
     shell:
         '''
-        gatk -Xmx{resources.mem} Mutect2 \
+        gatk --java-options -Xmx{resources.mem} Mutect2 \
             -R {input.ref} \
             -I {input.tumor} \
             -I {input.normal} \
@@ -588,7 +586,7 @@ rule LearnReadOrientationModel:
         mem=config['resources']['mem']
     shell:
         '''
-        gatk -Xmx{resources.mem} LearnReadOrientationModel \
+        gatk --java-options -Xmx{resources.mem} LearnReadOrientationModel \
             -I {input.f1r2_tar_gz} \
             -O {output.read_orientation_model}
         '''
@@ -608,7 +606,7 @@ rule FilterMutectCalls:
         mem=config['resources']['mem']
     shell:
         '''
-        gatk -Xmx{resources.mem} FilterMutectCalls -R {input.ref} \
+        gatk --java-options -Xmx{resources.mem} FilterMutectCalls -R {input.ref} \
             -ob-priors {input.read_orientation_model} \
             -V {input.vcf} \
             -O {output.filtered_vcf}

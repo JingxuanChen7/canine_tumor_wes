@@ -15,6 +15,7 @@ mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/annovar_
 mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/mutect2_env.yml --name mutect2_env
 mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/strelka_env.yml --name strelka_env
 mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/java17.yml --name java17
+mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/data_collection.yml --name data_collection
 
 CONDA_BASE=$(conda info --base)
 source ${CONDA_BASE}/etc/profile.d/conda.sh
@@ -49,3 +50,17 @@ snakemake \
 python /work/szlab/kh31516_Lab_Share_script/Filter_MutectStat_5steps.py             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_PASS.stat             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_vaf_before.txt             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_vaf_after.txt             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_whyout.txt             004
 java -cp /work/szlab/kh31516_Lab_Share_script DbSNP_filtering /work/szlab/Lab_shared_PanCancer/source/DbSNP_canFam3_version151-DogSD_Broad_March2022.vcf /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/filtered-004_MuTect2_GATK4_noDBSNP.vcf /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/test_filtered-004_MuTect2_GATK4.vcf /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/DbSNP_filtered-004_MuTect2_GATK4.vcf
 
+gatk --java-options -Xmx6G LearnReadOrientationModel \
+            -I /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/004-f1r2.tar.gz \
+            -O /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/read-orientation-model.tar.gz
+
+
+esearch -db sra -query PRJNA489159 | efetch -format runinfo
+esearch -db sra -query PRJNA489159 | esummary > /home/jc33471/canine_tumor_wes/metadata/PRJNA489159_srarunlist.csv
+
+meta_dir <- "/home/jc33471/canine_tumor_wes/metadata"
+# 
+Bioproject <- "PRJNA489159"
+srarunlist <- paste0(meta_dir, "/", Bioproject, "_srarunlist.csv")
+system(paste0("esearch -db sra -query ", Bioproject," | efetch -format runinfo > ", srarunlist))
+read.csv(srarunlist)

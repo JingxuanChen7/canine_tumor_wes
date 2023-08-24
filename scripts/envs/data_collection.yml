@@ -1,0 +1,15 @@
+name: data_collection
+channels:
+  - bioconda
+  - conda-forge
+  - r
+  - defaults
+dependencies:
+  - conda-forge::r-reshape2
+  - conda-forge::r-stringi
+  - conda-forge::r-dplyr
+  - conda-forge::r-r.utils
+  - conda-forge::r-tidyr
+  - conda-forge::r-ggplot2=3.3.6
+  - conda-forge::r-plyr
+  - bioconda::entrez-direct
