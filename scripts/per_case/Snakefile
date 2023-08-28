@@ -11,13 +11,44 @@ SRRLIST = [config['in']['Normal_Run'], config['in']['Tumor_Run']]
 
 rule all:
     input:
-        # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName",
-        # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName",
-        # MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt",
-        # strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName",
-        expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST),
-        expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST),
-        expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST)
+        config['out']['outdir']+"/report/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"_report.txt"
+
+# remove unuseful intermediate files to save disc space
+READPAIR=[1,2]
+rule remove_intermediates:
+    input:
+        remove=[
+            expand(config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_{READ}.fastq.gz", SRR = SRRLIST, READ = READPAIR),
+            expand(bam_out+"/{SRR}.sam", SRR = SRRLIST),
+            expand(bam_out+"/{SRR}-cleaned.sam", SRR = SRRLIST),
+            expand(bam_out+"/{SRR}_{READ}.sai", SRR = SRRLIST, READ = READPAIR),
+            expand(bam_out+"/{SRR}_rg_added_sorted.bam", SRR = SRRLIST),
+            # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS",
+            # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput",
+            expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS", SRR = SRRLIST),
+            expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput", SRR = SRRLIST)
+        ],
+        keep=[
+            # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName",
+            # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName",
+            # MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt",
+            # strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName",
+            expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST),
+            expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST),
+            expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST)
+        ]
+    output:
+        config['out']['outdir']+"/report/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"_report.txt"
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        rm {input.remove}
+        printf "Pipeline finished.\nIntermediate files cleaned.\n" > {output}
+        '''
+
 
 #### read mapping and realigning ####
 
@@ -770,27 +801,4 @@ rule strelka_Annovar:
         python {params.share_dir}/Add_GeneName_N_Signature.py {output.annovar_out} {input.genename}
         '''
 
-
-# remove unuseful intermediate files to save disc space
-READPAIR=[1,2]
-rule remove_intermediates:
-    input:
-        expand(config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_{READ}.fastq.gz", SRR = SRRLIST, READ = READPAIR),
-        expand(bam_out+"/{SRR}.sam", SRR = SRRLIST),
-        expand(bam_out+"/{SRR}-cleaned.sam", SRR = SRRLIST),
-        expand(bam_out+"/{SRR}_{READ}.sai", SRR = SRRLIST, READ = READPAIR),
-        expand(bam_out+"/{SRR}_rg_added_sorted.bam", SRR = SRRLIST),
-        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS",
-        MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput",
-        expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS", SRR = SRRLIST),
-        expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput", SRR = SRRLIST)
-
-    threads:
-        config['resources']['threads']
-    resources:
-        mem=config['resources']['mem']
-    shell:
-        '''
-        rm {input}
-        '''
 

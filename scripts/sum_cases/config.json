@@ -1,0 +1,26 @@
+{
+    "project_dir": "/home/jc33471/canine_tumor_wes",
+    "in": {
+        "Bioproject": "PRJNA552905",
+        "Normal_Run": "SRR9911377",
+        "Tumor_Run": "SRR9911376",
+        "CaseName": "004",
+        "ref": "/work/szlab/Lab_shared_PanCancer/source/canFam3.fa",
+        "snp": "/work/szlab/Lab_shared_PanCancer/source/DbSNP_canFam3_version151-DogSD_Broad_March2022.vcf",
+        "interval": "/work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval_list",
+        "genename": "/work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.chr.gtf_geneNamePair.txt",
+        "panelOfNormals": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/pon.vcf.gz",
+        "panelOfNormalstxt": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/pon.vcf.txt",
+        "intervalMutect2": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/Uniq-Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval.list"
+    },
+    "out": {
+        "outdir": "/scratch/jc33471/canine_tumor"
+    },
+    "resources": {
+        "threads": 8,
+        "mem": "60G"
+    },
+    "envs": {
+        "wesenv": "wes_env"
+    }
+}

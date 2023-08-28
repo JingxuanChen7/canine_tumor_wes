@@ -188,4 +188,4 @@ all_new_datasets <- rbind(df_PRJEB57227,df_PRJEB53653,df_PRJDB10211,df_PRJNA7864
 all_new_datasets <- all_new_datasets %>% mutate(Breed = str_to_title(Breed)) %>%
   mutate(Age = gsub(" years","",Age)) %>% mutate(Age = round(as.numeric(Age), digits = 1))
 
-write.csv(all_new_datasets, file = paste0(meta_dir,"/data_collection_new.csv"), quote = TRUE, na = "NA")
+write.csv(all_new_datasets, file = paste0(meta_dir,"/data_collection_new.csv"), quote = TRUE, na = "NA", row.names = F)

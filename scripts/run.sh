@@ -28,7 +28,18 @@ cd ${run_dir}
 mkdir -p logs/ config/ data/ out/
 
 config="/home/jc33471/canine_tumor_wes/scripts/per_case/config.json"
-# config=$run_dir/config/${prefix}.json
+# config=$run_dir/config/test.json
+
+python ${project_dir}/scripts/per_case/make_snakemake_config.py \
+    --project_dir ${project_dir} \
+    --out ${run_dir}/config/test.json \
+    --outdir ${run_dir} \
+    --Bioproject "PRJNA552905" \
+    --Normal_Run "SRR9911377" \
+    --Tumor_Run "SRR9911376" \
+    --CaseName "004" \
+    --threads 8 \
+    --memory "60G"
 
 snakemake \
     --dry-run \
@@ -37,30 +48,11 @@ snakemake \
     --configfile ${config} \
     --snakefile "${project_dir}/scripts/per_case/Snakefile"
 
-snakemake \
-    --dag \
-    --cores ${SLURM_NTASKS} \
-    --use-conda \
-    --configfile ${config} \
-    --snakefile "${project_dir}/scripts/per_case/Snakefile" | dot -Tpdf > dag.pdf
+# generate dag image
+# snakemake \
+#     --dag \
+#     --cores ${SLURM_NTASKS} \
+#     --use-conda \
+#     --configfile ${config} \
+#     --snakefile "${project_dir}/scripts/per_case/Snakefile" | dot -Tpdf > dag.pdf
 
-/work/szlab/Lab_shared_PanCancer/source/annovar_CanFam3.1.99.gtf/annotate_variation.pl
-/work/szlab/kh31516_Lab_Share_script/Add_GeneName_N_Signature.py
-
-python /work/szlab/kh31516_Lab_Share_script/Filter_MutectStat_5steps.py             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_PASS.stat             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_vaf_before.txt             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_vaf_after.txt             /scratch/jc33471/canine_tumor/results/Mutect/PRJNA552905/004/004_whyout.txt             004
-java -cp /work/szlab/kh31516_Lab_Share_script DbSNP_filtering /work/szlab/Lab_shared_PanCancer/source/DbSNP_canFam3_version151-DogSD_Broad_March2022.vcf /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/filtered-004_MuTect2_GATK4_noDBSNP.vcf /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/test_filtered-004_MuTect2_GATK4.vcf /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/DbSNP_filtered-004_MuTect2_GATK4.vcf
-
-gatk --java-options -Xmx6G LearnReadOrientationModel \
-            -I /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/004-f1r2.tar.gz \
-            -O /scratch/jc33471/canine_tumor/results/Mutect2/PRJNA552905/004/read-orientation-model.tar.gz
-
-
-esearch -db sra -query PRJNA489159 | efetch -format runinfo
-esearch -db sra -query PRJNA489159 | esummary > /home/jc33471/canine_tumor_wes/metadata/PRJNA489159_srarunlist.csv
-
-meta_dir <- "/home/jc33471/canine_tumor_wes/metadata"
-# 
-Bioproject <- "PRJNA489159"
-srarunlist <- paste0(meta_dir, "/", Bioproject, "_srarunlist.csv")
-system(paste0("esearch -db sra -query ", Bioproject," | efetch -format runinfo > ", srarunlist))
-read.csv(srarunlist)

@@ -1,0 +1,37 @@
+
+
+rule run_pipeline:
+    input:
+    output:
+        config['out']['outdir']+"/report/{Bioproject}/{CaseName}_report.txt"
+    params:
+        Bioproject=lambda wc: wc.Bioproject,
+        CaseName=lambda wc: wc.CaseName,
+        Normal_Run=,
+        Tumor_Run=,
+    conda:
+        config['envs']['wesenv']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+    '''
+    python ${project_dir}/scripts/per_case/make_snakemake_config.py \
+        --project_dir ${project_dir} \
+        --out ${run_dir}/config/test.json \
+        --outdir ${run_dir} \
+        --Bioproject {params.Bioproject} \
+        --Normal_Run {params.Normal_Run} \
+        --Tumor_Run {params.Tumor_Run} \
+        --CaseName {params.CaseName} \
+        --threads {threads} \
+        --memory {resources.mem}
+
+    snakemake \
+        --dry-run \
+        --cores ${SLURM_NTASKS} \
+        --use-conda \
+        --configfile ${config} \
+        --snakefile "${project_dir}/scripts/per_case/Snakefile"
+    '''
