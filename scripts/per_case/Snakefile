@@ -17,17 +17,17 @@ rule all:
 READPAIR=[1,2]
 rule remove_intermediates:
     input:
-        remove=[
-            expand(config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_{READ}.fastq.gz", SRR = SRRLIST, READ = READPAIR),
-            expand(bam_out+"/{SRR}.sam", SRR = SRRLIST),
-            expand(bam_out+"/{SRR}-cleaned.sam", SRR = SRRLIST),
-            expand(bam_out+"/{SRR}_{READ}.sai", SRR = SRRLIST, READ = READPAIR),
-            expand(bam_out+"/{SRR}_rg_added_sorted.bam", SRR = SRRLIST),
-            # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS",
-            # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput",
-            expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS", SRR = SRRLIST),
-            expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput", SRR = SRRLIST)
-        ],
+        # remove=[
+        #     expand(config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_{READ}.fastq.gz", SRR = SRRLIST, READ = READPAIR),
+        #     expand(bam_out+"/{SRR}.sam", SRR = SRRLIST),
+        #     expand(bam_out+"/{SRR}-cleaned.sam", SRR = SRRLIST),
+        #     expand(bam_out+"/{SRR}_{READ}.sai", SRR = SRRLIST, READ = READPAIR),
+        #     expand(bam_out+"/{SRR}_rg_added_sorted.bam", SRR = SRRLIST),
+        #     # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS",
+        #     # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput",
+        #     expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS", SRR = SRRLIST),
+        #     expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput", SRR = SRRLIST)
+        # ],
         keep=[
             # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName",
             # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName",
@@ -45,8 +45,7 @@ rule remove_intermediates:
         mem=config['resources']['mem']
     shell:
         '''
-        rm {input.remove}
-        printf "Pipeline finished.\nIntermediate files cleaned.\n" > {output}
+        printf "Pipeline finished.\n" > {output}
         '''
 
 

@@ -7,15 +7,15 @@
 #SBATCH --time=100:00:00
 #SBATCH --mail-user=jc33471@uga.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --output=/scratch/jc33471/canine_tumor/test.out
+#SBATCH --output=/scratch/jc33471/canine_tumor/CMT-100.out
 
 # install conda env
 # mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/wes_env.yml --name wes_env
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/annovar_env.yml --name annovar_env
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/mutect2_env.yml --name mutect2_env
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/strelka_env.yml --name strelka_env
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/java17.yml --name java17
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/data_collection.yml --name data_collection
+# mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/annovar_env.yml --name annovar_env
+# mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/mutect2_env.yml --name mutect2_env
+# mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/strelka_env.yml --name strelka_env
+# mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/java17.yml --name java17
+# mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/data_collection.yml --name data_collection
 
 CONDA_BASE=$(conda info --base)
 source ${CONDA_BASE}/etc/profile.d/conda.sh
@@ -34,10 +34,10 @@ python ${project_dir}/scripts/per_case/make_snakemake_config.py \
     --project_dir ${project_dir} \
     --out ${run_dir}/config/test.json \
     --outdir ${run_dir} \
-    --Bioproject "PRJNA552905" \
-    --Normal_Run "SRR9911377" \
-    --Tumor_Run "SRR9911376" \
-    --CaseName "004" \
+    --Bioproject "PRJNA489159" \
+    --Normal_Run "SRR7780976" \
+    --Tumor_Run "SRR7780979" \
+    --CaseName "CMT-100" \
     --threads 8 \
     --memory "60G"
 

@@ -1,14 +1,28 @@
-
+rule all:
+    input:
+        config['out']['outdir']+"/report/PRJNA489159/CMT-100_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-102_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-103_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-105_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-106_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-107_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-109_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-111_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-112_report.txt",
+        config['out']['outdir']+"/report/PRJNA489159/CMT-114_report.txt"
 
 rule run_pipeline:
     input:
     output:
-        config['out']['outdir']+"/report/{Bioproject}/{CaseName}_report.txt"
+        config=config['out']['outdir']+"/config/{Bioproject}_{CaseName}_config.json",
+        report=config['out']['outdir']+"/report/{Bioproject}/{CaseName}_report.txt"
     params:
         Bioproject=lambda wc: wc.Bioproject,
         CaseName=lambda wc: wc.CaseName,
-        Normal_Run=,
-        Tumor_Run=,
+        Normal_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][0],
+        Tumor_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][1],
+        outdir=config['out']['outdir'],
+        project_dir=config['project_dir']
     conda:
         config['envs']['wesenv']
     threads:
@@ -16,22 +30,23 @@ rule run_pipeline:
     resources:
         mem=config['resources']['mem']
     shell:
-    '''
-    python ${project_dir}/scripts/per_case/make_snakemake_config.py \
-        --project_dir ${project_dir} \
-        --out ${run_dir}/config/test.json \
-        --outdir ${run_dir} \
-        --Bioproject {params.Bioproject} \
-        --Normal_Run {params.Normal_Run} \
-        --Tumor_Run {params.Tumor_Run} \
-        --CaseName {params.CaseName} \
-        --threads {threads} \
-        --memory {resources.mem}
+        '''
+        mkdir -p {params.outdir}/data/{params.Bioproject}/{params.CaseName}
+        cd {params.outdir}/data/{params.Bioproject}/{params.CaseName}
+        python {params.project_dir}/scripts/per_case/make_snakemake_config.py \
+            --project_dir {params.project_dir} \
+            --out {output.config} \
+            --outdir {params.outdir} \
+            --Bioproject {params.Bioproject} \
+            --Normal_Run {params.Normal_Run} \
+            --Tumor_Run {params.Tumor_Run} \
+            --CaseName {params.CaseName} \
+            --threads {threads} \
+            --memory {resources.mem}
 
-    snakemake \
-        --dry-run \
-        --cores ${SLURM_NTASKS} \
-        --use-conda \
-        --configfile ${config} \
-        --snakefile "${project_dir}/scripts/per_case/Snakefile"
-    '''
+        snakemake \
+            --cores {threads} \
+            --use-conda \
+            --configfile {output.config} \
+            --snakefile "{params.project_dir}/scripts/per_case/Snakefile"
+        '''

@@ -1,17 +1,18 @@
 {
     "project_dir": "/home/jc33471/canine_tumor_wes",
     "in": {
-        "Bioproject": "PRJNA552905",
-        "Normal_Run": "SRR9911377",
-        "Tumor_Run": "SRR9911376",
-        "CaseName": "004",
-        "ref": "/work/szlab/Lab_shared_PanCancer/source/canFam3.fa",
-        "snp": "/work/szlab/Lab_shared_PanCancer/source/DbSNP_canFam3_version151-DogSD_Broad_March2022.vcf",
-        "interval": "/work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval_list",
-        "genename": "/work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.chr.gtf_geneNamePair.txt",
-        "panelOfNormals": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/pon.vcf.gz",
-        "panelOfNormalstxt": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/pon.vcf.txt",
-        "intervalMutect2": "/work/szlab/Lab_shared_PanCancer/source/Mutect2/Uniq-Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval.list"
+        "PRJNA489159": {
+            "CMT-100": ["SRR7780976","SRR7780979"],
+            "CMT-102": ["SRR7780978","SRR7780981"],
+            "CMT-103": ["SRR7780980","SRR7781073"],
+            "CMT-105": ["SRR7781074","SRR7781071"],
+            "CMT-106": ["SRR7781072","SRR7781077"],
+            "CMT-107": ["SRR7781078","SRR7781075"],
+            "CMT-109": ["SRR7781079","SRR7781080"],
+            "CMT-111": ["SRR7780991","SRR7780990"],
+            "CMT-112": ["SRR7780989","SRR7780988"],
+            "CMT-114": ["SRR7780987","SRR7780986"]
+        }
     },
     "out": {
         "outdir": "/scratch/jc33471/canine_tumor"
