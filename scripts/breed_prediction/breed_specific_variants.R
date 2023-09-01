@@ -38,7 +38,8 @@ breed_names <- c(examined_breeds, "Other");
 # For breed-unique and breed-enriched variants discovery, any variant with VAF >= 0.2 is considered a non-reference variant (heterozygous or homozygoug alternative)
 non_ref_VAF_cutoff <- 0.2;
 seperator <- "/"
-file_base_dir <- "G:/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_breed_prediction_script/use_WES(WGS)"
+file_base_dir <- "/scratch/jc33471/canine_tumor_test/breed_prediction"
+script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
   #"/Volumes/Research/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/breed_prediction_test/Pan-Cancer-Breed_prediction"
   #"G:/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/breed_prediction_test/Pan-Cancer-Breed_prediction"
 
@@ -58,19 +59,25 @@ filter_non_specific_variants <- TRUE;
 
 ############ code dependency paths ########################
 # Code to build sample meta data
-build_meta_data_code_path <- paste(file_base_dir, "build_sample_meta_data.R", sep=seperator);
+# build_meta_data_code_path <- paste(file_base_dir, "build_sample_meta_data.R", sep=seperator);
+build_meta_data_code_path <- paste(script_dir, "build_sample_meta_data.R", sep=seperator);
 
 ############ Input and output paths ########################
 # Please modify these file paths as needed
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
+#VAF_input_file <- paste(file_base_dir, "germline_VAF_matrix.reset_low_coverage.txt.gz", sep=seperator);
 VAF_input_file <- paste(file_base_dir, "PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage.txt.gz", sep=seperator);
+
 # Input file containing all samples meta data
 
 output_base <- paste(file_base_dir, "output_exclude_WGS", sep=seperator);
-unique_variants_output_file <- paste(output_base, "breed_unique_variants.txt", sep=seperator);
-enriched_variants_output_file <- paste(output_base, "breed_enriched_variants.txt", sep=seperator);
-specific_variants_output_file <- paste(output_base, "all_breed_specific_variants.txt", sep=seperator);
-meta_data_file <- paste(output_base, "breed_prediction_metadata.txt", sep=seperator);
+#unique_variants_output_file <- paste(output_base, "breed_unique_variants.txt", sep=seperator);
+#enriched_variants_output_file <- paste(output_base, "breed_enriched_variants.txt", sep=seperator);
+#specific_variants_output_file <- paste(output_base, "all_breed_specific_variants.txt", sep=seperator);
+unique_variants_output_file <- paste(output_base, "57_WGS_breed_unique_variants.txt", sep=seperator);
+enriched_variants_output_file <- paste(output_base, "57_WGS_breed_enriched_variants.txt", sep=seperator);
+specific_variants_output_file <- paste(output_base, "57_WGS_all_breed_specific_variants.txt", sep=seperator);
+meta_data_file <- paste(file_base_dir, "breed_prediction_metadata.txt", sep=seperator);
 
 ############ End of input and output paths ########################
 
@@ -78,8 +85,8 @@ VAF_data <- fread(VAF_input_file, header=F, sep="\t", check.names=F, stringsAsFa
 VAF_data <- setDF(VAF_data)
 ### building meta_data data frame
 source(build_meta_data_code_path);
-meta_data <- build_meta_data(meta_data_file);
-meta_data <- meta_data[meta_data$Dataset == "Discovery",]
+meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = F);
+#meta_data <- meta_data[meta_data$Dataset == "Discovery",]
 ## here is the problem but now sloved with only choose the first normal column
 meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count, ]));
 
@@ -97,7 +104,7 @@ variant_name_to_output <- function(variant_name) {
 }
 
 # now reading VAF values for normal samples
-normal_VAF_data <- data.matrix(VAF_data[-c(1:meta_row_count), meta_data[, "NormalCol"]]);
+normal_VAF_data <- apply(as.matrix(VAF_data[-c(1:meta_row_count), meta_data[, "NormalCol"]]), 2,as.numeric);
 #x <- VAF_data[-c(1:meta_row_count), meta_data[, "NormalCol"]]
 
 colnames(normal_VAF_data) <- rownames(meta_data);

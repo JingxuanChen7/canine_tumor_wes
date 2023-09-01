@@ -30,8 +30,8 @@ residue_column_count <- 7; # number of columns describing each variant
 meta_row_count <- 1; # number of rows dedicated to meta data (sample ids, and others if applicable) in the VAF input file
 seperator <- "/"
 file_base_dir <- #"G:/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts"
-  "G:/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/use_WES(WGS)"
-
+  "/scratch/jc33471/canine_tumor_test/breed_prediction"
+script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
 ############ Script customization parameters ########################
 # You may modify these parameters as desired
 non_na_percentage_cutoff <- 0.8; # all samples must have known VAF values in at least 80% of the breed-specific variants
@@ -54,7 +54,7 @@ breed_qc_result_pallete <-  c("yellow", "red", "#6f4e37")
 
 ############ code dependency paths ########################
 # Code to build sample meta data
-build_meta_data_code_path <- paste(file_base_dir, "build_sample_meta_data.R", sep=seperator);
+build_meta_data_code_path <- paste(script_dir, "build_sample_meta_data.R", sep=seperator);
 
 ############ Input and output paths ########################
 # Please modify these file paths as needed
@@ -62,11 +62,11 @@ build_meta_data_code_path <- paste(file_base_dir, "build_sample_meta_data.R", se
 output_base <- paste(file_base_dir,"output_exclude_WGS", sep=seperator);
 
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
-VAF_input_file <- paste(file_base_dir,"PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage.txt.gz", sep=seperator);
+VAF_input_file <- paste(file_base_dir,"germline_VAF_matrix.reset_low_coverage.txt.gz", sep=seperator);
 # Input file containing all breed-specific variants
-specific_variants_file <- paste(output_base, "57_WGS_all_breed_specific_variants.txt", sep=seperator);
+specific_variants_file <- paste(output_base, "all_breed_specific_variants.txt", sep=seperator);
 # Input file containing all samples meta data
-meta_data_file <- paste(output_base,"breed_prediction_metadata.txt", sep=seperator);
+meta_data_file <- paste(file_base_dir,"breed_prediction_metadata.txt", sep=seperator);
 
 output_png1 <- paste(output_base, "breeds_heatmap_main_305_dpi.png", sep=seperator); # this heatmap won't contain samples with unknown breeds
 output_png2 <- paste(output_base, "breeds_heatmap_assignment_305_dpi.png", sep=seperator); # this heatmap will contain samples with unknown breeds
@@ -84,11 +84,11 @@ specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t",
 
 ### building meta_data data frame
 source(build_meta_data_code_path);
-meta_data <- build_meta_data(meta_data_file);
+meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = F);
 meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count, ]));
 #which(is.na(meta_data$Breed_Predicted_Results))
 #is.na(meta_data$Breed_Predicted_Results)
-meta_data <- meta_data[!is.na(meta_data$Breed_Predicted_Results),]
+#meta_data <- meta_data[!is.na(meta_data$Breed_Predicted_Results),]
 
 # now make variant names
 variant_names <- apply(VAF_data[-c(1:meta_row_count), c(1:6)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
@@ -238,3 +238,4 @@ for(heatmap_version in c(1)) {
   write.table(temp_dataset, file=output_clusters[heatmap_version], quote=FALSE, sep="\t", row.names = FALSE, col.names=TRUE);
   
 }
+

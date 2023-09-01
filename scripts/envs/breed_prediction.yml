@@ -1,0 +1,10 @@
+name: breed_prediction
+channels:
+  - bioconda
+  - conda-forge
+  - r
+  - defaults
+dependencies:
+  - bioconda::bioconductor-complexheatmap
+  - conda-forge::r-data.table
+  - conda-forge::r-r.utils

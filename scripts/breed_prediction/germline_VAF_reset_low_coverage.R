@@ -18,6 +18,7 @@
 ###                                                                                 ###
 #######################################################################################
 library(data.table)
+library(R.utils)
 
 ################# Parameters related to the VAF file structure ######################## 
 # Please don't change any of these parameters
@@ -27,14 +28,14 @@ meta_row_count <- 1;
 
 depth_cutoff <- 10; # Cutoff for minimum coverage. Any variant with coverage < 10 will be assigned a VAF value of NA.
 seperator <- "/"
-base_dir <- 
-  #"/Volumes/Research/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/breed_prediction_test"
-  base_dir <- "G:/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/breed_prediction_test/option2-1"
+
+#"/Volumes/Research/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/breed_prediction_test"
+base_dir <- "/scratch/jc33471/canine_tumor_test/breed_prediction"
 
 ################# Input files ######################## 
 # make sure to modify the paths to the correct ones
-VAF_file <- paste(base_dir, "germline_VAF_matrix.txt.gz", sep=seperator);
-depth_file <- paste(base_dir, "germline_depth_matrix.txt.gz", sep=seperator);
+VAF_file <- paste(base_dir, "PanCancer_disc_val_merged_germline_VAF_01_01_2021.txt.gz", sep=seperator);
+depth_file <- paste(base_dir, "PanCancer_disc_val_merged_germline_depths_01_01_2021.txt.gz", sep=seperator);
 
 ################# Output files ########################
 # make sure to modify the paths to the correct ones
@@ -76,7 +77,7 @@ if(length(duplicated_indices) > 0) {
   VAF_data <- VAF_data[-duplicated_indices,];
 }
 
-#gz_file <- gzfile(VAF_output_file, "w");
+gz_file <- gzfile(VAF_output_file, "w");
 
 
 write.table(VAF_data, file=gz_file, sep="\t", quote=F, row.names=F, col.names=F);
