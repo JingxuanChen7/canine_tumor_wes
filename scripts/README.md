@@ -47,3 +47,4 @@ Rscript --vanilla ${project_dir}/scripts/breed_prediction/breed_specific_variant
 ```
 
 # heatmap visualization
+- Run R script `scripts/breed_prediction/breeds_joint_heatmap_withQC.R` interactively in R studio. (command line interface not generated yet)
