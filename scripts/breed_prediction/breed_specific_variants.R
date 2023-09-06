@@ -23,6 +23,20 @@
 
 # Merge Dis val
 library(data.table)
+
+# parse arguments for I/O paths
+args = commandArgs(trailingOnly=TRUE)
+if (length(args) != 6) {
+  stop("Usage: Rscript --vanilla breed_specific_variants.R <build_meta_data_code_path> <VAF_input_file> <unique_variants_output_file> <enriched_variants_output_file> <specific_variants_output_file> <meta_data_file>", call.=FALSE)
+} else if (length(args) == 6) {
+  build_meta_data_code_path <- args[1]
+  VAF_input_file <- args[2]
+  unique_variants_output_file <- args[3]
+  enriched_variants_output_file <- args[4]
+  specific_variants_output_file <- args[5]
+  meta_data_file <- args[6]
+}
+
 # These parameters are related to the structure of the input file containing VAF values (don't change any of them)
 residue_column_count <- 7; # number of columns describing each variant
 meta_row_count <- 1; # number of rows dedicated to meta data (sample ids, and others if applicable) in the VAF input file
@@ -39,7 +53,7 @@ breed_names <- c(examined_breeds, "Other");
 non_ref_VAF_cutoff <- 0.2;
 seperator <- "/"
 file_base_dir <- "/scratch/jc33471/canine_tumor_test/breed_prediction"
-script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
+#script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
   #"/Volumes/Research/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/breed_prediction_test/Pan-Cancer-Breed_prediction"
   #"G:/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/breed_prediction_test/Pan-Cancer-Breed_prediction"
 
@@ -57,27 +71,27 @@ fisher_pvalue_cutoff <- 0.1; # A breed-enriched variant must be enriched in a br
 # If the below value is TRUE, variants enriched in any comparison between two breeds (neither of which is breed "A") will be filtered out
 filter_non_specific_variants <- TRUE;
 
-############ code dependency paths ########################
+############ code dependency paths ######################## # parsed in args
 # Code to build sample meta data
 # build_meta_data_code_path <- paste(file_base_dir, "build_sample_meta_data.R", sep=seperator);
-build_meta_data_code_path <- paste(script_dir, "build_sample_meta_data.R", sep=seperator);
+# build_meta_data_code_path <- paste(script_dir, "build_sample_meta_data.R", sep=seperator);
 
-############ Input and output paths ########################
+############ Input and output paths ######################## # parsed in args
 # Please modify these file paths as needed
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
 #VAF_input_file <- paste(file_base_dir, "germline_VAF_matrix.reset_low_coverage.txt.gz", sep=seperator);
-VAF_input_file <- paste(file_base_dir, "PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage.txt.gz", sep=seperator);
+# VAF_input_file <- paste(file_base_dir, "PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage.txt.gz", sep=seperator);
 
 # Input file containing all samples meta data
 
-output_base <- paste(file_base_dir, "output_exclude_WGS", sep=seperator);
+# output_base <- paste(file_base_dir, "output_exclude_WGS", sep=seperator);
 #unique_variants_output_file <- paste(output_base, "breed_unique_variants.txt", sep=seperator);
 #enriched_variants_output_file <- paste(output_base, "breed_enriched_variants.txt", sep=seperator);
 #specific_variants_output_file <- paste(output_base, "all_breed_specific_variants.txt", sep=seperator);
-unique_variants_output_file <- paste(output_base, "57_WGS_breed_unique_variants.txt", sep=seperator);
-enriched_variants_output_file <- paste(output_base, "57_WGS_breed_enriched_variants.txt", sep=seperator);
-specific_variants_output_file <- paste(output_base, "57_WGS_all_breed_specific_variants.txt", sep=seperator);
-meta_data_file <- paste(file_base_dir, "breed_prediction_metadata.txt", sep=seperator);
+# unique_variants_output_file <- paste(output_base, "57_WGS_breed_unique_variants.txt", sep=seperator);
+# enriched_variants_output_file <- paste(output_base, "57_WGS_breed_enriched_variants.txt", sep=seperator);
+# specific_variants_output_file <- paste(output_base, "57_WGS_all_breed_specific_variants.txt", sep=seperator);
+# meta_data_file <- paste(file_base_dir, "breed_prediction_metadata.txt", sep=seperator);
 
 ############ End of input and output paths ########################
 

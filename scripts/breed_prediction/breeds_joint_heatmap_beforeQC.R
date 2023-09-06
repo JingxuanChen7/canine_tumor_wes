@@ -52,12 +52,6 @@ disease_order <- c(1:8); # This will define the order of which heatmap disease c
 cancer_pallete <- c("blue", "#FF00B6", "#009EFF", "#6f4e37", "#9A4D43", "black", "#FFD300","red",  "#000032");
 # See Kelly palette "Polychrome: Creating and Assessing Qualitative Palettes With Many Colors" (https://www.biorxiv.org/content/10.1101/303883v1.full)
 
-dataset_pallete <- c("yellow","#6f4e37")
-#datatype_pallete <- c("yellow","#6f4e37","red")
-datatype_pallete <- c("#6f4e37","red")
-## for QC
-breed_qc_result <- c("Validated Breed","Mislabeled breed","Unknown","Predicted Breed","Breed not predicted")
-breed_qc_result_pallete <-  c("yellow", "red", "#6f4e37","blue","black")
 
 ############ code dependency paths ########################
 # Code to build sample meta data
@@ -75,8 +69,8 @@ specific_variants_file <- paste(output_base, "57_WGS_all_breed_specific_variants
 # Input file containing all samples meta data
 meta_data_file <- paste(file_base_dir,"breed_prediction_metadata.txt", sep=seperator);
 
-output_png1 <- paste(output_base, "breeds_heatmap_main_305_dpi.png", sep=seperator); # this heatmap won't contain samples with unknown breeds
-output_png2 <- paste(output_base, "breeds_heatmap_assignment_305_dpi.png", sep=seperator); # this heatmap will contain samples with unknown breeds
+output_png1 <- paste(output_base, "breeds_heatmap_main_beforeQC.png", sep=seperator); # this heatmap won't contain samples with unknown breeds
+output_png2 <- paste(output_base, "breeds_heatmap_assignment_beforeQC.png", sep=seperator); # this heatmap will contain samples with unknown breeds
 output_png <- c(output_png1, output_png2);
 # output_clusters files will have the list of samples ordered as they appear in the heatmaps (used for supplementary tables and breed validation/prediction results)
 output_clusters <- c(paste(output_base, "main_clusters.txt", sep=seperator), 
@@ -93,6 +87,8 @@ specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t",
 source(build_meta_data_code_path);
 meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = F);
 meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count, ]));
+# clean breed column
+meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ NA, TRUE ~ Breed))
 
 #which(is.na(meta_data$Breed_Predicted_Results))
 #is.na(meta_data$Breed_Predicted_Results)
@@ -100,11 +96,9 @@ meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count,
 
 ##### add QC info to metadata for plotting
 meta_data <- dplyr::select(meta_data, -c("Breed","DiseaseAcronym"))
-more_meta_data <- read.table(paste(file_base_dir,"assignment_clusters_meta.txt", sep=seperator),header=T, sep="\t", check.names=F, stringsAsFactors=F)
+more_meta_data <- read.table(paste(file_base_dir,"assignment_clusters_meta.txt", sep=seperator),header=T, sep="\t", check.names=F, stringsAsFactors=F) %>% select(c("SampleName","Breed","DiseaseAcronym"))
 meta_data <- dplyr::inner_join(tibble::rownames_to_column(meta_data), more_meta_data, by = c("rowname" = "SampleName"))
 meta_data <- tibble::column_to_rownames(meta_data, var = "rowname")
-meta_data <- dplyr::rename(meta_data, "Breed_Predicted_Results" = "Result")
-
 
 # now make variant names
 variant_names <- apply(VAF_data[-c(1:meta_row_count), c(1:6)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
@@ -159,6 +153,7 @@ for(heatmap_version in c(1,2)) {
 # This variable is for debugging only (it will store the sample order for each heatmap)
 backup_samples <- list();
 
+
 for(heatmap_version in c(1,2)) {
   heatmap_data <- heatmap_data_list[[heatmap_version]];
   heatmap_samples <- colnames(heatmap_data);
@@ -175,7 +170,7 @@ for(heatmap_version in c(1,2)) {
   
   # defining heatmap annotations and legends
   heatmap_breeds <- c(examined_breeds, "Unknown/Missing")
-                      #"Unknown");
+  #"Unknown");
   breed_colors <- breed_pallete[c(1:length(examined_breeds), length(breed_pallete))]; # Unknown is always assigned last "black" color
   names(breed_colors) <- heatmap_breeds;
   breed_colors <- breed_colors[breed_order];
@@ -187,17 +182,7 @@ for(heatmap_version in c(1,2)) {
   disease_info <- meta_data[heatmap_samples, "DiseaseAcronym"];
   disease_info <- factor(disease_info,levels = cancer_types)
   
-  datatype_colors <- datatype_pallete[1:length(unique(meta_data$DataType))]
-  names(datatype_colors) <- c("WES","WES+WGS")
-  #names(datatype_colors) <- c("WGS", "WES", "WES(WGS)")
-  datatype_info <- meta_data[heatmap_samples, "DataType"]
   
-  qc_result_colors <- breed_qc_result_pallete[1:length(unique(meta_data$Breed_Predicted_Results))]
-  names(qc_result_colors) <-  breed_qc_result;
-  breed_qc_result_info <- meta_data[heatmap_samples, "Breed_Predicted_Results"]
-  breed_qc_result_info <- factor(breed_qc_result_info,breed_qc_result)
-  
-
   
   if(heatmap_version == 1) {
     # do nothing
@@ -215,18 +200,11 @@ for(heatmap_version in c(1,2)) {
   top_annotation <- HeatmapAnnotation(simple_anno_size = unit(1.2,"cm"),
                                       annotation_name_gp = gpar(fontsize=20),
                                       col=list(`Provided breeds` = breed_colors, 
-                                               `Validated breeds`= qc_result_colors,
-                                               `Data type`= datatype_colors,
                                                Disease = disease_colors), 
                                       `Provided breeds`=breed_info,
-                                      `Validated breeds` = breed_qc_result_info,
-                                      `Data type`= datatype_info,
                                       Disease=disease_info,
                                       annotation_legend_param=list(`Provided breeds`=breed_legend_param, 
-                                                                   `Validated breeds` = annotation_legend_param,
-                                                                   `Data type`= annotation_legend_param,
                                                                    Disease=disease_legend_param));
-  
   
   heatmap_object <- Heatmap(name="ht", heatmap_data, col=colorRampPalette(c("white","blue"))(256),
                             top_annotation=top_annotation, 
@@ -243,18 +221,18 @@ for(heatmap_version in c(1,2)) {
                          merge_legend = TRUE);
   decorate_heatmap_body("ht", {grid.rect(gp = gpar(fill = "transparent", col = "black"))})
   dev.off();
-
-  ordered_samples <- heatmap_samples[column_order(heatmap_object)];
-  backup_samples[[heatmap_version]] <- ordered_samples;
-  temp_dataset <- data.frame("SampleName" = ordered_samples,
-                             "Provided_Breeds"= meta_data[ordered_samples, "Breed"],
-                             "BreedCluster"= meta_data[ordered_samples, "BreedCluster"],
-                             "FinalBreed" = meta_data[ordered_samples, "FinalBreed"],
-                             #"BreedQC" = meta_data[ordered_samples, "BreedQC"],
-                             "DiseaseAcronym"= meta_data[ordered_samples,"DiseaseAcronym"],
-                             "Result"= meta_data[ordered_samples, "Breed_Predicted_Results"],
-                             "DataType"= meta_data[ordered_samples, "DataType"]); 
-  write.table(temp_dataset, file=output_clusters[heatmap_version], quote=FALSE, sep="\t", row.names = FALSE, col.names=TRUE);
+  
+  # ordered_samples <- heatmap_samples[column_order(heatmap_object)];
+  # backup_samples[[heatmap_version]] <- ordered_samples;
+  # temp_dataset <- data.frame("SampleName" = ordered_samples,
+  #                            "Provided_Breeds"= meta_data[ordered_samples, "Breed"],
+  #                            "BreedCluster"= meta_data[ordered_samples, "BreedCluster"],
+  #                            "FinalBreed" = meta_data[ordered_samples, "FinalBreed"],
+  #                            #"BreedQC" = meta_data[ordered_samples, "BreedQC"],
+  #                            "DiseaseAcronym"= meta_data[ordered_samples,"DiseaseAcronym"],
+  #                            "Result"= meta_data[ordered_samples, "Breed_Predicted_Results"],
+  #                            "DataType"= meta_data[ordered_samples, "DataType"]); 
+  # write.table(temp_dataset, file=output_clusters[heatmap_version], quote=FALSE, sep="\t", row.names = FALSE, col.names=TRUE);
   
 }
 

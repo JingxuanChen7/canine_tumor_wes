@@ -20,6 +20,16 @@
 library(data.table)
 library(R.utils)
 
+# parse arguments for I/O paths
+args = commandArgs(trailingOnly=TRUE)
+if (length(args) != 3) {
+  stop("Usage: Rscript --vanilla germline_VAF_reset_low_coverage.R <VAF_file> <depth_file> <VAF_output_file>", call.=FALSE)
+} else if (length(args) == 3) {
+  VAF_file <- args[1]
+  depth_file <- args[2]
+  VAF_output_file <- args[3]
+}
+
 ################# Parameters related to the VAF file structure ######################## 
 # Please don't change any of these parameters
 residue_column_count <- 7;
@@ -30,16 +40,16 @@ depth_cutoff <- 10; # Cutoff for minimum coverage. Any variant with coverage < 1
 seperator <- "/"
 
 #"/Volumes/Research/MAC_Research_Data/Pan_cancer/Pan_cancer-analysis/Burair_pan_scripts/breed_prediction_test"
-base_dir <- "/scratch/jc33471/canine_tumor_test/breed_prediction"
+#base_dir <- "/scratch/jc33471/canine_tumor_test/breed_prediction"
 
-################# Input files ######################## 
+################# Input files ######################## # parsed in args
 # make sure to modify the paths to the correct ones
-VAF_file <- paste(base_dir, "PanCancer_disc_val_merged_germline_VAF_01_01_2021.txt.gz", sep=seperator);
-depth_file <- paste(base_dir, "PanCancer_disc_val_merged_germline_depths_01_01_2021.txt.gz", sep=seperator);
+#VAF_file <- paste(base_dir, "PanCancer_disc_val_merged_germline_VAF_01_01_2021.txt.gz", sep=seperator);
+#depth_file <- paste(base_dir, "PanCancer_disc_val_merged_germline_depths_01_01_2021.txt.gz", sep=seperator);
 
-################# Output files ########################
+################# Output files ######################## # parsed in args
 # make sure to modify the paths to the correct ones
-VAF_output_file <- paste(base_dir, "germline_VAF_matrix.reset_low_coverage.txt.gz", sep=seperator);
+#VAF_output_file <- paste(base_dir, "germline_VAF_matrix.reset_low_coverage.txt.gz", sep=seperator);
 
 
 ################ Main code ############################
