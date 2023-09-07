@@ -1,15 +1,22 @@
+output_reports = []
+for Bioproject in config['in'].keys():
+    for CaseName in config['in'][Bioproject].keys():
+        output_report = config['out']['outdir']+"/report/"+Bioproject+"/"+CaseName+"_report.txt"
+        output_reports.append(output_report)
+
 rule all:
     input:
-        config['out']['outdir']+"/report/PRJNA489159/CMT-100_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-102_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-103_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-105_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-106_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-107_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-109_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-111_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-112_report.txt",
-        config['out']['outdir']+"/report/PRJNA489159/CMT-114_report.txt"
+        output_reports
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-100_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-102_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-103_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-105_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-106_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-107_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-109_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-111_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-112_report.txt",
+        # config['out']['outdir']+"/report/PRJNA489159/CMT-114_report.txt"
 
 rule run_pipeline:
     input:

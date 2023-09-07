@@ -1,0 +1,658 @@
+"Run_ID","BioProject","Sample_ID","Case_ID","Breed","Age","Platform","ReleaseDate","Organization","Sex","Tissue","Tumor_type","Status","Symbol","Sample_status","Disease_stage","Survival_status","Tumor_grade"
+"DRR483791","PRJDB16014","SAMD00623497","MD1","Miniature Dachshund",9,"ILLUMINA","2023-06-09T00:00:00Z","NIPS","male","Blood","Non-Tumor (Inflammatory Colorectal Polyp ICRP)","Normal",NA,NA,NA,NA,NA
+"DRR483792","PRJDB16014","SAMD00623498","Beagle1","Beagle",1,"ILLUMINA","2023-06-09T00:00:00Z","NIPS","female","Blood","Non-Tumor (Inflammatory Colorectal Polyp ICRP)","Normal",NA,NA,NA,NA,NA
+"DRR483793","PRJDB16014","SAMD00623499","MD2","Miniature Dachshund",9,"ILLUMINA","2023-06-09T00:00:00Z","NIPS","male","Blood","Non-Tumor (Inflammatory Colorectal Polyp ICRP)","Normal",NA,NA,NA,NA,NA
+"DRR483794","PRJDB16014","SAMD00623500","Beagle2","Beagle",1,"ILLUMINA","2023-06-09T00:00:00Z","NIPS","female","Blood","Non-Tumor (Inflammatory Colorectal Polyp ICRP)","Normal",NA,NA,NA,NA,NA
+"SRR21943464","PRJNA891496","SAMN31329655","TVD6","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943465","PRJNA891496","SAMN31329654","TVD5","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943466","PRJNA891496","SAMN31329653","TVD4","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943467","PRJNA891496","SAMN31329652","3NB","Bloodhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943468","PRJNA891496","SAMN31329651","5NB","Bloodhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943469","PRJNA891496","SAMN31329615","LDG-0005","Deerhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943470","PRJNA891496","SAMN31329650","4NB","Bloodhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943471","PRJNA891496","SAMN31329649","2NB","Bloodhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943472","PRJNA891496","SAMN31329620","LDG-0010","Deerhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943473","PRJNA891496","SAMN31329612","LDG-0002","Malinois",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943474","PRJNA891496","SAMN31329621","LDG-0011","Deerhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943475","PRJNA891496","SAMN31329622","226","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943476","PRJNA891496","SAMN31329623","306","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943477","PRJNA891496","SAMN31329624","398","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943478","PRJNA891496","SAMN31329625","411","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943479","PRJNA891496","SAMN31329626","625","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943480","PRJNA891496","SAMN31329627","796","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943481","PRJNA891496","SAMN31329619","LDG-0009","Deerhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943482","PRJNA891496","SAMN31329618","LDG-0008","Deerhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943483","PRJNA891496","SAMN31329617","LDG-0007","Deerhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943484","PRJNA891496","SAMN31329616","LDG-0006","Deerhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943485","PRJNA891496","SAMN31329659","S4","Dutch Partridge Dog",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943486","PRJNA891496","SAMN31329658","S3","Dutch Partridge Dog",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943487","PRJNA891496","SAMN31329657","S2","Dutch Partridge Dog",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943488","PRJNA891496","SAMN31329656","S1","Dutch Partridge Dog",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943489","PRJNA891496","SAMN31329628","797","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943490","PRJNA891496","SAMN31329629","805","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943491","PRJNA891496","SAMN31329630","849","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943492","PRJNA891496","SAMN31329613","LDG-0003","Malinois",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943493","PRJNA891496","SAMN31329631","874","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943494","PRJNA891496","SAMN31329632","891","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943495","PRJNA891496","SAMN31329633","892","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943496","PRJNA891496","SAMN31329634","893","Crossbreed",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943497","PRJNA891496","SAMN31329648","1NB","Bloodhound",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943498","PRJNA891496","SAMN31329647","10644Blood","Jack Russell Terrier",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943499","PRJNA891496","SAMN31329646","10917Blood","Crossbreed",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943500","PRJNA891496","SAMN31329645","21343Blood","French Bulldog",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943501","PRJNA891496","SAMN31329644","10791Blood","Chesapeake Bay Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943502","PRJNA891496","SAMN31329643","10996Blood","American Staffordshire Terrier",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943503","PRJNA891496","SAMN31329642","871Blood","Irish Setter",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943504","PRJNA891496","SAMN31329611","LDG-0001","Malinois",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943505","PRJNA891496","SAMN31329635","894","Crossbreed",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943506","PRJNA891496","SAMN31329636","906","Labrador Retriever",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943507","PRJNA891496","SAMN31329637","913","Crossbreed",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943508","PRJNA891496","SAMN31329638","1220Blood","Belgian Shepherd",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943509","PRJNA891496","SAMN31329639","857Blood","English Cocker Spaniel",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","female","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943510","PRJNA891496","SAMN31329640","1024Blood","Crossbreed",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943511","PRJNA891496","SAMN31329614","LDG-0004","Malinois",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"SRR21943512","PRJNA891496","SAMN31329641","888Blood","Pitbull",NA,"ILLUMINA","2023-02-16T00:00:00Z","Ghent University","male","Blood","Non-Tumor (Unclassified)","Normal",NA,NA,NA,NA,NA
+"ERR9923005","PRJEB53653","SAMEA110220126","1",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923006","PRJEB53653","SAMEA110220127","11",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923007","PRJEB53653","SAMEA110220128","12",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923008","PRJEB53653","SAMEA110220129","13",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923009","PRJEB53653","SAMEA110220130","15",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923010","PRJEB53653","SAMEA110220131","16",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923011","PRJEB53653","SAMEA110220132","17",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923012","PRJEB53653","SAMEA110220133","19",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923013","PRJEB53653","SAMEA110220134","2",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923014","PRJEB53653","SAMEA110220135","20",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923015","PRJEB53653","SAMEA110220136","21",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923016","PRJEB53653","SAMEA110220137","22",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923017","PRJEB53653","SAMEA110220138","23",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923018","PRJEB53653","SAMEA110220139","24",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923019","PRJEB53653","SAMEA110220140","25",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923020","PRJEB53653","SAMEA110220141","26",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923021","PRJEB53653","SAMEA110220142","27",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923022","PRJEB53653","SAMEA110220143","28",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923023","PRJEB53653","SAMEA110220144","29",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923024","PRJEB53653","SAMEA110220145","3",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923025","PRJEB53653","SAMEA110220146","30",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923026","PRJEB53653","SAMEA110220147","31",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923027","PRJEB53653","SAMEA110220148","32",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923028","PRJEB53653","SAMEA110220149","33",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923029","PRJEB53653","SAMEA110220150","34",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923030","PRJEB53653","SAMEA110220151","35",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923031","PRJEB53653","SAMEA110220152","36",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923032","PRJEB53653","SAMEA110220153","37",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923033","PRJEB53653","SAMEA110220154","38",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923034","PRJEB53653","SAMEA110220155","39",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923035","PRJEB53653","SAMEA110220156","4",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923036","PRJEB53653","SAMEA110220157","40",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923037","PRJEB53653","SAMEA110220158","41",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923038","PRJEB53653","SAMEA110220159","42",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923039","PRJEB53653","SAMEA110220160","43",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923040","PRJEB53653","SAMEA110220161","44",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923041","PRJEB53653","SAMEA110220162","45",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923042","PRJEB53653","SAMEA110220163","46",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923043","PRJEB53653","SAMEA110220164","47",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923044","PRJEB53653","SAMEA110220165","5",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923045","PRJEB53653","SAMEA110220166","50",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923046","PRJEB53653","SAMEA110220167","51",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923047","PRJEB53653","SAMEA110220168","53",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923048","PRJEB53653","SAMEA110220169","54",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923049","PRJEB53653","SAMEA110220170","55",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923050","PRJEB53653","SAMEA110220171","56",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923051","PRJEB53653","SAMEA110220172","59",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923052","PRJEB53653","SAMEA110220173","6",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923053","PRJEB53653","SAMEA110220174","7",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923054","PRJEB53653","SAMEA110220175","75",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923055","PRJEB53653","SAMEA110220176","78",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923056","PRJEB53653","SAMEA110220177","79",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923057","PRJEB53653","SAMEA110220178","8",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923058","PRJEB53653","SAMEA110220179","9",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"white blood cells","Mammary neoplasia (MT)","Normal",NA,NA,NA,NA,NA
+"ERR9923059","PRJEB53653","SAMEA110220180","1",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923060","PRJEB53653","SAMEA110220189","10",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923061","PRJEB53653","SAMEA110220190","11",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923062","PRJEB53653","SAMEA110220191","12",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923063","PRJEB53653","SAMEA110220192","13",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923064","PRJEB53653","SAMEA110220193","14",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923065","PRJEB53653","SAMEA110220194","15",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923066","PRJEB53653","SAMEA110220195","16",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923067","PRJEB53653","SAMEA110220196","17",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923068","PRJEB53653","SAMEA110220197","19",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923069","PRJEB53653","SAMEA110220181","2",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923070","PRJEB53653","SAMEA110220198","20",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923071","PRJEB53653","SAMEA110220199","21",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923072","PRJEB53653","SAMEA110220200","22",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923073","PRJEB53653","SAMEA110220201","23",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923074","PRJEB53653","SAMEA110220202","24",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923075","PRJEB53653","SAMEA110220203","25",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923076","PRJEB53653","SAMEA110220204","26",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923077","PRJEB53653","SAMEA110220205","27",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923078","PRJEB53653","SAMEA110220206","28",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923079","PRJEB53653","SAMEA110220207","29",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923080","PRJEB53653","SAMEA110220182","3",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923081","PRJEB53653","SAMEA110220208","30",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923082","PRJEB53653","SAMEA110220209","31",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923083","PRJEB53653","SAMEA110220210","32",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923084","PRJEB53653","SAMEA110220211","33",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923085","PRJEB53653","SAMEA110220212","34",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923086","PRJEB53653","SAMEA110220213","35",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923087","PRJEB53653","SAMEA110220214","36",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923088","PRJEB53653","SAMEA110220215","37",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923089","PRJEB53653","SAMEA110220216","38",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923090","PRJEB53653","SAMEA110220217","39",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923091","PRJEB53653","SAMEA110220183","4",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923092","PRJEB53653","SAMEA110220218","40",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923093","PRJEB53653","SAMEA110220219","41",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923094","PRJEB53653","SAMEA110220220","42",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923095","PRJEB53653","SAMEA110220221","43",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923096","PRJEB53653","SAMEA110220222","44",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923097","PRJEB53653","SAMEA110220223","45",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923098","PRJEB53653","SAMEA110220224","46",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923099","PRJEB53653","SAMEA110220225","47",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923100","PRJEB53653","SAMEA110220226","48",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923101","PRJEB53653","SAMEA110220184","5",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923102","PRJEB53653","SAMEA110220227","50",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923103","PRJEB53653","SAMEA110220228","51",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923104","PRJEB53653","SAMEA110220229","52",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923105","PRJEB53653","SAMEA110220230","54",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923106","PRJEB53653","SAMEA110220231","55",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923107","PRJEB53653","SAMEA110220232","56",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923108","PRJEB53653","SAMEA110220233","59",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923109","PRJEB53653","SAMEA110220185","6",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923110","PRJEB53653","SAMEA110220186","7",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923111","PRJEB53653","SAMEA110220234","75",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923112","PRJEB53653","SAMEA110220235","78",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923113","PRJEB53653","SAMEA110220236","79",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923114","PRJEB53653","SAMEA110220187","8",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"ERR9923115","PRJEB53653","SAMEA110220188","9",NA,NA,"ILLUMINA","2022-07-13T00:00:00Z","Uppsala University",NA,"mammary tumor tissue","Mammary neoplasia (MT)","Tumor",NA,NA,NA,NA,NA
+"DRR345016","PRJDB10211","SAMD00293135","HS1",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Normal",NA,NA,NA,NA,NA
+"DRR345017","PRJDB10211","SAMD00293136","HS1",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Tumor",NA,NA,NA,NA,NA
+"DRR345018","PRJDB10211","SAMD00293137","HS2",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Normal",NA,NA,NA,NA,NA
+"DRR345019","PRJDB10211","SAMD00293138","HS2",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Tumor",NA,NA,NA,NA,NA
+"DRR345020","PRJDB10211","SAMD00293139","HS3",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Normal",NA,NA,NA,NA,NA
+"DRR345021","PRJDB10211","SAMD00293140","HS3",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Tumor",NA,NA,NA,NA,NA
+"DRR345022","PRJDB10211","SAMD00293141","HS4",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Normal",NA,NA,NA,NA,NA
+"DRR345023","PRJDB10211","SAMD00293142","HS4",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Tumor",NA,NA,NA,NA,NA
+"DRR345024","PRJDB10211","SAMD00293143","HS5",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Normal",NA,NA,NA,NA,NA
+"DRR345025","PRJDB10211","SAMD00293144","HS5",NA,NA,"ILLUMINA","2022-03-28T00:00:00Z","The University of Tokyo (UT-VMS)",NA,NA,"histiocytic sarcoma","Tumor",NA,NA,NA,NA,NA
+"SRR17139344","PRJNA786469","SAMN23673651","B00E00E-F","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139343","PRJNA786469","SAMN23673652","B00E00E-F","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139287","PRJNA786469","SAMN23673653","B00E00G-H","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139276","PRJNA786469","SAMN23673654","B00E00G-H","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139265","PRJNA786469","SAMN23673655","B00E00I-J","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139254","PRJNA786469","SAMN23673656","B00E00I-J","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139243","PRJNA786469","SAMN23673657","B00E00K-L","Poodle",15,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","Missing","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139232","PRJNA786469","SAMN23673658","B00E00K-L","Poodle",15,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","Missing","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139221","PRJNA786469","SAMN23673659","B00E00M-N","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139210","PRJNA786469","SAMN23673660","B00E00M-N","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139342","PRJNA786469","SAMN23673661","B00E00O-P","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139331","PRJNA786469","SAMN23673662","B00E00O-P","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139320","PRJNA786469","SAMN23673663","B00E00Q-R","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139309","PRJNA786469","SAMN23673664","B00E00Q-R","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139298","PRJNA786469","SAMN23673665","B00E00S-T","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139292","PRJNA786469","SAMN23673666","B00E00S-T","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139291","PRJNA786469","SAMN23673667","B00E00U-V","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","Missing","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139290","PRJNA786469","SAMN23673668","B00E00U-V","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","Missing","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139289","PRJNA786469","SAMN23673669","B00E00W-X","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139288","PRJNA786469","SAMN23673670","B00E00W-X","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139286","PRJNA786469","SAMN23673671","B00E00Y-Z","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139285","PRJNA786469","SAMN23673672","B00E00Y-Z","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139284","PRJNA786469","SAMN23673673","B00E010-1","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139283","PRJNA786469","SAMN23673674","B00E010-1","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"malignant",NA,NA
+"SRR17139282","PRJNA786469","SAMN23673675","B00E012-3","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139281","PRJNA786469","SAMN23673676","B00E012-3","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139280","PRJNA786469","SAMN23673677","B00E014-5","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139279","PRJNA786469","SAMN23673678","B00E014-5","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139278","PRJNA786469","SAMN23673679","B00E016-7","Poodle",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139277","PRJNA786469","SAMN23673680","B00E016-7","Poodle",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139275","PRJNA786469","SAMN23673681","B00E018-9","Poodle",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139274","PRJNA786469","SAMN23673682","B00E018-9","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139273","PRJNA786469","SAMN23673683","B00E01A-B","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139272","PRJNA786469","SAMN23673684","B00E01A-B","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139271","PRJNA786469","SAMN23673685","B00E01C-D","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139270","PRJNA786469","SAMN23673686","B00E01C-D","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139269","PRJNA786469","SAMN23673687","B00E01E-F","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139268","PRJNA786469","SAMN23673688","B00E01E-F","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"malignant",NA,NA
+"SRR17139267","PRJNA786469","SAMN23673689","B00E01G-H","Poodle",17,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139266","PRJNA786469","SAMN23673690","B00E01G-H","Poodle",17,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139264","PRJNA786469","SAMN23673691","B00E01I-J","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139263","PRJNA786469","SAMN23673692","B00E01I-J","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139262","PRJNA786469","SAMN23673693","B00E01K-L","Poodle",15,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139261","PRJNA786469","SAMN23673694","B00E01K-L","Poodle",15,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139260","PRJNA786469","SAMN23673695","B00E01M-N","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139259","PRJNA786469","SAMN23673696","B00E01M-N","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139258","PRJNA786469","SAMN23673697","B00E01O-P","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139257","PRJNA786469","SAMN23673698","B00E01O-P","Poodle",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139256","PRJNA786469","SAMN23673699","B00E01Q-R","Golden Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139255","PRJNA786469","SAMN23673700","B00E01Q-R","Golden Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139253","PRJNA786469","SAMN23673701","B00E01U-V","Golden Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139252","PRJNA786469","SAMN23673702","B00E01U-V","Golden Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139251","PRJNA786469","SAMN23673703","B00E01W-X","Golden Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139250","PRJNA786469","SAMN23673704","B00E01W-X","Golden Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139249","PRJNA786469","SAMN23673705","B00E01Y-Z","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139248","PRJNA786469","SAMN23673706","B00E01Y-Z","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","skin (fingers)","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139247","PRJNA786469","SAMN23673707","B00E020-1","Golden Retriever",11,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139246","PRJNA786469","SAMN23673708","B00E020-1","Golden Retriever",11,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139245","PRJNA786469","SAMN23673709","B00E022-3","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"malignant",NA,NA
+"SRR17139244","PRJNA786469","SAMN23673710","B00E022-3","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"malignant",NA,NA
+"SRR17139242","PRJNA786469","SAMN23673711","B00E024-5","Golden Retriever",11,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139241","PRJNA786469","SAMN23673712","B00E024-5","Golden Retriever",11,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139240","PRJNA786469","SAMN23673713","B00E026-7","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139239","PRJNA786469","SAMN23673714","B00E026-7","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139238","PRJNA786469","SAMN23673715","B00E02A-B","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139237","PRJNA786469","SAMN23673716","B00E02A-B","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139236","PRJNA786469","SAMN23673717","B00E02C-D","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139235","PRJNA786469","SAMN23673718","B00E02G-H","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139234","PRJNA786469","SAMN23673719","B00E02G-H","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139233","PRJNA786469","SAMN23673720","B00E02I-J","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139231","PRJNA786469","SAMN23673721","B00E02I-J","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139230","PRJNA786469","SAMN23673722","B00E02K-L","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139229","PRJNA786469","SAMN23673723","B00E02K-L","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","skin (ocular)","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139228","PRJNA786469","SAMN23673724","B00E02M-N","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139227","PRJNA786469","SAMN23673725","B00E02M-N","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139226","PRJNA786469","SAMN23673726","B00E02O-P","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","Missing","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139225","PRJNA786469","SAMN23673727","B00E02O-P","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","Missing","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139224","PRJNA786469","SAMN23673728","B00E02Q-R","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139223","PRJNA786469","SAMN23673729","B00E02Q-R","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139222","PRJNA786469","SAMN23673730","B00E02S-T","Labrador Retriever",9,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139220","PRJNA786469","SAMN23673731","B00E02S-T","Labrador Retriever",9,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139219","PRJNA786469","SAMN23673732","B00E02U-V","Labrador Retriever",7,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139218","PRJNA786469","SAMN23673733","B00E02U-V","Labrador Retriever",7,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","missing","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139217","PRJNA786469","SAMN23673734","B00E02W-X","Labrador Retriever",16,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139216","PRJNA786469","SAMN23673735","B00E02W-X","Labrador Retriever",16,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139215","PRJNA786469","SAMN23673736","B00E02Y-Z","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","Missing","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139214","PRJNA786469","SAMN23673737","B00E02Y-Z","Labrador Retriever",NA,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","Missing","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139213","PRJNA786469","SAMN23673738","B00E030-1","Labrador Retriever",7,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139212","PRJNA786469","SAMN23673739","B00E030-1","Labrador Retriever",7,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","missing","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139211","PRJNA786469","SAMN23673740","B00E032-3","Labrador Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","blood","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139209","PRJNA786469","SAMN23673741","B00E032-3","Labrador Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139208","PRJNA786469","SAMN23673742","CCB010032","Golden Retriever",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139207","PRJNA786469","SAMN23673743","CCB010032","Golden Retriever",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139206","PRJNA786469","SAMN23673744","CCB010284","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139205","PRJNA786469","SAMN23673745","CCB010284","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139204","PRJNA786469","SAMN23673746","CCB030002","Poodle",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139203","PRJNA786469","SAMN23673747","CCB030002","Poodle",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139202","PRJNA786469","SAMN23673748","CCB030038","Labrador Retriever",9,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139201","PRJNA786469","SAMN23673749","CCB030038","Labrador Retriever",9,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139200","PRJNA786469","SAMN23673750","CCB030039","Labrador Retriever",15,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139341","PRJNA786469","SAMN23673751","CCB030039","Labrador Retriever",15,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139340","PRJNA786469","SAMN23673752","CCB030044","Golden Retriever",11,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139339","PRJNA786469","SAMN23673753","CCB030044","Golden Retriever",11,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139338","PRJNA786469","SAMN23673754","CCB030075","Golden Retriever",9,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139337","PRJNA786469","SAMN23673755","CCB030075","Golden Retriever",9,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139336","PRJNA786469","SAMN23673756","CCB030097","Labrador Retriever",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139335","PRJNA786469","SAMN23673757","CCB030097","Labrador Retriever",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139334","PRJNA786469","SAMN23673758","CCB030120","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139333","PRJNA786469","SAMN23673759","CCB030120","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139332","PRJNA786469","SAMN23673760","CCB030165","Golden Retriever",7,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139330","PRJNA786469","SAMN23673761","CCB030165","Golden Retriever",7,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139329","PRJNA786469","SAMN23673762","CCB030183","Labrador Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","skin (excl ocular)","Oral Melanoma","Tumor",NA,NA,"malignant",NA,NA
+"SRR17139328","PRJNA786469","SAMN23673763","CCB030183","Labrador Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","skin (excl ocular)","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139327","PRJNA786469","SAMN23673764","CCB030201","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139326","PRJNA786469","SAMN23673765","CCB030201","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139325","PRJNA786469","SAMN23673766","CCB030227","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139324","PRJNA786469","SAMN23673767","CCB030227","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139323","PRJNA786469","SAMN23673768","CCB030232","Golden Retriever",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","skin (excl ocular)","Oral Melanoma","Tumor",NA,NA,"malignant",NA,NA
+"SRR17139322","PRJNA786469","SAMN23673769","CCB030232","Golden Retriever",14,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","skin (excl ocular)","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139321","PRJNA786469","SAMN23673770","CCB030269","Labrador Retriever",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","skin (excl ocular)","Oral Melanoma","Tumor",NA,NA,"malignant",NA,NA
+"SRR17139319","PRJNA786469","SAMN23673771","CCB030269","Labrador Retriever",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","skin (excl ocular)","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139318","PRJNA786469","SAMN23673772","CCB030273","Golden Retriever",10,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139317","PRJNA786469","SAMN23673773","CCB030273","Golden Retriever",10,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139316","PRJNA786469","SAMN23673774","CCB030342","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139315","PRJNA786469","SAMN23673775","CCB030342","Golden Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139314","PRJNA786469","SAMN23673776","CCB040334","Labrador Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","skin (excl ocular)","Oral Melanoma","Tumor",NA,NA,"malignant",NA,NA
+"SRR17139313","PRJNA786469","SAMN23673777","CCB040334","Labrador Retriever",13,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","skin (excl ocular)","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139312","PRJNA786469","SAMN23673778","CCB050007","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139311","PRJNA786469","SAMN23673779","CCB050007","Golden Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139310","PRJNA786469","SAMN23673780","CCB050023","Labrador Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139308","PRJNA786469","SAMN23673781","CCB050023","Labrador Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139307","PRJNA786469","SAMN23673782","CCB050031","Labrador Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139306","PRJNA786469","SAMN23673783","CCB050031","Labrador Retriever",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139305","PRJNA786469","SAMN23673784","CCB050042","Labrador Retriever",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139304","PRJNA786469","SAMN23673785","CCB050042","Labrador Retriever",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139303","PRJNA786469","SAMN23673786","CCB050061","Golden Retriever",10,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139302","PRJNA786469","SAMN23673787","CCB050061","Golden Retriever",10,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139301","PRJNA786469","SAMN23673788","CCB050096","Labrador Retriever",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139300","PRJNA786469","SAMN23673789","CCB050096","Labrador Retriever",8,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139299","PRJNA786469","SAMN23673790","CCB050228","Labrador Retriever",10,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139297","PRJNA786469","SAMN23673791","CCB050228","Labrador Retriever",10,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","male","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139296","PRJNA786469","SAMN23673792","CCB050351","Golden Retriever",10,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139295","PRJNA786469","SAMN23673793","CCB050351","Golden Retriever",10,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR17139294","PRJNA786469","SAMN23673794","CCB070213","Poodle",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Tumor",NA,NA,"",NA,NA
+"SRR17139293","PRJNA786469","SAMN23673795","CCB070213","Poodle",12,"ILLUMINA","2021-12-06T00:00:00Z","CNRS - University Rennes","female","oral cavity","Oral Melanoma","Normal",NA,NA,"",NA,NA
+"SRR15464832","PRJNA752630","SAMN20802080","10RIN_dlbcl","Mixed",11,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464833","PRJNA752630","SAMN20802079","9DAN_dlbcl","Amstaff",7,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464834","PRJNA752630","SAMN20802078","8SCA_dlbcl","Viszla",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464835","PRJNA752630","SAMN20802077","7POL_dlbcl","Mixed",12,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464836","PRJNA752630","SAMN20802076","6MEL_dlbcl","German Shepherd",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464837","PRJNA752630","SAMN20802075","5MIC_dlbcl","Whwt",9,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464838","PRJNA752630","SAMN20802104","34PAG_dlbcl","Bernese Mountain",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464839","PRJNA752630","SAMN20802103","33GIA_dlbcl","Mixed",7,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464840","PRJNA752630","SAMN20802102","32ROB_dlbcl","Rottweiler",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464841","PRJNA752630","SAMN20802101","31GIU_dlbcl","Mixed",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464842","PRJNA752630","SAMN20802074","4CEC_dlbcl","Rottweiler",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464843","PRJNA752630","SAMN20802100","30BEL_dlbcl","Mixed",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464844","PRJNA752630","SAMN20802099","29LEO_dlbcl","Mixed",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464845","PRJNA752630","SAMN20802098","28DRI_dlbcl","Mixed_b",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464846","PRJNA752630","SAMN20802097","27RAF_dlbcl","Bullmastiff",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464847","PRJNA752630","SAMN20802096","26BLG_dlbcl","Irish Setter",11,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464848","PRJNA752630","SAMN20802095","25CON_dlbcl","Rottweiler",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464849","PRJNA752630","SAMN20802094","24STI_dlbcl","English Setter",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464850","PRJNA752630","SAMN20802093","23MAT_dlbcl","Belgian Shepherd",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464851","PRJNA752630","SAMN20802092","22ZAG_dlbcl","Mixed",9,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464852","PRJNA752630","SAMN20802091","21BRB_dlbcl","French Bulldog",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464853","PRJNA752630","SAMN20802073","3MAT_dlbcl","Dachshund",7,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464854","PRJNA752630","SAMN20802090","20MAR_dlbcl","Mixed",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464855","PRJNA752630","SAMN20802089","19BAR_dlbcl","Border Collie",11,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464856","PRJNA752630","SAMN20802088","18RUS_dlbcl","Rottweiler",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464857","PRJNA752630","SAMN20802087","17MIN_dlbcl","Jack Russell",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464858","PRJNA752630","SAMN20802086","16BUR_dlbcl","Mixed",8,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464859","PRJNA752630","SAMN20802085","15DES_dlbcl","Beagle",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464860","PRJNA752630","SAMN20802084","14ALB_dlbcl","Dobermann",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464861","PRJNA752630","SAMN20802083","13BAR_dlbcl","Mixed",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464862","PRJNA752630","SAMN20802082","12DIG_dlbcl","German Shepherd",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464863","PRJNA752630","SAMN20802081","11CAR_dlbcl","Dobermann",13,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464864","PRJNA752630","SAMN20802072","2WHA_dlbcl","Bullmastiff",7,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15464865","PRJNA752630","SAMN20802071","1BAC_dlbcl","German Shepherd",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461423","PRJNA752630","SAMN08874628","23RAI","American Staffordshire Terrier",11,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461424","PRJNA752630","SAMN08874667","6SBR","German Shepherd",9,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461425","PRJNA752630","SAMN08874666","61RAP","Weimaraner",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461426","PRJNA752630","SAMN08874642","38GOV","German Shepherd",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461427","PRJNA752630","SAMN08874663","59PIO","Welsh Corgi",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461428","PRJNA752630","SAMN08874662","58RIS","Mixed Breed",9,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461429","PRJNA752630","SAMN08874661","57DIL","Mixed Breed",12,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461430","PRJNA752630","SAMN08874627","21STA","Jack Russel",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461431","PRJNA752630","SAMN08874660","56GAL","Beagle",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461432","PRJNA752630","SAMN08874659","55DIA","Great Dane",3,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461433","PRJNA752630","SAMN08874658","53GUE","Labrador",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461434","PRJNA752630","SAMN08874657","52SOL","Rottweiler",3,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461435","PRJNA752630","SAMN08874656","50RUZ","German Shepherd",11,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461436","PRJNA752630","SAMN08874655","4DIG","Mixed Breed",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461437","PRJNA752630","SAMN08874654","49CAV","Golden Retriever",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461438","PRJNA752630","SAMN08874653","48CAS","Mixed Breed",13,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461439","PRJNA752630","SAMN08874652","47GIA","Basset Hound",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461440","PRJNA752630","SAMN08874651","46MAR","Golden Retriever",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461441","PRJNA752630","SAMN08874625","19DON","English Setter",15,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461442","PRJNA752630","SAMN08874650","45FON","Fox Terrier",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461443","PRJNA752630","SAMN08874649","44GHE","Bloodhound",4,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461444","PRJNA752630","SAMN08874648","43GIA","Dobermann",9,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461445","PRJNA752630","SAMN08874646","41RAI","Mixed Breed",13,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461446","PRJNA752630","SAMN08874645","40PIN","German Shepherd",4,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461447","PRJNA752630","SAMN08874643","39BER","Mountain Dog",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461448","PRJNA752630","SAMN08874641","37BEG","American Staffordshire Terrier",7,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461449","PRJNA752630","SAMN08874640","36REI","French Bulldog",4,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461450","PRJNA752630","SAMN08874639","35ANG","Mixed Breed",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461451","PRJNA752630","SAMN08874638","34BOR","Golden Retriever",7,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461452","PRJNA752630","SAMN08874624","18COR","Border Collie",7,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461453","PRJNA752630","SAMN08874637","33DIG","Golden Retriever",8,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461454","PRJNA752630","SAMN08874636","32TEB","Rottweiler",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461455","PRJNA752630","SAMN08874635","30CER","Mountain Dog",3,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461456","PRJNA752630","SAMN08874634","2VOL","Mixed Breed Breed",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461457","PRJNA752630","SAMN08874632","28MAN","German Shepherd",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461458","PRJNA752630","SAMN08874630","26PAS","German Shepherd",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461459","PRJNA752630","SAMN08874629","24ERM","Mixed Breed",12,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461460","PRJNA752630","SAMN08874628","23RAI","American Staffordshire Terrier",11,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461461","PRJNA752630","SAMN08874627","21STA","Jack Russel",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461462","PRJNA752630","SAMN08874625","19DON","English Setter",15,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461463","PRJNA752630","SAMN08874623","17CAN","Rottweiler",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461464","PRJNA752630","SAMN08874624","18COR","Border Collie",7,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461465","PRJNA752630","SAMN08874623","17CAN","Rottweiler",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461466","PRJNA752630","SAMN08874622","16RIG","Poodle",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461467","PRJNA752630","SAMN08874621","13ZOP","Yorkshire Terrier",15,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461468","PRJNA752630","SAMN08874620","12CAN","Poodle",14,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461469","PRJNA752630","SAMN08874619","11DES","Boxer",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461470","PRJNA752630","SAMN08874618","10BIN","Cocker Spaniel",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15461471","PRJNA752630","SAMN08874667","6SBR","German Shepherd",9,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461472","PRJNA752630","SAMN08874666","61RAP","Weimaraner",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461473","PRJNA752630","SAMN08874642","38GOV","German Shepherd",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461474","PRJNA752630","SAMN08874622","16RIG","Poodle",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461475","PRJNA752630","SAMN08874663","59PIO","Welsh Corgi",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461476","PRJNA752630","SAMN08874662","58RIS","Mixed Breed",9,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461477","PRJNA752630","SAMN08874661","57DIL","Mixed Breed",12,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461478","PRJNA752630","SAMN08874660","56GAL","Beagle",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461479","PRJNA752630","SAMN08874659","55DIA","Great Dane",3,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461480","PRJNA752630","SAMN08874658","53GUE","Labrador",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461481","PRJNA752630","SAMN08874657","52SOL","Rottweiler",3,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461482","PRJNA752630","SAMN08874656","50RUZ","German Shepherd",11,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461483","PRJNA752630","SAMN08874655","4DIG","Mixed Breed",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461484","PRJNA752630","SAMN08874654","49CAV","Golden Retriever",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461485","PRJNA752630","SAMN08874621","13ZOP","Yorkshire Terrier",15,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461486","PRJNA752630","SAMN08874653","48CAS","Mixed Breed",13,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461487","PRJNA752630","SAMN08874652","47GIA","Basset Hound",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461488","PRJNA752630","SAMN08874651","46MAR","Golden Retriever",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461489","PRJNA752630","SAMN08874650","45FON","Fox Terrier",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461490","PRJNA752630","SAMN08874649","44GHE","Bloodhound",4,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461491","PRJNA752630","SAMN08874648","43GIA","Dobermann",9,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461492","PRJNA752630","SAMN08874646","41RAI","Mixed Breed",13,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461493","PRJNA752630","SAMN08874645","40PIN","German Shepherd",4,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461494","PRJNA752630","SAMN08874643","39BER","Mountain Dog",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461495","PRJNA752630","SAMN08874641","37BEG","American Staffordshire Terrier",7,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461496","PRJNA752630","SAMN08874620","12CAN","Poodle",14,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461497","PRJNA752630","SAMN08874640","36REI","French Bulldog",4,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461498","PRJNA752630","SAMN08874639","35ANG","Mixed Breed",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461499","PRJNA752630","SAMN08874638","34BOR","Golden Retriever",7,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461500","PRJNA752630","SAMN08874637","33DIG","Golden Retriever",8,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461501","PRJNA752630","SAMN08874636","32TEB","Rottweiler",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461502","PRJNA752630","SAMN08874635","30CER","Mountain Dog",3,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461503","PRJNA752630","SAMN08874634","2VOL","Mixed Breed Breed",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461504","PRJNA752630","SAMN08874632","28MAN","German Shepherd",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461505","PRJNA752630","SAMN08874630","26PAS","German Shepherd",5,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461506","PRJNA752630","SAMN08874629","24ERM","Mixed Breed",12,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461507","PRJNA752630","SAMN08874619","11DES","Boxer",6,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","male","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15461508","PRJNA752630","SAMN08874618","10BIN","Cocker Spaniel",10,"ILLUMINA","2022-08-01T00:00:00Z","University of Padua","female","DLBCL","Diffuse large B-cell Lymphoma","Tumor",NA,NA,NA,NA,NA
+"SRR15508608","PRJNA752630","SAMN20802080","10RIN_dlbcl","Mixed",11,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508609","PRJNA752630","SAMN20802079","9DAN_dlbcl","Amstaff",7,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508610","PRJNA752630","SAMN20802078","8SCA_dlbcl","Viszla",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508611","PRJNA752630","SAMN20802077","7POL_dlbcl","Mixed",12,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508612","PRJNA752630","SAMN20802076","6MEL_dlbcl","German Shepherd",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508613","PRJNA752630","SAMN20802075","5MIC_dlbcl","Whwt",9,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508614","PRJNA752630","SAMN20802104","34PAG_dlbcl","Bernese Mountain",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508615","PRJNA752630","SAMN20802103","33GIA_dlbcl","Mixed",7,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508616","PRJNA752630","SAMN20802102","32ROB_dlbcl","Rottweiler",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508617","PRJNA752630","SAMN20802101","31GIU_dlbcl","Mixed",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508618","PRJNA752630","SAMN20802074","4CEC_dlbcl","Rottweiler",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508619","PRJNA752630","SAMN20802100","30BEL_dlbcl","Mixed",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508620","PRJNA752630","SAMN20802099","29LEO_dlbcl","Mixed",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508621","PRJNA752630","SAMN20802098","28DRI_dlbcl","Mixed_b",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508622","PRJNA752630","SAMN20802097","27RAF_dlbcl","Bullmastiff",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508623","PRJNA752630","SAMN20802096","26BLG_dlbcl","Irish Setter",11,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508624","PRJNA752630","SAMN20802095","25CON_dlbcl","Rottweiler",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508625","PRJNA752630","SAMN20802094","24STI_dlbcl","English Setter",5,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508626","PRJNA752630","SAMN20802093","23MAT_dlbcl","Belgian Shepherd",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508627","PRJNA752630","SAMN20802092","22ZAG_dlbcl","Mixed",9,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508628","PRJNA752630","SAMN20802091","21BRB_dlbcl","French Bulldog",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508629","PRJNA752630","SAMN20802073","3MAT_dlbcl","Dachshund",7,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508630","PRJNA752630","SAMN20802090","20MAR_dlbcl","Mixed",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508631","PRJNA752630","SAMN20802089","19BAR_dlbcl","Border Collie",11,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508632","PRJNA752630","SAMN20802088","18RUS_dlbcl","Rottweiler",4,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508633","PRJNA752630","SAMN20802087","17MIN_dlbcl","Jack Russell",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508634","PRJNA752630","SAMN20802086","16BUR_dlbcl","Mixed",8,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508635","PRJNA752630","SAMN20802085","15DES_dlbcl","Beagle",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508636","PRJNA752630","SAMN20802084","14ALB_dlbcl","Dobermann",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508637","PRJNA752630","SAMN20802083","13BAR_dlbcl","Mixed",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508638","PRJNA752630","SAMN20802082","12DIG_dlbcl","German Shepherd",10,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508639","PRJNA752630","SAMN20802081","11CAR_dlbcl","Dobermann",13,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","male","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508640","PRJNA752630","SAMN20802072","2WHA_dlbcl","Bullmastiff",7,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR15508641","PRJNA752630","SAMN20802071","1BAC_dlbcl","German Shepherd",6,"ILLUMINA","2022-08-22T00:00:00Z","University of Padua","female","Lymph node","Diffuse large B-cell Lymphoma","Normal",NA,NA,NA,NA,NA
+"SRR13674709","PRJNA701141","SAMN17849154","FFPE_2","Schnauzer",1.5,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","male","Bone","osteosarcoma (cOSA)","Normal",NA,"FFPE",NA,NA,NA
+"SRR13674710","PRJNA701141","SAMN17849153","FFPE_2","Schnauzer",1.5,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","male","Bone","osteosarcoma (cOSA)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13674711","PRJNA701141","SAMN17849152","CL_8","Corso",9,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","male","Bone","osteosarcoma (cOSA)","Cell Line",NA,"FFPE",NA,NA,NA
+"SRR13674712","PRJNA701141","SAMN17849151","CL_7","Border Collie",NA,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","not collected","Bone","osteosarcoma (cOSA)","Cell Line",NA,"FFPE",NA,NA,NA
+"SRR13674713","PRJNA701141","SAMN17849150","CL_6","Poodle",11,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","female","Bone","osteosarcoma (cOSA)","Cell Line",NA,"FFPE",NA,NA,NA
+"SRR13674714","PRJNA701141","SAMN17849149","CL_5","Labrador",9,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","male","Bone","osteosarcoma (cOSA)","Cell Line",NA,"FFPE",NA,NA,NA
+"SRR13674715","PRJNA701141","SAMN17849148","CL_4","Greyhound",4,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","male","Bone","osteosarcoma (cOSA)","Cell Line",NA,"FFPE",NA,NA,NA
+"SRR13674716","PRJNA701141","SAMN17849147","CL_3","Boxer",9,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","male","Bone","osteosarcoma (cOSA)","Cell Line",NA,"FFPE",NA,NA,NA
+"SRR13674717","PRJNA701141","SAMN17849146","CL_2","Schnauzer",1.5,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","male","Bone","osteosarcoma (cOSA)","Cell Line",NA,"FFPE",NA,NA,NA
+"SRR13674718","PRJNA701141","SAMN17849145","CL_1","Boxer",8,"ILLUMINA","2021-05-13T00:00:00Z","University of Padua","female","Bone","osteosarcoma (cOSA)","Cell Line",NA,"FFPE",NA,NA,NA
+"SRR13571580","PRJNA695534","SAMN17615930","4152","Golden Retriever",7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571581","PRJNA695534","SAMN17615929","4152","Golden Retriever",7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571582","PRJNA695534","SAMN17615928","4151","Jack Russell Terrier",13.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571583","PRJNA695534","SAMN17615927","4151","Jack Russell Terrier",13.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571584","PRJNA695534","SAMN17615926","4150","Golden Retriever",7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571585","PRJNA695534","SAMN17615925","4150","Golden Retriever",7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571586","PRJNA695534","SAMN17615924","4148","Labrador Retriever",6.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571587","PRJNA695534","SAMN17615923","4148","Labrador Retriever",6.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571588","PRJNA695534","SAMN17615922","4147","German Shepherd",8.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571589","PRJNA695534","SAMN17615921","4147","German Shepherd",8.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571590","PRJNA695534","SAMN17615858","4103","Miniature Schnauzer",3.4,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571591","PRJNA695534","SAMN17615920","4146","Boxer",8.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571592","PRJNA695534","SAMN17615919","4146","Boxer",8.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571593","PRJNA695534","SAMN17615918","4145","Beagle",11.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571594","PRJNA695534","SAMN17615917","4145","Beagle",11.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571595","PRJNA695534","SAMN17615916","4144","Australian Shepherd",10,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571596","PRJNA695534","SAMN17615915","4144","Australian Shepherd",10,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571597","PRJNA695534","SAMN17615914","4142","Yorkshire Terrier",9.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571598","PRJNA695534","SAMN17615913","4142","Yorkshire Terrier",9.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571599","PRJNA695534","SAMN17615912","4140","Mix_labradoodle",6.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571600","PRJNA695534","SAMN17615911","4140","Mix_labradoodle",6.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571601","PRJNA695534","SAMN17615857","4103","Miniature Schnauzer",3.4,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571602","PRJNA695534","SAMN17615910","4136","Boykin Spaniel",4.5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571603","PRJNA695534","SAMN17615909","4136","Boykin Spaniel",4.5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571604","PRJNA695534","SAMN17615991","4199","Rottweiler",3.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571605","PRJNA695534","SAMN17615865","4108","Terrier\, Nos",15.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571606","PRJNA695534","SAMN17615990","4197","Golden Retriever",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571607","PRJNA695534","SAMN17615989","4197","Golden Retriever",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571608","PRJNA695534","SAMN17615988","4195","Golden Retriever",9.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571609","PRJNA695534","SAMN17615987","4195","Golden Retriever",9.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571610","PRJNA695534","SAMN17615986","4194","Belgian Malinois",13,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571611","PRJNA695534","SAMN17615985","4194","Belgian Malinois",13,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571612","PRJNA695534","SAMN17615984","4191","Golden Retriever",9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571613","PRJNA695534","SAMN17615983","4191","Golden Retriever",9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571614","PRJNA695534","SAMN17615982","4189","Golden Retriever",9.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571615","PRJNA695534","SAMN17615981","4189","Golden Retriever",9.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571616","PRJNA695534","SAMN17615864","4107","Labrador Retriever",2.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571617","PRJNA695534","SAMN17615980","4188","Golden Retriever",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571618","PRJNA695534","SAMN17615979","4188","Golden Retriever",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571619","PRJNA695534","SAMN17615978","4186","Golden Retriever",6.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571620","PRJNA695534","SAMN17615977","4186","Golden Retriever",6.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571621","PRJNA695534","SAMN17615976","4184","Nova Scotia Duck Tolling Retriever",5.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571622","PRJNA695534","SAMN17615975","4184","Nova Scotia Duck Tolling Retriever",5.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571623","PRJNA695534","SAMN17615974","4181","Maltese",10,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571624","PRJNA695534","SAMN17615973","4181","Maltese",10,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571625","PRJNA695534","SAMN17615972","4179","Labrador Retriever",6.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571626","PRJNA695534","SAMN17615971","4179","Labrador Retriever",6.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571627","PRJNA695534","SAMN17615863","4107","Labrador Retriever",2.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571628","PRJNA695534","SAMN17615908","4132","Pekingese",9.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571629","PRJNA695534","SAMN17615907","4132","Pekingese",9.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571630","PRJNA695534","SAMN17615906","4131","Golden Retriever",12.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571631","PRJNA695534","SAMN17615905","4131","Golden Retriever",12.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571632","PRJNA695534","SAMN17615904","4130","English Bulldog",7.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571633","PRJNA695534","SAMN17615903","4130","English Bulldog",7.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571634","PRJNA695534","SAMN17615902","4129","Labrador Retriever",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571635","PRJNA695534","SAMN17615901","4129","Labrador Retriever",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571636","PRJNA695534","SAMN17615856","4102","Shih Tzu",11.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571637","PRJNA695534","SAMN17615900","4128","Fox Terrier",8.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571638","PRJNA695534","SAMN17615899","4128","Fox Terrier",8.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571639","PRJNA695534","SAMN17615898","4127","American Staffordshire Terrier",5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571640","PRJNA695534","SAMN17615897","4127","American Staffordshire Terrier",5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571641","PRJNA695534","SAMN17615896","4126","Toy Poodle",5.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571642","PRJNA695534","SAMN17615895","4126","Toy Poodle",5.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571643","PRJNA695534","SAMN17615894","4125","Bull Terrier",16.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571644","PRJNA695534","SAMN17615893","4125","Bull Terrier",16.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571645","PRJNA695534","SAMN17615892","4123","Cardigan Welsh Corgi",8.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571646","PRJNA695534","SAMN17615891","4123","Cardigan Welsh Corgi",8.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571647","PRJNA695534","SAMN17615855","4102","Shih Tzu",11.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571648","PRJNA695534","SAMN17615890","4122","Bernese Mountain Dog",8.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571649","PRJNA695534","SAMN17615889","4122","Bernese Mountain Dog",8.1,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571650","PRJNA695534","SAMN17615888","4121","Australian Shepherd",12.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571651","PRJNA695534","SAMN17615887","4121","Australian Shepherd",12.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571652","PRJNA695534","SAMN17615886","4120","Hound\, Nos",12,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571653","PRJNA695534","SAMN17615885","4120","Hound\, Nos",12,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571654","PRJNA695534","SAMN17615884","4119","Border Collie",11,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571655","PRJNA695534","SAMN17615883","4119","Border Collie",11,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571656","PRJNA695534","SAMN17615882","4118","Golden Retriever",9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571657","PRJNA695534","SAMN17615881","4118","Golden Retriever",9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571658","PRJNA695534","SAMN17615854","4101","Kerry Blue Terrier",5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571659","PRJNA695534","SAMN17615880","4117","German Shepherd",13,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571660","PRJNA695534","SAMN17615879","4117","German Shepherd",13,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571661","PRJNA695534","SAMN17615878","4116","American Cocker Spaniel",8.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571662","PRJNA695534","SAMN17615877","4116","American Cocker Spaniel",8.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571663","PRJNA695534","SAMN17615876","4115","German Shepherd",12,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571664","PRJNA695534","SAMN17615875","4115","German Shepherd",12,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571665","PRJNA695534","SAMN17615874","4113","Terrier\, Nos",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571666","PRJNA695534","SAMN17615873","4113","Terrier\, Nos",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571667","PRJNA695534","SAMN17615872","4112","Rat Terrier",12,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571668","PRJNA695534","SAMN17615871","4112","Rat Terrier",12,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571669","PRJNA695534","SAMN17615853","4101","Kerry Blue Terrier",5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571670","PRJNA695534","SAMN17615870","4111","Boxer",10.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571671","PRJNA695534","SAMN17615869","4111","Boxer",10.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571672","PRJNA695534","SAMN17615868","4110","Miniature Schnauzer",10.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571673","PRJNA695534","SAMN17615867","4110","Miniature Schnauzer",10.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571674","PRJNA695534","SAMN17615866","4108","Terrier\, Nos",15.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571675","PRJNA695534","SAMN17615992","4199","Rottweiler",3.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571676","PRJNA695534","SAMN17615950","4166","American Cocker Spaniel",5.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571677","PRJNA695534","SAMN17615949","4166","American Cocker Spaniel",5.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571678","PRJNA695534","SAMN17615948","4164","Standard Poodle",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571679","PRJNA695534","SAMN17615947","4164","Standard Poodle",6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571680","PRJNA695534","SAMN17615946","4163","Labrador Retriever",8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571681","PRJNA695534","SAMN17615945","4163","Labrador Retriever",8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571682","PRJNA695534","SAMN17615944","4162","Labrador Retriever",8.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571683","PRJNA695534","SAMN17615943","4162","Labrador Retriever",8.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571684","PRJNA695534","SAMN17615942","4161","Scottish Terrier",7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571685","PRJNA695534","SAMN17615941","4161","Scottish Terrier",7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571686","PRJNA695534","SAMN17615860","4104","Cardigan Welsh Corgi",10.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571687","PRJNA695534","SAMN17615940","4160","Newfoundland",2.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571688","PRJNA695534","SAMN17615939","4160","Newfoundland",2.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571689","PRJNA695534","SAMN17615938","4158","Collie",6.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571690","PRJNA695534","SAMN17615937","4158","Collie",6.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571691","PRJNA695534","SAMN17615936","4156","Shih Tzu",6.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571692","PRJNA695534","SAMN17615935","4156","Shih Tzu",6.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571693","PRJNA695534","SAMN17615934","4155","French Bulldog",4.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571694","PRJNA695534","SAMN17615933","4155","French Bulldog",4.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571695","PRJNA695534","SAMN17615932","4154","Bernese Mountain Dog",4.5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571696","PRJNA695534","SAMN17615931","4154","Bernese Mountain Dog",4.5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571697","PRJNA695534","SAMN17615859","4104","Cardigan Welsh Corgi",10.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571698","PRJNA695534","SAMN17615970","4178","Airedale Terrier",8.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571699","PRJNA695534","SAMN17615969","4178","Airedale Terrier",8.7,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571700","PRJNA695534","SAMN17615968","4175","American Staffordshire Terrier",13.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571701","PRJNA695534","SAMN17615967","4175","American Staffordshire Terrier",13.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571702","PRJNA695534","SAMN17615966","4174","Beagle",4.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571703","PRJNA695534","SAMN17615965","4174","Beagle",4.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571704","PRJNA695534","SAMN17615964","4173","American Cocker Spaniel",9.5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571705","PRJNA695534","SAMN17615963","4173","American Cocker Spaniel",9.5,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571706","PRJNA695534","SAMN17615962","4172","English Bulldog",6.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571707","PRJNA695534","SAMN17615961","4172","English Bulldog",6.2,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571708","PRJNA695534","SAMN17615862","4105","Pembroke Welsh Corgi",11.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571709","PRJNA695534","SAMN17615960","4171","Hound\, Nos",6.4,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571710","PRJNA695534","SAMN17615959","4171","Hound\, Nos",6.4,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571711","PRJNA695534","SAMN17615958","4170","Saint Bernard",7.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571712","PRJNA695534","SAMN17615957","4170","Saint Bernard",7.9,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571713","PRJNA695534","SAMN17615956","4169","West Highland White Terrier",14,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571714","PRJNA695534","SAMN17615955","4169","West Highland White Terrier",14,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571715","PRJNA695534","SAMN17615954","4168","Pembroke Welsh Corgi",12.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571716","PRJNA695534","SAMN17615953","4168","Pembroke Welsh Corgi",12.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571717","PRJNA695534","SAMN17615952","4167","German Shepherd",11.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571718","PRJNA695534","SAMN17615951","4167","German Shepherd",11.3,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","female","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571719","PRJNA695534","SAMN17615861","4105","Pembroke Welsh Corgi",11.6,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13571720","PRJNA695534","SAMN17615852","4100","Border Collie",9.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","blood","B-Cell Lymphoma (cBCL)","Normal",NA,"refrigerated EDTA blood",NA,NA,NA
+"SRR13571721","PRJNA695534","SAMN17615851","4100","Border Collie",9.8,"ILLUMINA","2021-09-01T00:00:00Z","Cornell University","male","lymph node","B-Cell Lymphoma (cBCL)","Tumor",NA,"FFPE",NA,NA,NA
+"SRR13123338","PRJNA680382","SAMN16878986","680","Labrador Retriever",8,"ILLUMINA","2020-12-15T00:00:00Z","University of Missouri","male","Bone","Appendicular Osteosarcoma (OSA)","Tumor",NA,NA,"Primary",NA,NA
+"SRR13123341","PRJNA680382","SAMN16878985","1166","Sheepdog",7,"ILLUMINA","2020-12-15T00:00:00Z","University of Missouri","male","Lung","Appendicular Osteosarcoma (OSA)","Tumor",NA,NA,"Metastatic",NA,NA
+"SRR13123343","PRJNA680382","SAMN16878984","1032","Sheepdog",7,"ILLUMINA","2020-12-15T00:00:00Z","University of Missouri","male","Muscle","Appendicular Osteosarcoma (OSA)","Normal",NA,NA,NA,NA,NA
+"SRR13123347","PRJNA680382","SAMN16878988","994","Labrador Retriever",8,"ILLUMINA","2020-12-15T00:00:00Z","University of Missouri","male","Lung","Appendicular Osteosarcoma (OSA)","Tumor",NA,NA,"Metastatic",NA,NA
+"SRR13123349","PRJNA680382","SAMN16878987","680","Labrador Retriever",8,"ILLUMINA","2020-12-15T00:00:00Z","University of Missouri","male","Muscle","Appendicular Osteosarcoma (OSA)","Normal",NA,NA,NA,NA,NA
+"SRR13123352","PRJNA680382","SAMN16878983","1032","Sheepdog",7,"ILLUMINA","2020-12-15T00:00:00Z","University of Missouri","male","Bone","Appendicular Osteosarcoma (OSA)","Tumor",NA,NA,"Primary",NA,NA
+"SRR13123343","PRJNA680382","SAMN16878984","1166","Sheepdog",7,"ILLUMINA","2020-12-15T00:00:00Z","University of Missouri","male","Muscle","Appendicular Osteosarcoma (OSA)","Normal",NA,NA,NA,NA,NA
+"SRR13123349","PRJNA680382","SAMN16878987","994","Labrador Retriever",8,"ILLUMINA","2020-12-15T00:00:00Z","University of Missouri","male","Muscle","Appendicular Osteosarcoma (OSA)","Normal",NA,NA,NA,NA,NA
+"SRR13050752","PRJNA677995","SAMN16786136","Pt03","Wheaten Terrier",11,"ILLUMINA","2021-01-04T00:00:00Z","Translational Genomics Research Institute","female","Peripheral blood","splenic angiosarcoma (hemangiosarcoma)","Normal",NA,NA,NA,NA,NA
+"SRR13050748-SRR13050750-SRR13050751","PRJNA677995","SAMN16786137","Pt03","Wheaten Terrier",11,"ILLUMINA","2021-01-04T00:00:00Z","Translational Genomics Research Institute","female","Spleen","splenic angiosarcoma (hemangiosarcoma)","Tumor",NA,NA,NA,NA,NA
+"SRR13050747","PRJNA677995","SAMN16786152","Pt11","Border Collie",12,"ILLUMINA","2021-01-04T00:00:00Z","Translational Genomics Research Institute","male","Peripheral blood","splenic angiosarcoma (hemangiosarcoma)","Normal",NA,NA,NA,NA,NA
+"SRR13050744-SRR13050745-SRR13050746","PRJNA677995","SAMN16786153","Pt11","Border Collie",12,"ILLUMINA","2021-01-04T00:00:00Z","Translational Genomics Research Institute","male","Spleen","splenic angiosarcoma (hemangiosarcoma)","Tumor",NA,NA,NA,NA,NA
+"SRR13050743","PRJNA677995","SAMN16786162","Pt16","Mix",12,"ILLUMINA","2021-01-04T00:00:00Z","Translational Genomics Research Institute","female","Peripheral blood","splenic angiosarcoma (hemangiosarcoma)","Normal",NA,NA,NA,NA,NA
+"SRR13050740-SRR13050741-SRR13050742","PRJNA677995","SAMN16786163","Pt16","Mix",12,"ILLUMINA","2021-01-04T00:00:00Z","Translational Genomics Research Institute","female","Spleen","splenic angiosarcoma (hemangiosarcoma)","Tumor",NA,NA,NA,NA,NA
+"SRR13050739","PRJNA677995","SAMN16786174","Pt22","Yorkshire Terrier Mix",8,"ILLUMINA","2021-01-04T00:00:00Z","Translational Genomics Research Institute","male","Peripheral blood","splenic angiosarcoma (hemangiosarcoma)","Normal",NA,NA,NA,NA,NA
+"SRR13050735-SRR13050736-SRR13050737","PRJNA677995","SAMN16786175","Pt22","Yorkshire Terrier Mix",8,"ILLUMINA","2021-01-04T00:00:00Z","Translational Genomics Research Institute","male","Spleen","splenic angiosarcoma (hemangiosarcoma)","Tumor",NA,NA,NA,NA,NA
+"SRR11671221","PRJNA630029","SAMN14820573","TD248A1_ES","Great Dane",NA,"ILLUMINA","2020-05-06T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671222","PRJNA630029","SAMN14820572","TD015A1_ES","Great Dane",NA,"ILLUMINA","2020-05-06T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671223","PRJNA630029","SAMN14820571","TD199A1_ES","Great Dane",NA,"ILLUMINA","2020-05-06T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671224","PRJNA630029","SAMN14820570","TD280A1_ES","Great Dane",NA,"ILLUMINA","2020-05-05T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671225","PRJNA630029","SAMN14820569","TD303A1_ES","Great Dane",NA,"ILLUMINA","2020-05-05T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671226","PRJNA630029","SAMN14820568","TD300A1_ES","Great Dane",NA,"ILLUMINA","2020-05-05T00:00:00Z","University of Helsinki","male","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671227","PRJNA630029","SAMN14820567","TD338A1_ES","Great Dane",NA,"ILLUMINA","2020-05-05T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671230","PRJNA630029","SAMN14820566","TD328A1_ES","Great Dane",NA,"ILLUMINA","2020-05-05T00:00:00Z","University of Helsinki","male","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671235","PRJNA630029","SAMN14820579","TD472A1_ES","Great Dane",NA,"ILLUMINA","2020-05-06T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671236","PRJNA630029","SAMN14820578","TD406A1_ES","Great Dane",NA,"ILLUMINA","2020-05-06T00:00:00Z","University of Helsinki","male","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671237","PRJNA630029","SAMN14820577","TD365A1_ES","Great Dane",NA,"ILLUMINA","2020-05-06T00:00:00Z","University of Helsinki","male","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671238","PRJNA630029","SAMN14820576","TD355A1_ES","Great Dane",NA,"ILLUMINA","2020-05-06T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671239","PRJNA630029","SAMN14820575","TD343A1_ES","Great Dane",NA,"ILLUMINA","2020-05-05T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671240","PRJNA630029","SAMN14820574","TD292A1_ES","Great Dane",NA,"ILLUMINA","2020-05-05T00:00:00Z","University of Helsinki","male","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671241","PRJNA630029","SAMN14820565","TD341A1_ES","Great Dane",NA,"ILLUMINA","2020-05-05T00:00:00Z","University of Helsinki","female","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA
+"SRR11671242","PRJNA630029","SAMN14820564","TD073A1_ES","Great Dane",NA,"ILLUMINA","2020-05-03T00:00:00Z","University of Helsinki","male","Blood","Non-Tumor","Normal",NA,NA,NA,NA,NA

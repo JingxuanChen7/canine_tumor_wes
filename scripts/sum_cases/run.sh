@@ -22,6 +22,13 @@ mkdir -p logs/ config/ data/ out/ results
 config="/home/jc33471/canine_tumor_wes/scripts/sum_cases/config.json"
 # config=$run_dir/config/test.json
 
+python ${project_dir}/scripts/sum_cases/make_snakemake_config.py \
+    --project_dir ${project_dir} \
+    --out ${run_dir}/config/test.json \
+    --outdir ${run_dir} \
+    --metadata ${project_dir}/metadata/data_collection_new.csv\
+    --threads 8 \
+    --memory "60G"
 
 snakemake \
     --dry-run \
