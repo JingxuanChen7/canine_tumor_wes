@@ -8,8 +8,12 @@ mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/strelka_
 mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/java17.yml --name java17
 mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/data_collection.yml --name data_collection
 ```
+- Shell script to submit individual jobs:
+
 
 # merge individual VCFs
+- *To be tested* https://github.com/ZhaoS-Lab/breed_prediction/blob/main/combine_germline_variants.sh
+
 
 # post-processing and identify breed-specific variants
 - Install conda environment for breed prediction pipeline
@@ -56,4 +60,7 @@ Rscript --vanilla ${project_dir}/scripts/breed_prediction/breed_specific_variant
 ```
 
 # heatmap visualization
-- Run R script `scripts/breed_prediction/breeds_joint_heatmap_withQC.R` interactively in R studio. (command line interface not generated yet)
+- Firstly run Run R script `scripts/breed_prediction/breeds_joint_heatmap_beforeQC.R` interactively in R studio.  (command line interface not implemented yet)
+  - This step is to generate heatmap for breed validation/prediction.
+  - Need to mannually add info to metatable to generate the final heatmap.
+- Run R script `scripts/breed_prediction/breeds_joint_heatmap_withQC.R` interactively in R studio.
