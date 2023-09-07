@@ -6,158 +6,210 @@ MuTect2_out=config['out']['outdir']+"/results/Mutect2/"+config['in']['Bioproject
 Germline_out=config['out']['outdir']+"/results/Germline/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 DepthOfCoverage_out=config['out']['outdir']+"/results/DepthOfCoverage/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 strelka_out=config['out']['outdir']+"/results/strelka/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
-SRRLIST = [config['in']['Normal_Run'], config['in']['Tumor_Run']]
+
+# check if SRR is paired
+# SRRLIST=[ config['in']['Normal_Run'], config['in']['Tumor_Run'] ]
+SRRLIST = []
+if config['in']['Normal_Run'] != "NA":
+    SRRLIST.append(config['in']['Normal_Run'])
+if config['in']['Tumor_Run'] != "NA":
+    SRRLIST.append(config['in']['Tumor_Run'])
+
+# determine required outputs according to paired info
+output_list = []
+if len(SRRLIST) == 2:
+    output_list.extend(expand(bam_out+"/{SRR}.bam", SRR = SRRLIST))
+    output_list.extend(expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST))
+    output_list.extend(expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST))
+    output_list.extend(expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST))
+    # output_list.append(MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName")
+    # output_list.append(MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName")
+    # output_list.append(MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt")
+    # output_list.append(strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName")
+else:
+    output_list.extend(expand(bam_out+"/{SRR}.bam", SRR = SRRLIST))
+    output_list.extend(expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST))
+    output_list.extend(expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST))
+    output_list.extend(expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST))
 
 
 rule all:
     input:
         config['out']['outdir']+"/report/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"_report.txt"
 
-# remove unuseful intermediate files to save disc space
+# check requested output files and create a (very simple) report
 READPAIR=[1,2]
-rule remove_intermediates:
+rule check_output:
     input:
-        # remove=[
-        #     expand(config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/{SRR}/{SRR}_{READ}.fastq.gz", SRR = SRRLIST, READ = READPAIR),
-        #     expand(bam_out+"/{SRR}.sam", SRR = SRRLIST),
-        #     expand(bam_out+"/{SRR}-cleaned.sam", SRR = SRRLIST),
-        #     expand(bam_out+"/{SRR}_{READ}.sai", SRR = SRRLIST, READ = READPAIR),
-        #     expand(bam_out+"/{SRR}_rg_added_sorted.bam", SRR = SRRLIST),
-        #     # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS",
-        #     # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput",
-        #     expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS", SRR = SRRLIST),
-        #     expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput", SRR = SRRLIST)
-        # ],
-        keep=[
-            # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName",
-            # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName",
-            # MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt",
-            # strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName",
-            expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST),
-            expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST),
-            expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST)
-        ]
+        output_list
+        # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName",
+        # MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS_filteredMut-avinput.exonic_variant_function_WithGeneName",
+        # MuTect2_out+"/"+config['in']['CaseName']+"_VAF_After.txt",
+        # strelka_out+"/results/variants/somatic.indels.vcf_canFam3.1.99_CDS-PASS-avinput.exonic_variant_function_WithGeneName",
+        # expand(bam_out+"/{SRR}.bam", SRR = SRRLIST),
+        # expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST),
+        # expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST),
+        # expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST) 
     output:
         config['out']['outdir']+"/report/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"_report.txt"
+    params:
+        Bioproject=config['in']['Bioproject'],
+        CaseName=config['in']['CaseName']
     threads:
         config['resources']['threads']
     resources:
         mem=config['resources']['mem']
     shell:
         '''
-        printf "Pipeline finished.\n" > {output}
+        printf "Pipeline finished for {params.Bioproject},{params.CaseName}.\n" > {output}
         '''
 
 
 #### read mapping and realigning ####
 
-rule download_normal:
-    output:
-        normal_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"+config['in']['Normal_Run']+"_1.fastq.gz",
-        normal_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"+config['in']['Normal_Run']+"_2.fastq.gz"
-    params:
-        Normal_Run=config['in']['Normal_Run'],
-        normal_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"
-    conda:
-        config['envs']['wesenv']
-    threads:
-        1
-    shell:
-        '''
-        fasterq-dump --split-files {params.Normal_Run} -O {params.normal_dir}
-        gzip -f {params.normal_dir}/{params.Normal_Run}_1.fastq
-        gzip -f {params.normal_dir}/{params.Normal_Run}_2.fastq
-        '''
-
-rule download_tumor:
-    output:
-        tumor_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"+config['in']['Tumor_Run']+"_1.fastq.gz",
-        tumor_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"+config['in']['Tumor_Run']+"_2.fastq.gz"
-    params:
-        Tumor_Run=config['in']['Tumor_Run'],
-        tumor_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"
-    conda:
-        config['envs']['wesenv']
-    threads:
-        1
-    shell:
-        '''
-        fasterq-dump --split-files {params.Tumor_Run} -O {params.tumor_dir}
-        gzip -f {params.tumor_dir}/{params.Tumor_Run}_1.fastq
-        gzip -f {params.tumor_dir}/{params.Tumor_Run}_2.fastq
-        '''
-
-# # check if merged run
-# rule download_normal_tumor:
+# rule download_normal:
 #     output:
-#         read_1=data_dir+"/{SRR}/{SRR}_1.fastq.gz",
-#         read_2=data_dir+"/{SRR}/{SRR}_1.fastq.gz"
+#         normal_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"+config['in']['Normal_Run']+"_1.fastq.gz",
+#         normal_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"+config['in']['Normal_Run']+"_2.fastq.gz"
 #     params:
-#         run_accession=lambda wc: wc.get("SRR"),
-#         read_dir=lambda wc: data_dir+"/"+wc.get("SRR")
+#         Normal_Run=config['in']['Normal_Run'],
+#         normal_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Normal_Run']+"/"
 #     conda:
 #         config['envs']['wesenv']
 #     threads:
 #         1
 #     shell:
 #         '''
-#         # check if merged
-#         sample_count=`echo {params.run_accession} | sed "s/-/\n/g" | wc -l` 
-#         if [[ $sample_count -eq 1 ]]; then 
-#             echo "[INFO] {params.run_accession} is a single run"
-#             if [[ ! -e {params.read_dir}/{params.run_accession}.sra ]]; then 
-#                 rm -f {params.read_dir}/{params.run_accession}.sra*
-#                 prefetch {params.run_accession} -o {params.read_dir}/{params.run_accession}.sra
-#             fi
-#             vdb-validate {params.read_dir}/{params.run_accession}.sra &> md5_out_{params.run_accession}
-#             stat=`grep "'{params.run_accession}.sra' is consistent" md5_out_{params.run_accession}`
-#             count=0
-#             while [[ -z $stat ]] && [[ $count -lt 10 ]]; do # check if the string is empty
-#                 prefetch {params.run_accession} -o {params.read_dir}/{params.run_accession}.sra
-#                 vdb-validate {params.read_dir}/{params.run_accession}.sra &> md5_out_{params.run_accession}
-#                 stat=`grep "'{params.run_accession}.sra' is consistent" md5_out_{params.run_accession}`
-#                 (( count++ ))
-#             done
-#             if [[ -e {params.read_dir}/{params.run_accession}.sra ]]; then
-#                 fastq-dump -O {params.read_dir} {params.read_dir}/{params.run_accession}.sra --split-e
-#                 echo "Download success for {params.run_accession}"
-#             else
-#                 echo "Download failed for {params.run_accession}"; exit 1;
-#             fi
-#             rm md5_out_{params.run_accession}
-#         elif [[ $sample_count -gt 1 ]]; then 
-#             echo "[INFO] {params.run_accession} is a merged run"
-#             # generate run accession list
-#             echo {params.run_accession} | sed "s/-/\n/g" > {params.read_dir}/{params.run_accession}.list
-#             # create empty merged files
-#             > {params.read_dir}/{params.run_accession}_1.fastq
-#             > {params.read_dir}/{params.run_accession}_2.fastq
-#             while read SRR; do
-#                 if [[ ! -e {params.read_dir}/${SRR}.sra ]]; then 
-#                     prefetch $SRR -o {params.read_dir}/${SRR}.sra
-#                 fi
-#                 vdb-validate {params.read_dir}/${SRR}.sra &> md5_out_${SRR}
-#                 stat=`grep "'${SRR}.sra' is consistent" md5_out_${SRR}`
-#                 count=0
-#                 while [[ -z $stat ]] && [[ $count -lt 10 ]]; do # check if the string is empty
-#                     prefetch $SRR -o {params.read_dir}/${SRR}.sra
-#                     vdb-validate {params.read_dir}/${SRR}.sra &> md5_out_${SRR}
-#                     stat=`grep "'${SRR}.sra' is consistent" md5_out_${SRR}`
-#                     (( count++ ))
-#                 done
-#                 if [[ -e {params.read_dir}/${SRR}.sra ]]; then
-#                     fastq-dump -O {params.read_dir} {params.read_dir}/${SRR}.sra --split-e
-#                     echo "Download success for ${SRR}"
-#                 else
-#                     echo "Download failed for ${SRR}"; exit 1;
-#                 fi
-#                 cat {params.read_dir}/${SRR}_1.fastq >> {params.read_dir}/${sample_name}_1.fastq
-#                 cat {params.read_dir}/${SRR}_2.fastq >> {params.read_dir}/${sample_name}_2.fastq
-#                 cat {params.read_dir}/${SRR}.fastq >> {params.read_dir}/${sample_name}.fastq
-#                 rm md5_out_${SRR}
-#             done < {params.read_dir}/${sample_name}.list
-#         fi
+#         fasterq-dump --split-files {params.Normal_Run} -O {params.normal_dir}
+#         gzip -f {params.normal_dir}/{params.Normal_Run}_1.fastq
+#         gzip -f {params.normal_dir}/{params.Normal_Run}_2.fastq
 #         '''
+
+# rule download_tumor:
+#     output:
+#         tumor_1=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"+config['in']['Tumor_Run']+"_1.fastq.gz",
+#         tumor_2=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"+config['in']['Tumor_Run']+"_2.fastq.gz"
+#     params:
+#         Tumor_Run=config['in']['Tumor_Run'],
+#         tumor_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/"+config['in']['Tumor_Run']+"/"
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         1
+#     shell:
+#         '''
+#         fasterq-dump --split-files {params.Tumor_Run} -O {params.tumor_dir}
+#         gzip -f {params.tumor_dir}/{params.Tumor_Run}_1.fastq
+#         gzip -f {params.tumor_dir}/{params.Tumor_Run}_2.fastq
+#         '''
+
+# check if merged run using wildcard_constraints
+# all samples are paired-end data
+# sample_count=`echo {params.run_accession} | sed "s/-/\\n/g" | wc -l` 
+
+rule download_normal_tumor_single:
+    output:
+        read_1=data_dir+"/{SRR}/{SRR}_1.fastq.gz",
+        read_2=data_dir+"/{SRR}/{SRR}_1.fastq.gz",
+        sra=temp(data_dir+"/{SRR}/{SRR}.sra"),
+        md5_out=temp(data_dir+"/{SRR}/md5_out_{SRR}")
+    params:
+        run_accession=lambda wc: wc.get("SRR"),
+        read_dir=lambda wc: data_dir+"/"+wc.get("SRR"),
+        retry_times=10
+    wildcard_constraints:
+        SRR="[A-Z]RR[0-9]+"
+    log:
+        config['out']['outdir']+"/logs/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/download_normal_tumor_{SRR}.log"
+    conda:
+        config['envs']['wesenv']
+    threads:
+        1
+    shell:
+        '''
+        echo "[INFO] {params.run_accession} is not a merged run" > {log}
+        if [[ ! -e {output.sra} ]]; then 
+            rm -f {output.sra}*
+            prefetch {params.run_accession} -o {output.sra}
+        fi
+        vdb-validate {output.sra} &> {output.md5_out}
+        stat=`grep "'{params.run_accession}.sra' is consistent" {output.md5_out}`
+        count=0
+        while [[ -z $stat ]] && [[ $count -lt {params.retry_times} ]]; do # check if the string is empty
+            prefetch {params.run_accession} -o {output.sra}
+            vdb-validate {output.sra} &> {output.md5_out}
+            stat=`grep "'{params.run_accession}.sra' is consistent" {output.md5_out}`
+            (( count++ ))
+        done
+        if [[ -e {output.sra} ]]; then
+            fasterq-dump --split-files -O {params.read_dir} {output.sra} &>> {log}
+            gzip -f {params.read_dir}/{params.run_accession}_1.fastq
+            gzip -f {params.read_dir}/{params.run_accession}_2.fastq
+            echo "Download success for {params.run_accession}" >> {log}
+        else
+            echo "Download failed for {params.run_accession}" >> {log}; exit 1;
+        fi
+        '''
+
+rule download_normal_tumor_merged:
+    output:
+        read_1=data_dir+"/{SRR}/{SRR}_1.fastq.gz",
+        read_2=data_dir+"/{SRR}/{SRR}_1.fastq.gz",
+        temp(expand(data_dir+"/{{SRR}}/{individual_SRR}.sra", individual_SRR = lambda wc: wc.get("SRR").split('-'))),
+        temp(expand(data_dir+"/{{SRR}}/{individual_SRR}_1.fastq", individual_SRR = lambda wc: wc.get("SRR").split('-'))),
+        temp(expand(data_dir+"/{{SRR}}/{individual_SRR}_2.fastq", individual_SRR = lambda wc: wc.get("SRR").split('-'))),
+        temp(expand(data_dir+"/{{SRR}}/md5_out_{individual_SRR}", individual_SRR = lambda wc: wc.get("SRR").split('-'))),
+        accession_list=temp(data_dir+"/{SRR}/{SRR}.list")
+    params:
+        run_accession=lambda wc: wc.get("SRR"),
+        read_dir=lambda wc: data_dir+"/"+wc.get("SRR"),
+        retry_times=10
+    wildcard_constraints:
+        SRR="[A-Z]RR[0-9]+\-[A-Z]RR[0-9]+.*"
+    log:
+        config['out']['outdir']+"/logs/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"/download_normal_tumor_{SRR}.log"
+    conda:
+        config['envs']['wesenv']
+    threads:
+        1
+    shell:
+        '''
+        echo "[INFO] {params.run_accession} is a merged run" > {log}
+        # generate run accession list
+        echo {params.run_accession} | sed "s/-/\\n/g" > {output.accession_list}
+        # create empty merged files
+        > {params.read_dir}/{params.run_accession}_1.fastq
+        > {params.read_dir}/{params.run_accession}_2.fastq
+        while read SRR; do
+            if [[ ! -e {params.read_dir}/$SRR.sra ]]; then 
+                prefetch $SRR -o {params.read_dir}/$SRR.sra
+            fi
+            vdb-validate {params.read_dir}/$SRR.sra &> {params.read_dir}/md5_out_$SRR
+            stat=`grep "'$SRR.sra' is consistent" {params.read_dir}/md5_out_$SRR`
+            count=0
+            while [[ -z $stat ]] && [[ $count -lt {params.retry_times} ]]; do # check if the string is empty
+                prefetch $SRR -o {params.read_dir}/$SRR.sra
+                vdb-validate {params.read_dir}/$SRR.sra &> {params.read_dir}/md5_out_$SRR
+                stat=`grep "'$SRR.sra' is consistent" {params.read_dir}/md5_out_$SRR`
+                (( count++ ))
+            done
+            if [[ -e {params.read_dir}/$SRR.sra ]]; then
+                fasterq-dump --split-files -O {params.read_dir} {params.read_dir}/$SRR.sra &>> {log}
+                echo "Download success for $SRR" >> {log}
+            else
+                echo "Download failed for $SRR" >> {log}; exit 1;
+            fi
+            cat {params.read_dir}/$SRR_1.fastq >> {params.read_dir}/{params.run_accession}_1.fastq
+            cat {params.read_dir}/$SRR_2.fastq >> {params.read_dir}/{params.run_accession}_2.fastq
+            # rm {params.read_dir}/$SRR.sra
+            # rm {params.read_dir}/md5_out_$SRR
+            # rm {params.read_dir}/$SRR_1.fastq
+            # rm {params.read_dir}/$SRR_2.fastq
+        done < {output.accession_list}
+        gzip -f {params.read_dir}/{params.run_accession}_1.fastq
+        gzip -f {params.read_dir}/{params.run_accession}_2.fastq
+        echo "Download success for {params.run_accession}" >> {log}
+        '''
 
 
 # wildcard SRR = Normal_Run or Tumor_Run
@@ -166,7 +218,9 @@ rule read_mapping:
         read_1=data_dir+"/{SRR}/{SRR}_1.fastq.gz",
         read_2=data_dir+"/{SRR}/{SRR}_2.fastq.gz"
     output:
-        bam_out+"/{SRR}.sam"
+        sai1=temp(bam_out+"/{SRR}_1.sai"),
+        sai2=temp(bam_out+"/{SRR}_2.sai"),
+        sam=temp(bam_out+"/{SRR}.sam")
     params:
         out_dir=bam_out,
         ref=config['in']['ref']
@@ -178,14 +232,14 @@ rule read_mapping:
         mem=config['resources']['mem']
     shell:
         '''
-        bwa aln -t {threads} {params.ref} {input.read_1} > {params.out_dir}/{wildcards.SRR}_1.sai
-        bwa aln -t {threads} {params.ref} {input.read_2} > {params.out_dir}/{wildcards.SRR}_2.sai
+        bwa aln -t {threads} {params.ref} {input.read_1} > {output.sai1}
+        bwa aln -t {threads} {params.ref} {input.read_2} > {output.sai2}
         bwa sampe {params.ref} \
-            {params.out_dir}/{wildcards.SRR}_1.sai \
-            {params.out_dir}/{wildcards.SRR}_2.sai \
+            {output.sai1} \
+            {output.sai2} \
             {input.read_1} \
             {input.read_2} \
-            > {output}
+            > {output.sam}
         '''
 
 
@@ -212,7 +266,7 @@ rule remove_unmapped:
         sam=bam_out+"/{SRR}.sam",
         header=bam_out+"/header_{SRR}"
     output:
-        cleaned_sam=bam_out+"/{SRR}-cleaned.sam"
+        cleaned_sam=temp(bam_out+"/{SRR}-cleaned.sam")
     conda:
         config['envs']['wesenv']
     params:
@@ -229,7 +283,7 @@ rule sort_sam:
     input:
         cleaned_sam=bam_out+"/{SRR}-cleaned.sam"
     output:
-        sorted_bam=bam_out+"/{SRR}_rg_added_sorted.bam",
+        sorted_bam=temp(bam_out+"/{SRR}_rg_added_sorted.bam"),
     conda:
         config['envs']['wesenv']
     threads:
@@ -355,8 +409,8 @@ rule Mutect_Annovar:
         vcf=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf",
         genename=config['in']['genename']
     output:
-        vcf_pass=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS",
-        vcf_pass_avinput=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput",
+        vcf_pass=temp(MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS"),
+        vcf_pass_avinput=temp(MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput"),
         annovar_out=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function",
         add_genename=MuTect_out+"/"+config['in']['CaseName']+"_rg_added_sorted_dedupped_removed.realigned.MuTect.vcf-PASS-avinput.exonic_variant_function_WithGeneName"
     params:
@@ -478,8 +532,8 @@ rule germline_Annovar:
         vcf=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf",
         genename=config['in']['genename']
     output:
-        vcf_pass=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS",
-        vcf_pass_avinput=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput",
+        vcf_pass=temp(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS"),
+        vcf_pass_avinput=temp(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput"),
         annovar_out=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function",
         add_genename=Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName"
     params:
