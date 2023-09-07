@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=8
 #SBATCH --mem=60G
-#SBATCH --time=100:00:00
+#SBATCH --time=500:00:00
 #SBATCH --mail-user=jc33471@uga.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --output=/scratch/jc33471/canine_tumor/master_job.out
@@ -41,7 +41,7 @@ snakemake \
     --snakefile "${project_dir}/scripts/sum_cases/Snakefile" \
     --cluster '
         sbatch \
-            --partition=iob_p \
+            --partition=batch \
             --job-name={wildcards.Bioproject}_{wildcards.CaseName}_smk \
             --nodes=1 \
             --tasks-per-node={threads} \
@@ -50,6 +50,6 @@ snakemake \
             --mail-user=jc33471@uga.edu \
             --mail-type=FAIL \
             --output=logs/{wildcards.Bioproject}_{wildcards.CaseName}_log.o \
-            --error=logs/{wildcards.Bioproject}_{wildcards.CaseName}_log.o'
+            --error=logs/{wildcards.Bioproject}_{wildcards.CaseName}_log.e'
 
 
