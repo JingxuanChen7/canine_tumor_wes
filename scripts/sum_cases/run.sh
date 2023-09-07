@@ -19,12 +19,12 @@ mkdir -p ${run_dir}
 cd ${run_dir}
 mkdir -p logs/ config/ data/ out/ results
 
-config="/home/jc33471/canine_tumor_wes/scripts/sum_cases/config.json"
-# config=$run_dir/config/test.json
+# config="/home/jc33471/canine_tumor_wes/scripts/sum_cases/config.json"
+config=$run_dir/config/master_config.json
 
 python ${project_dir}/scripts/sum_cases/make_snakemake_config.py \
     --project_dir ${project_dir} \
-    --out ${run_dir}/config/test.json \
+    --out ${config} \
     --outdir ${run_dir} \
     --metadata ${project_dir}/metadata/data_collection_new.csv\
     --threads 8 \
@@ -39,6 +39,8 @@ snakemake \
     --restart-times 0 \
     --configfile ${config} \
     --snakefile "${project_dir}/scripts/sum_cases/Snakefile" \
+    --cluster-status "${project_dir}/scripts/status-sacct-robust.sh" \
+    --cluster-cancel 'scancel' \
     --cluster '
         sbatch \
             --partition=batch \
@@ -47,6 +49,7 @@ snakemake \
             --tasks-per-node={threads} \
             --mem={resources.mem} \
             --time=72:00:00 \
+            --parsable \
             --mail-user=jc33471@uga.edu \
             --mail-type=FAIL \
             --output=logs/{wildcards.Bioproject}_{wildcards.CaseName}_log.o \
