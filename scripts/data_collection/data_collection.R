@@ -200,6 +200,7 @@ write.csv(all_new_datasets, file = paste0(meta_dir,"/data_collection_new_pre.csv
 
 # meta data for breed prediction
 df_old_meta <- read.csv(file = paste0(meta_dir,"/data_collection_old.csv"), stringsAsFactors = F)
+all_new_datasets <- read.csv(file = paste0(meta_dir,"/data_collection_new_pre.csv"), stringsAsFactors = F)
 
 df_new_meta_normal <- all_new_datasets %>% 
   filter(Status != "Cell Line") %>% 
