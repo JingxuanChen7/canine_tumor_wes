@@ -70,3 +70,33 @@ for case in "CMT-100" "CMT-102" "CMT-103" "CMT-105" "CMT-106" "CMT-107" "CMT-109
 done
 diff -i -E -Z -w -y /project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/Germline/CMT-100/SRR7780976_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName \
     /scratch/jc33471/canine_tumor/results/Germline/PRJNA489159/CMT-100/SRR7780976_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName
+
+####### phylogenetics ########
+conda activate phylogenetics
+project_dir="/home/${USER}/canine_tumor_wes"
+run_dir="/scratch/${USER}/canine_tumor_test/breed_prediction"
+cd $run_dir
+
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt \
+    --output-folder /scratch/jc33471/canine_tumor_test/breed_prediction \
+    --resolve-IUPAC
+
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt \
+    --output-folder /scratch/jc33471/canine_tumor_test/breed_prediction \
+    --output-prefix "breed_specific" \
+    --select_sites output_exclude_WGS/57_WGS_all_breed_specific_variants.txt \
+    --resolve-IUPAC
+
+awk -F, 'BEGIN{split("Shih Tzu,Schnauzer,Golden Retriever,Rottweiler,Greyhound,Maltese,Yorkshire Terrier,Boxer,Poodle,Cocker Spaniel", breed, ",")}{
+    for (i in breed) if ( $5=="Normal" && $7==breed[i]) print $2;
+        }'\
+    ${project_dir}/metadata/data_collection_old.csv > ${run_dir}/breed_sample.list
+
+# samples with breed info, breed specific sites
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/breed_specific.min4.fasta | seqkit rmdup -n > ${run_dir}/breed_specific_breed_sample.min4.fasta
+
+# samples with breed info, all sites
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt.min4.fasta | seqkit rmdup -n > ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy_breed_sample.min4.fasta
+

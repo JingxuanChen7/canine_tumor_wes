@@ -2,7 +2,7 @@
 #SBATCH --partition=iob_p
 #SBATCH --job-name=master_job
 #SBATCH --nodes=1
-#SBATCH --ntasks=1
+#SBATCH --ntasks=8
 #SBATCH --tasks-per-node=8
 #SBATCH --mem=60G
 #SBATCH --time=500:00:00
@@ -36,7 +36,8 @@ snakemake \
     --use-conda \
     --latency-wait 60 \
     --keep-going \
-    --restart-times 0 \
+    --restart-times 3 \
+    --rerun-triggers mtime \
     --configfile ${config} \
     --snakefile "${project_dir}/scripts/sum_cases/Snakefile" \
     --cluster-status "${project_dir}/scripts/status-sacct-robust.sh" \
@@ -46,7 +47,7 @@ snakemake \
             --partition=batch \
             --job-name={wildcards.Bioproject}_{wildcards.CaseName}_smk \
             --nodes=1 \
-            --ntasks=1 \
+            --ntasks={threads} \
             --tasks-per-node={threads} \
             --mem={resources.mem} \
             --time=72:00:00 \

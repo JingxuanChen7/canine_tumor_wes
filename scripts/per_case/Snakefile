@@ -130,13 +130,13 @@ rule download_normal_tumor_single:
         echo "[INFO] {params.run_accession} is not a merged run" > {log}
         if [[ ! -e {output.sra} ]]; then 
             rm -f {output.sra}*
-            prefetch {params.run_accession} -o {output.sra}
+            prefetch --max-size 1000G {params.run_accession} -o {output.sra}
         fi
         vdb-validate {output.sra} &> {output.md5_out}
         stat=`grep "'{params.run_accession}.sra' is consistent" {output.md5_out}`
         count=0
         while [[ -z $stat ]] && [[ $count -lt {params.retry_times} ]]; do # check if the string is empty
-            prefetch {params.run_accession} -o {output.sra}
+            prefetch --max-size 1000G {params.run_accession} -o {output.sra}
             vdb-validate {output.sra} &> {output.md5_out}
             stat=`grep "'{params.run_accession}.sra' is consistent" {output.md5_out}`
             (( count++ ))
@@ -185,13 +185,13 @@ rule download_normal_tumor_merged:
         > {params.read_dir}/{params.run_accession}_2.fastq
         while read SRR; do
             if [[ ! -e {params.read_dir}/${{SRR}}.sra ]]; then 
-                prefetch ${{SRR}} -o {params.read_dir}/${{SRR}}.sra
+                prefetch --max-size 1000G ${{SRR}} -o {params.read_dir}/${{SRR}}.sra
             fi
             vdb-validate {params.read_dir}/${{SRR}}.sra &> {params.read_dir}/md5_out_${{SRR}}
             stat=`grep "'${{SRR}}.sra' is consistent" {params.read_dir}/md5_out_${{SRR}}`
             count=0
             while [[ -z $stat ]] && [[ $count -lt {params.retry_times} ]]; do # check if the string is empty
-                prefetch ${{SRR}} -o {params.read_dir}/${{SRR}}.sra
+                prefetch --max-size 1000G ${{SRR}} -o {params.read_dir}/${{SRR}}.sra
                 vdb-validate {params.read_dir}/${{SRR}}.sra &> {params.read_dir}/md5_out_${{SRR}}
                 stat=`grep "'${{SRR}}.sra' is consistent" {params.read_dir}/md5_out_${{SRR}}`
                 (( count++ ))

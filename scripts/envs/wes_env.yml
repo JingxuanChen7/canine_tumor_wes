@@ -11,3 +11,4 @@ dependencies:
   - bioconda::samtools=1.9
   - bioconda::picard=2.21.6
   - bioconda::gatk=3.8
+  - bioconda::seqkit

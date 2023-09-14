@@ -64,3 +64,39 @@ Rscript --vanilla ${project_dir}/scripts/breed_prediction/breed_specific_variant
   - This step is to generate heatmap for breed validation/prediction.
   - Need to mannually add info to metatable to generate the final heatmap.
 - Run R script `scripts/breed_prediction/breeds_joint_heatmap_withQC.R` interactively in R studio.
+
+# phylogenetic analysis
+- Install conda environment
+```
+mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/phylogenetics.yml --name phylogenetics
+```
+```
+project_dir="/home/${USER}/canine_tumor_wes"
+run_dir="/scratch/${USER}/canine_tumor_test/breed_prediction"
+cd $run_dir
+
+
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt \
+    --output-folder /scratch/jc33471/canine_tumor_test/breed_prediction \
+    --resolve-IUPAC
+
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt \
+    --output-folder /scratch/jc33471/canine_tumor_test/breed_prediction \
+    --output-prefix "breed_specific" \
+    --select_sites output_exclude_WGS/57_WGS_all_breed_specific_variants.txt \
+    --resolve-IUPAC
+
+awk -F, 'BEGIN{split("Shih Tzu,Schnauzer,Golden Retriever,Rottweiler,Greyhound,Maltese,Yorkshire Terrier,Boxer,Poodle,Cocker Spaniel", breed, ",")}{
+    for (i in breed) if ( $5=="Normal" && $7==breed[i]) print $2;
+        }'\
+    ${project_dir}/metadata/data_collection_old.csv > ${run_dir}/breed_sample.list
+
+# samples with breed info, breed specific sites
+seqkit grep -n -r -f ${run_dir}/breed_sample.list ${run_dir}/breed_specific.min4.fasta > ${run_dir}/breed_specific_breed_sample.min4.fasta
+
+# samples with breed info, all sites
+seqkit grep -n -r -f ${run_dir}/breed_sample.list ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt.min4.fasta > ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy_breed_sample.min4.fasta
+
+```

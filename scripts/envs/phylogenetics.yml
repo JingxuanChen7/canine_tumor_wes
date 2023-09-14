@@ -1,0 +1,29 @@
+name: phylogenetics
+channels:
+  - bioconda
+  - conda-forge
+  - r
+  - defaults
+dependencies:
+  - python=3.8.2
+  - bioconda::seqkit
+  - conda-forge::r-reshape2
+  - conda-forge::r-stringi
+  - conda-forge::r-dplyr
+  - conda-forge::r-r.utils
+  - conda-forge::r-tidyr
+  - conda-forge::r-ggplot2=3.3.6
+  - conda-forge::r-plyr
+  - conda-forge::r-ape
+  - bioconda::bioconductor-ggtree
+  - bioconda::bioconductor-treeio
+  - conda-forge::r-ggrepel
+  - bioconda::bioconductor-ggtreeextra
+  - conda-forge::r-phytools
+  - conda-forge::r-tidyverse
+  - conda-forge::r-devtools
+  - conda-forge::r-pegas
+  - conda-forge::r-phangorn
+  - bioconda::mafft=7.508
+  - conda-forge::r-ggpubr
+  - conda-forge::r-ggimage
