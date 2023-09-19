@@ -77,26 +77,116 @@ project_dir="/home/${USER}/canine_tumor_wes"
 run_dir="/scratch/${USER}/canine_tumor_test/breed_prediction"
 cd $run_dir
 
-python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
-    -i PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt \
-    --output-folder /scratch/jc33471/canine_tumor_test/breed_prediction \
-    --resolve-IUPAC
-
-python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
-    -i PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt \
-    --output-folder /scratch/jc33471/canine_tumor_test/breed_prediction \
-    --output-prefix "breed_specific" \
-    --select_sites output_exclude_WGS/57_WGS_all_breed_specific_variants.txt \
-    --resolve-IUPAC
-
+# list of samples with selected pure breed info
 awk -F, 'BEGIN{split("Shih Tzu,Schnauzer,Golden Retriever,Rottweiler,Greyhound,Maltese,Yorkshire Terrier,Boxer,Poodle,Cocker Spaniel", breed, ",")}{
-    for (i in breed) if ( $5=="Normal" && $7==breed[i]) print $2;
+    for (i in breed) if ( $5=="Normal" && $7==breed[i] && $10~/Pass QC/) print $2;
         }'\
     ${project_dir}/metadata/data_collection_old.csv > ${run_dir}/breed_sample.list
 
-# samples with breed info, breed specific sites
-seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/breed_specific.min4.fasta | seqkit rmdup -n > ${run_dir}/breed_specific_breed_sample.min4.fasta
+# list of samples with selected pure breed info + missing
+awk -F, 'BEGIN{split("Shih Tzu,Schnauzer,Golden Retriever,Rottweiler,Greyhound,Maltese,Yorkshire Terrier,Boxer,Poodle,Cocker Spaniel,No breed provided", breed, ",")}{
+    for (i in breed) if ( $5=="Normal" && $7==breed[i] && $10~/Pass QC/) print $2;
+        }'\
+    ${project_dir}/metadata/data_collection_old.csv > ${run_dir}/breed_plus_unknown_sample.list
+
+# convert MAF matrix to sequence, including all samples & all sites
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage.txt.gz \
+    --output-folder ${run_dir} \
+    --output-prefix "all_sample_site" \
+    --resolve-IUPAC
 
 # samples with breed info, all sites
-seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt.min4.fasta | seqkit rmdup -n > ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy_breed_sample.min4.fasta
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/all_sample_site.min4.fasta | seqkit rmdup -n > ${run_dir}/all_breedSample_site.min4.fasta
 
+# samples with breed+missing info, all sites
+seqkit grep -n -f ${run_dir}/breed_plus_unknown_sample.list ${run_dir}/all_sample_site.min4.fasta | seqkit rmdup -n > ${run_dir}/all_breedPlusMissingSample_site.min4.fasta
+
+
+# convert MAF matrix to sequence, including all samples & breed specific sites
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage.txt.gz \
+    --output-folder ${run_dir} \
+    --output-prefix "all_sample_breedSpecific" \
+    --select_sites ${run_dir}/output_exclude_WGS/57_WGS_all_breed_specific_variants.txt \
+    --resolve-IUPAC
+
+# samples with breed info, breed specific sites
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/all_sample_breedSpecific.min4.fasta | seqkit rmdup -n > ${run_dir}/all_breedSample_breedSpecific.min4.fasta
+
+# samples with breed+missing info, breed specific sites
+seqkit grep -n -f ${run_dir}/breed_plus_unknown_sample.list ${run_dir}/all_sample_breedSpecific.min4.fasta | seqkit rmdup -n > ${run_dir}/all_breedPlusMissingSample_breedSpecific.min4.fasta
+
+### generate NJ tree and figures
+# samples with breed info, all sites
+Rscript --vanilla ${project_dir}/scripts/phylogenetic/nj_tree.R \
+    $SLURM_NTASKS \
+    ${run_dir}/all_breedSample_site.min4.fasta \
+    "all_breedSample_site" \
+    ${run_dir} \
+    ${project_dir}/metadata/data_collection_old.csv
+
+# samples with breed+missing info, all sites
+Rscript --vanilla ${project_dir}/scripts/phylogenetic/nj_tree.R \
+    $SLURM_NTASKS \
+    ${run_dir}/all_breedPlusMissingSample_site.min4.fasta \
+    "all_breedPlusMissingSample_site" \
+    ${run_dir} \
+    ${project_dir}/metadata/data_collection_old.csv
+
+# samples with breed info, breed specific sites
+Rscript --vanilla ${project_dir}/scripts/phylogenetic/nj_tree.R \
+    $SLURM_NTASKS \
+    ${run_dir}/all_breedSample_breedSpecific.min4.fasta \
+    "all_breedSample_breedSpecific" \
+    ${run_dir} \
+    ${project_dir}/metadata/data_collection_old.csv
+
+# samples with breed+missing info, breed specific sites
+Rscript --vanilla ${project_dir}/scripts/phylogenetic/nj_tree.R \
+    $SLURM_NTASKS \
+    ${run_dir}/all_breedPlusMissingSample_breedSpecific.min4.fasta \
+    "all_breedPlusMissingSample_breedSpecific" \
+    ${run_dir} \
+    ${project_dir}/metadata/data_collection_old.csv
+
+awk '{if($1=="Gene" || $1=="DLA-12") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt > ${run_dir}/DLA-12_maf.txt
+awk '{if($1=="Gene" || $1=="DLA88") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt > ${run_dir}/DLA88_maf.txt
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i ${run_dir}/DLA-12_maf.txt \
+    --output-folder ${run_dir} \
+    --output-prefix "DLA-12" \
+    --resolve-IUPAC
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/DLA-12.min4.fasta | seqkit rmdup -n > ${run_dir}/DLA-12_breedSample.min4.fasta
+
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i ${run_dir}/DLA88_maf.txt \
+    --output-folder ${run_dir} \
+    --output-prefix "DLA88" \
+    --resolve-IUPAC
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/DLA88.min4.fasta | seqkit rmdup -n > ${run_dir}/DLA88_breedSample.min4.fasta
+
+# list of site for DLA-12
+awk  '{if($1=="Gene" || $1=="DLA-12") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt | \
+    awk 'BEGIN{OFS="\t"}{gene=$1;locus=$2":"$3;mutation=$4">"$5; print gene,locus,mutation}' \
+    > ${run_dir}/DLA-12_sites.txt
+awk  '{if($1=="Gene" || $1=="DLA88") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt | \
+    awk 'BEGIN{OFS="\t"}{gene=$1;locus=$2":"$3;mutation=$4">"$5; print gene,locus,mutation}' \
+    > ${run_dir}/DLA88_sites.txt
+
+### including low depth variants
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i ${run_dir}/PanCancer_disc_val_merged_germline_VAF_01_01_2021.txt.gz \
+    --output-folder ${run_dir} \
+    --output-prefix "DLA-12" \
+    --select_sites ${run_dir}/DLA-12_sites.txt \
+    --resolve-IUPAC
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/DLA-12.min4.fasta | seqkit rmdup -n > ${run_dir}/DLA-12_breedSample.min4.fasta
+
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i ${run_dir}/PanCancer_disc_val_merged_germline_VAF_01_01_2021.txt.gz \
+    --output-folder ${run_dir} \
+    --output-prefix "DLA88" \
+    --select_sites ${run_dir}/DLA88_sites.txt \
+    --resolve-IUPAC
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/DLA88.min4.fasta | seqkit rmdup -n > ${run_dir}/DLA88_breedSample.min4.fasta

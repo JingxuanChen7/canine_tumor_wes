@@ -32,6 +32,7 @@ python ${project_dir}/scripts/sum_cases/make_snakemake_config.py \
     --memory "60G"
 
 snakemake \
+    --dry-run \
     --jobs 200 \
     --use-conda \
     --latency-wait 60 \

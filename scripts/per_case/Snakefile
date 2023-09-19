@@ -142,7 +142,7 @@ rule download_normal_tumor_single:
             (( count++ ))
         done
         if [[ -e {output.sra} ]]; then
-            fasterq-dump --split-files -O {params.read_dir} {output.sra} &>> {log}
+            fasterq-dump --split-3 -O {params.read_dir} {output.sra} &>> {log}
             gzip -f {params.read_dir}/{params.run_accession}_1.fastq
             gzip -f {params.read_dir}/{params.run_accession}_2.fastq
             echo "Download success for {params.run_accession}" >> {log}
@@ -197,7 +197,7 @@ rule download_normal_tumor_merged:
                 (( count++ ))
             done
             if [[ -e {params.read_dir}/${{SRR}}.sra ]]; then
-                fasterq-dump --split-files -O {params.read_dir} {params.read_dir}/${{SRR}}.sra &>> {log}
+                fasterq-dump --split-3 -O {params.read_dir} {params.read_dir}/${{SRR}}.sra &>> {log}
                 echo "Download success for ${{SRR}}" >> {log}
             else
                 echo "Download failed for ${{SRR}}" >> {log}; exit 1;

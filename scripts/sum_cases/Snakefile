@@ -53,6 +53,7 @@ rule run_pipeline:
 
         snakemake \
             --cores {threads} \
+            --unlock \
             --use-conda \
             --rerun-triggers mtime \
             --configfile {params.config} \
