@@ -10,6 +10,7 @@ mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/data_col
 ```
 - Shell script to submit individual jobs:
 
+- NOTE: The environment installation is mostly reproducible other than `MuTect`, because `MuTect/1.1.7-Java-1.7.0_80` is pre-installed by GACRC. Double check with `module spider`.
 
 # merge individual VCFs
 - *To be tested* https://github.com/ZhaoS-Lab/breed_prediction/blob/main/combine_germline_variants.sh

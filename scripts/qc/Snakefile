@@ -1,0 +1,85 @@
+# define output folder structure
+data_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
+bam_out=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
+DepthOfCoverage_out=config['out']['outdir']+"/results/DepthOfCoverage/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
+MuTect_out=config['out']['outdir']+"/results/Mutect/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
+qc_out=config['out']['outdir']+"/results/QC/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
+
+
+# check if SRR is paired
+# SRRLIST=[ config['in']['Normal_Run'], config['in']['Tumor_Run'] ]
+SRRLIST = []
+if config['in']['Normal_Run'] != "NA":
+    SRRLIST.append(config['in']['Normal_Run'])
+if config['in']['Tumor_Run'] != "NA":
+    SRRLIST.append(config['in']['Tumor_Run'])
+
+# determine required outputs according to paired info
+output_list = []
+if len(SRRLIST) == 2:
+    output_list.extend(expand(bam_out+"/{SRR}.bam", SRR = SRRLIST))
+    output_list.extend(expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST))
+    output_list.extend(expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST))
+    output_list.extend(expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST))
+else:
+    output_list.extend(expand(bam_out+"/{SRR}.bam", SRR = SRRLIST))
+    output_list.extend(expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST))
+    output_list.extend(expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST))
+    output_list.extend(expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST))
+
+
+rule all:
+    input:
+        output_list
+
+rule tmp_sam:
+    input:
+        bam_out+"/{SRR}.bam"
+    output:
+        sam=temp(qc_out+"/{SRR}.sam")
+    wildcard_constraints:
+        SRR=".*[A-Z]RR[0-9]+"
+    conda:
+        config['envs']['wesenv']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        samtools view -bS {input} > {output.sam}
+        '''
+
+rule cds_mapping_sum:
+    input:
+        qc_out+"/{SRR}.sam"
+    output:
+        qc_out+"/{SRR}-CDS_Mapping_summary.txt"
+    params:
+        share_dir=config['scripts']['share_dir'],
+        sample=lambda wc: wc.get("SRR"),
+        Sequence_length=101,
+        Cancer_Type="MT"
+    conda:
+        config['envs']['java17']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        cd {params.MuTect2_out}
+        # with DbSNP
+        java -Xmx{resources.mem} -cp {params.share_dir} Line_by_line_Total_dict_Get_exon_reads \
+            {input} \
+            {params.sample} \
+            {output} \
+            101
+        '''
+
+
+rule mapping_quality:
+
+rule depthofcoverage_randomness:
+
+rule callable_bases:
