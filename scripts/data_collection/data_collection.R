@@ -249,7 +249,7 @@ df_new_meta <- rbind(df_new_meta_normal, df_new_meta_pairedtumor) %>%
 
 # check breed frequency
 # table(df_new_meta$Breed_info)[order(table(df_new_meta$Breed_info), decreasing = T)]
-
+write.csv(df_old_meta, file = paste0(meta_dir,"/data_collection_old.csv"), quote = TRUE, na = "NA", row.names = F)
 write.csv(df_new_meta, file = paste0(meta_dir,"/data_collection_new.csv"), quote = TRUE, na = "NA", row.names = F)
 
 ## merge new datasets with old datasets
