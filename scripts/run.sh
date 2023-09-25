@@ -190,3 +190,42 @@ python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
     --select_sites ${run_dir}/DLA88_sites.txt \
     --resolve-IUPAC
 seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/DLA88.min4.fasta | seqkit rmdup -n > ${run_dir}/DLA88_breedSample.min4.fasta
+
+# DRB1 no variants???
+awk '{if($1=="Gene" || $1=="DRB1") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt > ${run_dir}/DRB1_maf.txt
+cut -f1 PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt | grep "DRB1" | sort | uniq -c
+
+# DQA1
+cut -f1 PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt | grep -E "LA-DRB1|DQA1|DQB1" | sort | uniq -c
+awk '{if($1=="Gene" || $1=="DLA-DQA1") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt > ${run_dir}/DLA-DQA1_maf.txt
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i ${run_dir}/DLA-DQA1_maf.txt \
+    --output-folder ${run_dir} \
+    --output-prefix "DLA-DQA1" \
+    --resolve-IUPAC
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/DLA-DQA1.min4.fasta | seqkit rmdup -n > ${run_dir}/DLA-DQA1_breedSample.min4.fasta
+
+Rscript --vanilla ${project_dir}/scripts/phylogenetic/nj_tree.R \
+    $SLURM_NTASKS \
+    ${run_dir}/DLA-DQA1_breedSample.min4.fasta \
+    "DLA-DQA1_breedSample" \
+    ${run_dir} \
+    ${project_dir}/metadata/data_collection_old.csv
+
+
+# DQB1
+awk '{if($1=="Gene" || $1=="HLA-DQB1") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt > ${run_dir}/HLA-DQB1_maf.txt
+python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
+    -i ${run_dir}/HLA-DQB1_maf.txt \
+    --output-folder ${run_dir} \
+    --output-prefix "HLA-DQB1" \
+    --resolve-IUPAC
+seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/HLA-DQB1.min4.fasta | seqkit rmdup -n > ${run_dir}/HLA-DQB1_breedSample.min4.fasta
+
+Rscript --vanilla ${project_dir}/scripts/phylogenetic/nj_tree.R \
+    $SLURM_NTASKS \
+    ${run_dir}/HLA-DQB1_breedSample.min4.fasta \
+    "HLA-DQB1_breedSample" \
+    ${run_dir} \
+    ${project_dir}/metadata/data_collection_old.csv
+

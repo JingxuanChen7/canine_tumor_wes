@@ -27,3 +27,4 @@ dependencies:
   - bioconda::mafft=7.508
   - conda-forge::r-ggpubr
   - conda-forge::r-ggimage
+  - bioconda::bcftools=1.17

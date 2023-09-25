@@ -40,6 +40,7 @@ rule run_pipeline:
         '''
         mkdir -p {params.outdir}/data/{params.Bioproject}/{params.CaseName}
         cd {params.outdir}/data/{params.Bioproject}/{params.CaseName}
+        
         python {params.project_dir}/scripts/per_case/make_snakemake_config.py \
             --project_dir {params.project_dir} \
             --out {params.config} \
@@ -51,10 +52,12 @@ rule run_pipeline:
             --threads {threads} \
             --memory {resources.mem}
 
+        rm -rf .snakemake/locks/*
+
         snakemake \
             --cores {threads} \
-            --unlock \
             --use-conda \
+            --rerun-incomplete \
             --rerun-triggers mtime \
             --configfile {params.config} \
             --snakefile "{params.project_dir}/scripts/per_case/Snakefile"
