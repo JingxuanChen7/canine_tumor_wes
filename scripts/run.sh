@@ -195,6 +195,7 @@ seqkit grep -n -f ${run_dir}/breed_sample.list ${run_dir}/DLA88.min4.fasta | seq
 awk '{if($1=="Gene" || $1=="DRB1") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt > ${run_dir}/DRB1_maf.txt
 cut -f1 PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt | grep "DRB1" | sort | uniq -c
 
+
 # DQA1
 cut -f1 PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt | grep -E "LA-DRB1|DQA1|DQB1" | sort | uniq -c
 awk '{if($1=="Gene" || $1=="DLA-DQA1") print}' ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt > ${run_dir}/DLA-DQA1_maf.txt

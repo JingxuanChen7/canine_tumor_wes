@@ -531,6 +531,7 @@ rule germline_filtering:
         mem=config['resources']['mem_4parallel']
     shell:
         '''
+        rm -f {input.germ_vcf}".idx"
         GenomeAnalysisTK -Xmx{resources.mem} -T VariantFiltration -R {input.ref} \
             -V {input.germ_vcf} \
             -filterName FS -filter "FS > 30.0" \

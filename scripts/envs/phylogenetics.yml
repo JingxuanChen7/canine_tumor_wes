@@ -28,3 +28,6 @@ dependencies:
   - conda-forge::r-ggpubr
   - conda-forge::r-ggimage
   - bioconda::bcftools=1.17
+  - conda-forge::r-venndiagram
+  - bioconda::plink=1.90b6.21
+  - bioconda::phylip

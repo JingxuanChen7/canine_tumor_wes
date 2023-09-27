@@ -1,0 +1,12 @@
+INFO [2023-09-25 16:45:35] $x
+INFO [2023-09-25 16:45:35] list(phylo_assign$BreedCluster, phylo_assign$BreedPhylo)
+INFO [2023-09-25 16:45:35] 
+INFO [2023-09-25 16:45:35] $category.names
+INFO [2023-09-25 16:45:35] c("MAF Cluster", "Phylogenetics")
+INFO [2023-09-25 16:45:35] 
+INFO [2023-09-25 16:45:35] $filename
+INFO [2023-09-25 16:45:35] NULL
+INFO [2023-09-25 16:45:35] 
+INFO [2023-09-25 16:45:35] $output
+INFO [2023-09-25 16:45:35] [1] TRUE
+INFO [2023-09-25 16:45:35] 

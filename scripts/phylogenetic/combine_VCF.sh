@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=iob_p
+#SBATCH --partition=iob_highmem
 #SBATCH --job-name=merge_vcf
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
@@ -42,19 +42,50 @@ rsync -av --files-from=/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/bac
 awk '{print "/scratch/jc33471/canine_tumor/phylogenetics/vcf"$0}' ${run_dir}/merge_vcf/backup_vcf_file.list > ${run_dir}/merge_vcf/old_merged_germline_variants.list
 awk '{print "/scratch/jc33471/canine_tumor/phylogenetics/vcf"$0".reheader.gz"}' ${run_dir}/merge_vcf/backup_vcf_file.list > ${run_dir}/merge_vcf/old_merged_germline_variants_gz.list
 
+# PRJNA525883 was not backedup 
+ls -1 /scratch/jc33471/canine_tumor_rerun/results/Germline/PRJNA525883/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf > ${run_dir}/merge_vcf/rerun_merged_germline_variants.list
+awk '{print $0".reheader.gz"}' ${run_dir}/merge_vcf/rerun_merged_germline_variants.list > ${run_dir}/merge_vcf/rerun_merged_germline_variants_gz.list
+
 #### on work ####
 cd ${run_dir}/merge_vcf
 while read file; do
     rm -f ${file}".gz" ${file}".gz.csi"
     sample_name=`basename ${file} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
     echo "${sample_name}" > ${file}"rename_samples_vcf.txt"
-    bcftools reheader -s ${file}"rename_samples_vcf.txt" --threads ${SLURM_NTASKS} -o ${file}".reheader" ${file}
+    bcftools reheader -s ${file}"rename_samples_vcf.txt" --threads ${SLURM_NTASKS} ${file} | awk '{ if($1 ~ /##/ || NF==10)print}' > ${file}".reheader"
     bgzip --force --threads ${SLURM_NTASKS} ${file}".reheader"
     bcftools index --threads ${SLURM_NTASKS} ${file}".reheader.gz"
     echo "Compressed and indexed ${file}"
 done < ${run_dir}/merge_vcf/old_merged_germline_variants.list
 
-bcftools merge --threads ${SLURM_NTASKS} -O z \
-    -o ${run_dir}/merge_vcf/old_merged_germline_variants.vcf.gz \
-    --file-list ${run_dir}/merge_vcf/old_merged_germline_variants_gz.list
+while read file; do
+    rm -f ${file}".gz" ${file}".gz.csi"
+    sample_name=`basename ${file} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
+    echo "${sample_name}" > ${file}"rename_samples_vcf.txt"
+    bcftools reheader -s ${file}"rename_samples_vcf.txt" --threads ${SLURM_NTASKS} ${file} | awk '{ if($1 ~ /##/ || NF==10)print}' > ${file}".reheader"
+    bgzip --force --threads ${SLURM_NTASKS} ${file}".reheader"
+    bcftools index --threads ${SLURM_NTASKS} ${file}".reheader.gz"
+    echo "Compressed and indexed ${file}"
+done < ${run_dir}/merge_vcf/rerun_merged_germline_variants.list
+
+# merge file lists from different run batches
+# if other dataset should be added, combine here
+cat ${run_dir}/merge_vcf/old_merged_germline_variants_gz.list \
+    ${run_dir}/merge_vcf/rerun_merged_germline_variants_gz.list \
+    > ${run_dir}/merge_vcf/all_germline_vairants_to_merge.list
+
+bcftools merge --threads ${SLURM_NTASKS} -O z --force-samples \
+    -o ${run_dir}/merge_vcf/all_merged_germline_variants.vcf.gz \
+    --file-list ${run_dir}/merge_vcf/all_germline_vairants_to_merge.list
+
+# only keep SNPs
+bcftools view --threads ${SLURM_NTASKS} \
+    -f PASS --types snps -O z \
+    -o ${run_dir}/merge_vcf/all_merged_germline_variants_SNP.vcf.gz \
+    ${run_dir}/merge_vcf/all_merged_germline_variants.vcf.gz
+
+plink --threads ${SLURM_NTASKS} --memory "60000" --seed 123 \
+    --distance gz '1-ibs' \
+    --vcf ${run_dir}/merge_vcf/all_merged_germline_variants_SNP.vcf.gz \
+    --out ${run_dir}/merge_vcf/all_merged_germline_variants_SNP_matrix
 
