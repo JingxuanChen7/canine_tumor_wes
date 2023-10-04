@@ -245,7 +245,8 @@ df_new_meta <- rbind(df_new_meta_normal, df_new_meta_pairedtumor) %>%
                           )) %>%
   mutate(Symbol = paste(DiseaseAcronym2,Code,sep = " ")) %>%
   rename(Bioproject = BioProject, Sample_ID = Run_ID) %>%
-  select(-c("Tumor_type","Breed","Organization","Code"))
+  select(-c("Tumor_type","Breed","Organization","Code")) %>%
+  mutate(Reason_to_exclude = "Pass QC")
 
 # check breed frequency
 # table(df_new_meta$Breed_info)[order(table(df_new_meta$Breed_info), decreasing = T)]
