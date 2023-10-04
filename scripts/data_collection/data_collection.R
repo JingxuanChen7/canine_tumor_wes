@@ -254,6 +254,14 @@ df_new_meta <- rbind(df_new_meta_normal, df_new_meta_pairedtumor) %>%
 write.csv(df_old_meta, file = paste0(meta_dir,"/data_collection_old.csv"), quote = TRUE, na = "NA", row.names = F)
 write.csv(df_new_meta, file = paste0(meta_dir,"/data_collection_new.csv"), quote = TRUE, na = "NA", row.names = F)
 
+# avoid sample case names between old and new datasets, only for AFTER-WXS-RUN metadata
+df_new_meta_rename <- df_new_meta %>%
+  mutate(Case_ID = case_when(
+    (Bioproject == "PRJNA786469" & grepl("^CC",Case_ID)) ~ paste0(Case_ID,"_URen"),
+    TRUE ~ Case_ID
+  ))
+write.csv(df_new_meta, file = paste0(meta_dir,"/data_collection_new_renamed.csv"), quote = TRUE, na = "NA", row.names = F)
+
 ## merge new datasets with old datasets
 
 all_datasets <- rbind(df_new_meta,df_old_meta)
