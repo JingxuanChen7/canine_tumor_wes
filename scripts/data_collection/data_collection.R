@@ -260,7 +260,7 @@ df_new_meta_rename <- df_new_meta %>%
     (Bioproject == "PRJNA786469" & grepl("^CC",Case_ID)) ~ paste0(Case_ID,"_URen"),
     TRUE ~ Case_ID
   ))
-write.csv(df_new_meta, file = paste0(meta_dir,"/data_collection_new_renamed.csv"), quote = TRUE, na = "NA", row.names = F)
+write.csv(df_new_meta_rename, file = paste0(meta_dir,"/data_collection_new_renamed.csv"), quote = TRUE, na = "NA", row.names = F)
 
 ## merge new datasets with old datasets
 
