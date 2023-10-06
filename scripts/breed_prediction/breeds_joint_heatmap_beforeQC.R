@@ -36,7 +36,7 @@ seperator <- "/"
 # modify directory for I/O files and scripts
 #file_base_dir <- "/scratch/jc33471/canine_tumor_test/breed_prediction"
 #script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
-file_base_dir <- "/Users/jingxuan/Downloads/tmp"
+file_base_dir <- "/Users/jingxuan/Downloads/tmp/breed"
 script_dir <- "/Users/jingxuan/GitHub/canine_tumor_wes/scripts/breed_prediction"
 ############ Script customization parameters ########################
 # You may modify these parameters as desired
@@ -63,9 +63,9 @@ build_meta_data_code_path <- paste(script_dir, "build_sample_meta_data.R", sep=s
 output_base <- paste(file_base_dir,"output_exclude_WGS", sep=seperator);
 
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
-VAF_input_file <- paste(file_base_dir,"PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage.txt.gz", sep=seperator);
+VAF_input_file <- paste(file_base_dir,"germline_VAF_matrix.reset_low_coverage.txt.gz", sep=seperator);
 # Input file containing all breed-specific variants
-specific_variants_file <- paste(output_base, "57_WGS_all_breed_specific_variants.txt", sep=seperator);
+specific_variants_file <- paste(output_base, "all_breed_specific_variants.txt", sep=seperator);
 # Input file containing all samples meta data
 meta_data_file <- paste(file_base_dir,"breed_prediction_metadata.txt", sep=seperator);
 
@@ -85,7 +85,7 @@ specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t",
 
 ### building meta_data data frame
 source(build_meta_data_code_path);
-meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = F);
+meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = T);
 meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count, ]));
 # clean breed column
 meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ NA, TRUE ~ Breed))
@@ -95,10 +95,10 @@ meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ 
 #meta_data <- meta_data[!is.na(meta_data$Breed_Predicted_Results),]
 
 ##### add QC info to metadata for plotting
-meta_data <- dplyr::select(meta_data, -c("Breed","DiseaseAcronym"))
-more_meta_data <- read.table(paste(file_base_dir,"assignment_clusters_meta.txt", sep=seperator),header=T, sep="\t", check.names=F, stringsAsFactors=F) %>% select(c("SampleName","Breed","DiseaseAcronym"))
-meta_data <- dplyr::inner_join(tibble::rownames_to_column(meta_data), more_meta_data, by = c("rowname" = "SampleName"))
-meta_data <- tibble::column_to_rownames(meta_data, var = "rowname")
+# meta_data <- dplyr::select(meta_data, -c("Breed","DiseaseAcronym"))
+# more_meta_data <- read.table(paste(file_base_dir,"assignment_clusters_meta.txt", sep=seperator),header=T, sep="\t", check.names=F, stringsAsFactors=F) %>% select(c("SampleName","Breed","DiseaseAcronym"))
+# meta_data <- dplyr::inner_join(tibble::rownames_to_column(meta_data), more_meta_data, by = c("rowname" = "SampleName"))
+# meta_data <- tibble::column_to_rownames(meta_data, var = "rowname")
 
 # now make variant names
 variant_names <- apply(VAF_data[-c(1:meta_row_count), c(1:6)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
