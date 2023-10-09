@@ -31,3 +31,4 @@ dependencies:
   - conda-forge::r-venndiagram
   - bioconda::plink=1.90b6.21
   - bioconda::phylip
+  - bioconda::plink2

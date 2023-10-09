@@ -111,3 +111,11 @@ if (prefix == "DLA-DQA1_breedSample" | prefix == "HLA-DQB1_breedSample") {
 
 # print figure
 ggsave(plot = p_final, out_fig, device = "pdf", width = 16, height = 16, units = "in" )
+
+# 
+id_file <- read.table("/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/all_merged_germline_variants_SNP_breedSample.mdist.id")
+id <- id_file$V1
+input <- read.table(gzfile("/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/all_merged_germline_variants_SNP_breedSample.mdist.gz"),
+                    row.names = id, col.names = id)
+input <- as.matrix(input)
+all_tr <- nj(input)

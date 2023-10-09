@@ -2,9 +2,7 @@
 data_dir=config['out']['outdir']+"/data/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 bam_out=config['out']['outdir']+"/out/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 DepthOfCoverage_out=config['out']['outdir']+"/results/DepthOfCoverage/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
-MuTect_out=config['out']['outdir']+"/results/Mutect/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
 qc_out=config['out']['outdir']+"/results/QC/"+config['in']['Bioproject']+"/"+config['in']['CaseName']
-
 
 # check if SRR is paired
 # SRRLIST=[ config['in']['Normal_Run'], config['in']['Tumor_Run'] ]
@@ -14,23 +12,36 @@ if config['in']['Normal_Run'] != "NA":
 if config['in']['Tumor_Run'] != "NA":
     SRRLIST.append(config['in']['Tumor_Run'])
 
+
 # determine required outputs according to paired info
 output_list = []
 if len(SRRLIST) == 2:
-    output_list.extend(expand(bam_out+"/{SRR}.bam", SRR = SRRLIST))
-    output_list.extend(expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST))
-    output_list.extend(expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST))
-    output_list.extend(expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST))
+    output_list.extend(expand(qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"-mapping_quality_line.txt", SRR = SRRLIST))
+    output_list.extend(expand(qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"-CDS_Mapping_summary.txt", SRR = SRRLIST))
+    output_list.extend(expand(qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"_randomness_summary.txt", SRR = SRRLIST))
 else:
-    output_list.extend(expand(bam_out+"/{SRR}.bam", SRR = SRRLIST))
-    output_list.extend(expand(Germline_out+"/{SRR}_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName", SRR = SRRLIST))
-    output_list.extend(expand(Germline_out+"/{SRR}_callable_status.bed", SRR = SRRLIST))
-    output_list.extend(expand(DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed", SRR = SRRLIST))
+    output_list.extend(expand(qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"-mapping_quality_line.txt", SRR = SRRLIST))
+    output_list.extend(expand(qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"-CDS_Mapping_summary.txt", SRR = SRRLIST))
+    output_list.extend(expand(qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"_randomness_summary.txt", SRR = SRRLIST))
 
 
 rule all:
     input:
         output_list
+    output:
+        config['out']['outdir']+"/report/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"_QC.txt"
+    params:
+        Bioproject=config['in']['Bioproject'],
+        CaseName=config['in']['CaseName']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        printf "QC pipeline finished for {params.Bioproject},{params.CaseName}." > {output}
+        '''
+    
 
 rule tmp_sam:
     input:
@@ -42,44 +53,93 @@ rule tmp_sam:
     conda:
         config['envs']['wesenv']
     threads:
-        config['resources']['threads']
-    resources:
-        mem=config['resources']['mem']
+        config['resources']['threads_2parallel']
     shell:
         '''
-        samtools view -bS {input} > {output.sam}
+        samtools view --threads {threads} {input} > {output.sam}
         '''
 
 rule cds_mapping_sum:
     input:
         qc_out+"/{SRR}.sam"
     output:
-        qc_out+"/{SRR}-CDS_Mapping_summary.txt"
+        qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"-CDS_Mapping_summary.txt"
+    wildcard_constraints:
+        SRR=".*[A-Z]RR[0-9]+"
     params:
         share_dir=config['scripts']['share_dir'],
         sample=lambda wc: wc.get("SRR"),
-        Sequence_length=101,
-        Cancer_Type="MT"
+        Sequence_length=config['in']['Sequence_length'],
+        Cancer_Type=config['in']['Cancer_Type'],
+        out_dir=qc_out,
+        status=lambda wc: "Normal" if wc.get("SRR") == config['in']['Normal_Run'] else "Tumor"
     conda:
         config['envs']['java17']
     threads:
-        config['resources']['threads']
+        config['resources']['threads_2parallel']
     resources:
-        mem=config['resources']['mem']
+        mem=config['resources']['mem_2parallel']
     shell:
         '''
-        cd {params.MuTect2_out}
-        # with DbSNP
+        cd {params.out_dir}
         java -Xmx{resources.mem} -cp {params.share_dir} Line_by_line_Total_dict_Get_exon_reads \
             {input} \
             {params.sample} \
             {output} \
-            101
+            {params.Sequence_length} \
+            {params.Cancer_Type} \
+            {params.status} 
         '''
 
 
 rule mapping_quality:
+    input:
+        qc_out+"/{SRR}.sam"
+    output:
+        mapq=temp(qc_out+"/{SRR}-mapping_quality"),
+        out_line=qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"-mapping_quality_line.txt"
+    wildcard_constraints:
+        SRR=".*[A-Z]RR[0-9]+"
+    params:
+        status=lambda wc: "Normal" if wc.get("SRR") == config['in']['Normal_Run'] else "Tumor",
+        Cancer_Type=config['in']['Cancer_Type']
+    conda:
+        config['envs']['wesenv']
+    threads:
+        1
+    shell:
+        '''
+        cat {input} | cut -f5 > {output.mapq}
+        gt30=$(cat {wildcards.SRR}-mapping_quality | awk '{{if ($1>=30) {{print $1}} }}' | wc -l)
+        gt60=$(cat {wildcards.SRR}-mapping_quality | awk '{{if ($1>=60) {{print $1}} }}' | wc -l)
+        total=$(cat {wildcards.SRR}-mapping_quality | wc -l)
+        fra30=$(echo "$((Ngt30))/$((Ntotal))" | bc -l)
+        fra60=$(echo "$((Ngt60))/$((Ntotal))" | bc -l)
+        printf "%s\\t%4f\\t%4f\\t%s\\t%s\\n" {wildcards.SRR} ${{fra30}} ${{fra60}} {params.Cancer_Type} {params.status} > {output.out_line}
+        '''
 
 rule depthofcoverage_randomness:
+    input:
+        bed=DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed",
+        script=config['scripts']['share_dir']+"/Randomness.py"
+    output:
+        distribution=qc_out+"/{SRR}_DepthofCoverage_Distribution.txt",
+        randomness=qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"_randomness_summary.txt"
+    wildcard_constraints:
+        SRR=".*[A-Z]RR[0-9]+"
+    params:
+        status=lambda wc: "Normal" if wc.get("SRR") == config['in']['Normal_Run'] else "Tumor",
+        Cancer_Type=config['in']['Cancer_Type']
+    conda:
+        config['envs']['wesenv']
+    threads:
+        1
+    shell:
+        '''
+        cat {input.bed} | cut -f2 | sort -n | uniq -c | awk -F " " '{{print $1,$2}}' > {output.distribution}
+        python {input.script} {output.distribution} {wildcards.SRR} {params.Cancer_Type} {params.status}
+        mv {wildcards.SRR}_randomness_summary.txt {output.randomness}
+        '''
 
-rule callable_bases:
+# need to run mutect
+# rule callable_bases:

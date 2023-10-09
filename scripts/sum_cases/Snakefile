@@ -18,10 +18,54 @@ rule all:
         # config['out']['outdir']+"/report/PRJNA489159/CMT-112_report.txt",
         # config['out']['outdir']+"/report/PRJNA489159/CMT-114_report.txt"
 
-rule run_pipeline:
-    input:
+# rule run_pipeline:
+#     input:
+#     output:
+#         report=config['out']['outdir']+"/report/{Bioproject}/{CaseName}_report.txt"
+#     params:
+#         Bioproject=lambda wc: wc.Bioproject,
+#         CaseName=lambda wc: wc.CaseName,
+#         Normal_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][0],
+#         Tumor_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][1],
+#         outdir=config['out']['outdir'],
+#         project_dir=config['project_dir'],
+#         config=config['out']['outdir']+"/config/{Bioproject}_{CaseName}_config.json"
+#     conda:
+#         config['envs']['wesenv']
+#     threads:
+#         config['resources']['threads']
+#     resources:
+#         mem=config['resources']['mem']
+#     shell:
+#         '''
+#         mkdir -p {params.outdir}/data/{params.Bioproject}/{params.CaseName}
+#         cd {params.outdir}/data/{params.Bioproject}/{params.CaseName}
+        
+#         python {params.project_dir}/scripts/per_case/make_snakemake_config.py \
+#             --project_dir {params.project_dir} \
+#             --out {params.config} \
+#             --outdir {params.outdir} \
+#             --Bioproject {params.Bioproject} \
+#             --Normal_Run {params.Normal_Run} \
+#             --Tumor_Run {params.Tumor_Run} \
+#             --CaseName {params.CaseName} \
+#             --threads {threads} \
+#             --memory {resources.mem}
+
+#         rm -rf .snakemake/locks/*
+
+#         snakemake \
+#             --cores {threads} \
+#             --use-conda \
+#             --rerun-incomplete \
+#             --rerun-triggers mtime \
+#             --configfile {params.config} \
+#             --snakefile "{params.project_dir}/scripts/per_case/Snakefile"
+#         '''
+
+rule run_qc:
     output:
-        report=config['out']['outdir']+"/report/{Bioproject}/{CaseName}_report.txt"
+        report=config['out']['outdir']+"/report/{Bioproject}/{CaseName}_QC.txt"
     params:
         Bioproject=lambda wc: wc.Bioproject,
         CaseName=lambda wc: wc.CaseName,
@@ -29,7 +73,7 @@ rule run_pipeline:
         Tumor_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][1],
         outdir=config['out']['outdir'],
         project_dir=config['project_dir'],
-        config=config['out']['outdir']+"/config/{Bioproject}_{CaseName}_config.json"
+        config=config['out']['outdir']+"/config/{Bioproject}_{CaseName}_QC_config.json"
     conda:
         config['envs']['wesenv']
     threads:
@@ -38,10 +82,10 @@ rule run_pipeline:
         mem=config['resources']['mem']
     shell:
         '''
-        mkdir -p {params.outdir}/data/{params.Bioproject}/{params.CaseName}
-        cd {params.outdir}/data/{params.Bioproject}/{params.CaseName}
+        mkdir -p {params.outdir}/results/QC/{params.Bioproject}/{params.CaseName}
+        cd {params.outdir}/results/QC/{params.Bioproject}/{params.CaseName}
         
-        python {params.project_dir}/scripts/per_case/make_snakemake_config.py \
+        python {params.project_dir}/scripts/qc/make_snakemake_config.py \
             --project_dir {params.project_dir} \
             --out {params.config} \
             --outdir {params.outdir} \
@@ -49,8 +93,10 @@ rule run_pipeline:
             --Normal_Run {params.Normal_Run} \
             --Tumor_Run {params.Tumor_Run} \
             --CaseName {params.CaseName} \
+            --metadata {params.project_dir}/metadata/data_collection_new.csv \
+            --readlength {params.project_dir}/metadata/data_new_readlength.csv \
             --threads {threads} \
-            --memory {resources.mem}
+            --memory {resources.mem} 
 
         rm -rf .snakemake/locks/*
 
@@ -60,5 +106,7 @@ rule run_pipeline:
             --rerun-incomplete \
             --rerun-triggers mtime \
             --configfile {params.config} \
-            --snakefile "{params.project_dir}/scripts/per_case/Snakefile"
+            --snakefile "{params.project_dir}/scripts/qc/Snakefile"
         '''
+
+rule combine_qc:

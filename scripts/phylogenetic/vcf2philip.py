@@ -47,8 +47,8 @@ AMBIG = {
 # 1 is heterozygous
 # 2 is homozygous alternative
 GEN_BIN = {
-    "./.":"?",
-    ".|.":"?",
+    "./.":"0",
+    ".|.":"0",
     "0/0":"0",
     "0|0":"0",
     "0/1":"1",

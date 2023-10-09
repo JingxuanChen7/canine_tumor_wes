@@ -1,5 +1,6 @@
 {
     "project_dir": "/home/jc33471/canine_tumor_wes",
+    "metatable": "/home/jc33471/canine_tumor_wes/metadata/data_collection_new.csv",
     "in": {
         "PRJNA489159": {
             "CMT-100": ["SRR7780976","SRR7780979"],

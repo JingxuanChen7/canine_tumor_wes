@@ -57,4 +57,3 @@ snakemake \
             --output=logs/{wildcards.Bioproject}_{wildcards.CaseName}_log.o \
             --error=logs/{wildcards.Bioproject}_{wildcards.CaseName}_log.e'
 
-

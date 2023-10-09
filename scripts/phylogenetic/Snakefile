@@ -1,0 +1,242 @@
+rule all:
+    input:
+        expand(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf", sampleSet = ['breedSample', 'breedPlusMissingSample'], regionSet = ['breedSpecific', 'all'])
+
+
+rule create_gz_index:
+    input:
+        vcf="{file}"
+    output:
+        reheader_gz="{file}.reheader.gz",
+        index="{file}.reheader.gz.csi",
+        rename=temp("{file}rename_samples_vcf.txt"),
+        reheader=temp("{file}.reheader")
+    threads:
+        config['resources']['threads']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
+        sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
+        echo "${{sample_name}}" > {output.rename}
+        bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {output.reheader}
+        bgzip --force --threads {threads} {output.reheader}
+        bcftools index --threads {threads} {output.reheader_gz}
+        echo "Compressed and indexed {input.vcf}"
+        '''
+       
+# rule merge_vcfs:
+#     input:
+#         vcf=expand("{file}.reheader.gz", file=config['in']['vcffiles']),
+#         index=expand("{file}.reheader.gz.csi", file=config['in']['vcffiles'])
+#     output:
+#         merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
+#     threads:
+#         config['resources']['threads']
+#     conda:
+#         config['envs']['phylogenetics']
+#     shell:
+#         '''
+#         bcftools merge --threads {threads} -Oz \
+#             --force-samples --missing-to-ref \
+#             -o {output.merged_vcf} \
+#             {input.vcf}
+#         '''
+
+# rule filter_merged_vcf:
+#     input:
+#         merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
+#     output:
+#         filtered_vcf=config['out']['outdir']+"/all_merged_germline_variants_SNP.vcf.gz"
+#     threads:
+#         config['resources']['threads']
+#     conda:
+#         config['envs']['phylogenetics']
+#     shell:
+#         '''
+#         bcftools view --threads {threads} -Oz \
+#             -f PASS --types snps \
+#             -o {output.filtered_vcf} \
+#             {input.merged_vcf}
+#         '''
+
+# sampleSet = ['breedSample', 'breedPlusMissingSample']
+# rule create_sample_list:
+#     input:
+#         config['in']['metatable']
+#     output:
+#         breedSample=config['out']['outdir']+"/breedSample.list",
+#         breedPlusMissing=config['out']['outdir']+"/breedPlusMissingSample.list"
+#     params:
+#         breeds = ['Shih Tzu','Schnauzer','Golden Retriever','Rottweiler','Greyhound','Maltese','Yorkshire Terrier','Boxer','Poodle','Cocker Spaniel']
+#     run:
+#         import csv
+#         out1 = open(output['breedSample'], "w")
+#         out2 = open(output['breedPlusMissing'], "w")
+
+#         with open(input[0], 'r') as file:
+#             reader = csv.reader(file, delimiter=',', quotechar='"')
+#             header = next(reader)
+#             breed_idx = header.index('Breed_info')
+#             sample_idx = header.index('Sample_ID')
+#             status_idx = header.index('Status')
+#             qc_idx = header.index('Reason_to_exclude')
+#             for row in reader:
+#                 if 'Normal' in row[status_idx] and 'Pass QC' in row[qc_idx]:
+#                     if row[breed_idx] in params['breeds']:
+#                         out1.write(row[sample_idx]+"\n")
+#                         out2.write(row[sample_idx]+"\n")
+#                     elif "No breed provided" in row[breed_idx]:
+#                         out2.write(row[sample_idx]+"\n")
+        
+#         out1.close()
+#         out2.close()
+
+rule subset_samples:
+    input:
+        filtered_vcf=config['out']['outdir']+"/all_merged_germline_variants_SNP.vcf.gz",
+        breedSample=config['out']['outdir']+"/breedSample.list",
+        breedPlusMissing=config['out']['outdir']+"/breedPlusMissingSample.list"
+    output:
+        breedSample_vcf=config['out']['outdir']+"/breedSample_all_merged_germline_variants_SNP.vcf.gz",
+        breedSample_idx=config['out']['outdir']+"/breedSample_all_merged_germline_variants_SNP.vcf.gz.csi",
+        breedPlusMissing_vcf=config['out']['outdir']+"/breedPlusMissingSample_all_merged_germline_variants_SNP.vcf.gz",
+        breedPlusMissing_idx=config['out']['outdir']+"/breedPlusMissingSample_all_merged_germline_variants_SNP.vcf.gz.csi"
+    threads:
+        config['resources']['threads']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools view --threads {threads} -O z \
+            -S {input.breedSample} \
+            --force-samples \
+            -o {output.breedSample_vcf} \
+            {input.filtered_vcf}
+        bcftools index {output.breedSample_vcf}
+        bcftools view --threads {threads} -O z \
+            -S {input.breedPlusMissing} \
+            --force-samples \
+            -o {output.breedPlusMissing_vcf} \
+            {input.filtered_vcf}
+        bcftools index {output.breedPlusMissing_vcf}
+        '''
+
+rule prepare_breedSpecific_sites:
+    input:
+        config['in']['breedSpecific']
+    output:
+        config['out']['outdir']+"/breedSpecific_sites.tab"
+    shell:
+        '''
+        awk 'BEGIN{{OFS="\\t"}} {{if ($2 !~ /Locus/) {{split($2,POS,":"); print POS[1],POS[2];}} }}' \
+            {input} > {output}
+        '''
+
+# sampleSet = ['breedSample', 'breedPlusMissingSample']
+# regionSet = ['breedSpecific', 'all' ,'genes']
+rule subset_breedSpecific:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz",
+        idx=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz.csi",
+        sites=config['out']['outdir']+"/breedSpecific_sites.tab"
+    output:
+        vcf=config['out']['outdir']+"/{sampleSet}_breedSpecific_merged_germline_variants_SNP.vcf.gz"
+    threads:
+        config['resources']['threads']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools view --threads {threads} -O z \
+            -R {input.sites} \
+            --force-samples \
+            -o {output.vcf} \
+            {input.vcf}
+        '''
+
+rule distance_matrix:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP.vcf.gz"
+    output:
+        matrix=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.gz",
+        distid=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.id"
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        mem_mb=`echo {resources.mem} | sed 's/G/000/g'`
+        prefix=`echo {output.matrix} | sed 's/.mdist.gz//g'`
+        plink --threads {threads} --memory ${{mem_mb}} --seed 123 --dog \
+            --distance gz square '1-ibs' \
+            --vcf {input.vcf} \
+            --out ${{prefix}}
+        '''
+
+rule mdist2phydist:
+    input:
+        matrix=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.gz",
+        distid=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.id",
+        script=config['project_dir']+"/scripts/phylogenetic/mdist2phydist.py"
+    output:
+        phydist=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.phylip"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        python {input.script} \
+            --mdist {input.matrix} \
+            --id {input.distid} \
+            --phydist {output.phydist} 
+        '''
+
+rule phylip_neighbor:
+    input:
+        phydist=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.phylip"
+    output:
+        tree=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.nwk",
+        command=temp(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.nwk.command")
+    log:
+        config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.log"
+    params:
+        outdir=config['out']['outdir']+"/{sampleSet}_{regionSet}",
+        outfile=config['out']['outdir']+"/{sampleSet}_{regionSet}/outfile",
+        outtree=config['out']['outdir']+"/{sampleSet}_{regionSet}/outtree"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        cd {params.outdir}
+        echo "{input.phydist}" > {output.command}
+        echo "Y" >> {output.command}
+        rm -f {params.outfile} {params.outtree}
+        neighbor < {output.command} > {log}
+        mv {params.outtree} {output.tree}
+        cat {params.outfile} >> {log}
+        rm {params.outfile}
+        '''
+
+rule phylip_nwk_vis:
+    input:
+        tree=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.nwk",
+        distid=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.id",
+        metatable=config['in']['metatable'],
+        script=config['project_dir']+"/scripts/phylogenetic/phylip_nwk_vis.R"
+    output:
+        figure=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        Rscript --vanilla {input.script} \
+            {wildcards.sampleSet}_{wildcards.regionSet} \
+            {input.tree} \
+            {input.distid} \
+            {input.metatable} \
+            {output.figure}
+        '''

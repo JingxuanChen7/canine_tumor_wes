@@ -12,3 +12,9 @@ dependencies:
   - bioconda::picard=2.21.6
   - bioconda::gatk=3.8
   - bioconda::seqkit
+  - conda-forge::scipy
+  - conda-forge::numpy
+  - conda-forge::pandas
+  - conda-forge::matplotlib
+  - conda-forge::seaborn
+  - conda-forge::sklearn-pandas

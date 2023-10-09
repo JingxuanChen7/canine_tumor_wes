@@ -8,3 +8,4 @@ dependencies:
   - bioconda::bioconductor-complexheatmap
   - conda-forge::r-data.table
   - conda-forge::r-r.utils
+  - conda-forge::r-dplyr

@@ -1,0 +1,33 @@
+{
+    "project_dir": "/home/jc33471/canine_tumor_wes",
+    "in": {
+        "Bioproject": "PRJNA489159",
+        "Normal_Run": "SRR7780976",
+        "Tumor_Run": "SRR7780979",
+        "CaseName": "CMT-100",
+        "Cancer_Type": "MT",
+        "Sequence_length": 101
+    },
+    "out": {
+        "outdir": "/scratch/jc33471/canine_tumor"
+    },
+    "resources": {
+        "threads": 8,
+        "mem": "60G",
+        "threads_2parallel": 4,
+        "mem_2parallel": "30G",
+        "threads_4parallel": 2,
+        "mem_4parallel": "15G"
+    },
+    "envs": {
+        "wesenv": "wes_env",
+        "annovarenv": "annovar_env",
+        "mutect2_env": "mutect2_env",
+        "strelka_env": "strelka_env",
+        "java17": "java17"
+    },
+    "scripts": {
+        "annovar_dir": "/work/szlab/Lab_shared_PanCancer/source/annovar_CanFam3.1.99.gtf",
+        "share_dir": "/work/szlab/kh31516_Lab_Share_script"
+    }
+}
