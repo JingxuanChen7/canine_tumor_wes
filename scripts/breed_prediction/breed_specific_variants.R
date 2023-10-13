@@ -26,15 +26,16 @@ library(data.table)
 
 # parse arguments for I/O paths
 args = commandArgs(trailingOnly=TRUE)
-if (length(args) != 6) {
-  stop("Usage: Rscript --vanilla breed_specific_variants.R <build_meta_data_code_path> <VAF_input_file> <unique_variants_output_file> <enriched_variants_output_file> <specific_variants_output_file> <meta_data_file>", call.=FALSE)
-} else if (length(args) == 6) {
+if (length(args) < 7) {
+  stop("Usage: Rscript --vanilla breed_specific_variants.R <build_meta_data_code_path> <VAF_input_file> <unique_variants_output_file> <enriched_variants_output_file> <specific_variants_output_file> <meta_data_file> <breeds_list>", call.=FALSE)
+} else if (length(args) >= 7) {
   build_meta_data_code_path <- args[1]
   VAF_input_file <- args[2]
   unique_variants_output_file <- args[3]
   enriched_variants_output_file <- args[4]
   specific_variants_output_file <- args[5]
   meta_data_file <- args[6]
+  examined_breeds <- args[7:length(args)]
 }
 
 # These parameters are related to the structure of the input file containing VAF values (don't change any of them)
@@ -44,7 +45,7 @@ meta_row_count <- 1; # number of rows dedicated to meta data (sample ids, and ot
 ######### Parameters for both breed-unique and breed-enriched variants discovery
 global_sufficient_cov_cutoff <- 0.8; # all variants must have sufficient coverage in at least 80% of the samples in the discovery dataset
 # Breeds for which breed-specific variants, breed validation or prediction to be performed
-examined_breeds <- c("Yorkshire Terrier", "Shih Tzu", "Poodle", "Maltese", "Rottweiler", "Greyhound", "Golden Retriever", "Cocker Spaniel", "Boxer","Schnauzer");
+# examined_breeds <- c("Yorkshire Terrier", "Shih Tzu", "Poodle", "Maltese", "Rottweiler", "Greyhound", "Golden Retriever", "Cocker Spaniel", "Boxer","Schnauzer","Labrador Retriever","German Shepherd","Boston Terrier");
 # Samples with Mixed breed will be excluded from all analyses (breed-specific variant discovery, breed validation and prediction)
 excluded_breeds <- c("Mixed");
 # All samples with known breeds except examined or Mixed are assigned to Other. They will be used to filter out some candidate breed-specific variants, but will not be used in breed validation or prediction.

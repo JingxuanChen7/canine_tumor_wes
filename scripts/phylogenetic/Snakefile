@@ -123,6 +123,17 @@ rule subset_samples:
         bcftools index {output.breedPlusMissing_vcf}
         '''
 
+rule mask_low_coverage:
+    input:
+    output:
+    threads:
+        config['resources']['threads']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        '''
+
 rule prepare_breedSpecific_sites:
     input:
         config['in']['breedSpecific']

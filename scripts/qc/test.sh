@@ -21,20 +21,20 @@ cd ${run_dir}
 mkdir -p logs/ config/ data/ out/ results/
 
 config="/home/jc33471/canine_tumor_wes/scripts/qc/config.json"
-# config=$run_dir/config/test_qc.json
+config=$run_dir/config/test_qc.json
 
-# python ${project_dir}/scripts/qc/make_snakemake_config.py \
-#     --project_dir ${project_dir} \
-#     --out ${config} \
-#     --outdir ${run_dir} \
-#     --Bioproject "PRJNA489159" \
-#     --Normal_Run "SRR7780976" \
-#     --Tumor_Run "SRR7780979" \
-#     --CaseName "CMT-100" \
-#     --metadata ${project_dir}/metadata/data_collection_old.csv \
-#     --readlength ${project_dir}/metadata/data_new_readlength.csv \
-#     --threads 8 \
-#     --memory "60G"
+python ${project_dir}/scripts/qc/make_snakemake_config.py \
+    --project_dir ${project_dir} \
+    --out ${config} \
+    --outdir ${run_dir} \
+    --Bioproject "PRJEB53653" \
+    --Normal_Run "ERR9923018" \
+    --Tumor_Run "ERR9923074" \
+    --CaseName "24" \
+    --metadata ${project_dir}/metadata/data_collection_new.csv \
+    --readlength ${project_dir}/metadata/data_new_readlength.csv \
+    --threads 8 \
+    --memory "60G"
 
 snakemake \
     --cores ${SLURM_NTASKS} \

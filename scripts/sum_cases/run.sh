@@ -34,7 +34,7 @@ python ${project_dir}/scripts/sum_cases/make_snakemake_config.py \
 snakemake \
     --jobs 200 \
     --use-conda \
-    --latency-wait 999 \
+    --latency-wait 60 \
     --keep-going \
     --restart-times 3 \
     --rerun-triggers mtime \
@@ -56,4 +56,22 @@ snakemake \
             --mail-type=FAIL \
             --output=logs/{wildcards.Bioproject}_{wildcards.CaseName}_log.o \
             --error=logs/{wildcards.Bioproject}_{wildcards.CaseName}_log.e'
+
+## combine QC results
+
+for group in `cut -d, -f4,9 /home/jc33471/canine_tumor_wes/metadata/data_collection_new.csv | grep -v "DiseaseAcronym2" | sort -u | sed 's/\"//g'`; do
+    Cancer_Type=`echo ${group} | cut -d, -f1`
+    Bioproject=`echo ${group} | cut -d, -f2`    
+    cat ${run_dir}/results/QC/*/*/*${Cancer_Type}_${Bioproject}-CDS_Mapping_summary.txt > ${run_dir}/results/QC/Total_WES_BWA_CDS_${Bioproject}_${Cancer_Type}.txt
+    cat ${run_dir}/results/QC/*/*/*${Cancer_Type}_${Bioproject}-mapping_quality_line.txt > ${run_dir}/results/QC/WES_Total_Mapping_quality_${Bioproject}_${Cancer_Type}.txt
+    sed '1d' ${run_dir}/results/QC/*/*/*${Cancer_Type}_${Bioproject}_randomness_summary.txt > ${run_dir}/results/QC/Total_WES_${Bioproject}_${Cancer_Type}_Randomness_Summary.txt
+done
+
+cat ${run_dir}/results/QC/Total_WES_BWA_CDS_*.txt | grep -v "^File_name" |\
+    sed '1 i\File_name\tTotal_Pairs\tUniq_mapped_rate\tUniq_Exonic_region_mapped_rate\tCancerType\tStatus\tUnmappedRate\tDuplicateMapped_rate\tOnemapped_rate\tIncorrectMapped_rate\tTotal_line\tTotal_unique\tTotal_pass\tTotal_Unmapped\tTotal_Duplicate\tTotal_Onemapped\tTotal_Incorrect' \
+    > ${run_dir}/results/QC/Total_WES_BWA_CDS.combined.txt
+cat ${run_dir}/results/QC/WES_Total_Mapping_quality_*.txt | grep -v "^File_name" |\
+    sed '1 i\File_name\tfra30\tfra60\tCancer_Type\tStatus' > ${run_dir}/results/QC/WES_Total_Mapping_quality.combined.txt
+cat ${run_dir}/results/QC/Total_WES_*_Randomness_Summary.txt | grep -v "^file_name" |\
+    sed '1 i\File_name\taverage\trmse\tsumOfSqerror\tCancer_type\tStatus' > ${run_dir}/results/QC/Total_WES_Randomness_Summary.combined.txt
 

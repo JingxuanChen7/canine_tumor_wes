@@ -18,3 +18,6 @@ dependencies:
   - conda-forge::matplotlib
   - conda-forge::seaborn
   - conda-forge::sklearn-pandas
+  - jupyter
+  - ipykernel
+  - conda-forge::pyvcf

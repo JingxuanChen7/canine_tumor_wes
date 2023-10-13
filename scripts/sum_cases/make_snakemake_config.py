@@ -53,7 +53,7 @@ def main():
     config["in"] = inputs
 
     ## parameter for metadata
-    config["metatable"] = args.metatable
+    config["metatable"] = args.metadata
 
     ## parameters for project path
     config["project_dir"] = args.project_dir

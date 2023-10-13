@@ -24,8 +24,12 @@ else:
     output_list.extend(expand(qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"-CDS_Mapping_summary.txt", SRR = SRRLIST))
     output_list.extend(expand(qc_out+"/{SRR}_"+config['in']['Cancer_Type']+"_"+config['in']['Bioproject']+"_randomness_summary.txt", SRR = SRRLIST))
 
-
 rule all:
+    input:
+        config['out']['outdir']+"/report/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"_QC.txt"
+
+
+rule check_output:
     input:
         output_list
     output:
@@ -110,11 +114,11 @@ rule mapping_quality:
     shell:
         '''
         cat {input} | cut -f5 > {output.mapq}
-        gt30=$(cat {wildcards.SRR}-mapping_quality | awk '{{if ($1>=30) {{print $1}} }}' | wc -l)
-        gt60=$(cat {wildcards.SRR}-mapping_quality | awk '{{if ($1>=60) {{print $1}} }}' | wc -l)
-        total=$(cat {wildcards.SRR}-mapping_quality | wc -l)
-        fra30=$(echo "$((Ngt30))/$((Ntotal))" | bc -l)
-        fra60=$(echo "$((Ngt60))/$((Ntotal))" | bc -l)
+        gt30=$(cat {output.mapq} | awk '{{if ($1>=30) {{print $1}} }}' | wc -l)
+        gt60=$(cat {output.mapq} | awk '{{if ($1>=60) {{print $1}} }}' | wc -l)
+        total=$(cat {output.mapq} | wc -l)
+        fra30=$(echo "$((gt30))/$((total))" | bc -l)
+        fra60=$(echo "$((gt60))/$((total))" | bc -l)
         printf "%s\\t%4f\\t%4f\\t%s\\t%s\\n" {wildcards.SRR} ${{fra30}} ${{fra60}} {params.Cancer_Type} {params.status} > {output.out_line}
         '''
 

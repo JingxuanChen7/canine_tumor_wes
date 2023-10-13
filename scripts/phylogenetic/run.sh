@@ -31,3 +31,23 @@ snakemake \
     --use-conda \
     --configfile ${config} \
     --snakefile "${project_dir}/scripts/phylogenetic/Snakefile"
+
+breed_dir="/home/${USER}/breed_prediction"
+
+# sites
+zcat breedPlusMissingSample_breedSpecific_merged_germline_variants_SNP.vcf.gz |\
+    awk 'BEGIN{OFS="\t"}/^[^#]/{print "NA",$1,$2,$4,$5}' |\
+    sed '1 i\Gene\tChromosome\tPosition\tRef\tAlt' > test.txt
+
+# get varaint sites
+zcat breedPlusMissingSample_breedSpecific_merged_germline_variants_SNP.vcf.gz |\
+    awk 'BEGIN{OFS=":"}/^[^#]/{print $1,$2}' > test.txt
+# select variant sites for depth info
+grep -f test.txt /scratch/jc33471/canine_tumor/phylogenetics/vcf/project/szlab/Kun_Lin/Pan_Cancer/ValidationData/MC/store/DepthOfCoverage/004/SRR9911377_DepthofCoverage_CDS.bed > test_DepthofCoverage_CDS.bed
+
+# samples
+grep -f breedSample.list ${project_dir}/metadata/vcf_file_list.txt > tmp_vcf_file_list.txt
+# matrix for depth
+java -Xmx60g -cp ${breed_dir}/Pancancer.jar util.GetVariantInfoFromVCF test.txt 5 tmp_vcf_file_list.txt germline_depth_matrix_for_phylo.txt depths
+# mask vcf
+

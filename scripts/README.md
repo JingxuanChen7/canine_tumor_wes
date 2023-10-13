@@ -214,4 +214,6 @@ seqkit grep -n -r -f ${run_dir}/breed_sample.list ${run_dir}/breed_specific.min4
 # samples with breed info, all sites
 seqkit grep -n -r -f ${run_dir}/breed_sample.list ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt.min4.fasta > ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy_breed_sample.min4.fasta
 
+jupyter notebook --generate-config
+jupyter notebook --no-browser --NotebookApp.allow_origin_pat=https://.*vscode-cdn\.net
 ```

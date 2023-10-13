@@ -7,7 +7,7 @@ library(stringr)
 # remote path
 #meta_dir <- "/home/jc33471/canine_tumor_wes/metadata"
 # local path
-meta_dir <- "~/Github/canine_tumor_wes/metadata"
+meta_dir <- "~/canine_tumor_wes/metadata"
 
 # PRJDB16014 NIPS not tumor
 Bioproject <- "PRJDB16014"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
@@ -20,17 +20,19 @@ df_PRJDB16014 <- read.csv(srarunlist, stringsAsFactors = F) %>%
   mutate(Tumor_type = "Non-Tumor (Inflammatory Colorectal Polyp ICRP)", Status = "Normal", Symbol = NA, Sample_status = NA, Disease_stage = NA, Survival_status = NA, Tumor_grade = NA)
 
 # # PRJEB57227 sanger
-# Bioproject <- "PRJEB57227"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
-# df_PRJEB57227 <- read.csv(srarunlist, stringsAsFactors = F) %>%
-#   filter(Assay.Type == "WXS" & LibraryLayout == "PAIRED" & Organism == "Canis lupus familiaris") %>%
-#   select(Run,BioProject,BioSample, Subject_ID, Platform,ReleaseDate, gender,PHENOTYPE) %>%
-#   rename(Run_ID = Run, Sample_ID = BioSample, Case_ID = Subject_ID, Sex = gender,Tissue = PHENOTYPE) %>%
-#   mutate(Tumor_type = "Urothelial carcinoma (UC)", Organization = "SC", Status = NA, Breed = NA, Symbol = NA, Sample_status = NA, Age = NA, Disease_stage = NA, Survival_status = NA, Tumor_grade = NA) %>%
-#   mutate(Age = as.character(Age)) %>%
-#   group_by(BioProject,Sample_ID,Case_ID,Status,Breed,Platform,ReleaseDate,Age,Sex,Tissue,Tumor_type,Organization,Sample_status,Symbol,Survival_status,Tumor_grade,Disease_stage) %>% 
-#   arrange(Run_ID) %>% summarise(Run_ID = paste(Run_ID, collapse="-")) %>%
-#   mutate(Case_ID = gsub("(a|b|c)$","_\\1", Case_ID, perl = T)) %>%
-#   separate(Case_ID, c("Case_ID","Status"), sep = "_")
+Bioproject <- "PRJEB57227"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
+df_PRJEB57227 <- read.csv(srarunlist, stringsAsFactors = F) %>%
+  filter(Assay.Type == "WXS" & LibraryLayout == "PAIRED" & Organism == "Canis lupus familiaris") %>%
+  select(Run,BioProject,BioSample, Subject_ID, Platform,ReleaseDate, gender,PHENOTYPE) %>%
+  rename(Run_ID = Run, Sample_ID = BioSample, Case_ID = Subject_ID, Sex = gender,Tissue = PHENOTYPE) %>%
+  mutate(Tumor_type = "Urothelial carcinoma (UC)", Organization = "SI", Status = NA, Breed = NA, Symbol = NA, Sample_status = NA, Age = NA, Disease_stage = NA, Survival_status = NA, Tumor_grade = NA) %>%
+  mutate(Age = as.character(Age)) %>%
+  group_by(BioProject,Sample_ID,Case_ID,Status,Breed,Platform,ReleaseDate,Age,Sex,Tissue,Tumor_type,Organization,Sample_status,Symbol,Survival_status,Tumor_grade,Disease_stage) %>%
+  arrange(Run_ID) %>% summarise(Run_ID = paste(Run_ID, collapse="-")) %>%
+  mutate(Case_ID = gsub("(a|b|c)$","_\\1", Case_ID, perl = T)) %>%
+  separate(Case_ID, c("Case_ID","Status"), sep = "_") %>%
+  mutate(Status = case_when(Status == "a" ~ "Tumor",
+                            Status == "b" ~ "Normal"))
 
 # PRJNA891496 Ghent non-tumor
 Bioproject <- "PRJNA891496"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
@@ -162,23 +164,23 @@ df_PRJNA630029 <- read.csv(srarunlist, stringsAsFactors = F) %>%
   rename(Run_ID = Run, Sample_ID = BioSample, Case_ID = Sample.Name, Breed = BREED, Sex = sex) %>%
   mutate(Tumor_type = "Non-Tumor", Organization = "University of Helsinki", Status = "Normal", Sample_status = NA, Symbol = NA, Survival_status = NA, Tumor_grade = NA,Disease_stage = NA)
 
-# # PRJNA616374 Colorado State, only tumor samples
-# Bioproject <- "PRJNA616374"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
-# df_PRJNA616374 <- read.csv(srarunlist, stringsAsFactors = F) %>%
-#   filter(Assay.Type == "WXS" & LibraryLayout == "PAIRED" & Organism == "Canis lupus familiaris") %>%
-#   select(Run,BioProject,BioSample, Sample.Name, BREED, Platform, ReleaseDate, Age, sex, Tissue) %>%
-#   rename(Run_ID = Run, Sample_ID = BioSample, Case_ID = Sample.Name, Breed = BREED, Sex = sex) %>%
-#   mutate(Age = as.character(Age)) %>%
-#   mutate(Tumor_type = "Primary bladder tumor", Organization = "Colorado State University", Status = "Tumor", Sample_status = NA, Symbol = NA, Survival_status = NA, Tumor_grade = NA,Disease_stage = NA)
-# 
-# # PRJNA613479 Colorado State, only tumor samples
-# Bioproject <- "PRJNA613479"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
-# df_PRJNA613479 <- read.csv(srarunlist, stringsAsFactors = F) %>%
-#   filter(Assay.Type == "WXS" & LibraryLayout == "PAIRED" & Organism == "Canis lupus familiaris") %>%
-#   select(Run,BioProject,BioSample, Sample.Name, BREED, Platform, ReleaseDate, Age, sex, Tissue, disease_stage) %>%
-#   rename(Run_ID = Run, Sample_ID = BioSample, Case_ID = Sample.Name, Breed = BREED, Sex = sex, Disease_stage = disease_stage) %>%
-#   mutate(Age = as.character(Age)) %>%
-#   mutate(Tumor_type = "Osteosarcoma (OSA)", Organization = "Colorado State University", Status = "Tumor", Sample_status = NA, Symbol = NA, Survival_status = NA, Tumor_grade = NA)
+# PRJNA616374 Colorado State, only tumor samples
+Bioproject <- "PRJNA616374"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
+df_PRJNA616374 <- read.csv(srarunlist, stringsAsFactors = F) %>%
+  filter(Assay.Type == "WXS" & LibraryLayout == "PAIRED" & Organism == "Canis lupus familiaris") %>%
+  select(Run,BioProject,BioSample, Sample.Name, BREED, Platform, ReleaseDate, Age, sex, Tissue) %>%
+  rename(Run_ID = Run, Sample_ID = BioSample, Case_ID = Sample.Name, Breed = BREED, Sex = sex) %>%
+  mutate(Age = as.character(Age)) %>%
+  mutate(Tumor_type = "Primary bladder tumor", Organization = "Colorado State University", Status = "Tumor", Sample_status = NA, Symbol = NA, Survival_status = NA, Tumor_grade = NA,Disease_stage = NA)
+
+# PRJNA613479 Colorado State, only tumor samples
+Bioproject <- "PRJNA613479"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
+df_PRJNA613479 <- read.csv(srarunlist, stringsAsFactors = F) %>%
+  filter(Assay.Type == "WXS" & LibraryLayout == "PAIRED" & Organism == "Canis lupus familiaris") %>%
+  select(Run,BioProject,BioSample, Sample.Name, BREED, Platform, ReleaseDate, Age, sex, Tissue, disease_stage) %>%
+  rename(Run_ID = Run, Sample_ID = BioSample, Case_ID = Sample.Name, Breed = BREED, Sex = sex, Disease_stage = disease_stage) %>%
+  mutate(Age = as.character(Age)) %>%
+  mutate(Tumor_type = "Osteosarcoma (OSA)", Organization = "Colorado State University", Status = "Tumor", Sample_status = NA, Symbol = NA, Survival_status = NA, Tumor_grade = NA)
 
 # # PRJEB24200 sanger
 # Bioproject <- "PRJEB24200"; srarunlist <- paste0(meta_dir, "/", Bioproject, "_SraRunTable.txt")
@@ -192,7 +194,7 @@ df_PRJNA630029 <- read.csv(srarunlist, stringsAsFactors = F) %>%
 #   mutate(Case_ID = gsub("(a|b|c|d)$","_\\1", Case_ID, perl = T)) %>%
 #   separate(Case_ID, c("Case_ID","Status"), sep = "_")
 
-all_new_datasets <- rbind(df_PRJDB16014,df_PRJNA891496,df_PRJEB53653,df_PRJDB10211,df_PRJNA786469,df_PRJNA752630,df_PRJNA701141,df_PRJNA695534,df_PRJNA680382,df_PRJNA677995,df_PRJNA630029)
+all_new_datasets <- rbind(df_PRJDB16014,df_PRJEB57227,df_PRJNA891496,df_PRJEB53653,df_PRJDB10211,df_PRJNA786469,df_PRJNA752630,df_PRJNA701141,df_PRJNA695534,df_PRJNA680382,df_PRJNA677995,df_PRJNA630029,df_PRJNA616374,df_PRJNA613479)
 all_new_datasets <- all_new_datasets %>% mutate(Breed = str_to_title(Breed)) %>%
   mutate(Age = gsub(" years","",Age)) %>% mutate(Age = round(as.numeric(Age), digits = 1))
 
@@ -205,10 +207,10 @@ all_new_datasets <- read.csv(file = paste0(meta_dir,"/data_collection_new_pre.cs
 df_new_meta_normal <- all_new_datasets %>% 
   filter(Status != "Cell Line") %>% 
   filter(Status == "Normal")
-df_new_meta_pairedtumor <- all_new_datasets %>% 
+df_new_meta_tumor <- all_new_datasets %>% 
   filter(Status != "Cell Line") %>% 
-  filter(Status == "Tumor") %>% filter(Case_ID %in% df_new_meta_normal$Case_ID)
-df_new_meta <- rbind(df_new_meta_normal, df_new_meta_pairedtumor) %>%
+  filter(Status == "Tumor") #%>% filter(Case_ID %in% df_new_meta_normal$Case_ID)
+df_new_meta <- rbind(df_new_meta_normal, df_new_meta_tumor) %>%
   select(c("Case_ID","Run_ID","Tumor_type","Status","Breed","Sample_status","BioProject","Organization")) %>%
   mutate(DiseaseAcronym2 = case_when(grepl("Non-Tumor", Tumor_type, ignore.case = T) ~ "NonT",
                                     grepl("Mammary", Tumor_type, ignore.case = T) ~ "MT",
@@ -216,7 +218,9 @@ df_new_meta <- rbind(df_new_meta_normal, df_new_meta_pairedtumor) %>%
                                     grepl("Oral Melanoma", Tumor_type, ignore.case = T) ~ "OM",
                                     grepl("B-cell Lymphoma", Tumor_type, ignore.case = T) ~ "BCL",
                                     grepl("Osteosarcoma", Tumor_type, ignore.case = T) ~ "OSA",
-                                    grepl("hemangiosarcoma", Tumor_type, ignore.case = T) ~ "HSA"
+                                    grepl("hemangiosarcoma", Tumor_type, ignore.case = T) ~ "HSA",
+                                    grepl("Urothelial carcinoma", Tumor_type, ignore.case = T) ~ "UC",
+                                    grepl("Primary bladder tumor", Tumor_type, ignore.case = T) ~ "BT"
                                     )) %>%
   mutate(Tumor_Type = case_when(grepl("Non-Tumor", Tumor_type, ignore.case = T) ~ "NonT",
                                 grepl("Mammary", Tumor_type, ignore.case = T) ~ "MT",
@@ -224,7 +228,9 @@ df_new_meta <- rbind(df_new_meta_normal, df_new_meta_pairedtumor) %>%
                                 grepl("Oral Melanoma", Tumor_type, ignore.case = T) ~ "OM",
                                 grepl("B-cell Lymphoma", Tumor_type, ignore.case = T) ~ "LYM",
                                 grepl("Osteosarcoma", Tumor_type, ignore.case = T) ~ "OSA",
-                                grepl("hemangiosarcoma", Tumor_type, ignore.case = T) ~ "HSA"
+                                grepl("hemangiosarcoma", Tumor_type, ignore.case = T) ~ "HSA",
+                                grepl("Urothelial carcinoma", Tumor_type, ignore.case = T) ~ "BT",
+                                grepl("Primary bladder tumor", Tumor_type, ignore.case = T) ~ "BT"
                                 )) %>%
   mutate(Breed = gsub("\\\\,.*","",Breed,perl = T)) %>%
   mutate(Breed = gsub(" Dog","",Breed,perl = T)) %>%
@@ -242,6 +248,8 @@ df_new_meta <- rbind(df_new_meta_normal, df_new_meta_pairedtumor) %>%
                           Organization == "University of Missouri" ~ "UMis",
                           Organization == "Translational Genomics Research Institute" ~ "TGen",
                           Organization == "University of Helsinki" ~ "UHel",
+                          Organization == "Colorado State University" ~ "CSU",
+                          Organization == "SI" ~ "SI",
                           )) %>%
   mutate(Symbol = paste(DiseaseAcronym2,Code,sep = " ")) %>%
   rename(Bioproject = BioProject, Sample_ID = Run_ID) %>%
@@ -251,16 +259,16 @@ df_new_meta <- rbind(df_new_meta_normal, df_new_meta_pairedtumor) %>%
 
 # check breed frequency
 # table(df_new_meta$Breed_info)[order(table(df_new_meta$Breed_info), decreasing = T)]
-write.csv(df_old_meta, file = paste0(meta_dir,"/data_collection_old.csv"), quote = TRUE, na = "NA", row.names = F)
+#write.csv(df_old_meta, file = paste0(meta_dir,"/data_collection_old.csv"), quote = TRUE, na = "NA", row.names = F)
 write.csv(df_new_meta, file = paste0(meta_dir,"/data_collection_new.csv"), quote = TRUE, na = "NA", row.names = F)
 
 # avoid sample case names between old and new datasets, only for AFTER-WXS-RUN metadata
-df_new_meta_rename <- df_new_meta %>%
-  mutate(Case_ID = case_when(
-    (Bioproject == "PRJNA786469" & grepl("^CC",Case_ID)) ~ paste0(Case_ID,"_URen"),
-    TRUE ~ Case_ID
-  ))
-write.csv(df_new_meta_rename, file = paste0(meta_dir,"/data_collection_new_renamed.csv"), quote = TRUE, na = "NA", row.names = F)
+# df_new_meta_rename <- df_new_meta %>%
+#   mutate(Case_ID = case_when(
+#     (Bioproject == "PRJNA786469" & grepl("^CC",Case_ID)) ~ paste0(Case_ID,"_URen"),
+#     TRUE ~ Case_ID
+#   ))
+# write.csv(df_new_meta_rename, file = paste0(meta_dir,"/data_collection_new_renamed.csv"), quote = TRUE, na = "NA", row.names = F)
 
 ## merge new datasets with old datasets
 

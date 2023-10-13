@@ -1,67 +1,90 @@
+localrules: all
+
 output_reports = []
 for Bioproject in config['in'].keys():
     for CaseName in config['in'][Bioproject].keys():
         output_report = config['out']['outdir']+"/report/"+Bioproject+"/"+CaseName+"_report.txt"
+        # output_report = config['out']['outdir']+"/report/"+Bioproject+"/"+CaseName+"_QC.txt"
         output_reports.append(output_report)
 
+
+# rule all:
+#     input:
+#         output_reports
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-100_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-102_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-103_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-105_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-106_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-107_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-109_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-111_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-112_report.txt",
+#         # config['out']['outdir']+"/report/PRJNA489159/CMT-114_report.txt"
+
+# rule all to check if qc finished and summarize qc results
 rule all:
     input:
         output_reports
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-100_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-102_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-103_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-105_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-106_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-107_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-109_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-111_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-112_report.txt",
-        # config['out']['outdir']+"/report/PRJNA489159/CMT-114_report.txt"
+    # params:
+    #     metadata=config['metatable'],
+    #     qc_out=config['out']['outdir']+"/results/QC"
+    # shell:
+    #     '''
+    #     for group in `cut -d, -f4,9 {params.metadata} | grep -v "DiseaseAcronym2" | sort -u | sed 's/\\"//g'`; do
+    #         Cancer_Type=`echo ${{group}} | cut -d, -f1`
+    #         Bioproject=`echo ${{group}} | cut -d, -f2`
+    #         cat {params.qc_out}/*/*/*${{Cancer_Type}}_${{Bioproject}}-CDS_Mapping_summary.txt > {params.qc_out}/Total_WES_BWA_CDS_${{Bioproject}}_${{Cancer_Type}}.txt
+    #         cat {params.qc_out}/*/*/*${{Cancer_Type}}_${{Bioproject}}-mapping_quality_line.txt > {params.qc_out}/WES_Total_Mapping_quality_${{Bioproject}}_${{Cancer_Type}}.txt
+    #         cat {params.qc_out}/*/*/*${{Cancer_Type}}_${{Bioproject}}_randomness_summary.txt > {params.qc_out}/Total_WES_${{Bioproject}}_${{Cancer_Type}}_Randomness_Summary.txt
+    #     done
+    #     '''
 
-# rule run_pipeline:
-#     input:
-#     output:
-#         report=config['out']['outdir']+"/report/{Bioproject}/{CaseName}_report.txt"
-#     params:
-#         Bioproject=lambda wc: wc.Bioproject,
-#         CaseName=lambda wc: wc.CaseName,
-#         Normal_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][0],
-#         Tumor_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][1],
-#         outdir=config['out']['outdir'],
-#         project_dir=config['project_dir'],
-#         config=config['out']['outdir']+"/config/{Bioproject}_{CaseName}_config.json"
-#     conda:
-#         config['envs']['wesenv']
-#     threads:
-#         config['resources']['threads']
-#     resources:
-#         mem=config['resources']['mem']
-#     shell:
-#         '''
-#         mkdir -p {params.outdir}/data/{params.Bioproject}/{params.CaseName}
-#         cd {params.outdir}/data/{params.Bioproject}/{params.CaseName}
+
+rule run_pipeline:
+    input:
+    output:
+        report=config['out']['outdir']+"/report/{Bioproject}/{CaseName}_report.txt"
+    params:
+        Bioproject=lambda wc: wc.Bioproject,
+        CaseName=lambda wc: wc.CaseName,
+        Normal_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][0],
+        Tumor_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][1],
+        outdir=config['out']['outdir'],
+        project_dir=config['project_dir'],
+        config=config['out']['outdir']+"/config/{Bioproject}_{CaseName}_config.json"
+    conda:
+        config['envs']['wesenv']
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    shell:
+        '''
+        mkdir -p {params.outdir}/data/{params.Bioproject}/{params.CaseName}
+        cd {params.outdir}/data/{params.Bioproject}/{params.CaseName}
         
-#         python {params.project_dir}/scripts/per_case/make_snakemake_config.py \
-#             --project_dir {params.project_dir} \
-#             --out {params.config} \
-#             --outdir {params.outdir} \
-#             --Bioproject {params.Bioproject} \
-#             --Normal_Run {params.Normal_Run} \
-#             --Tumor_Run {params.Tumor_Run} \
-#             --CaseName {params.CaseName} \
-#             --threads {threads} \
-#             --memory {resources.mem}
+        python {params.project_dir}/scripts/per_case/make_snakemake_config.py \
+            --project_dir {params.project_dir} \
+            --out {params.config} \
+            --outdir {params.outdir} \
+            --Bioproject {params.Bioproject} \
+            --Normal_Run {params.Normal_Run} \
+            --Tumor_Run {params.Tumor_Run} \
+            --CaseName {params.CaseName} \
+            --threads {threads} \
+            --memory {resources.mem}
 
-#         rm -rf .snakemake/locks/*
+        rm -rf .snakemake/locks/*
 
-#         snakemake \
-#             --cores {threads} \
-#             --use-conda \
-#             --rerun-incomplete \
-#             --rerun-triggers mtime \
-#             --configfile {params.config} \
-#             --snakefile "{params.project_dir}/scripts/per_case/Snakefile"
-#         '''
+        snakemake \
+            --cores {threads} \
+            --use-conda \
+            --rerun-incomplete \
+            --rerun-triggers mtime \
+            --configfile {params.config} \
+            --snakefile "{params.project_dir}/scripts/per_case/Snakefile"
+        '''
 
 rule run_qc:
     output:
@@ -73,7 +96,8 @@ rule run_qc:
         Tumor_Run=lambda wc: config['in'][wc.Bioproject][wc.CaseName][1],
         outdir=config['out']['outdir'],
         project_dir=config['project_dir'],
-        config=config['out']['outdir']+"/config/{Bioproject}_{CaseName}_QC_config.json"
+        config=config['out']['outdir']+"/config/{Bioproject}_{CaseName}_QC_config.json",
+        metadata=config['metatable']
     conda:
         config['envs']['wesenv']
     threads:
@@ -93,7 +117,7 @@ rule run_qc:
             --Normal_Run {params.Normal_Run} \
             --Tumor_Run {params.Tumor_Run} \
             --CaseName {params.CaseName} \
-            --metadata {params.project_dir}/metadata/data_collection_new.csv \
+            --metadata {params.metadata} \
             --readlength {params.project_dir}/metadata/data_new_readlength.csv \
             --threads {threads} \
             --memory {resources.mem} 
@@ -109,4 +133,3 @@ rule run_qc:
             --snakefile "{params.project_dir}/scripts/qc/Snakefile"
         '''
 
-rule combine_qc:

@@ -1,5 +1,6 @@
 {
     "project_dir": "/home/jc33471/canine_tumor_wes",
+    "breed_dir": "/home/jc33471/breed_prediction",
     "in": {
         "vcffiles": [
             "/scratch/jc33471/canine_tumor/phylogenetics/vcf/project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/Germline/CMT-100/SRR7780976_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf",

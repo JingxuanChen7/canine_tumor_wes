@@ -8,6 +8,37 @@ import csv
 # this script makes a config file for snakemake in JSON
 # snakefile for germline/somantic variant calling pipeline
 
+def get_readlength(readlength, in_bioproject):
+    with open(readlength, mode ='r') as file:
+        csvFile = csv.reader(file, delimiter=',', quoting=csv.QUOTE_NONE)
+        
+        # read other lines after header
+        for line in csvFile:
+            if in_bioproject in line[0]:
+                return int(line[1])
+
+def get_cancertype(metadata, in_bioproject, in_casename):
+    with open(metadata, mode ='r') as file:
+        
+        csvFile = csv.reader(file,delimiter=',', quotechar='"')
+        header = next(csvFile)
+        index = {}
+        for info in ['Case_ID', 'Bioproject', 'DiseaseAcronym2']:        
+            if info in header:
+                index[info] = header.index(info)
+            else:
+                sys.stderr.write(info+" column is not in provided metatable.")
+                sys.exit(1)
+            
+        # read other lines after header
+        for line in csvFile:
+            Case_ID = line[index['Case_ID']]
+            Bioproject = line[index['Bioproject']]
+            Disease = line[index['DiseaseAcronym2']]
+            if Bioproject == in_bioproject and Case_ID == in_casename:
+                return Disease
+
+
 def main():
 
     args = parse_args()
@@ -17,18 +48,6 @@ def main():
     ## parameters for project path
     config["project_dir"] = args.project_dir
 
-    # reading the CSV file for metadata
-    Sequence_lengths = {}
-    with open(args.metadata, mode ='r') as file:
-        
-        csvFile = csv.reader(file,delimiter=',', quotechar='"')
-            
-        # read other lines after header
-        for line in csvFile:
-            Bioproject = line[0]
-            Sequence_length = line[1]
-            Sequence_lengths[Bioproject] = Sequence_length
-
 
     ## parameters for inputs
     config["in"] = {
@@ -36,7 +55,8 @@ def main():
         "Normal_Run": args.Normal_Run,
         "Tumor_Run": args.Tumor_Run,
         "CaseName": args.CaseName,
-        "Cancer_Type": Sequence_lengths[args.Bioproject]
+        "Cancer_Type": get_cancertype(args.metadata, args.Bioproject, args.CaseName),
+        "Sequence_length": get_readlength(args.readlength, args.Bioproject)
     }
 
     ## paths for outputs
