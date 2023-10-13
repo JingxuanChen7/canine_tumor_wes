@@ -36,7 +36,7 @@ seperator <- "/"
 # modify directory for I/O files and scripts
 #file_base_dir <- "/scratch/jc33471/canine_tumor_test/breed_prediction"
 #script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
-file_base_dir <- "/Users/jingxuan/Downloads/tmp"
+file_base_dir <- "/Users/jingxuan/Downloads/tmp/breed"
 script_dir <- "/Users/jingxuan/GitHub/canine_tumor_wes/scripts/breed_prediction"
 ############ Script customization parameters ########################
 # You may modify these parameters as desired
