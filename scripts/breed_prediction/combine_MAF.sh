@@ -21,10 +21,18 @@ mkdir -p ${run_dir}
 cd ${run_dir}
 
 #### prepare metadata for this run ####
-metadata=${run_dir}/this_meta.csv
-# only keep paired samples in new datasets for now
-grep -f <(cut -d, -f1 ${project_dir}/metadata/data_collection_new_renamed.csv | sort | uniq -d) ${project_dir}/metadata/data_collection_new_renamed.csv > ${run_dir}/paired_new_meta.csv
-cat ${project_dir}/metadata/data_collection_old.csv ${run_dir}/paired_new_meta.csv > ${metadata}
+metadata=${run_dir}/this_paired_meta.csv
+metadata_wunpaired=${run_dir}/this_wunpaired_meta.csv
+
+# only keep paired samples, note that doulble tumor/normal are excluded
+grep -f <(cut -d, -f1 ${project_dir}/metadata/data_collection_new_renamed.csv | sort | uniq -d) ${project_dir}/metadata/data_collection_new_renamed.csv |\
+  grep -v -f <(cut -d, -f1,5 ${project_dir}/metadata/data_collection_new_renamed.csv | sort | uniq -d | cut -f1 -d,) > ${run_dir}/paired_new_meta.csv
+# tumor or normal only samples
+grep -f <(cut -d, -f1 ${project_dir}/metadata/data_collection_new_renamed.csv | sort | uniq -u) ${project_dir}/metadata/data_collection_new_renamed.csv > ${run_dir}/unpaired_new_meta.csv
+
+# I want to exclude UC SI samples for now, because the runs have not been completed
+cat ${project_dir}/metadata/data_collection_old.csv ${run_dir}/paired_new_meta.csv | grep -v "UC SI" > ${metadata}
+cat ${project_dir}/metadata/data_collection_old.csv ${run_dir}/paired_new_meta.csv ${run_dir}/unpaired_new_meta.csv | grep -v "UC SI" > ${metadata_wunpaired}
 
 ##### create input file list #####
 ## backup file list (runs before 2021)
@@ -58,9 +66,18 @@ ls -1 /scratch/jc33471/canine_tumor_0908/results/Germline/*/*/*_rg_added_sorted_
 
 cat ${run_dir}/backup_vcf.txt ${run_dir}/rerun_vcf.txt ${run_dir}/newdata_vcf.txt > ${run_dir}/all_vcf.txt
 
-## reformat annovar file list
+## reformat annovar file list, only paired
 python ${project_dir}/scripts/breed_prediction/create_file_list.py \
   --metatable ${metadata} \
+  --filelist ${run_dir}/all_annovar.txt \
+  --vcflist ${run_dir}/all_vcf.txt \
+  --depthlist ${run_dir}/all_depthofcoverage.txt \
+  --output ${run_dir}/annovar_file_list_paired.txt \
+  --vcfout ${run_dir}/vcf_file_list_paired.txt
+
+## reformat annovar file list, only paired
+python ${project_dir}/scripts/breed_prediction/create_file_list.py \
+  --metatable ${metadata_wunpaired} \
   --filelist ${run_dir}/all_annovar.txt \
   --vcflist ${run_dir}/all_vcf.txt \
   --depthlist ${run_dir}/all_depthofcoverage.txt \
@@ -69,7 +86,7 @@ python ${project_dir}/scripts/breed_prediction/create_file_list.py \
 
 ######## expected input arguments ########
 # A file with one row (three columns) per normal/tumor sample including file path for germline variants called by HaplotypeCaller and annotated by ANNOVAR and Pancancer.jar (see sample files)
-annovar_file_list=${run_dir}/annovar_file_list.txt
+annovar_file_list=${run_dir}/annovar_file_list_paired.txt
 # A file with one row (three columns) per normal/tumor sample including file paths for VCF format files for germline variants called by HaplotypeCaller and base coverage information output by DepthOfCoverage (see sample files)
 vcf_file_list=${run_dir}/vcf_file_list.txt
 
@@ -118,7 +135,7 @@ Rscript --vanilla ${project_dir}/scripts/breed_prediction/germline_VAF_reset_low
 # identify breed specific variants
 # prepare metadata
 Rscript --vanilla ${project_dir}/scripts/breed_prediction/reformat_meta_text.R \
-  ${metadata} \
+  ${metadata_wunpaired} \
   ${run_dir}/breed_prediction_metadata.txt
 
 awk 'BEGIN{FS=OFS="\t"}{if ($6 ~ "Pass QC" && $5 == "Normal") print $4}' ${run_dir}/breed_prediction_metadata.txt | sort | uniq -c | sort -n

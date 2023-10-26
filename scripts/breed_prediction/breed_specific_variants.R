@@ -100,7 +100,7 @@ VAF_data <- fread(VAF_input_file, header=F, sep="\t", check.names=F, stringsAsFa
 VAF_data <- setDF(VAF_data)
 ### building meta_data data frame
 source(build_meta_data_code_path);
-meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = T);
+meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = T, include_unpaired = T);
 #meta_data <- meta_data[meta_data$Dataset == "Discovery",]
 ## here is the problem but now sloved with only choose the first normal column
 meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count, ]));

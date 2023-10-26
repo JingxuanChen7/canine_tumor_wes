@@ -1,6 +1,6 @@
 rule all:
     input:
-        expand(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf", sampleSet = ['breedSample', 'breedPlusMissingSample'], regionSet = ['breedSpecific', 'all'])
+        expand(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf", sampleSet = ['breedSample'], regionSet = ['all'])
 
 
 rule create_gz_index:
@@ -25,7 +25,9 @@ rule create_gz_index:
         bcftools index --threads {threads} {output.reheader_gz}
         echo "Compressed and indexed {input.vcf}"
         '''
-       
+
+
+
 # rule merge_vcfs:
 #     input:
 #         vcf=expand("{file}.reheader.gz", file=config['in']['vcffiles']),
@@ -123,16 +125,6 @@ rule subset_samples:
         bcftools index {output.breedPlusMissing_vcf}
         '''
 
-rule mask_low_coverage:
-    input:
-    output:
-    threads:
-        config['resources']['threads']
-    conda:
-        config['envs']['phylogenetics']
-    shell:
-        '''
-        '''
 
 rule prepare_breedSpecific_sites:
     input:
@@ -147,13 +139,15 @@ rule prepare_breedSpecific_sites:
 
 # sampleSet = ['breedSample', 'breedPlusMissingSample']
 # regionSet = ['breedSpecific', 'all' ,'genes']
+
 rule subset_breedSpecific:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz",
         idx=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz.csi",
         sites=config['out']['outdir']+"/breedSpecific_sites.tab"
     output:
-        vcf=config['out']['outdir']+"/{sampleSet}_breedSpecific_merged_germline_variants_SNP.vcf.gz"
+        vcf=config['out']['outdir']+"/{sampleSet}_breedSpecific_merged_germline_variants_SNP.vcf.gz",
+        idx=config['out']['outdir']+"/{sampleSet}_breedSpecific_merged_germline_variants_SNP.vcf.gz.csi"
     threads:
         config['resources']['threads']
     conda:
@@ -165,11 +159,169 @@ rule subset_breedSpecific:
             --force-samples \
             -o {output.vcf} \
             {input.vcf}
+        bcftools index {output.vcf}
+        '''
+
+rule create_depth_file_list:
+    input:
+        sampleSet=config['out']['outdir']+"/{sampleSet}.list",
+        vcffilelist=config['in']['vcffilelist']
+    output:
+        depthfilelist=config['out']['outdir']+"/{sampleSet}_all_depth_file_list.txt"
+    threads:
+        1
+    shell:
+        '''
+        # samples in order
+        grep -f {input.sampleSet} {input.vcffilelist} |  awk 'NR==FNR {{ line[$1] = $0; next }} $1 in line {{ print line[$1] }}' - {input.sampleSet} | cut -f3 > {output.depthfilelist}
+        '''
+
+rule depth_position_list:
+    input:
+        depthfilelist=config['out']['outdir']+"/{sampleSet}_depth_file_list.txt"
+    output:
+        depthpositionlist=config['out']['outdir']+"/{sampleSet}_depth_position_list.txt",
+        depthpositiontab=config['out']['outdir']+"/{sampleSet}_depth_position_list.tab"
+    threads:
+        1
+    shell:
+        '''
+        # get depth position list from first depth file
+        file=`head -1 {input.depthfilelist}`
+        sed '1d' ${{file}} | cut -f1 > {output.depthpositionlist}
+        awk 'BEGIN{{FS=":";OFS="\\t"}}{{print $1,$2}}' {output.depthpositionlist} > {output.depthpositiontab}
+        '''
+
+# sites in merged VCF are different from interval of DepthOfCoverage
+rule subset_depth_sites:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz",
+        depthpositiontab=config['out']['outdir']+"/{sampleSet}_depth_position_list.tab"
+    output:
+        out_vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_depth.vcf.gz",
+        # out_index=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_depth.vcf.gz.csi"
+    threads:
+        config['resources']['threads']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools view --threads {threads} -O z \
+            -R {input.depthpositiontab} \
+            -o {output.out_vcf} \
+            {input.vcf}
+        # bcftools index {output.out_vcf}
+        '''
+
+
+rule create_variant_list:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_depth.vcf.gz",
+    output:
+        variantlist=config['out']['outdir']+"/{sampleSet}_all_depth_variant_list.txt"
+    threads:
+        1
+    shell:
+        '''
+        # get varaint sites in order
+        zcat {input.vcf} |\
+            awk 'BEGIN{{OFS=":"}}/^[^#]/{{print $1,$2}}' > {output.variantlist}
+        '''
+
+rule create_depth_matrix:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_depth.vcf.gz",
+        variantlist=config['out']['outdir']+"/{sampleSet}_all_depth_variant_list.txt",
+        depthfilelist=config['out']['outdir']+"/{sampleSet}_all_depth_file_list.txt"
+    output:
+        tmp_depth=temp(config['out']['outdir']+"/{sampleSet}_all_tmp_DepthofCoverage_CDS.txt"),
+        tmp_leftalign=temp(config['out']['outdir']+"/{sampleSet}_all_tmp_DepthofCoverage_CDS_leftalign.txt"),
+        depthmatrix=config['out']['outdir']+"/{sampleSet}_all_germline_depth_matrix_for_phylo.txt",
+        tmp_matrix=temp(config['out']['outdir']+"/{sampleSet}_all_tmp.txt"),
+        tmp_variantlist=temp(config['out']['outdir']+"/{sampleSet}_all_depth_variant_list_tmp.txt")
+    threads:
+        1
+    shell:
+        '''
+        # select variant sites for depth info in order
+        awk '{{print $0","}}' {input.variantlist} > {output.tmp_variantlist}
+        while read file; do
+            # sort depth file to fit the variant sites order, fill missing sites
+            awk 'BEGIN{{OFS=","}}{{print $1,$2}}' ${{file}} | grep -f {output.tmp_variantlist} | cut -f1,2 > {output.tmp_depth}
+            join -a1 -e- -t "," -j 1 -o 0 2.2 <(sort {input.variantlist}) <(sort {output.tmp_depth}) | tr : , | sort -t, -k1.4,1V -k2,2n | sed 's/,/:/' > {output.tmp_leftalign}
+            if [[ ! -e {output.depthmatrix} ]]; then
+                cp {input.variantlist} {output.depthmatrix}
+                join -t "," -j 1 {output.depthmatrix} {output.tmp_leftalign} > {output.tmp_matrix}
+                # paste -d, {output.depthmatrix} {output.tmp_leftalign} > {output.tmp_matrix}
+                cp {output.tmp_matrix} {output.depthmatrix}
+            else
+                join -t "," -j 1 {output.depthmatrix} {output.tmp_leftalign} > {output.tmp_matrix}
+                cp {output.tmp_matrix} {output.depthmatrix}
+            fi
+        done < {input.depthfilelist}
+        '''
+
+rule mask_low_coverage:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_depth.vcf.gz",
+        depthmatrix=config['out']['outdir']+"/{sampleSet}_{regionSet}_germline_depth_matrix_for_phylo.txt"
+    output:
+        maksed_vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked.vcf.gz",
+        maksed_idx=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked.vcf.gz.csi"
+    params:
+        mask_vcf=config['scripts']['mask_vcf'],
+        minCoverage=10
+    threads:
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        python {params.mask_vcf} \
+            {input.depthmatrix} \
+            {input.vcf} \
+            {output.maksed_vcf} \
+            {params.minCoverage} \
+            {threads} \
+            {resources.mem}
+        bcftools index {output.maksed_vcf}
+        '''
+
+rule prepare_somatic_sites:
+    input:
+        config['in']['somaticMutation']
+    output:
+        config['out']['outdir']+"/somaticMutation_sites.tab"
+    shell:
+        '''
+        awk 'BEGIN{{OFS="\\t"}} {{if ($1 !~ /chrom/) {{print $1,$2;}} }}' \
+            {input} > {output}
+        '''
+
+rule remove_somatic:
+    input:
+        maksed_vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked.vcf.gz",
+        maksed_idx=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked.vcf.gz.csi",
+        somatic=config['out']['outdir']+"/somaticMutation_sites.tab"
+    output:
+        cleaned_vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned.vcf.gz"
+    threads:
+        1
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools view --threads {threads} -O z \
+            -T ^{input.somatic} \
+            -o {output.cleaned_vcf} \
+            {input.maksed_vcf}
         '''
 
 rule distance_matrix:
     input:
-        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP.vcf.gz"
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned.vcf.gz"
     output:
         matrix=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.gz",
         distid=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.id"
@@ -231,6 +383,9 @@ rule phylip_neighbor:
         cat {params.outfile} >> {log}
         rm {params.outfile}
         '''
+
+# rule phylip_consense:
+
 
 rule phylip_nwk_vis:
     input:

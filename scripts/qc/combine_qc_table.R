@@ -3,12 +3,13 @@ library(ggplot2)
 
 project_dir <- "/home/jc33471/canine_tumor_wes"
 meta <- read.csv("/home/jc33471/canine_tumor_wes/metadata/data_collection_new.csv", stringsAsFactors = F)
+qc_dir <- "/scratch/jc33471/canine_tumor_0908"
 
-bwa_out <- read.table(paste0(project_dir,"/results/Total_WES_BWA_CDS.combined.txt"), header = T, stringsAsFactors = F, sep = "\t") %>%
+bwa_out <- read.table(paste0(qc_dir,"/results/QC/Total_WES_BWA_CDS.combined.txt"), header = T, stringsAsFactors = F, sep = "\t") %>%
   distinct()
-mapq_out <- read.table(paste0(project_dir,"/results/WES_Total_Mapping_quality.combined.txt"), header = T, stringsAsFactors = F, sep = "\t")%>%
+mapq_out <- read.table(paste0(qc_dir,"/results/QC/WES_Total_Mapping_quality.combined.txt"), header = T, stringsAsFactors = F, sep = "\t")%>%
   distinct()
-randomness_out <- read.table(paste0(project_dir,"/results/Total_WES_Randomness_Summary.combined.txt"), header = T, stringsAsFactors = F, sep = "\t")%>%
+randomness_out <- read.table(paste0(qc_dir,"/results/QC/Total_WES_Randomness_Summary.combined.txt"), header = T, stringsAsFactors = F, sep = "\t")%>%
   distinct()
 
 qc_combine <- left_join(bwa_out, mapq_out, by = c("File_name", "CancerType"="Cancer_Type","Status")) %>%
@@ -17,11 +18,11 @@ qc_combine <- left_join(bwa_out, mapq_out, by = c("File_name", "CancerType"="Can
 
 wes_qc_meta <- left_join(meta, qc_combine, by = c("Sample_ID" = "File_name")) %>%
   mutate(Reason_to_exclude = case_when( Total_Pairs < 5000000 ~ "Total_Pair_reads < 5M",
-                                        Uniq_mapped_rate < 0.6 ~ "Uniq mapping rate < 0.6",
+                                        Uniq_mapped_rate < 0.5 ~ "Uniq mapping rate < 0.5",
                                         Uniq_Exonic_region_mapped_rate < 0.3 ~ "Unique CDS mapping rate < 0.3",
                                         average < 30 ~ "coverage < 30",
                                         TRUE ~ "Pass QC"
-                                      ))
+                                      )) 
 
 
 out_table <- wes_qc_meta %>% select(colnames(meta)) %>%

@@ -8,8 +8,10 @@
             "/scratch/jc33471/canine_tumor/phylogenetics/vcf/project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/Germline/CMT-102/SRR7780978_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf",
             "/scratch/jc33471/canine_tumor/phylogenetics/vcf/project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/Germline/CMT-102/SRR7780981_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"
         ],
+        "vcffilelist": "/home/jc33471/canine_tumor_wes/metadata/vcf_file_list.txt",
         "metatable": "/home/jc33471/canine_tumor_wes/metadata/data_collection_old.csv",
-        "breedSpecific": "/scratch/jc33471/canine_tumor_test/breed_prediction/output_exclude_WGS/57_WGS_all_breed_specific_variants.txt"
+        "breedSpecific": "/scratch/jc33471/canine_tumor_test/breed_prediction/output_exclude_WGS/57_WGS_all_breed_specific_variants.txt",
+        "somaticMutation": "/home/jc33471/canine_tumor_wes/metadata/Pass_QC_Final_Total_withGene_Burair_Filtering4_VAF_Mutect_orientBiasModified_04_02.txt"
     },
     "out": {
         "outdir": "/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf"
@@ -22,5 +24,6 @@
         "phylogenetics": "phylogenetics"
     },
     "scripts": {
+        "mask_vcf": "/home/jc33471/canine_tumor_wes/scripts/phylogenetic/mask_vcf.py"
     }
 }

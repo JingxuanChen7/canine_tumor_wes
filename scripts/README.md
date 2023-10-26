@@ -214,6 +214,18 @@ seqkit grep -n -r -f ${run_dir}/breed_sample.list ${run_dir}/breed_specific.min4
 # samples with breed info, all sites
 seqkit grep -n -r -f ${run_dir}/breed_sample.list ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt.min4.fasta > ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy_breed_sample.min4.fasta
 
-jupyter notebook --generate-config
-jupyter notebook --no-browser --NotebookApp.allow_origin_pat=https://.*vscode-cdn\.net
+module load Anaconda3/2022.10
+mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/phylogenetics.yml -p /home/jc33471/phylogenetics
+source activate /home/jc33471/phylogenetics
+conda deactivate
+NOTEBOOKPORT=8642
+IPUSED=$(hostname -i)
+echo "NOTEBOOKPORT is " $NOTEBOOKPORT
+echo "IPUSED is " $IPUSED
+jupyter-notebook --port $NOTEBOOKPORT --ip=$IPUSED --no-browser --NotebookApp.allow_origin='*'
+
+
+# local 
+ssh -N -L 8642:10.2.3.108:8642 sapelo2
+
 ```

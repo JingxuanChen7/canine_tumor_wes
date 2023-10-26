@@ -181,36 +181,38 @@ rule download_normal_tumor_merged:
         # generate run accession list
         echo {params.run_accession} | sed "s/-/\\n/g" > {output.accession_list}
         # create empty merged files
-        > {params.read_dir}/{params.run_accession}_1.fastq
-        > {params.read_dir}/{params.run_accession}_2.fastq
         while read SRR; do
-            if [[ ! -e {params.read_dir}/${{SRR}}.sra ]]; then 
-                prefetch --max-size 1000G ${{SRR}} -o {params.read_dir}/${{SRR}}.sra
-            fi
-            vdb-validate {params.read_dir}/${{SRR}}.sra &> {params.read_dir}/md5_out_${{SRR}}
-            stat=`grep "'${{SRR}}.sra' is consistent" {params.read_dir}/md5_out_${{SRR}}`
-            count=0
-            while [[ -z $stat ]] && [[ $count -lt {params.retry_times} ]]; do # check if the string is empty
-                prefetch --max-size 1000G ${{SRR}} -o {params.read_dir}/${{SRR}}.sra
+            if [[ ! -e {params.read_dir}/${{SRR}}_1.fastq ]] || [[ ! -e {params.read_dir}/${{SRR}}_2.fastq ]]; then
+                if [[ ! -e {params.read_dir}/${{SRR}}.sra ]]; then 
+                    prefetch --max-size 1000G ${{SRR}} -o {params.read_dir}/${{SRR}}.sra
+                fi
                 vdb-validate {params.read_dir}/${{SRR}}.sra &> {params.read_dir}/md5_out_${{SRR}}
                 stat=`grep "'${{SRR}}.sra' is consistent" {params.read_dir}/md5_out_${{SRR}}`
-                (( count++ ))
-            done
-            if [[ -e {params.read_dir}/${{SRR}}.sra ]]; then
-                fasterq-dump --split-3 -O {params.read_dir} {params.read_dir}/${{SRR}}.sra &>> {log}
-                echo "Download success for ${{SRR}}" >> {log}
-            else
-                echo "Download failed for ${{SRR}}" >> {log}; exit 1;
+                count=0
+                while [[ -z $stat ]] && [[ $count -lt {params.retry_times} ]]; do # check if the string is empty
+                    prefetch --max-size 1000G ${{SRR}} -o {params.read_dir}/${{SRR}}.sra
+                    vdb-validate {params.read_dir}/${{SRR}}.sra &> {params.read_dir}/md5_out_${{SRR}}
+                    stat=`grep "'${{SRR}}.sra' is consistent" {params.read_dir}/md5_out_${{SRR}}`
+                    (( count++ ))
+                done
+                if [[ -e {params.read_dir}/${{SRR}}.sra ]]; then
+                    fasterq-dump --split-3 -O {params.read_dir} {params.read_dir}/${{SRR}}.sra &>> {log}
+                    echo "Download success for ${{SRR}}" >> {log}
+                else
+                    echo "Download failed for ${{SRR}}" >> {log}; exit 1;
+                fi
+                rm {params.read_dir}/md5_out_${{SRR}}
             fi
-            cat {params.read_dir}/${{SRR}}_1.fastq >> {params.read_dir}/{params.run_accession}_1.fastq
-            cat {params.read_dir}/${{SRR}}_2.fastq >> {params.read_dir}/{params.run_accession}_2.fastq
-            rm {params.read_dir}/${{SRR}}.sra
-            rm {params.read_dir}/md5_out_${{SRR}}
-            rm {params.read_dir}/${{SRR}}_1.fastq
-            rm {params.read_dir}/${{SRR}}_2.fastq
         done < {output.accession_list}
+        rm -f {params.read_dir}/{params.run_accession}_1.fastq
+        rm -f {params.read_dir}/{params.run_accession}_2.fastq
+        cat {params.read_dir}/*_1.fastq > {params.read_dir}/{params.run_accession}_1.fastq
+        cat {params.read_dir}/*_2.fastq > {params.read_dir}/{params.run_accession}_2.fastq
         gzip -f {params.read_dir}/{params.run_accession}_1.fastq
         gzip -f {params.read_dir}/{params.run_accession}_2.fastq
+        rm {params.read_dir}/*.sra
+        rm {params.read_dir}/*_1.fastq
+        rm {params.read_dir}/*_2.fastq
         echo "Download success for {params.run_accession}" >> {log}
         '''
 

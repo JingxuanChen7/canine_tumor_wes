@@ -32,3 +32,5 @@ dependencies:
   - bioconda::plink=1.90b6.21
   - bioconda::phylip
   - bioconda::plink2
+  - bioconda::cyvcf2
+  - ipykernel

@@ -19,22 +19,39 @@
 #######################################################################################
 
 
-build_meta_data <- function(meta_data_file, exclud_fail_samples = T) {
+build_meta_data <- function(meta_data_file, exclud_fail_samples = T, include_unpaired = T) {
 	removed_columns <- c("Sample_id", "SampleName", "Status");
 
 	## constructing meta_data data frame
 	temp_meta_data <- read.table(meta_data_file, header=T, sep="\t", check.names=F, stringsAsFactors=F);
-	tumor_rows <- which(temp_meta_data[, "Status"] == "Tumor");
-	normal_rows <- which(temp_meta_data[, "Status"] == "Normal");
-
-	sample_names <- temp_meta_data[tumor_rows, "SampleName"];
-	status_col <- which(colnames(temp_meta_data) == "Status");
-
-	removed_column_indices <- which(colnames(temp_meta_data) %in% removed_columns);
-	meta_data <- temp_meta_data[tumor_rows, -removed_column_indices];
+	# check paired samples
+	table_SampleName <- table(temp_meta_data$SampleName)
+	paired <- temp_meta_data[temp_meta_data$SampleName %in% names(table_SampleName)[table_SampleName>1],]
+	
+	# parse only paired samples
+	tumor_rows <- which(paired[, "Status"] == "Tumor");
+	normal_rows <- which(paired[, "Status"] == "Normal");
+	sample_names <- paired[tumor_rows, "SampleName"];
+	status_col <- which(colnames(paired) == "Status");
+	removed_column_indices <- which(colnames(paired) %in% removed_columns);
+	# if paired, keep normal QC results
+	meta_data <- paired[normal_rows, -removed_column_indices];
 	rownames(meta_data) <- sample_names;
-	meta_data[, "TumorID"] <- temp_meta_data[tumor_rows, "Sample_id"];
-	meta_data[, "NormalID"] <- temp_meta_data[normal_rows, "Sample_id"];
+	meta_data[, "TumorID"] <- paired[tumor_rows, "Sample_id"];
+	meta_data[, "NormalID"] <- paired[normal_rows, "Sample_id"];
+	
+	if (include_unpaired) {
+	  unpaired <- temp_meta_data[temp_meta_data$SampleName %in% names(table_SampleName)[table_SampleName==1],]
+	  unpaired_rows <- which(unpaired[, "Status"] == "Tumor" | unpaired[, "Status"] == "Normal")
+	  sample_names_unpaired <- unpaired[unpaired_rows, "SampleName"];
+	  meta_data_unpaired <- unpaired[unpaired_rows, -removed_column_indices];
+	  rownames(meta_data_unpaired) <- sample_names_unpaired;
+	  # treat all unpaired as "normal" to fit afterwards codes
+	  meta_data_unpaired[, "TumorID"] <- unpaired[unpaired_rows, "Sample_id"];
+	  meta_data_unpaired[, "NormalID"] <- unpaired[unpaired_rows, "Sample_id"];
+	  meta_data <- rbind(meta_data, meta_data_unpaired)
+	}
+
 	if (exclud_fail_samples){
 		meta_data <- meta_data[meta_data$The_reason_to_exclude =="Pass QC",]
 	}
