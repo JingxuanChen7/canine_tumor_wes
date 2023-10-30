@@ -71,8 +71,8 @@ specific_variants_file <- paste(output_base, "all_breed_specific_variants_13.txt
 # Input file containing all samples meta data
 meta_data_file <- paste(file_base_dir,"breed_prediction_metadata.txt", sep=seperator);
 
-output_png1 <- paste(output_base, "breeds_heatmap_main_beforeQC_13.png", sep=seperator); # this heatmap won't contain samples with unknown breeds
-output_png2 <- paste(output_base, "breeds_heatmap_assignment_beforeQC_13.png", sep=seperator); # this heatmap will contain samples with unknown breeds
+output_png1 <- paste(output_base, "breeds_heatmap_main_beforeQC_12.png", sep=seperator); # this heatmap won't contain samples with unknown breeds
+output_png2 <- paste(output_base, "breeds_heatmap_assignment_beforeQC_12.png", sep=seperator); # this heatmap will contain samples with unknown breeds
 output_png <- c(output_png1, output_png2);
 # output_clusters files will have the list of samples ordered as they appear in the heatmaps (used for supplementary tables and breed validation/prediction results)
 output_clusters <- c(paste(output_base, "main_clusters.txt", sep=seperator), 
@@ -87,7 +87,7 @@ specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t",
 
 ### building meta_data data frame
 source(build_meta_data_code_path);
-meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = T);
+meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = T, include_unpaired = T);
 meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count, ]));
 # clean breed column
 meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ NA, TRUE ~ Breed))
@@ -107,7 +107,7 @@ variant_names <- apply(VAF_data[-c(1:meta_row_count), c(1:6)], MARGIN=1, functio
 names(variant_names) <- NULL;
 
 # now reading VAF values for normal samples
-#normal_VAF_data <- data.matrix(VAF_data[-c(1:meta_row_count), meta_data[, "NormalCol"]]); # this line has been modified because data.matrix convert factor to interval codes instead of VAF values (float)
+#normal_VAF_data <- as.matrix(VAF_data[-c(1:meta_row_count), as.vector(meta_data$NormalCol)]); # this line has been modified because data.matrix convert factor to interval codes instead of VAF values (float)
 normal_VAF_data <- apply(as.matrix(VAF_data[-c(1:meta_row_count), meta_data[, "NormalCol"]]), 2,as.numeric);
 colnames(normal_VAF_data) <- rownames(meta_data);
 rownames(normal_VAF_data) <- variant_names;
@@ -136,7 +136,7 @@ heatmap_variants <- apply(specific_variants_data, 1, function(x) {text_tokens_to
 heatmap_variants <- intersect(heatmap_variants, rownames(normal_VAF_data));
 
 heatmap_data_list <- list();
-set.seed(123);
+set.seed(4567);
 for(heatmap_version in c(1,2)) {
   heatmap_samples <- sample_list[[heatmap_version]];
   # building the heatmap data and removing bad samples
