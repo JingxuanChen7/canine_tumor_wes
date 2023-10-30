@@ -2,29 +2,31 @@ rule all:
     input:
         expand(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf", sampleSet = ['breedSample'], regionSet = ['all'])
 
+breedlist = ['Shih Tzu','Schnauzer','Golden Retriever','Rottweiler','Greyhound','Maltese','Yorkshire Terrier','Boxer','Poodle','Cocker Spaniel', "Labrador Retriever", "Boston Terrier"]
 
-rule create_gz_index:
-    input:
-        vcf="{file}"
-    output:
-        reheader_gz="{file}.reheader.gz",
-        index="{file}.reheader.gz.csi",
-        rename=temp("{file}rename_samples_vcf.txt"),
-        reheader=temp("{file}.reheader")
-    threads:
-        config['resources']['threads']
-    conda:
-        config['envs']['phylogenetics']
-    shell:
-        '''
-        rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
-        sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
-        echo "${{sample_name}}" > {output.rename}
-        bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {output.reheader}
-        bgzip --force --threads {threads} {output.reheader}
-        bcftools index --threads {threads} {output.reheader_gz}
-        echo "Compressed and indexed {input.vcf}"
-        '''
+# rule create_gz_index:
+#     input:
+#         vcf="{file}"
+#     output:
+#         rename=temp("{file}rename_samples_vcf.txt"),
+#         reheader_gz="{file}.reheader.gz",
+#         index="{file}.reheader.gz.csi"
+#     params:
+#         reheader="{file}.reheader"
+#     threads:
+#         1
+#     conda:
+#         config['envs']['phylogenetics']
+#     shell:
+#         '''
+#         rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
+#         sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
+#         echo "${{sample_name}}" > {output.rename}
+#         bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {params.reheader}
+#         bgzip --force --threads {threads} {params.reheader}
+#         bcftools index --threads {threads} {output.reheader_gz}
+#         echo "Compressed and indexed {input.vcf}"
+#         '''
 
 
 
@@ -64,47 +66,44 @@ rule create_gz_index:
 #         '''
 
 # sampleSet = ['breedSample', 'breedPlusMissingSample']
-# rule create_sample_list:
-#     input:
-#         config['in']['metatable']
-#     output:
-#         breedSample=config['out']['outdir']+"/breedSample.list",
-#         breedPlusMissing=config['out']['outdir']+"/breedPlusMissingSample.list"
-#     params:
-#         breeds = ['Shih Tzu','Schnauzer','Golden Retriever','Rottweiler','Greyhound','Maltese','Yorkshire Terrier','Boxer','Poodle','Cocker Spaniel']
-#     run:
-#         import csv
-#         out1 = open(output['breedSample'], "w")
-#         out2 = open(output['breedPlusMissing'], "w")
+rule create_sample_list:
+    input:
+        config['in']['metatable']
+    output:
+        breedSample=config['out']['outdir']+"/breedSample.list",
+        breedPlusMissing=config['out']['outdir']+"/breedPlusMissingSample.list"
+    params:
+        breeds = breedlist
+    run:
+        import csv
+        out1 = open(output['breedSample'], "w")
+        out2 = open(output['breedPlusMissing'], "w")
 
-#         with open(input[0], 'r') as file:
-#             reader = csv.reader(file, delimiter=',', quotechar='"')
-#             header = next(reader)
-#             breed_idx = header.index('Breed_info')
-#             sample_idx = header.index('Sample_ID')
-#             status_idx = header.index('Status')
-#             qc_idx = header.index('Reason_to_exclude')
-#             for row in reader:
-#                 if 'Normal' in row[status_idx] and 'Pass QC' in row[qc_idx]:
-#                     if row[breed_idx] in params['breeds']:
-#                         out1.write(row[sample_idx]+"\n")
-#                         out2.write(row[sample_idx]+"\n")
-#                     elif "No breed provided" in row[breed_idx]:
-#                         out2.write(row[sample_idx]+"\n")
+        with open(input[0], 'r') as file:
+            reader = csv.reader(file, delimiter=',', quotechar='"')
+            header = next(reader)
+            breed_idx = header.index('Breed_info')
+            sample_idx = header.index('Sample_ID')
+            status_idx = header.index('Status')
+            qc_idx = header.index('Reason_to_exclude')
+            for row in reader:
+                if 'Normal' in row[status_idx] and 'Pass QC' in row[qc_idx]:
+                    if row[breed_idx] in params['breeds']:
+                        out1.write(row[sample_idx]+"\n")
+                        out2.write(row[sample_idx]+"\n")
+                    elif "No breed provided" in row[breed_idx]:
+                        out2.write(row[sample_idx]+"\n")
         
-#         out1.close()
-#         out2.close()
+        out1.close()
+        out2.close()
 
 rule subset_samples:
     input:
         filtered_vcf=config['out']['outdir']+"/all_merged_germline_variants_SNP.vcf.gz",
-        breedSample=config['out']['outdir']+"/breedSample.list",
-        breedPlusMissing=config['out']['outdir']+"/breedPlusMissingSample.list"
+        breedSample=config['out']['outdir']+"/{sampleSet}.list"
     output:
-        breedSample_vcf=config['out']['outdir']+"/breedSample_all_merged_germline_variants_SNP.vcf.gz",
-        breedSample_idx=config['out']['outdir']+"/breedSample_all_merged_germline_variants_SNP.vcf.gz.csi",
-        breedPlusMissing_vcf=config['out']['outdir']+"/breedPlusMissingSample_all_merged_germline_variants_SNP.vcf.gz",
-        breedPlusMissing_idx=config['out']['outdir']+"/breedPlusMissingSample_all_merged_germline_variants_SNP.vcf.gz.csi"
+        breedSample_vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz",
+        breedSample_idx=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz.csi"
     threads:
         config['resources']['threads']
     conda:
@@ -112,17 +111,11 @@ rule subset_samples:
     shell:
         '''
         bcftools view --threads {threads} -O z \
-            -S {input.breedSample} \
+            -S <(sort -u {input.breedSample}) \
             --force-samples \
             -o {output.breedSample_vcf} \
             {input.filtered_vcf}
         bcftools index {output.breedSample_vcf}
-        bcftools view --threads {threads} -O z \
-            -S {input.breedPlusMissing} \
-            --force-samples \
-            -o {output.breedPlusMissing_vcf} \
-            {input.filtered_vcf}
-        bcftools index {output.breedPlusMissing_vcf}
         '''
 
 
@@ -178,7 +171,7 @@ rule create_depth_file_list:
 
 rule depth_position_list:
     input:
-        depthfilelist=config['out']['outdir']+"/{sampleSet}_depth_file_list.txt"
+        depthfilelist=config['out']['outdir']+"/{sampleSet}_all_depth_file_list.txt"
     output:
         depthpositionlist=config['out']['outdir']+"/{sampleSet}_depth_position_list.txt",
         depthpositiontab=config['out']['outdir']+"/{sampleSet}_depth_position_list.tab"
@@ -318,6 +311,26 @@ rule remove_somatic:
             -o {output.cleaned_vcf} \
             {input.maksed_vcf}
         '''
+
+# rule mhc2genes:
+#     input:
+#         cleaned_vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_masked.vcf.gz",
+#         mhc2regions=config['in']['mhc2regions']
+#     output:
+#         region_vcf=config['out']['outdir']+"/{sampleSet}_mhc2_merged_germline_variants_SNP_masked_cleaned.vcf.gz"
+#     threads:
+#         1
+#     conda:
+#         config['envs']['phylogenetics']
+#     shell:
+#         '''
+#         bcftools index -f {input.cleaned_vcf}
+#         bcftools view --threads {threads} -O z \
+#             -R {input.mhc2regions} \
+#             -o {output.region_vcf} \
+#             {input.cleaned_vcf}
+#         '''
+
 
 rule distance_matrix:
     input:

@@ -208,4 +208,5 @@ grep -E 'gene_id "HLA-DRB1"' ${refseq} > ${run_dir}/merge_vcf/refseq_MHCII.gtf
 cat ${run_dir}/merge_vcf/ensembl_MHCII.gtf ${run_dir}/merge_vcf/refseq_MHCII.gtf |\
     awk '($3=="exon"){print}' |\
     sed 's/NC_006594.3/chr12/g' \
-    > ${run_dir}/merge_vcf/threegenes_MHCII.gtf
+    > ${run_dir}/merge_vcf_old_test/threegenes_MHCII.gtf
+awk 'BEGIN{FS=OFS="\t"}{$4=$4-1; print $1,$4,$5}' ${run_dir}/merge_vcf_old_test/threegenes_MHCII.gtf > ${run_dir}/merge_vcf_old_test/threegenes_MHCII.bed

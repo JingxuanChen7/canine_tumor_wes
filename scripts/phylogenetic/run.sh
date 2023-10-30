@@ -16,16 +16,30 @@ conda activate wes_env
 
 project_dir="/home/${USER}/canine_tumor_wes"
 run_dir="/scratch/${USER}/canine_tumor/phylogenetics"
+breed_dir="/home/${USER}/breed_prediction"
 mkdir -p ${run_dir}
 cd ${run_dir}
 
 mkdir -p vcf/ merge_vcf/
 
-config="/home/jc33471/canine_tumor_wes/scripts/phylogenetic/config.json"
+# config="/home/jc33471/canine_tumor_wes/scripts/phylogenetic/config.json"
+config=${run_dir}/config.json
+
+python ${project_dir}/scripts/phylogenetic/make_snakemake_config.py \
+    --project_dir ${project_dir} \
+    --breed_dir ${breed_dir} \
+    --out ${config} \
+    --outdir ${run_dir}/merge_vcf \
+    --metadata "/scratch/jc33471/canine_tumor/breed_prediction/this_wunpaired_meta.csv" \
+    --vcffilelist "/scratch/jc33471/canine_tumor/breed_prediction/vcf_file_list.txt" \
+    --breedSpecific "/scratch/jc33471/canine_tumor/breed_prediction/output_exclude_WGS/all_breed_specific_variants_13.txt" \
+    --somaticMutation ${project_dir}"/metadata/Pass_QC_Final_Total_withGene_Burair_Filtering4_VAF_Mutect_orientBiasModified_04_02.txt" \
+    --threads 8 \
+    --memory "60G"
 
 snakemake \
-    -n \
-    -p \
+    -np \
+    --latency-wait 60 \
     --cores ${SLURM_NTASKS} \
     --rerun-incomplete \
     --rerun-triggers mtime \
@@ -33,7 +47,6 @@ snakemake \
     --configfile ${config} \
     --snakefile "${project_dir}/scripts/phylogenetic/Snakefile"
 
-breed_dir="/home/${USER}/breed_prediction"
 
 # # sites in order
 # zcat breedPlusMissingSample_breedSpecific_merged_germline_variants_SNP.vcf.gz |\
@@ -168,4 +181,11 @@ join -a1 -e- -t "," -j 1 -o 0 2.2 <(sort test1.txt) <(sort test2.txt) | tr : , |
 join -a1 -e- -t "," -j 1 -o 0 2.2 <(sort breedSample_all_depth_variant_list.txt) <(sort test2.txt) | tr : , | sort -t, -k1.4,1V -k2,2n | sed 's/,/:/' > test2_realigned.txt
 
 join -j 1 -t "," test1.txt test2_realigned.txt | less
-
+sample_name=`basename /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
+        echo "${sample_name}" > /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcfrename_samples_vcf.txt
+        bcftools reheader -s /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcfrename_samples_vcf.txt --threads 1 /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf | awk '{ if($1 ~ /##/ || NF==10)print}' > /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf.reheader
+        bgzip --force --threads 1 /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf.reheader
+        bcftools index --threads 1 /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf.reheader.gz
+        echo "Compressed and indexed /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"
+ 
+ll /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB16014/Beagle1/DRR483792_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf.reheader.gz

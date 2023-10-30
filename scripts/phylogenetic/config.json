@@ -11,10 +11,11 @@
         "vcffilelist": "/home/jc33471/canine_tumor_wes/metadata/vcf_file_list.txt",
         "metatable": "/home/jc33471/canine_tumor_wes/metadata/data_collection_old.csv",
         "breedSpecific": "/scratch/jc33471/canine_tumor_test/breed_prediction/output_exclude_WGS/57_WGS_all_breed_specific_variants.txt",
-        "somaticMutation": "/home/jc33471/canine_tumor_wes/metadata/Pass_QC_Final_Total_withGene_Burair_Filtering4_VAF_Mutect_orientBiasModified_04_02.txt"
+        "somaticMutation": "/home/jc33471/canine_tumor_wes/metadata/Pass_QC_Final_Total_withGene_Burair_Filtering4_VAF_Mutect_orientBiasModified_04_02.txt",
+        "mhc2regions": "/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf_old_test/threegenes_MHCII.bed"
     },
     "out": {
-        "outdir": "/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf"
+        "outdir": "/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf_old_test"
     },
     "resources": {
         "threads": 8,

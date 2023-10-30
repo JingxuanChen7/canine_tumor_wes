@@ -1,13 +1,79 @@
-# run pipeline (germline & depthofcoverage)
-- Install conda environments to run the pipeline on cluster
-```
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/wes_env.yml --name wes_env
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/annovar_env.yml --name annovar_env
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/mutect2_env.yml --name mutect2_env
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/strelka_env.yml --name strelka_env
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/java17.yml --name java17
+# Installation
+- Environment for meta data collection
+```bash
 mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/data_collection.yml --name data_collection
 ```
+- Environments for germline and depthofcoverage pipeline
+```bash
+mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/wes_env.yml --name wes_env
+mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/annovar_env.yml --name annovar_env
+# mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/mutect2_env.yml --name mutect2_env
+#mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/strelka_env.yml --name strelka_env
+mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/java17.yml --name java17
+```
+- Environment for breed prediction pipeline
+```
+mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/breed_prediction.yml --name breed_prediction
+```
+- Environment for phylogenetic analysis
+```
+mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/phylogenetics.yml --name phylogenetics
+```
+# Previous results preparation
+
+- Backup results are placed in `/project`, move to `/scratch` so that they can be assessed through work node. Involoved result files include:
+  - `*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf`,
+  - `*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName`,
+  - and `*_DepthofCoverage_CDS.bed`.
+
+```bash
+# list of files on project
+out_list="/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/backup_vcf_file.list"
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf > ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/MC/store/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Melanoma/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Glioma/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/HSA/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+ls -1 /project/szlab/tw71066/8-25-20-scratch-backup/All_NEW_WES/PRJNA552034-HSA/Mutation/new_mutect_results/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
+# Annovar output with gene names
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/MC/store/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Melanoma/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Glioma/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/HSA/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+ls -1 /project/szlab/tw71066/8-25-20-scratch-backup/All_NEW_WES/PRJNA552034-HSA/Mutation/new_mutect_results/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
+# depthOfCoverage out bed files
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/DepthOfCoverage/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/MC/store/DepthOfCoverage/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Melanoma/DepthOfCoverage/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/normal/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/tumor/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/normal/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/tumor/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/normal/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/tumor/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Glioma/DepthOfCoverage/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/HSA/DepthOfCoverage/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+ls -1 /project/szlab/tw71066/8-25-20-scratch-backup/All_NEW_WES/PRJNA552034-HSA/Mutation/new_mutect_results/*/*_DepthofCoverage_CDS.bed >> ${out_list}
+
+# copy backup results to scratch
+rsync -av --files-from=/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/backup_vcf_file.list / /scratch/jc33471/canine_tumor/phylogenetics/vcf/
+```
+- The `backup_vcf_file.list` for previous run prior to 2021 can also be found at `metadata/backup_vcf_file.list`.
+
+# Run WES pipeline (germline & depthofcoverage)
 - Shell script to submit jobs:
   - Snakemake pipeline for each individual job (case): `scripts/per_case/Snakefile`
   - Snakemake pipeline to submit all jobs: `scripts/sum_cases/Snakefile`
@@ -74,158 +140,86 @@ snakemake \
 ```
 
 - NOTE: The environment installation is mostly reproducible other than `MuTect`, because `MuTect/1.1.7-Java-1.7.0_80` is pre-installed by UGA GACRC. Double check with `module spider`.
+  - This module was not performed in my analysis.
 
-# merge individual VCFs
+# Breed prediction pipeline
+## Combining individual VCF files into MAF matrix
+- Complete pipeline can be found here `scripts/breed_prediction/combine_MAF.sh`
+- Note: To run this script, one has to make sure individual VCF files are available on `/scratch`. Paths to current files should be carefully checked in section `create input file list` of the above script.
 
-- Backup results are placed in `/project`, move to `/scratch` so that they can be assessed through work node. Involoved result files include:
-  - `*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf`,
-  - `*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName`,
-  - and `*_DepthofCoverage_CDS.bed`.
-
-```bash
-# list of files on project
-out_list="/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/backup_vcf_file.list"
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf > ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/MC/store/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Melanoma/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Glioma/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/HSA/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-ls -1 /project/szlab/tw71066/8-25-20-scratch-backup/All_NEW_WES/PRJNA552034-HSA/Mutation/new_mutect_results/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf >> ${out_list}
-# Annovar output with gene names
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/MC/store/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Melanoma/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/normal/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/tumor/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Glioma/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/HSA/Germline/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-ls -1 /project/szlab/tw71066/8-25-20-scratch-backup/All_NEW_WES/PRJNA552034-HSA/Mutation/new_mutect_results/*/*_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName >> ${out_list}
-# depthOfCoverage out bed files
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Mammary_Cancer/DepthOfCoverage/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/MC/store/DepthOfCoverage/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Melanoma/DepthOfCoverage/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/normal/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/osteosarcoma/results/tumor/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/normal/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/lymphoma/results/tumor/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/normal/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Burair/pancancer/scratch_backup/pancancer/WES/germline/other/results/tumor/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/Glioma/DepthOfCoverage/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/Kun_Lin/Pan_Cancer/ValidationData/HSA/DepthOfCoverage/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-ls -1 /project/szlab/tw71066/8-25-20-scratch-backup/All_NEW_WES/PRJNA552034-HSA/Mutation/new_mutect_results/*/*_DepthofCoverage_CDS.bed >> ${out_list}
-
-# copy backup results to scratch
-rsync -av --files-from=/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/backup_vcf_file.list / /scratch/jc33471/canine_tumor/phylogenetics/vcf/
-```
-- 
+## Heatmap visualization
+- Firstly, run Run R script `scripts/breed_prediction/breeds_joint_heatmap_beforeQC.R` interactively in R studio.  (command line interface not implemented yet)
+  - This step is to generate heatmap for breed validation/prediction.
+  - If running on local machine, one has to download `breed_predection_metadata.txt`, MAF matrix with low coverage sites masked, and breed specific variants output with folder struncture.
+- Run R script `scripts/breed_prediction/breeds_joint_heatmap_withQC.R` interactively in R studio.
 
 
-# post-processing and identify breed-specific variants
-- Install conda environment for breed prediction pipeline
-```
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/breed_prediction.yml --name breed_prediction
-```
-
-- Submit job using the following script
+# Phylogenetic analysis
+- Use the following shell script to submit the job.
+  - Snakemake file for the complete phylogenetic analysis pipeline `scripts/phylogenetic/Snakefile`
+  - Note: Only run this script AFTER finishing the breed prediction pipeline, because the following outputs are requried:
+    - Meta table for breed prediction: `breed_prediction/this_wunpaired_meta.csv`
+    - VCF file list created in breed prediction pipeline: `breed_prediction/vcf_file_list.txt`
+    - Breed specific variants list: `breed_prediction/output_exclude_WGS/all_breed_specific_variants_13.txt`
+  
 ```bash
 #!/bin/bash
 #SBATCH --partition=iob_p
-#SBATCH --job-name=breed
+#SBATCH --job-name=phylogenetics
 #SBATCH --nodes=1
+#SBATCH --ntasks=8
 #SBATCH --tasks-per-node=8
 #SBATCH --mem=60G
-#SBATCH --time=100:00:00
+#SBATCH --time=500:00:00
 #SBATCH --mail-user=jc33471@uga.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --output=/scratch/jc33471/canine_tumor_test/breed.out
+#SBATCH --output=/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/test.out
 
 CONDA_BASE=$(conda info --base)
 source ${CONDA_BASE}/etc/profile.d/conda.sh
-conda activate breed_prediction
+conda activate wes_env
 
 project_dir="/home/${USER}/canine_tumor_wes"
-run_dir="/scratch/${USER}/canine_tumor_test"
+run_dir="/scratch/${USER}/canine_tumor/phylogenetics"
+breed_dir="/home/${USER}/breed_prediction"
 mkdir -p ${run_dir}
 cd ${run_dir}
 
-# convert VAF at low coverage regions to NA
-Rscript --vanilla ${project_dir}/scripts/breed_prediction/germline_VAF_reset_low_coverage.R \
-  "/scratch/jc33471/canine_tumor_test/breed_prediction/PanCancer_disc_val_merged_germline_VAF_01_01_2021.txt.gz" \
-  "/scratch/jc33471/canine_tumor_test/breed_prediction/PanCancer_disc_val_merged_germline_depths_01_01_2021.txt.gz" \
-  "/scratch/jc33471/canine_tumor_test/breed_prediction/germline_VAF_matrix.reset_low_coverage.txt.gz"
+mkdir -p vcf/ merge_vcf/
 
-# identify breed specific variants
-Rscript --vanilla ${project_dir}/scripts/breed_prediction/breed_specific_variants.R \
-  "/home/jc33471/canine_tumor_wes/scripts/breed_prediction/build_sample_meta_data.R" \
-  "/scratch/jc33471/canine_tumor_test/breed_prediction/germline_VAF_matrix.reset_low_coverage.txt.gz" \
-  "/scratch/jc33471/canine_tumor_test/breed_prediction/output_exclude_WGS/breed_unique_variants.txt" \
-  "/scratch/jc33471/canine_tumor_test/breed_prediction/output_exclude_WGS/breed_enriched_variants.txt" \
-  "/scratch/jc33471/canine_tumor_test/breed_prediction/output_exclude_WGS/all_breed_specific_variants.txt" \
-  "/scratch/jc33471/canine_tumor_test/breed_prediction/breed_prediction_metadata.txt"
+# config="/home/jc33471/canine_tumor_wes/scripts/phylogenetic/config.json"
+config=${run_dir}/config.json
+
+python ${project_dir}/scripts/phylogenetic/make_snakemake_config.py \
+    --project_dir ${project_dir} \
+    --breed_dir ${breed_dir} \
+    --out ${config} \
+    --outdir ${run_dir}/merge_vcf \
+    --metadata "/scratch/jc33471/canine_tumor/breed_prediction/this_wunpaired_meta.csv" \
+    --vcffilelist "/scratch/jc33471/canine_tumor/breed_prediction/vcf_file_list.txt" \
+    --breedSpecific "/scratch/jc33471/canine_tumor/breed_prediction/output_exclude_WGS/all_breed_specific_variants_13.txt" \
+    --somaticMutation ${project_dir}"/metadata/Pass_QC_Final_Total_withGene_Burair_Filtering4_VAF_Mutect_orientBiasModified_04_02.txt" \
+    --threads 8 \
+    --memory "60G"
+
+snakemake \
+    -p \
+    --latency-wait 60 \
+    --cores ${SLURM_NTASKS} \
+    --rerun-incomplete \
+    --rerun-triggers mtime \
+    --use-conda \
+    --configfile ${config} \
+    --snakefile "${project_dir}/scripts/phylogenetic/Snakefile"
 ```
 
-# heatmap visualization
-- Firstly run Run R script `scripts/breed_prediction/breeds_joint_heatmap_beforeQC.R` interactively in R studio.  (command line interface not implemented yet)
-  - This step is to generate heatmap for breed validation/prediction.
-  - Need to mannually add info to metatable to generate the final heatmap.
-- Run R script `scripts/breed_prediction/breeds_joint_heatmap_withQC.R` interactively in R studio.
-
-# phylogenetic analysis
-- Install conda environment
-```
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/phylogenetics.yml --name phylogenetics
-```
+# Data backup log
 ```bash
-project_dir="/home/${USER}/canine_tumor_wes"
-run_dir="/scratch/${USER}/canine_tumor_test/breed_prediction"
-cd $run_dir
-
-
-python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
-    -i PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt \
-    --output-folder /scratch/jc33471/canine_tumor_test/breed_prediction \
-    --resolve-IUPAC
-
-python ${project_dir}/scripts/phylogenetic/vaf2fasta.py \
-    -i PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt \
-    --output-folder /scratch/jc33471/canine_tumor_test/breed_prediction \
-    --output-prefix "breed_specific" \
-    --select_sites output_exclude_WGS/57_WGS_all_breed_specific_variants.txt \
-    --resolve-IUPAC
-
-awk -F, 'BEGIN{split("Shih Tzu,Schnauzer,Golden Retriever,Rottweiler,Greyhound,Maltese,Yorkshire Terrier,Boxer,Poodle,Cocker Spaniel", breed, ",")}{
-    for (i in breed) if ( $5=="Normal" && $7==breed[i]) print $2;
-        }'\
-    ${project_dir}/metadata/data_collection_old.csv > ${run_dir}/breed_sample.list
-
-# samples with breed info, breed specific sites
-seqkit grep -n -r -f ${run_dir}/breed_sample.list ${run_dir}/breed_specific.min4.fasta > ${run_dir}/breed_specific_breed_sample.min4.fasta
-
-# samples with breed info, all sites
-seqkit grep -n -r -f ${run_dir}/breed_sample.list ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy.txt.min4.fasta > ${run_dir}/PanCancer_57WGS_disc_val_sep_germline_VAF_0119.reset_low_coverage_copy_breed_sample.min4.fasta
-
-module load Anaconda3/2022.10
-mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/phylogenetics.yml -p /home/jc33471/phylogenetics
-source activate /home/jc33471/phylogenetics
-conda deactivate
-NOTEBOOKPORT=8642
-IPUSED=$(hostname -i)
-echo "NOTEBOOKPORT is " $NOTEBOOKPORT
-echo "IPUSED is " $IPUSED
-jupyter-notebook --port $NOTEBOOKPORT --ip=$IPUSED --no-browser --NotebookApp.allow_origin='*'
-
-
-# local 
-ssh -N -L 8642:10.2.3.108:8642 sapelo2
+# xfer5
+cd /project/szlab/Jingxuan_Chen
+mkdir -p /project/szlab/Jingxuan_Chen/pancaner_germline_rerunPRJNA525883/out
+rsync -axv /scratch/jc33471/canine_tumor_rerun/out /project/szlab/Jingxuan_Chen/pancaner_germline_rerunPRJNA525883/out
+mkdir -p /project/szlab/Jingxuan_Chen/pancaner_germline_rerunPRJNA525883/results
+rsync -axv /scratch/jc33471/canine_tumor_rerun/results /project/szlab/Jingxuan_Chen/pancaner_germline_rerunPRJNA525883/results
 
 ```

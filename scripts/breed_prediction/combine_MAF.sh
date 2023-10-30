@@ -136,9 +136,10 @@ Rscript --vanilla ${project_dir}/scripts/breed_prediction/germline_VAF_reset_low
 # prepare metadata
 Rscript --vanilla ${project_dir}/scripts/breed_prediction/reformat_meta_text.R \
   ${metadata_wunpaired} \
-  ${run_dir}/breed_prediction_metadata.txt
+  ${run_dir}/breed_prediction_metadata.txt \
+  ${run_dir}/breed_prediction_cases.txt
 
-awk 'BEGIN{FS=OFS="\t"}{if ($6 ~ "Pass QC" && $5 == "Normal") print $4}' ${run_dir}/breed_prediction_metadata.txt | sort | uniq -c | sort -n
+awk 'BEGIN{FS=OFS="\t"}{if ($6 ~ "Pass QC" && $5 == "Normal") print $4}' ${run_dir}/breed_prediction_cases.txt | sort | uniq -c | sort -n
 
 mkdir -p ${run_dir}"/output_exclude_WGS"
 
