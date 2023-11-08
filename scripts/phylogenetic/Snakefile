@@ -1,6 +1,9 @@
 rule all:
     input:
-        expand(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf", sampleSet = ['breedSample'], regionSet = ['all'])
+        config['out']['outdir']+"/breedSample_all/breedSample_all.pdf",
+        config['out']['outdir']+"/breedSample_breedSpecific/breedSample_breedSpecific.pdf",
+        config['out']['outdir']+"/breedPlusMissingSample_breedSpecific/breedPlusMissingSample_breedSpecific.pdf"
+        # expand(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf", sampleSet = ['breedSample','breedPlusMissingSample'], regionSet = ['all','breedSpecific'])
 
 breedlist = ['Shih Tzu','Schnauzer','Golden Retriever','Rottweiler','Greyhound','Maltese','Yorkshire Terrier','Boxer','Poodle','Cocker Spaniel', "Labrador Retriever", "Boston Terrier"]
 
@@ -66,6 +69,7 @@ breedlist = ['Shih Tzu','Schnauzer','Golden Retriever','Rottweiler','Greyhound',
 #         '''
 
 # sampleSet = ['breedSample', 'breedPlusMissingSample']
+# sample list inferred from metatable, contains duplicates
 rule create_sample_list:
     input:
         config['in']['metatable']
@@ -166,7 +170,7 @@ rule create_depth_file_list:
     shell:
         '''
         # samples in order
-        grep -f {input.sampleSet} {input.vcffilelist} |  awk 'NR==FNR {{ line[$1] = $0; next }} $1 in line {{ print line[$1] }}' - {input.sampleSet} | cut -f3 > {output.depthfilelist}
+        grep -f <(sort -u {input.sampleSet}) {input.vcffilelist} |  awk 'NR==FNR {{ line[$1] = $0; next }} $1 in line {{ print line[$1] }}' - <(sort -u {input.sampleSet}) | cut -f3 > {output.depthfilelist}
         '''
 
 rule depth_position_list:
@@ -188,11 +192,11 @@ rule depth_position_list:
 # sites in merged VCF are different from interval of DepthOfCoverage
 rule subset_depth_sites:
     input:
-        vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz",
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP.vcf.gz",
         depthpositiontab=config['out']['outdir']+"/{sampleSet}_depth_position_list.tab"
     output:
-        out_vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_depth.vcf.gz",
-        # out_index=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_depth.vcf.gz.csi"
+        out_vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_depth.vcf.gz",
+        # out_index=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_depth.vcf.gz.csi"
     threads:
         config['resources']['threads']
     conda:
@@ -209,9 +213,9 @@ rule subset_depth_sites:
 
 rule create_variant_list:
     input:
-        vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_depth.vcf.gz",
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_depth.vcf.gz",
     output:
-        variantlist=config['out']['outdir']+"/{sampleSet}_all_depth_variant_list.txt"
+        variantlist=config['out']['outdir']+"/{sampleSet}_{regionSet}_depth_variant_list.txt"
     threads:
         1
     shell:
@@ -223,15 +227,15 @@ rule create_variant_list:
 
 rule create_depth_matrix:
     input:
-        vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP_depth.vcf.gz",
-        variantlist=config['out']['outdir']+"/{sampleSet}_all_depth_variant_list.txt",
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_depth.vcf.gz",
+        variantlist=config['out']['outdir']+"/{sampleSet}_{regionSet}_depth_variant_list.txt",
         depthfilelist=config['out']['outdir']+"/{sampleSet}_all_depth_file_list.txt"
     output:
-        tmp_depth=temp(config['out']['outdir']+"/{sampleSet}_all_tmp_DepthofCoverage_CDS.txt"),
-        tmp_leftalign=temp(config['out']['outdir']+"/{sampleSet}_all_tmp_DepthofCoverage_CDS_leftalign.txt"),
-        depthmatrix=config['out']['outdir']+"/{sampleSet}_all_germline_depth_matrix_for_phylo.txt",
-        tmp_matrix=temp(config['out']['outdir']+"/{sampleSet}_all_tmp.txt"),
-        tmp_variantlist=temp(config['out']['outdir']+"/{sampleSet}_all_depth_variant_list_tmp.txt")
+        tmp_depth=temp(config['out']['outdir']+"/{sampleSet}_{regionSet}_tmp_DepthofCoverage_CDS.txt"),
+        tmp_leftalign=temp(config['out']['outdir']+"/{sampleSet}_{regionSet}_tmp_DepthofCoverage_CDS_leftalign.txt"),
+        depthmatrix=config['out']['outdir']+"/{sampleSet}_{regionSet}_germline_depth_matrix_for_phylo.txt",
+        tmp_matrix=temp(config['out']['outdir']+"/{sampleSet}_{regionSet}_tmp.txt"),
+        tmp_variantlist=temp(config['out']['outdir']+"/{sampleSet}_{regionSet}_depth_variant_list_tmp.txt")
     threads:
         1
     shell:

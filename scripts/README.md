@@ -73,10 +73,12 @@ rsync -av --files-from=/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/bac
 ```
 - The `backup_vcf_file.list` for previous run prior to 2021 can also be found at `metadata/backup_vcf_file.list`.
 
-# Run WES pipeline (germline & depthofcoverage)
+# Run WES pipeline (germline & depthofcoverage) and QC
 - Shell script to submit jobs:
   - Snakemake pipeline for each individual job (case): `scripts/per_case/Snakefile`
+  - Snakemake QC pipeline for each individual job (case): `scripts/qc/Snakefile`
   - Snakemake pipeline to submit all jobs: `scripts/sum_cases/Snakefile`
+    - Note: the `output_report` should be edited after finishing WES analysis pipeline for QC.
 
 ```bash
 #!/bin/bash
@@ -141,6 +143,10 @@ snakemake \
 
 - NOTE: The environment installation is mostly reproducible other than `MuTect`, because `MuTect/1.1.7-Java-1.7.0_80` is pre-installed by UGA GACRC. Double check with `module spider`.
   - This module was not performed in my analysis.
+
+- After QC finished, create dot plots and update metadata to include QC results with r script `scripts/qc/combine_qc_table.R`.
+  - Note: One additional step of QC is to exclude outliers in phylogenetic analysis. The list of samples should be manually provided in the r script.
+
 
 # Breed prediction pipeline
 ## Combining individual VCF files into MAF matrix
@@ -215,11 +221,14 @@ snakemake \
 
 # Data backup log
 ```bash
-# xfer5
+# xfer5, no enough space
 cd /project/szlab/Jingxuan_Chen
 mkdir -p /project/szlab/Jingxuan_Chen/pancaner_germline_rerunPRJNA525883/out
 rsync -axv /scratch/jc33471/canine_tumor_rerun/out /project/szlab/Jingxuan_Chen/pancaner_germline_rerunPRJNA525883/out
 mkdir -p /project/szlab/Jingxuan_Chen/pancaner_germline_rerunPRJNA525883/results
 rsync -axv /scratch/jc33471/canine_tumor_rerun/results /project/szlab/Jingxuan_Chen/pancaner_germline_rerunPRJNA525883/results
 
+# xfer6
+cd /scratch/jc33471/canine_tumor_0908
+du -sh out/ results/
 ```

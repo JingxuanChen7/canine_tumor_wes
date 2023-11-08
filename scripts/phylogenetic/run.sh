@@ -8,7 +8,7 @@
 #SBATCH --time=500:00:00
 #SBATCH --mail-user=jc33471@uga.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --output=/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/test.out
+#SBATCH --output=/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/sub.out
 
 CONDA_BASE=$(conda info --base)
 source ${CONDA_BASE}/etc/profile.d/conda.sh
@@ -32,13 +32,13 @@ python ${project_dir}/scripts/phylogenetic/make_snakemake_config.py \
     --outdir ${run_dir}/merge_vcf \
     --metadata "/scratch/jc33471/canine_tumor/breed_prediction/this_wunpaired_meta.csv" \
     --vcffilelist "/scratch/jc33471/canine_tumor/breed_prediction/vcf_file_list.txt" \
-    --breedSpecific "/scratch/jc33471/canine_tumor/breed_prediction/output_exclude_WGS/all_breed_specific_variants_13.txt" \
+    --breedSpecific "/scratch/jc33471/canine_tumor/breed_prediction/output_exclude_WGS/all_breed_specific_variants_clean.txt" \
     --somaticMutation ${project_dir}"/metadata/Pass_QC_Final_Total_withGene_Burair_Filtering4_VAF_Mutect_orientBiasModified_04_02.txt" \
     --threads 8 \
     --memory "60G"
 
 snakemake \
-    -np \
+    -pn \
     --latency-wait 60 \
     --cores ${SLURM_NTASKS} \
     --rerun-incomplete \
@@ -189,3 +189,9 @@ sample_name=`basename /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB1
         echo "Compressed and indexed /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB10211/HS5/DRR345024_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"
  
 ll /scratch/jc33471/canine_tumor_0908/results/Germline/PRJDB16014/Beagle1/DRR483792_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf.reheader.gz
+
+python /home/jc33471/canine_tumor_wes/scripts/phylogenetic/mask_vcf.py \
+        /scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/breedPlusMissingSample_breedSpecific_germline_depth_matrix_for_phylo.txt \
+        /scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/breedPlusMissingSample_breedSpecific_merged_germline_variants_SNP_depth.vcf.gz \
+        /scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/breedPlusMissingSample_breedSpecific_merged_germline_variants_SNP_masked.vcf.gz  \
+        10             8             60G

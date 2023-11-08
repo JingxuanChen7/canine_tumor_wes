@@ -3,8 +3,8 @@ localrules: all
 output_reports = []
 for Bioproject in config['in'].keys():
     for CaseName in config['in'][Bioproject].keys():
-        output_report = config['out']['outdir']+"/report/"+Bioproject+"/"+CaseName+"_report.txt"
-        # output_report = config['out']['outdir']+"/report/"+Bioproject+"/"+CaseName+"_QC.txt"
+        # output_report = config['out']['outdir']+"/report/"+Bioproject+"/"+CaseName+"_report.txt"
+        output_report = config['out']['outdir']+"/report/"+Bioproject+"/"+CaseName+"_QC.txt"
         output_reports.append(output_report)
 
 

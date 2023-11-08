@@ -143,20 +143,21 @@ awk 'BEGIN{FS=OFS="\t"}{if ($6 ~ "Pass QC" && $5 == "Normal") print $4}' ${run_d
 
 mkdir -p ${run_dir}"/output_exclude_WGS"
 
-Rscript --vanilla ${project_dir}/scripts/breed_prediction/breed_specific_variants.R \
-  ${project_dir}/scripts/breed_prediction/build_sample_meta_data.R \
-  ${out_reset_low_coverage}".gz" \
-  ${run_dir}"/output_exclude_WGS/breed_unique_variants_10.txt" \
-  ${run_dir}"/output_exclude_WGS/breed_enriched_variants_10.txt" \
-  ${run_dir}"/output_exclude_WGS/all_breed_specific_variants_10.txt" \
-  ${run_dir}"/breed_prediction_metadata.txt" \
-  "Yorkshire Terrier" "Shih Tzu" "Poodle" "Maltese" "Rottweiler" "Greyhound" "Golden Retriever" "Cocker Spaniel" "Boxer" "Schnauzer"
+# Rscript --vanilla ${project_dir}/scripts/breed_prediction/breed_specific_variants.R \
+#   ${project_dir}/scripts/breed_prediction/build_sample_meta_data.R \
+#   ${out_reset_low_coverage}".gz" \
+#   ${run_dir}"/output_exclude_WGS/breed_unique_variants_10.txt" \
+#   ${run_dir}"/output_exclude_WGS/breed_enriched_variants_10.txt" \
+#   ${run_dir}"/output_exclude_WGS/all_breed_specific_variants_10.txt" \
+#   ${run_dir}"/breed_prediction_metadata.txt" \
+#   "Yorkshire Terrier" "Shih Tzu" "Poodle" "Maltese" "Rottweiler" "Greyhound" "Golden Retriever" "Cocker Spaniel" "Boxer" "Schnauzer"
 
 Rscript --vanilla ${project_dir}/scripts/breed_prediction/breed_specific_variants.R \
   ${project_dir}/scripts/breed_prediction/build_sample_meta_data.R \
   ${out_reset_low_coverage}".gz" \
-  ${run_dir}"/output_exclude_WGS/breed_unique_variants_13.txt" \
-  ${run_dir}"/output_exclude_WGS/breed_enriched_variants_13.txt" \
-  ${run_dir}"/output_exclude_WGS/all_breed_specific_variants_13.txt" \
+  ${run_dir}"/output_exclude_WGS/breed_unique_variants_clean.txt" \
+  ${run_dir}"/output_exclude_WGS/breed_enriched_variants_clean.txt" \
+  ${run_dir}"/output_exclude_WGS/all_breed_specific_variants_clean.txt" \
   ${run_dir}"/breed_prediction_metadata.txt" \
   "Yorkshire Terrier" "Shih Tzu" "Poodle" "Maltese" "Rottweiler" "Greyhound" "Golden Retriever" "Cocker Spaniel" "Boxer" "Schnauzer" "Labrador Retriever" "Boston Terrier"
+  

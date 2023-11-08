@@ -31,9 +31,12 @@ def main():
         for depthLine,variant in zip(csvFile, vcf):
             depthVector = []
             pos = ":".join([variant.CHROM, str(variant.POS)])
+            # print(str(len(depthLine)))
+            # print(str(len(variant.genotypes)))
             # double check if the position is the same
             if depthLine[0] == pos:
                 for col in range(1, len(depthLine)):
+                    # print(str(col)+":"+str(depthLine[col]))
                     try:
                         int(depthLine[col])
                     except ValueError:

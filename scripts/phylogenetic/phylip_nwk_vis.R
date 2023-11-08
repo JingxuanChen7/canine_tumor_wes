@@ -37,6 +37,8 @@ setcolors <- c(
   "Boxer" = "#964B00",
   "Poodle" = "orange",
   "Cocker Spaniel" = "#E58FAC",
+  "Labrador Retriever" = "#c2b280",
+  "Boston Terrier" = "green",
   "No breed provided" = "black"
 )
 

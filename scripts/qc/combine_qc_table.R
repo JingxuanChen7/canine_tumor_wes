@@ -16,11 +16,18 @@ qc_combine <- left_join(bwa_out, mapq_out, by = c("File_name", "CancerType"="Can
   left_join(randomness_out, by = c("File_name", "CancerType"="Cancer_type","Status")) %>%
   select(c("File_name","Total_Pairs","Uniq_mapped_rate","fra30","Uniq_Exonic_region_mapped_rate","average","rmse"))
 
+# long branch samples from phylogenetic analaysis
+sample_to_exclude <- c("SRR17139289","SRR17139287","SRR17139267","SRR17139221","SRR17139298",
+  "SRR17139236","SRR17139256","SRR17139258","SRR17139253","SRR17139249",
+  "SRR17139240","SRR17139247","SRR17139342","SRR17139320","SRR17139242")
+
 wes_qc_meta <- left_join(meta, qc_combine, by = c("Sample_ID" = "File_name")) %>%
   mutate(Reason_to_exclude = case_when( Total_Pairs < 5000000 ~ "Total_Pair_reads < 5M",
                                         Uniq_mapped_rate < 0.5 ~ "Uniq mapping rate < 0.5",
                                         Uniq_Exonic_region_mapped_rate < 0.3 ~ "Unique CDS mapping rate < 0.3",
                                         average < 30 ~ "coverage < 30",
+                                        Sample_ID %in% sample_to_exclude ~ "phylogeny outlier",
+                                        is.na(Total_Pairs) ~ "fail pipeline",
                                         TRUE ~ "Pass QC"
                                       )) 
 
