@@ -21,6 +21,27 @@ mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/phylogen
 ```
 # Data collection
 
+Bioproject   ID | Tumor Type | Total runs under Bioproject | Paired cases (matched normal   & tumor samples) | Read length | Year | Submitter
+-- | -- | -- | -- | -- | -- | --
+PRJEB53653 | Mammary neoplasia (MT) | 111 | 53(106); 5 unpaired | 151 | 2022 | Uppsala Uuniversity
+PRJDB10211 | Histiocytic sarcoma (HS) | 10 | 5(10) | 150 | 2022 | The University of Tokyo
+PRJNA786469 | oral melanoma (OM) | 145 | 72(144); 1 unpaired | 76 | 2021 | CNRS - University Rennes1
+PRJNA752630 | diffuse large B-cell lymphoma   (DLBCL) | 154 | 77(154) | 151 | 2021 | University of Padua
+PRJNA701141 | Osteosarcoma (OSA) | 16 | 1(2) | 151 | 2021 | University of Padua
+PRJNA695534 | B-Cell Lymphoma (BCL) | 142 | 71(142) | 125 | 2021 | Cornell University
+PRJNA680382 | Osteosarcoma (OSA) | 16 | 4(8) | 151 | 2020 | University of Missouri
+PRJNA677995 | splenic angiosarcoma   (hemangiosarcoma) (HSA) | 83 | 4(8) | 101 | 2020 | Translational Genomics Research   Institute
+PRJDB16014 | inflammatory colorectal polyp | 4 | 4 unpaired | 106 | 2023 | National Institute for Physiological Sciences
+PRJNA891496 | Multiple non-tumor diseases | 49 dogs; unpaired | 49 unpaired | 76 | 2022 | Ghent University
+PRJNA630029 | fearfulness? | 22 | 16 unpaired | 101 | 2020 | University of Helsinki
+PRJNA616374 | Primary bladder tumor | 11 | 11 unpaired | 100x100bp | 2020 | Colorado State University
+PRJNA613479 | Osteosarcoma (OSA) | 27 | 27 unpaired | 150x150bp | 2020 | Colorado State University
+PRJEB57227 | Urothelial carcinoma (UC) | 829 | 87(174) | 100x100bp | 2022 | Wellcome Sanger Institute
+
+- The above table can also be found at `metadata/dataset_sum.xlsx`.
+- More detailed metatable was generated with R script `scripts/data_collection/data_collection.R`.
+  - Metatable for my runs can be found at `metadata/data_collection_new.csv`.
+
 # Previous results preparation
 
 - Backup results are placed in `/project`, move to `/scratch` so that they can be assessed through work node. Involoved result files include:
