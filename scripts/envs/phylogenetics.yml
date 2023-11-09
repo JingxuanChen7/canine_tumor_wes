@@ -34,3 +34,5 @@ dependencies:
   - bioconda::plink2
   - bioconda::cyvcf2
   - ipykernel
+  - bioconda::picard=2.21.6
+  - bioconda::gatk=3.8

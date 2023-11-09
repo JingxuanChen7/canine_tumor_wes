@@ -49,23 +49,55 @@ bcftools filter --threads $SLURM_NTASKS \
 #     bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%VAF]\n' -o $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing.vaf.txt
 
 # clean up chromosomes, making it consistent with canfam3 reference
-grep ">" /work/szlab/Lab_shared_PanCancer/source/canFam3.fa | sed 's/>//g' | awk 'BEGIN{ORS=","}{print}' | sed 's/,$//g' > $run_dir/vcf/canfam3_chr.txt
 
 bcftools index $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing.vcf.gz
-bcftools view --threads $SLURM_NTASKS \
-    -r chr1,chr2,chr3,chr4,chr5,chr6,chr7,chr8,chr9,chr10,chr11,chr12,chr13,chr14,chr15,chr16,chr17,chr18,chr19,chr20,chr21,chr22,chr23,chr24,chr25,chr26,chr27,chr28,chr29,chr30,chr31,chr32,chr33,chr34,chr35,chr36,chr37,chr38,chrX \
-    -O z \
-    -o $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr.vcf.gz \
-    $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing.vcf.gz
+
+# # remove useless contig names in header
+# bcftools view -h $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr1region.vcf.gz |\
+#     grep -v -E "chrUn|chrY|chrM" > $run_dir/vcf/header_modified.txt
+# bcftools reheader --header $run_dir/vcf/header_modified.txt \
+#     -o $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr1region_reheader.vcf.gz \
+#     $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr1region.vcf.gz 
+
+# conda activate wes_env
+# # wget -O ${run_dir}/vcf/canFam4ToCanFam3.over.chain.gz "http://hgdownload.soe.ucsc.edu/goldenPath/canFam4/liftOver/canFam4ToCanFam3.over.chain.gz"
+# picard -Xmx60G LiftoverVcf \
+#     I=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr1region_reheader.vcf.gz \
+#     O=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr1region_liftover.vcf.gz \
+#     CHAIN=${run_dir}/vcf/canFam4ToCanFam3.over.chain.gz \
+#     REJECT=${run_dir}/vcf/rejected_variants.vcf.gz \
+#     WARN_ON_MISSING_CONTIG=true \
+#     R="/work/szlab/Lab_shared_PanCancer/source/canFam3.fa"
+# zcat Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr1region_liftover.vcf.gz | awk '{if($0 !~ /^#/) print $1"\t"$2}' > test_pos.txt
+# grep -f test_pos.txt /work/szlab/Lab_shared_PanCancer/source/DbSNP_canFam3_version151-DogSD_Broad_March2022.vcf > overlap.vcf
+
 
 # canfam4->canfam3 liftover
-conda activate wes_env
 # wget -O ${run_dir}/vcf/canFam4ToCanFam3.over.chain.gz "http://hgdownload.soe.ucsc.edu/goldenPath/canFam4/liftOver/canFam4ToCanFam3.over.chain.gz"
+grep ">" /work/szlab/Lab_shared_PanCancer/source/canFam3.fa | sed 's/>//g'  > $run_dir/vcf/canfam3_chr.txt
+for chr in `cat $run_dir/vcf/canfam3_chr.txt`; do
+
+    echo "Processing $chr ..."
+    bcftools view --threads $SLURM_NTASKS \
+        -r ${chr} --output-type z \
+        -o $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_${chr}.vcf.gz \
+        $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing.vcf.gz
+    
+    picard -Xmx60G LiftoverVcf \
+        I=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_${chr}.vcf.gz \
+        O=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_${chr}.vcf.gz \
+        CHAIN=${run_dir}/vcf/canFam4ToCanFam3.over.chain.gz \
+        REJECT=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_${chr}_rejected_variants.vcf.gz \
+        WARN_ON_MISSING_CONTIG=true \
+        R="/work/szlab/Lab_shared_PanCancer/source/canFam3.fa"
+
+done
 picard -Xmx60G LiftoverVcf \
-    I=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr.vcf.gz \
-    O=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_chr_liftover.vcf.gz \
+    I=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing.vcf.gz \
+    O=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover.vcf.gz \
     CHAIN=${run_dir}/vcf/canFam4ToCanFam3.over.chain.gz \
-    REJECT=${run_dir}/vcf/rejected_variants.vcf \
+    REJECT=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_rejected_variants.vcf.gz \
+    WARN_ON_MISSING_CONTIG=true \
     R="/work/szlab/Lab_shared_PanCancer/source/canFam3.fa"
 
 # bcftools +liftover \

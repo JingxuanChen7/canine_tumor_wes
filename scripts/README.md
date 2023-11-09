@@ -19,6 +19,8 @@ mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/breed_pr
 ```
 mamba env create --force -f /home/jc33471/canine_tumor_wes/scripts/envs/phylogenetics.yml --name phylogenetics
 ```
+# Data collection
+
 # Previous results preparation
 
 - Backup results are placed in `/project`, move to `/scratch` so that they can be assessed through work node. Involoved result files include:
