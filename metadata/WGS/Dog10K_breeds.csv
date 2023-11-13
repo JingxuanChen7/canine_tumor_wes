@@ -1,1650 +1,1650 @@
-Case_ID,Coverage,Breed
-ACKR000001,18.91,Cocker Spaniel
-ACKR000002,18.4,Cocker Spaniel
-ACKR000003,26.3,Cocker Spaniel
-AESK000001,21.81,American Eskimo Dog
-AESK000002,17.62,American Eskimo Dog
-AESK000003,18.11,American Eskimo Dog
-AESK000004,18.78,American Eskimo Dog
-AESK000005,17.45,American Eskimo Dog
-AESK000006,17.61,American Eskimo Dog
-AFFN000001,14.36,Affenpinscher
-AFFN000002,10.1,Affenpinscher
-AFFN000003,18.1,Affenpinscher
-AFFN000004,21.23,Affenpinscher
-AFFN000005,18.43,Affenpinscher
-AFFN000006,20.09,Affenpinscher
-AFGH000001,19.65,Afghan Hound
-AFOX000001,17.77,American Foxhound
-AFOX000002,19.18,American Foxhound
-AFOX000003,16.67,American Foxhound
-AFOX000004,19.21,American Foxhound
-AFOX000005,19.41,American Foxhound
-AFOX000006,19.23,American Foxhound
-AFOX000007,22.12,American Foxhound
-AHRT000001,19.36,American Hairless Terrier
-AHRT000002,15.93,American Hairless Terrier
-AHRT000003,16.1,American Hairless Terrier
-AHRT000004,19.75,American Hairless Terrier
-AHRT000005,18,American Hairless Terrier
-AIRT000001,23.39,Airedale Terrier
-AKBH000001,20.17,Akbash
-AKBH000002,19.69,Akbash
-AKBH000003,20.34,Akbash
-AKIN000001,21.02,Japanese Akita
-AKIN000002,17.82,Japanese Akita
-AKIT000001,18.2,American Akita
-AKIT000002,18.55,Japanese Akita
-AKIT000003,21.94,Japanese Akita
-AKIT000004,18.25,American Akita
-AKIT000005,19.31,American Akita
-AKIT000006,21.78,American Akita
-AKIT000007,21.76,American Akita
-AKIT000008,19.06,American Akita
-AKIT000009,21.29,American Akita
-ALDB000001,19.31,Alpine Dachsbracke
-ALDB000002,17.08,Alpine Dachsbracke
-ALDB000003,16.96,Alpine Dachsbracke
-ALDB000004,16.71,Alpine Dachsbracke
-ALDB000005,17.59,Alpine Dachsbracke
-ALDB000006,20.94,Alpine Dachsbracke
-ALDB000007,18.9,Alpine Dachsbracke
-AMAL000001,18.19,Alaskan Malamute
-AMAL000002,17.99,Alaskan Malamute
-AMAL000003,19.75,Alaskan Malamute
-AMBD000001,19.43,American Bulldog
-AMBD000002,17.01,American Bulldog
-AMBD000003,17.67,American Bulldog
-AMBD000004,18.95,American Bulldog
-AMBD000005,17.85,American Bulldog
-AMBD000006,17.95,American Bulldog
-AMBD000007,18.16,American Bulldog
-AMST000001,17.46,American Staffordshire Terrier
-AMST000002,18.61,American Staffordshire Terrier
-AMST000003,20.41,American Staffordshire Terrier
-AMST000004,17.63,American Staffordshire Terrier
-AMST000005,18.96,American Staffordshire Terrier
-AMST000006,20.68,American Staffordshire Terrier
-AMWS000001,19.38,American Water Spaniel
-AMWS000002,19.94,American Water Spaniel
-AMWS000003,17.48,American Water Spaniel
-AMWS000004,17.61,American Water Spaniel
-AMWS000005,20.24,American Water Spaniel
-AMWS000006,20.77,American Water Spaniel
-ANAT000001,16.82,Anatolian Shepherd Dog
-ANAT000002,20.29,Anatolian Shepherd Dog
-ANAT000003,19.66,Anatolian Shepherd Dog
-ANAT000004,21.62,Anatolian Shepherd Dog
-ANAT000005,17.25,Anatolian Shepherd Dog
-ANAT000006,16.83,Anatolian Shepherd Dog
-ANAT000007,20.54,Anatolian Shepherd Dog
-APPZ000001,17.03,Appenzeller Sennenhund
-APPZ000002,18.5,Appenzeller Sennenhund
-APPZ000003,19.83,Appenzeller Sennenhund
-APPZ000004,18.01,Appenzeller Sennenhund
-APPZ000005,18.05,Appenzeller Sennenhund
-APPZ000006,17.39,Appenzeller Sennenhund
-APPZ000007,21.39,Appenzeller Sennenhund
-APPZ000008,18.72,Appenzeller Sennenhund
-APPZ000009,18.26,Appenzeller Sennenhund
-APPZ000010,17.18,Appenzeller Sennenhund
-APPZ000011,17.43,Appenzeller Sennenhund
-APPZ000012,17.88,Appenzeller Sennenhund
-APPZ000013,18.86,Appenzeller Sennenhund
-APPZ000014,17.71,Appenzeller Sennenhund
-ARHO000001,18.29,Artois Hound
-ARHO000002,18.19,Artois Hound
-ARIE000001,19.86,Ariegeois
-ARIP000001,17.96,Ariege Pointer
-ARIP000002,18.57,Ariege Pointer
-ARIP000003,21.12,Ariege Pointer
-ARIP000004,19.22,Ariege Pointer
-ARIP000005,19.69,Ariege Pointer
-ARIP000006,24.21,Ariege Pointer
-ASKT000001,20.75,Silky Terrier
-ASKT000002,18.44,Silky Terrier
-ASKT000003,18.06,Silky Terrier
-AUCD000001,18.52,Australian Cattle Dog
-AUCD000002,18.64,Australian Cattle Dog
-AUCD000003,17.81,Australian Cattle Dog
-AUCD000004,17.93,Australian Cattle Dog
-AUCD000005,18.47,Australian Cattle Dog
-AUPO000001,18.37,Auvergne Pointer
-AUPO000002,17.22,Auvergne Pointer
-AUPO000003,20.6,Auvergne Pointer
-AUPO000004,17.78,Auvergne Pointer
-AUPO000005,20.55,Auvergne Pointer
-AUPO000006,19.95,Auvergne Pointer
-AUSK000001,19.46,Australian Kelpie
-AUSK000002,18.99,Australian Kelpie
-AUSK000003,17.38,Australian Kelpie
-AUSK000004,20.82,Australian Kelpie
-AUSK000005,19.94,Australian Kelpie
-AUSK000006,21.4,Australian Kelpie
-AUSS000001,20.25,Australian Shepherd
-AUSS000002,17.67,Australian Shepherd
-AUSS000003,21.7,Australian Shepherd
-AUST000001,16.34,Australian Terrier
-AUST000002,22.02,Australian Terrier
-AUST000003,21.93,Australian Terrier
-AUST000004,22.63,Australian Terrier
-AUST000005,18.22,Australian Terrier
-AZWK000001,20.74,Azawakh
-BANO000001,23.16,Basset Artesien Normand
-BANO000002,18.45,Basset Artesien Normand
-BANO000003,17.87,Basset Artesien Normand
-BANO000004,20.36,Basset Artesien Normand
-BANO000005,17.46,Basset Artesien Normand
-BANO000006,16.95,Basset Artesien Normand
-BASS000001,19.22,Basset Hound
-BASS000002,21.96,Basset Hound
-BASS000003,17.92,Basset Hound
-BASS000004,17.89,Basset Hound
-BASS000005,17.89,Basset Hound
-BASS000006,17.1,Basset Hound
-BASS000007,20.91,Basset Hound
-BBLS000001,18.34,White Swiss Shepherd Dog
-BBLS000002,18.78,White Swiss Shepherd Dog
-BBLS000003,19.21,White Swiss Shepherd Dog
-BEAU000001,17.73,Beauceron
-BEAU000002,17.51,Belgian Tervuren
-BEAU000003,18.74,Beauceron
-BEAU000004,18.26,Beauceron
-BEAU000006,17.1,Beauceron
-BEDT000001,18.59,Bedlington Terrier
-BEDT000002,10.75,Bedlington Terrier
-BEDT000003,16.43,Bedlington Terrier
-BEDT000004,18.67,Bedlington Terrier
-BEDT000005,20.37,Bedlington Terrier
-BEDT000006,21.7,Bedlington Terrier
-BEDT000007,17.9,Bedlington Terrier
-BEDT000008,17.35,Bedlington Terrier
-BELS000001,20.22,Belgian Sheepdog
-BELS000002,18.62,Belgian Sheepdog
-BELS000003,22.04,Belgian Sheepdog
-BERG000001,16.98,Bergamasco Sheepdog
-BERG000002,17.06,Bergamasco Sheepdog
-BERG000003,18.11,Bergamasco Sheepdog
-BERG000004,17.12,Bergamasco Sheepdog
-BERG000005,18.01,Bergamasco Sheepdog
-BERG000006,18.06,Bergamasco Sheepdog
-BFDB000001,18.38,Basset Fauve de Bretagne
-BFDB000002,21.48,Basset Fauve de Bretagne
-BFDB000003,21.14,Basset Fauve de Bretagne
-BFDB000004,18.87,Unknown
-BFDB000005,18.24,Basset Fauve de Bretagne
-BFDB000006,18.13,Basset Fauve de Bretagne
-BGBA000001,19,Blue Gascony Griffon
-BGGR000001,20.38,Blue Gascony Griffon
-BGGR000002,19.5,Blue Gascony Griffon
-BHSP000001,18.86,Bohemian Shepherd
-BHSP000002,18.66,Bohemian Shepherd
-BHSP000003,19.88,Bohemian Shepherd
-BHSP000004,21.46,Bohemian Shepherd
-BHSP000005,21.97,Bohemian Shepherd
-BHSP000006,20.88,Bohemian Shepherd
-BICH000001,18.24,Bichon Frise
-BICH000002,19.15,Bichon Frise
-BICH000003,17.86,Bichon Frise
-BICH000004,21.72,Bichon Frise
-BICH000005,20.28,Bichon Frise
-BICH000006,18.17,Havanese
-BICH000007,18.94,Bichon Frise
-BILL000001,17.11,Billy
-BILL000002,19.24,Billy
-BLDH000001,17.86,Bloodhound
-BLDH000002,20.66,Bloodhound
-BLDH000003,18.76,Bloodhound
-BLDH000004,18.16,Bloodhound
-BLNK000001,18.52,Russian Tsvetnaya Bolonka
-BLNK000002,20.14,Russian Tsvetnaya Bolonka
-BLNK000003,18.35,Russian Tsvetnaya Bolonka
-BLNK000004,17.85,Russian Tsvetnaya Bolonka
-BLNK000005,20.18,Russian Tsvetnaya Bolonka
-BLNK000006,22.37,Russian Tsvetnaya Bolonka
-BLPS000001,17.49,Blue Picardy Spaniel
-BLPS000002,17.74,Blue Picardy Spaniel
-BLPS000003,19.01,Blue Picardy Spaniel
-BLUE000001,19.05,Bluetick Coonhound
-BLUE000002,20.06,Bluetick Coonhound
-BLUE000003,19.92,Unknown
-BMAL000001,19.73,Belgian Malinois
-BMAL000002,18.37,Belgian Malinois
-BMAL000003,19.55,Belgian Malinois
-BMAL000004,17.6,Belgian Malinois
-BMSH000001,18.43,Bavarian Mountain Scent Hound
-BMSH000002,18.77,Bavarian Mountain Scent Hound
-BMSH000003,18.68,Bavarian Mountain Scent Hound
-BMSH000004,18.41,Bavarian Mountain Scent Hound
-BMSH000005,16.71,Bavarian Mountain Scent Hound
-BMSH000006,19.49,Bavarian Mountain Scent Hound
-BODA000001,19.14,Bouvier des Ardennes
-BOER000001,17.71,Boerboel
-BOER000002,20.01,Boerboel
-BOER000003,18.75,Boerboel
-BOER000004,18.55,Boerboel
-BOER000005,18.86,Boerboel
-BOLO000001,17.67,Bolognese
-BOLO000002,17.56,Bolognese
-BOLO000003,16.27,Bolognese
-BOLO000004,21.14,Bolognese
-BOLO000005,18.47,Bolognese
-BOLO000006,22.52,Bolognese
-BOPD000001,20.15,Bourbonnais Pointing Dog
-BOPD000002,23.33,Bourbonnais Pointing Dog
-BOPD000003,17.23,Bourbonnais Pointing Dog
-BOPD000004,17.53,Bourbonnais Pointing Dog
-BOPD000005,19.88,Bourbonnais Pointing Dog
-BOPD000006,20.36,Bourbonnais Pointing Dog
-BOPD000007,19.88,Bourbonnais Pointing Dog
-BOPD000008,17.42,Bourbonnais Pointing Dog
-BOST000001,19.03,Boston Terrier
-BOST000002,17.78,Boston Terrier
-BOST000003,20.6,Boston Terrier
-BOUV000001,20.87,Bouvier des Flandres
-BOUV000002,20.31,Bouvier des Flandres
-BOXR000001,21.91,Boxer
-BOXR000002,20.22,Boxer
-BOXR000003,17.54,Boxer
-BOXR000004,17.58,Boxer
-BOXR000005,21.83,Boxer
-BOYK000001,16.71,Boykin Spaniel
-BOYK000002,20.55,Boykin Spaniel
-BOYK000003,20.83,Boykin Spaniel
-BOYK000004,16.44,Boykin Spaniel
-BOYK000005,19.79,Boykin Spaniel
-BRAC000001,22.11,Bracco Italiano
-BRAC000002,16.98,Bracco Italiano
-BRAC000003,18.91,Bracco Italiano
-BRAC000004,20.8,Bracco Italiano
-BRAC000005,19.26,Bracco Italiano
-BRAC000006,19.62,Bracco Italiano
-BRBT000001,19.54,Barbet
-BRBT000002,18.27,Barbet
-BRBT000003,19.65,Barbet
-BRBT000004,22.64,Barbet
-BRBT000005,17.31,Barbet
-BRBT000006,16.87,Barbet
-BRFR000001,19.15,Braques Francais
-BRFR000002,18.89,Braques Francais
-BRFR000003,19.28,Braques Francais
-BRFR000004,18.64,Braques Francais
-BRFR000005,28.02,Braques Francais
-BRGV000001,17.39,Briquet Griffon Vendeen
-BRGV000002,18.58,Briquet Griffon Vendeen
-BRHM000001,21.76,Broholmer
-BRHM000002,22.03,Broholmer
-BRHM000003,22.66,Broholmer
-BRHM000004,17.41,Broholmer
-BRHM000005,18.98,Broholmer
-BRHM000006,20.69,Broholmer
-BRIA000001,17.33,Briard
-BRIA000002,17.96,Briard
-BRIA000003,18.91,Briard
-BRIA000004,19.42,Briard
-BRIA000005,20.96,Briard
-BRIA000006,16.46,Briard
-BRIA000007,19.77,Briard
-BRIT000001,16.52,Brittany
-BRIT000002,19.83,Brittany
-BRIT000003,18.21,Brittany
-BRIT000004,19.73,Brittany
-BRIT000005,20.62,Brittany
-BRIT000006,19.91,Brittany
-BRIT000007,17.53,Brittany
-BRIT000008,18.15,Brittany
-BRJH000001,20.6,Bruno Jura Hound
-BRJH000002,17.69,Bloodhound
-BRJH000003,19.18,Bruno Jura Hound
-BRJH000004,18.09,Bruno Jura Hound
-BRJH000005,20.51,Bruno Jura Hound
-BRJH000006,19.37,Bruno Jura Hound
-BRMD000001,20.49,Bernese Mountain Dog
-BRMD000002,16.37,Bernese Mountain Dog
-BRMD000003,20.83,Bernese Mountain Dog
-BRMD000004,20.41,Bernese Mountain Dog
-BRMD000005,20.82,Bernese Mountain Dog
-BRMD000006,27.04,Bernese Mountain Dog
-BRMD000007,24.38,Bernese Mountain Dog
-BRMD000008,18.22,Bernese Mountain Dog
-BRMD000009,17.76,Bernese Mountain Dog
-BRMD000010,24.8,Bernese Mountain Dog
-BRTR000001,20.17,Black Russian Terrier
-BRTR000002,20.19,Black Russian Terrier
-BRTR000003,17.6,Black Russian Terrier
-BRTR000004,18.22,Black Russian Terrier
-BRTR000005,18.89,Black Russian Terrier
-BRUS000001,17.9,Brussels Griffon
-BRUS000002,18.06,Brussels Griffon
-BRUS000003,20.38,Brussels Griffon
-BRUS000004,18.51,Brussels Griffon
-BRUS000005,19.62,Brussels Griffon
-BRUS000006,17.46,Brussels Griffon
-BRUS000007,18.17,Brussels Griffon
-BRZT000001,19.46,Brazilian Terrier
-BRZT000002,20.96,Brazilian Terrier
-BRZT000003,20.38,Brazilian Terrier
-BRZT000004,23.48,Brazilian Terrier
-BRZT000005,18.46,Brazilian Terrier
-BRZT000006,19.25,Brazilian Terrier
-BTAN000001,19.07,Black and Tan Coonhound
-BULD000001,18.12,French Bulldog
-BULD000002,21.01,English Bulldog
-BULD000003,21.28,English Bulldog
-BULM000001,19.62,Bullmastiff
-BULM000002,20.2,Bullmastiff
-BULM000003,18.12,Bullmastiff
-BULM000004,17.09,Bullmastiff
-BULM000005,22.19,Bullmastiff
-BULM000006,17.47,Bullmastiff
-BULT000001,17.36,Bull Terrier
-BULT000002,19.4,Bull Terrier
-BULT000003,20.31,Bull Terrier
-BULT000004,18.79,Bull Terrier
-BWRT000001,15.19,Biewer Terrier
-BWRT000002,19.96,Biewer Terrier
-BWRT000003,16.78,Biewer Terrier
-BWRT000004,16,Biewer Terrier
-BWRT000005,15.53,Biewer Terrier
-BWRT000006,18.44,Biewer Terrier
-CAAN000001,21.96,Canaan Dog
-CAAN000002,24.23,Canaan Dog
-CAIR000001,16.68,Cairn Terrier
-CAIR000002,26.66,Cairn Terrier
-CAIR000003,16.97,Cairn Terrier
-CAIR000004,20.67,Cairn Terrier
-CAIR000005,20.68,Cairn Terrier
-CANM000001,17.32,Dogo Canario
-CANM000002,21.28,Dogo Canario
-CANM000003,19.61,Dogo Canario
-CANM000004,19.32,Dogo Canario
-CANM000005,18.02,Dogo Canario
-CANM000006,23.72,Dogo Canario
-CARD000001,19.39,Cardigan Welsh Corgi
-CARD000002,17,Schipperke
-CARD000003,21,Cardigan Welsh Corgi
-CARD000004,19.84,Cardigan Welsh Corgi
-CARD000005,19.95,Cardigan Welsh Corgi
-CASD000001,20.3,Central Asian Shepherd Dog
-CASD000002,17.46,Central Asian Shepherd Dog
-CASD000003,17.53,Central Asian Shepherd Dog
-CAUC000001,18.4,Caucasian Ovcharka
-CAUC000002,21.12,Caucasian Ovcharka
-CAUC000003,20.65,Caucasian Ovcharka
-CAUC000004,17.4,Caucasian Ovcharka
-CCRT000001,17.75,Curly-Coated Retriever
-CCRT000002,19.3,Curly-Coated Retriever
-CCRT000003,19.51,Curly-Coated Retriever
-CCRT000004,20.01,Curly-Coated Retriever
-CFOU000001,18.29,Cesky Fousek
-CFOU000002,20.12,Cesky Fousek
-CFOU000003,18.86,Cesky Fousek
-CFOU000004,18.8,Cesky Fousek
-CHBR000001,18.24,Chesapeake Bay Retriever
-CHBR000002,18,Chesapeake Bay Retriever
-CHBR000003,17.61,Chesapeake Bay Retriever
-CHBR000004,21.05,Chesapeake Bay Retriever
-CHBR000005,17.19,Chesapeake Bay Retriever
-CHIH000005,18.23,Chihuahua
-CHIH000006,18.64,Chihuahua
-CHIN000001,18.18,Japanese Chin
-CHIN000003,18.64,Japanese Chin
-CHIN000004,16.33,Japanese Chin
-CHIN000005,17.38,Japanese Chin
-CHIN000006,19.06,Japanese Chin
-CHIN000007,17.97,Japanese Chin
-CHIN000008,19.77,Japanese Chin
-CHOW000001,19.52,Chow Chow
-CHOW000002,19.63,Chow Chow
-CHOW000003,18.42,Chow Chow
-CHOW000004,20.52,Chow Chow
-CIRN000001,18.25,Cirneco dell'Etna
-CIRN000002,18.54,Cirneco dell'Etna
-CIRN000003,17.54,Cirneco dell'Etna
-CIRN000004,19.56,Cirneco dell'Etna
-CIRN000005,18.29,Cirneco dell'Etna
-CIRN000006,17.65,Cirneco dell'Etna
-CKCS000001,16.56,Cavalier King Charles Spaniel
-CKCS000002,16.14,Cavalier King Charles Spaniel
-CKCS000003,19.98,Cavalier King Charles Spaniel
-CKCS000004,18.65,Cavalier King Charles Spaniel
-CKCS000005,19.48,Cavalier King Charles Spaniel
-CLSP000001,19.13,Clumber Spaniel
-CLSP000002,19.9,Clumber Spaniel
-CLSP000003,18.85,Clumber Spaniel
-CLSP000004,17.52,Clumber Spaniel
-CLSP000005,17.55,Clumber Spaniel
-CNCS000001,21.11,Cane Corso
-CNCS000002,18.37,Cane Corso
-CNCS000003,18.7,Cane Corso
-CNCS000004,21.24,Cane Corso
-CNTI000001,17.32,Continental Bulldog
-CNTI000002,19.76,Continental Bulldog
-CNTI000003,18.81,Continental Bulldog
-CNTI000004,17.69,Continental Bulldog
-CNTI000005,18.06,Continental Bulldog
-CNTI000006,18.9,Continental Bulldog
-COLL000001,20.01,Collie
-COLL000002,19.2,Collie
-COLL000003,19.73,Collie
-COLL000004,18.78,Collie
-COLL000005,20.76,Collie
-COLL000006,16.72,Collie
-COLL000007,22.28,Collie
-COLL000008,19.16,Collie
-COLL000009,18.89,Collie
-COLL000010,19.7,Collie
-COLL000011,19.67,Collie
-COLL000012,20.26,Collie
-COLL000013,28.7,Collie
-COOK000001,17.46,Chinook
-COOK000002,20.21,Chinook
-COOK000003,19.47,Chinook
-COOK000004,17.51,Chinook
-COOK000005,16.48,Chinook
-COOK000006,16.16,Chinook
-COOK000007,11.45,Chinook
-COOK000008,8.77,Chinook
-COOK000009,10.19,Chinook
-COTO000001,18.85,Coton de Tulear
-COTO000002,16.64,Coton de Tulear
-COTO000003,18.11,Coton de Tulear
-COTO000004,17.74,Coton de Tulear
-CRES000001,18.83,Chinese Crested
-CRES000002,18.16,Chinese Crested
-CRSP000001,16.86,Croatian Sheepdog
-CRSP000002,20.14,Croatian Sheepdog
-CRSP000003,17.24,Croatian Sheepdog
-CRSP000004,17.97,Croatian Sheepdog
-CRTR000001,18.15,Cretan Tracer
-CRTR000002,18.63,Cretan Tracer
-CRTR000003,17.34,Cretan Tracer
-CRTR000004,18.28,Cretan Tracer
-CRTR000005,19.18,Cretan Tracer
-CRTR000006,17.32,Cretan Tracer
-CRTR000007,17.5,Cretan Tracer
-CRTR000008,17.77,Hellenic Hound
-CRTR000009,18.92,Hellenic Hound
-CRTR000010,18.59,Hellenic Hound
-CRTR000011,17.12,Hellenic Hound
-CRTR000012,17.31,Hellenic Hound
-CSHD000001,17.29,Catalan Sheepdog
-CSHD000002,18.98,Catalan Sheepdog
-CSHD000003,18.31,Catalan Sheepdog
-CSHD000004,19.36,Catalan Sheepdog
-CSHD000005,19.74,Catalan Sheepdog
-CSKT000001,7.7,Cesky Terrier
-CSKT000002,14.09,Cesky Terrier
-CSKT000003,20.24,Cesky Terrier
-CSKT000004,16.72,Cesky Terrier
-CSKT000005,19.23,Cesky Terrier
-CSKT000006,19.67,Cesky Terrier
-CSKT000007,18.72,Cesky Terrier
-CSKT000008,17.67,Cesky Terrier
-CTLB000001,18.68,Catalburun
-CTLB000002,19.14,Catalburun
-CTLB000003,20.21,Catalburun
-CZEC000001,18.05,Czechoslovakian Wolfdog
-CZEC000002,18.56,Czechoslovakian Wolfdog
-CZEC000003,20.69,Czechoslovakian Wolfdog
-CZEC000004,19.6,Czechoslovakian Wolfdog
-DACH000001,18.56,Dachshund
-DACH000002,21.29,Dachshund
-DACH000003,18.31,Dachshund
-DACH000004,18.05,Dachshund
-DACH000005,18.28,Dachshund
-DACH000006,19.74,Dachshund
-DACH000007,18.6,Dachshund
-DACH000008,17.55,Dachshund
-DACH000009,19.74,Dachshund
-DACH000010,18.76,Dachshund
-DACH000011,16.8,Dachshund
-DACH000012,17.95,Dachshund
-DACH000013,18.08,Dachshund
-DACH000014,20.91,Dachshund
-DACH000015,19.71,Dachshund
-DACH000016,18.01,Dachshund
-DACH000017,19,Dachshund
-DALM000001,23.06,Dalmatian
-DALM000002,18.39,Dalmatian
-DALM000003,18.44,Dalmatian
-DALM000004,17.98,Dalmatian
-DALM000005,22.02,Dalmatian
-DAND000001,21.35,Dandie Dinmont Terrier
-DAND000002,18.62,Dandie Dinmont Terrier
-DAND000003,20.38,Dandie Dinmont Terrier
-DAND000004,20.24,Dandie Dinmont Terrier
-DAND000005,21.83,Dandie Dinmont Terrier
-DAND000006,19.26,Dandie Dinmont Terrier
-DARG000001,15.38,Dogo Argentino
-DARG000002,14.43,Dogo Argentino
-DARG000003,17.65,Dogo Argentino
-DARG000004,17.77,Dogo Argentino
-DARG000005,17.28,Dogo Argentino
-DDBX000001,16.26,Dogue de Bordeaux
-DDBX000002,20.35,Dogue de Bordeaux
-DDBX000003,17.73,Dogue de Bordeaux
-DDBX000004,16.95,Dogue de Bordeaux
-DDBX000005,20.02,Dogue de Bordeaux
-DEER000001,17.21,Scottish Deerhound
-DEER000002,20.48,Scottish Deerhound
-DEER000003,22.05,Scottish Deerhound
-DEER000004,22.16,Scottish Deerhound
-DOBP000001,19.49,Doberman Pinscher
-DOBP000002,17.77,Doberman Pinscher
-DOBP000003,18.05,Doberman Pinscher
-DOBP000004,17.56,Doberman Pinscher
-DOBP000005,16.27,Doberman Pinscher
-DOBP000006,16.87,Doberman Pinscher
-DOBP000007,17.85,Doberman Pinscher
-DREV000001,18.94,Drever
-DREV000002,20.32,Drever
-DREV000003,17.68,Drever
-DREV000004,18.84,Drever
-DREV000005,17.25,Drever
-DREV000006,19.01,Drever
-DSFD000001,21.98,Danish-Swedish Farmdog
-DSFD000002,19.95,Danish-Swedish Farmdog
-DSFD000003,17.69,Danish-Swedish Farmdog
-DSFD000004,19.35,Danish-Swedish Farmdog
-DSFD000005,18.65,Danish-Swedish Farmdog
-DSFD000006,18.46,Danish-Swedish Farmdog
-DSHP000001,17.77,Unknown
-DSHP000002,13.02,Dutch Shepherd
-DSHP000003,20.47,Dutch Shepherd
-DSHP000004,20.84,Dutch Shepherd
-DSHP000005,19.89,Dutch Shepherd
-DSHP000006,19.97,Dutch Shepherd
-DUPD000001,18.72,Dutch Partridge Dog
-ECKR000001,18.09,English Cocker Spaniel
-ECKR000002,20.06,English Cocker Spaniel
-ECKR000003,18.47,English Cocker Spaniel
-EEUS000001,17.17,East-European shepherd
-EEUS000002,17.97,East-European shepherd
-EEUS000003,19.13,East-European shepherd
-EFXH000002,19.18,English Foxhound
-EFXH000003,16.75,English Foxhound
-EGTT000001,18.69,English Toy Spaniel
-EGTT000002,18.71,English Toy Spaniel
-EGTT000003,21.73,English Toy Spaniel
-EGTT000004,18.13,English Shepherd
-EGTT000005,18.23,English Shepherd
-EGTT000006,19.93,English Shepherd
-EGTT000007,20.03,English Toy Terrier
-EGTT000008,18.57,English Toy Terrier
-EGTT000009,17.37,English Toy Terrier
-EGTT000010,21.93,English Toy Terrier
-EGTT000011,17.14,English Toy Terrier
-EGTT000012,21.48,English Toy Terrier
-EGTT000013,16.89,English Toy Terrier
-EGTT000014,19.9,English Toy Terrier
-EGTT000015,17.56,English Toy Terrier
-EGTT000016,20.49,English Toy Terrier
-ELOD000001,22.04,Elo
-ELOD000002,18,Elo
-ELOD000003,18.62,Elo
-ELOD000004,18.11,Elo
-ELOD000005,18,Elo
-ENTB000001,20.78,Entlebucher Mountain Dog
-ENTB000002,19.57,Entlebucher Mountain Dog
-ENTB000003,16.07,Entlebucher Mountain Dog
-ENTB000004,27.77,Entlebucher Mountain Dog
-ENTB000005,20.11,Entlebucher Mountain Dog
-ENTB000006,17.78,Entlebucher Mountain Dog
-ENTB000007,17.78,Entlebucher Mountain Dog
-ENTB000008,18.71,Entlebucher Mountain Dog
-ENTB000009,18.91,Entlebucher Mountain Dog
-EPNT000001,17.51,English Pointer
-EPNT000002,17.97,English Pointer
-EPNT000003,20.1,English Pointer
-EPNT000004,22.63,English Pointer
-EPNT000005,17.09,English Pointer
-EPNT000006,18.62,English Pointer
-EPNT000007,21.33,English Pointer
-EPNT000008,17.53,English Pointer
-EPNT000009,18.37,Unknown
-ESET000001,17.68,English Setter
-ESET000002,18.65,English Setter
-ESET000004,20.63,English Setter
-ESMD000001,19.25,Estrela Mountain Dog
-ESMD000002,20.59,Estrela Mountain Dog
-ESMD000003,23.26,Estrela Mountain Dog
-ESMD000004,20.5,Estrela Mountain Dog
-ESMD000005,17.19,Estrela Mountain Dog
-ESMD000006,18.92,Estrela Mountain Dog
-ESSP000001,17.43,English Springer Spaniel
-ESSP000002,23.34,English Springer Spaniel
-ESSP000003,17.85,English Springer Spaniel
-ESTH000001,18.07,Estonian Hound
-ESTH000002,16.9,Estonian Hound
-ESTH000003,18.92,Estonian Hound
-EURA000001,19.33,Eurasier
-EURA000002,17.38,Eurasier
-EURA000003,20.18,Eurasier
-EURA000004,18.32,Eurasier
-FBUL000001,18.58,French Bulldog
-FBUL000002,22.38,French Bulldog
-FBUL000003,17.61,French Bulldog
-FBUL000004,18.4,French Bulldog
-FBUL000005,17.38,French Bulldog
-FBUL000006,18.27,French Bulldog
-FIEL000001,19.91,Field Spaniel
-FIEL000002,18.14,Field Spaniel
-FIEL000003,22.13,Field Spaniel
-FIEL000004,18.85,Field Spaniel
-FIEL000005,18.75,Field Spaniel
-FINH000001,20.17,Finnish Hound
-FINH000002,20.55,Finnish Hound
-FINH000003,20.57,Finnish Hound
-FINH000004,19.67,Finnish Hound
-FINH000005,17.54,Finnish Hound
-FINH000006,19.36,Finnish Hound
-FINS000001,19.46,Finnish Spitz
-FINS000002,20.1,Finnish Spitz
-FINS000003,19.23,Finnish Spitz
-FINS000004,19.58,Finnish Spitz
-FINS000005,18.58,Finnish Spitz
-FINS000006,18.53,Finnish Spitz
-FLCD000001,20.59,Bouvier des Flandres
-FLCD000002,22.64,Bouvier des Flandres
-FLCD000003,18.22,Bouvier des Flandres
-FLCD000004,17.07,Bouvier des Flandres
-FLCD000005,19.3,Bouvier des Flandres
-FLCD000006,17.78,Bouvier des Flandres
-FLCD000007,25.5,Bouvier des Flandres
-FLCD000008,17.75,Bouvier des Flandres
-FLCR000001,18,Flat-Coated Retriever
-FLCR000002,21.2,Flat-Coated Retriever
-FLCR000003,17.74,Flat-Coated Retriever
-FOMD000001,19.51,Formosan Mountain Dog
-FOMD000002,19.07,Formosan Mountain Dog
-FOMD000003,19.96,Formosan Mountain Dog
-FRSP000001,17.29,French Spaniel
-FRSP000002,17.6,French Spaniel
-FRSP000003,27.96,French Spaniel
-FRSP000004,17.26,French Spaniel
-FRSP000005,20.12,French Spaniel
-FRSP000006,17.87,French Spaniel
-FXTE000001,18.9,Wire Fox Terrier
-FXTE000002,20,Wire Fox Terrier
-FXTE000003,18.45,Smooth Fox Terrier
-FXTE000004,21.59,Smooth Fox Terrier
-FXTE000005,18.11,Smooth Fox Terrier
-FXTE000006,23.26,Smooth Fox Terrier
-FXTE000007,21.08,Unknown
-GAFT000001,19.39,Great Anglo-French Tricolour Hound
-GAFT000002,17.44,Great Anglo-French Tricolour Hound
-GAFT000003,17.37,Great Anglo-French Tricolour Hound
-GAFT000004,18.06,Great Anglo-French Tricolour Hound
-GAFT000005,17.9,Great Anglo-French Tricolour Hound
-GAFT000006,19.47,Great Anglo-French Tricolour Hound
-GALG000001,17.85,Galgo Espanol
-GALG000002,20.53,Galgo Espanol
-GALG000003,19.26,Galgo Espanol
-GALG000004,17.41,Galgo Espanol
-GALG000005,18.85,Galgo Espanol
-GALG000006,18.23,Galgo Espanol
-GAWO000001,21.63,Great Anglo-French White and Orange Hound
-GAWO000002,16.82,Great Anglo-French White and Orange Hound
-GAWO000003,19.95,Great Anglo-French White and Orange Hound
-GAWO000004,19.93,Great Anglo-French White and Orange Hound
-GAWO000005,21.94,Great Anglo-French White and Orange Hound
-GAWO000006,18.05,Great Anglo-French White and Orange Hound
-GBGA000001,18.57,Grand Bleu de Gascogne
-GBGV000001,18.81,Grand Basset Griffon Vendeen
-GBGV000002,17.33,Grand Basset Griffon Vendeen
-GBGV000003,17.37,Grand Basset Griffon Vendeen
-GBGV000004,21.17,Grand Basset Griffon Vendeen
-GBGV000005,18.38,Grand Basset Griffon Vendeen
-GFBR000001,18.02,Griffon Fauve de Bretagne
-GGVE000001,19.33,Grand Griffon Vendeen
-GGVE000002,19.52,Grand Griffon Vendeen
-GHND000001,17.5,German Hound
-GHND000002,18.62,German Hound
-GHND000003,18.02,German Hound
-GHND000004,17.53,German Hound
-GHND000005,18.26,German Hound
-GHND000006,17.46,German Hound
-GHUT000001,20.29,German Hunting Terrier
-GHUT000002,20.65,German Hunting Terrier
-GHUT000003,17.86,German Hunting Terrier
-GHUT000004,19.76,German Hunting Terrier
-GHUT000005,21.41,German Hunting Terrier
-GHUT000006,18.78,German Hunting Terrier
-GLEN000001,20.24,Glen of Imaal Terrier
-GLEN000002,15.93,Glen of Imaal Terrier
-GLEN000003,24.29,Glen of Imaal Terrier
-GLEN000004,20.62,Glen of Imaal Terrier
-GLEN000005,20.66,Glen of Imaal Terrier
-GLEN000006,21.24,Glen of Imaal Terrier
-GMSP000001,17.52,German Spaniel
-GMSP000002,16.65,German Spaniel
-GMSP000003,20.81,German Spaniel
-GMSP000004,19.52,German Spaniel
-GMSP000005,18.82,German Spaniel
-GMSP000006,17.57,German Spaniel
-GOLD000001,18.58,Golden Retriever
-GOLD000002,19.84,Golden Retriever
-GOLD000003,18.4,Golden Retriever
-GOLD000004,18.87,Golden Retriever
-GOLD000005,18.36,Golden Retriever
-GOLD000007,31.06,Golden Retriever
-GORD000002,19.97,Gordon Setter
-GPIN000001,19.78,German Pinscher
-GPIN000002,19.05,German Pinscher
-GPIN000003,19.3,German Pinscher
-GPIN000004,18.79,German Pinscher
-GPYR000001,17.74,Great Pyrenees
-GPYR000002,17.94,Great Pyrenees
-GPYR000003,20.72,Great Pyrenees
-GPYR000004,20.75,Great Pyrenees
-GPYR000005,18.73,Great Pyrenees
-GPYR000006,19.19,Great Pyrenees
-GREE000001,17.85,Greenland Dog
-GREE000002,17.8,Greenland Dog
-GREE000003,19.67,Greenland Dog
-GRIF000001,17.9,Griffon
-GRIF000002,20,Griffon
-GRND000001,20.11,Groenendael
-GRND000002,17.58,Groenendael
-GRND000003,18.6,Groenendael
-GRNI000001,20.3,Griffon Nivernais
-GRNI000002,18.09,Griffon Nivernais
-GRNI000003,19,Griffon Nivernais
-GRNI000004,18.2,Griffon Nivernais
-GRNI000005,18.22,Griffon Nivernais
-GRNI000006,18.99,Griffon Nivernais
-GRSD000001,18.58,German Shepherd Dog
-GRSD000002,19.86,German Shepherd Dog
-GRSD000003,18.68,German Shepherd Dog
-GSHP000001,17.72,German Shorthaired Pointer
-GSHP000002,21.87,German Shorthaired Pointer
-GSHP000003,17.12,German Shorthaired Pointer
-GSHP000004,17.49,German Shorthaired Pointer
-GSMD000001,21.26,Greater Swiss Mountain Dog
-GSMD000002,17.34,Greater Swiss Mountain Dog
-GSMD000003,17.26,Greater Swiss Mountain Dog
-GSMD000004,21.5,Greater Swiss Mountain Dog
-GSMD000005,19.11,Greater Swiss Mountain Dog
-GSMD000006,19.8,Greater Swiss Mountain Dog
-GSMD000007,17.58,Greater Swiss Mountain Dog
-GSMD000008,19.31,Greater Swiss Mountain Dog
-GSMD000009,23.34,Greater Swiss Mountain Dog
-GSMD000010,19.7,Greater Swiss Mountain Dog
-GSNZ000001,21.41,Giant Schnauzer
-GSNZ000002,20.17,Giant Schnauzer
-GSNZ000003,19.18,Giant Schnauzer
-GSNZ000004,20.6,Giant Schnauzer
-GSNZ000005,18.97,Giant Schnauzer
-GSNZ000006,21.61,Giant Schnauzer
-GSPK000001,17.88,German Spitz Klein
-GSPK000002,18.84,German Spitz Klein
-GSPK000003,18.68,German Spitz Klein
-GSPK000004,18.01,German Spitz Klein
-GSPK000005,19.85,German Spitz Klein
-GSPK000006,18.79,German Spitz Klein
-GSPK000007,17.97,German Spitz Klein
-GSPK000008,24.35,German Spitz Klein
-GSPK000009,21.97,German Spitz Klein
-GSPK000010,22.03,German Spitz Klein
-GSPK000011,22.32,German Spitz Klein
-GSPZ000001,19.24,German Spitz
-GSPZ000002,19.74,German Spitz
-GSPZ000003,17.36,German Spitz
-GSPZ000004,17.07,German Spitz
-GSPZ000005,17.32,German Spitz
-GSPZ000006,19.44,German Spitz
-GSZG000001,20.29,German Giant Spitz
-GSZG000002,21.47,German Giant Spitz
-GSZG000003,17.79,German Giant Spitz
-GSZG000004,21.06,German Giant Spitz
-GSZG000005,22,German Giant Spitz
-GSZG000006,21,German Giant Spitz
-GSZG000007,21.57,Pomeranian
-GSZM000001,20.68,German Spitz Mittel
-GSZM000002,16.73,German Spitz Mittel
-GSZM000003,20.98,German Spitz Mittel
-GSZM000004,17.9,German Spitz Mittel
-GSZM000005,17.67,German Spitz Mittel
-GSZM000006,18.51,German Spitz Mittel
-GSZM000007,25.65,German Spitz Mittel
-GSZM000008,18.39,German Spitz Mittel
-GSZM000009,21.03,German Spitz Mittel
-GSZM000010,25.02,German Spitz Mittel
-GSZM000011,24.31,German Spitz Mittel
-GSZM000012,22.71,German Spitz Mittel
-GTLH000001,19.58,Gotland Hound
-GWHP000001,18.66,German Wirehaired Pointer
-GWHP000002,19.79,German Wirehaired Pointer
-GWHP000003,17.88,German Wirehaired Pointer
-GWHP000004,19.47,German Wirehaired Pointer
-GWHP000005,22.31,German Wirehaired Pointer
-HAEL000001,20.37,Hallefors Elkhound
-HARR000001,17.46,Harrier
-HARR000002,18.11,Harrier
-HARR000003,18.29,Harrier
-HAVA000001,22.06,Havanese
-HAVA000002,21.72,Havanese
-HAVA000003,22.35,Havanese
-HELH000001,20.8,Hellenic Hound
-HOBO000001,20.72,Hortaya Borzaya
-HOBO000002,19.39,Hortaya Borzaya
-HOKK000001,18.86,Hokkaido
-HOKK000002,18.53,Hokkaido
-HOKK000003,17.04,Hokkaido
-HOVA000001,16.84,Hovawart
-HOVA000002,18.69,Hovawart
-HOVA000003,17.81,Hovawart
-HOVA000004,19.05,Hovawart
-HSHP000001,17.17,Vizsla
-HSHP000002,0.24,Vizsla
-HTSV000001,20.24,Hamiltonstovare
-HTSV000002,18.59,Hamiltonstovare
-HTSV000003,19.6,Hamiltonstovare
-HTSV000004,21.54,Hamiltonstovare
-HTSV000005,21.95,Hamiltonstovare
-HTSV000006,20.65,Hamiltonstovare
-HTSV000007,19.13,Hamiltonstovare
-HUNT000001,5.69,Huntaway
-HUNT000002,3.61,Huntaway
-HUNT000003,1.7,Huntaway
-HVSC000001,20.17,Hanoverian Scenthound
-HWHP000001,18.71,Vizsla
-IBIZ000001,19.45,Ibizan Hound
-IBIZ000002,19.77,Ibizan Hound
-IBIZ000003,18.1,Ibizan Hound
-IBIZ000004,18.24,Ibizan Hound
-IBIZ000005,20.02,Ibizan Hound
-IBIZ000006,17.54,Ibizan Hound
-IBIZ000007,15.81,Ibizan Hound
-IBIZ000008,18.05,Ibizan Hound
-IBIZ000009,18.24,Ibizan Hound
-IBIZ000010,21.89,Ibizan Hound
-IBIZ000011,19.19,Ibizan Hound
-IBIZ000012,19.9,Ibizan Hound
-IBIZ000013,20.41,Ibizan Hound
-ICES000001,19.28,Icelandic Sheepdog
-ICES000002,18.66,Icelandic Sheepdog
-ICES000003,19.15,Icelandic Sheepdog
-ICES000004,17.93,Icelandic Sheepdog
-ICES000005,18.59,Icelandic Sheepdog
-ICES000006,21.61,Icelandic Sheepdog
-IRIT000001,11.33,Irish Terrier
-IRIT000002,20.5,Irish Terrier
-IRIT000003,21.42,Irish Terrier
-IRSE000001,9.12,Irish Setter
-IRSE000002,17.89,Irish Setter
-IRSE000003,22.56,Irish Setter
-IRSE000004,17.95,Irish Setter
-IWSP000001,21.43,Irish Water Spaniel
-IWSP000002,20.88,Irish Water Spaniel
-IWSP000003,21.31,Irish Water Spaniel
-IWSP000004,17.73,Irish Water Spaniel
-JSPZ000001,18.36,Japanese Spitz
-JSPZ000002,19.01,Japanese Spitz
-JSPZ000003,19.29,Japanese Spitz
-JSPZ000004,23.94,Japanese Spitz
-JSPZ000005,20.08,Japanese Spitz
-JSPZ000006,19.74,Japanese Spitz
-JSPZ000007,18.22,Japanese Spitz
-JSPZ000008,22.33,Japanese Spitz
-JSPZ000009,19.2,Japanese Spitz
-JSPZ000010,19.26,Japanese Spitz
-JSPZ000011,19.69,Japanese Spitz
-JSPZ000012,25.98,Japanese Spitz
-KAIK000001,17.75,Kai Ken
-KAIK000002,19.3,Kai Ken
-KAIK000003,19.25,Kai Ken
-KAIK000004,16.46,Kai Ken
-KAIK000005,20.22,Kai Ken
-KANG000001,22.01,Kangal
-KANG000002,18.09,Kangal
-KANG000003,20.92,Kangal
-KARS000001,19.06,Kars
-KARS000002,18.54,Kars
-KARS000003,18.33,Kars
-KARS000004,19.05,Kars
-KARS000005,24.65,Kars
-KARS000006,22.99,Kars
-KEES000001,16.01,Keeshond
-KEES000002,17.25,Keeshond
-KEES000003,16.56,Keeshond
-KEES000004,18.91,Keeshond
-KEES000005,24.37,Keeshond
-KEES000006,17.65,Keeshond
-KEES000007,17.51,Keeshond
-KEES000008,21.75,Keeshond
-KEES000009,22.01,Keeshond
-KEES000010,26.28,Keeshond
-KEES000011,24.47,Keeshond
-KEES000012,23.55,Keeshond
-KERY000001,17.59,Kerry Blue Terrier
-KERY000002,19.27,Kerry Blue Terrier
-KINT000001,17.48,Kintamani
-KISH000001,17.62,Kishu
-KISH000002,20.34,Kishu
-KISH000003,16.62,Kishu
-KMUM000001,19.48,Small Munsterlander
-KMUM000002,20.02,Small Munsterlander
-KMUM000003,17.53,Small Munsterlander
-KMUM000004,17.57,Small Munsterlander
-KMUM000005,17.41,Small Munsterlander
-KMUM000006,18.58,Small Munsterlander
-KMUM000007,18.15,Small Munsterlander
-KMUM000008,18.37,Small Munsterlander
-KMUM000009,18.25,Small Munsterlander
-KMUM000010,18.86,Small Munsterlander
-KMUM000011,18.13,Small Munsterlander
-KROM000001,19.22,Kromfohrlander
-KROM000002,18.82,Kromfohrlander
-KROM000003,20.4,Kromfohrlander
-KROM000004,18.18,Kromfohrlander
-KROM000005,17.88,Kromfohrlander
-KROM000006,16.93,Kromfohrlander
-KROM000007,19.39,Kromfohrlander
-KUVZ000001,16.92,Kuvasz
-KUVZ000002,12.5,Kuvasz
-KUVZ000003,15.36,Kuvasz
-KUVZ000004,17.73,Kuvasz
-KUVZ000005,17.63,Kuvasz
-KUVZ000006,19.26,Kuvasz
-KUVZ000007,22.18,Kuvasz
-KUVZ000008,20.7,Kuvasz
-LABR000001,23.19,Labrador Retriever
-LABR000002,18.03,Labrador Retriever
-LABR000003,19.26,Labrador Retriever
-LABR000004,18.02,Labrador Retriever
-LABR000005,20.87,Labrador Retriever
-LABR000006,17.51,Labrador Retriever
-LAEK000001,16.36,Belgian Laekenois
-LAEK000002,19.99,Belgian Laekenois
-LAEK000003,18.45,Belgian Laekenois
-LAEK000004,21.69,Belgian Laekenois
-LAEK000005,19.06,Belgian Laekenois
-LAGO000001,18.43,Lagotto Romagnolo
-LAGO000002,16.68,Lagotto Romagnolo
-LAGO000003,18.71,Lagotto Romagnolo
-LAGO000004,19.66,Lagotto Romagnolo
-LAKE000001,21.06,Lakeland Terrier
-LAKE000002,20.44,Lakeland Terrier
-LAKE000003,19.39,Lakeland Terrier
-LAKE000004,18.08,Lakeland Terrier
-LAKE000005,20.91,Lakeland Terrier
-LAKE000006,19.81,Lakeland Terrier
-LANC000001,18.34,Lancashire Heeler
-LANC000002,17.31,Lancashire Heeler
-LANC000003,20.38,Lancashire Heeler
-LANC000004,18.99,Lancashire Heeler
-LANC000005,21.33,Lancashire Heeler
-LANC000006,19.53,Lancashire Heeler
-LDSR000001,17.25,Landseer
-LDSR000002,18.24,Landseer
-LDSR000003,18.86,Landseer
-LDSR000004,21.45,Landseer
-LEON000001,19.93,Leonberger
-LEON000002,19.63,Leonberger
-LEON000003,18.6,Leonberger
-LEON000004,18.62,Leonberger
-LEON000007,17.44,Leonberger
-LEON000008,18.3,Leonberger
-LEON000009,20.67,Leonberger
-LEON000010,17.3,Leonberger
-LEON000011,17.84,Leonberger
-LEON000012,18.46,Leonberger
-LEON000013,18.83,Leonberger
-LEON000014,16.66,Leonberger
-LEOP000002,16.96,Catahoula Leopard Dog
-LEOP000003,17.04,Catahoula Leopard Dog
-LEOP000004,16.37,Catahoula Leopard Dog
-LEOP000005,18.83,Catahoula Leopard Dog
-LEOP000007,16.52,Catahoula Leopard Dog
-LEOP000008,20.03,Catahoula Leopard Dog
-LEOP000009,16.78,Catahoula Leopard Dog
-LEOP000010,17.84,Catahoula Leopard Dog
-LHSA000001,18.64,Lhasa Apso
-LHSA000002,18.29,Lhasa Apso
-LHSA000003,17.71,Lhasa Apso
-LHSA000004,18.44,Lhasa Apso
-LHSA000005,17.59,Lhasa Apso
-LHSA000006,21.99,Lhasa Apso
-LHSA000007,20.96,Lhasa Apso
-LHSA000008,23.73,Lhasa Apso
-LMUN000001,18.78,Large Munsterlander
-LOWC000001,18.16,Lowchen
-LOWC000002,18.85,Lowchen
-LOWC000003,19.65,Lowchen
-LOWC000004,18.24,Lowchen
-MAAG000001,17.85,Magyar Agar
-MAAG000002,22.51,Magyar Agar
-MAAG000003,17.65,Magyar Agar
-MAAG000004,17.7,Magyar Agar
-MAAG000005,18.02,Magyar Agar
-MAAG000006,21.22,Magyar Agar
-MALT000001,23.24,Maltese
-MALT000002,18.08,Maltese
-MALT000003,17.94,Maltese
-MALT000004,18.23,Maltese
-MALT000005,17.86,Coton de Tulear
-MANT000001,18.18,Manchester Terrier (Standard)
-MANT000002,21.73,Manchester Terrier (Standard)
-MANT000003,18.04,Manchester Terrier (Standard)
-MANT000004,16.76,Manchester Terrier (Standard)
-MANT000005,20.75,Manchester Terrier (Standard)
-MANT000006,18.35,Manchester Terrier (Standard)
-MANT000007,17.94,Manchester Terrier (Standard)
-MANT000008,18.86,Manchester Terrier (Standard)
-MANT000009,19.68,Manchester Terrier (Standard)
-MARM000001,20.57,Maremma Sheepdog
-MARM000002,18.56,Maremma Sheepdog
-MARM000003,18.91,Maremma Sheepdog
-MARM000004,19.05,Maremma Sheepdog
-MARM000005,20.43,Maremma Sheepdog
-MARM000006,20.96,Maremma Sheepdog
-MAST000001,17.05,Mastiff
-MAST000002,17.05,Mastiff
-MAST000003,18.63,Mastiff
-MAST000004,19.48,Mastiff
-MAST000005,18.57,Mastiff
-MAST000006,22.93,Mastiff
-MBLT000001,16.66,Miniature Bull Terrier
-MBLT000002,18.14,Miniature Bull Terrier
-MBLT000003,17.23,Miniature Bull Terrier
-MBLT000004,17.68,Miniature Bull Terrier
-MCUR000001,17.9,Mountain Cur
-MCUR000002,17.78,Mountain Cur
-MCUR000003,10.46,Mountain Cur
-MCUR000004,16.26,Mountain Cur
-MJMA000001,19.71,Majorca Mastiff
-MJMA000002,18.28,Majorca Mastiff
-MJMA000003,19.21,Majorca Mastiff
-MPIN000001,16.32,Miniature Pinscher
-MPIN000002,17.02,Miniature Pinscher
-MPIN000003,19.4,Miniature Pinscher
-MPIN000004,18.44,Miniature Pinscher
-MPIN000007,20.04,Unknown
-MPOO000001,18.29,Miniature Poodle
-MSNZ000001,22.57,Miniature Schnauzer
-MSNZ000002,18.3,Miniature Schnauzer
-MSNZ000003,18.14,Miniature Schnauzer
-MSNZ000004,19.77,Miniature Schnauzer
-MUDI000001,19.34,Mudi
-MUDI000002,20.45,Mudi
-MUDI000003,18.11,Mudi
-MUDI000004,11.91,Mudi
-MUDI000005,21.87,Mudi
-MUDI000006,20.1,Mudi
-NBUH000001,20.41,Norwegian Buhund
-NBUH000002,11.21,Norwegian Buhund
-NBUH000003,20.45,Norwegian Buhund
-NBUH000004,19.74,Norwegian Buhund
-NBUH000005,19.53,Norwegian Buhund
-NBUH000006,17.84,Norwegian Buhund
-NEAP000001,22.36,Neapolitan Mastiff
-NEAP000002,19.16,Neapolitan Mastiff
-NEAP000003,19.96,Neapolitan Mastiff
-NEAP000004,17.48,Neapolitan Mastiff
-NEAP000005,21.66,Neapolitan Mastiff
-NELK000001,19.37,Norwegian Elkhound
-NELK000002,19.05,Norwegian Elkhound
-NELK000003,19.94,Norwegian Elkhound
-NELK000004,20.59,Norwegian Elkhound
-NELK000005,17.66,Norwegian Elkhound
-NELK000006,18.54,Norwegian Elkhound
-NELK000007,20.95,Norwegian Elkhound
-NEWF000001,15.97,Newfoundland
-NEWF000002,18.65,Newfoundland
-NEWF000003,16.34,Newfoundland
-NEWF000004,19.49,Newfoundland
-NEWF000005,18.45,Newfoundland
-NEWF000006,19.07,Newfoundland
-NLUN000001,16.12,Norwegian Lundehund
-NLUN000002,22.31,Norwegian Lundehund
-NLUN000003,19.57,Norwegian Lundehund
-NLUN000004,21.16,Norwegian Lundehund
-NLUN000005,20.66,Norwegian Lundehund
-NORB000001,18.11,Norrbottenspitz
-NORB000002,19.35,Norrbottenspitz
-NORB000003,17.61,Norrbottenspitz
-NORB000004,21.2,Norrbottenspitz
-NORB000005,18.9,Norrbottenspitz
-NORF000001,21.06,Norfolk Terrier
-NORF000002,19.22,Norfolk Terrier
-NORF000003,18.66,Norfolk Terrier
-NORF000004,17.56,Norfolk Terrier
-NORF000005,17.87,Norfolk Terrier
-NORF000006,18.25,Norfolk Terrier
-NORF000007,19.49,Norfolk Terrier
-NOWT000001,16.8,Norwich Terrier
-NOWT000002,16.84,Norwich Terrier
-NOWT000003,19.65,Norwich Terrier
-NOWT000004,19.44,Norwich Terrier
-NOWT000005,20.55,Norwich Terrier
-NOWT000006,19.18,Norwich Terrier
-NSDT000001,20.37,Nova Scotia Duck Tolling Retriever
-NSDT000002,19.08,Nova Scotia Duck Tolling Retriever
-NSDT000003,18.02,Nova Scotia Duck Tolling Retriever
-NSDT000004,19.75,Nova Scotia Duck Tolling Retriever
-OEBD000001,19.72,Olde English Bulldogge
-OEBD000002,18.35,Olde English Bulldogge
-OEBD000003,20.4,Olde English Bulldogge
-OLES000001,19.35,Old English Sheepdog
-OLES000002,20.81,Old English Sheepdog
-OLES000003,17.98,Old English Sheepdog
-OLES000004,17.19,Old English Sheepdog
-OLES000005,17.3,Old English Sheepdog
-OLES000006,19.26,Old English Sheepdog
-OLES000007,27.37,Old English Sheepdog
-OLGS000001,19.44,Old German Shepherd
-OLGS000002,18.39,Old German Shepherd
-OLGS000003,17.14,Old German Shepherd
-OLGS000004,17.52,Old German Shepherd
-OLGS000005,18.91,Old German Shepherd
-OLGS000006,16.95,Old German Shepherd
-OTTR000001,20.9,Otterhound
-OTTR000002,20.93,Otterhound
-OTTR000003,20.78,Otterhound
-OTTR000004,16.56,Otterhound
-OTTR000005,16.68,Otterhound
-OTTR000006,19,Otterhound
-OTTR000007,18.83,Otterhound
-PAPI000001,19.77,Continental Toy Spaniel (Papillon)
-PAPI000002,18.44,Continental Toy Spaniel (Papillon)
-PAPI000003,18.43,Continental Toy Spaniel (Papillon)
-PAPI000004,19.75,Continental Toy Spaniel (Papillon)
-PAPI000005,22.88,Continental Toy Spaniel (Papillon)
-PAPI000006,18.48,Continental Toy Spaniel (Papillon)
-PARS000001,17.06,Parson Russell Terrier
-PARS000002,18.84,Parson Russell Terrier
-PARS000003,17.93,Parson Russell Terrier
-PARS000004,17.12,Parson Russell Terrier
-PARS000005,20.52,Parson Russell Terrier
-PASP000001,19.22,Pont-Audemer spaniel
-PASP000002,16.89,Pont-Audemer spaniel
-PASP000003,17.04,Pont-Audemer spaniel
-PASP000004,18.58,Pont-Audemer spaniel
-PASP000005,16.46,Pont-Audemer spaniel
-PASP000006,20.14,Pont-Audemer spaniel
-PASP000007,18.27,Pont-Audemer spaniel
-PATR000001,20.41,Patterdale Terrier
-PATR000002,19.08,Patterdale Terrier
-PATR000003,20.39,Patterdale Terrier
-PATR000004,20.07,Patterdale Terrier
-PBGA000001,21.67,Petit Bleu de Gascogne
-PBGA000002,20.01,Petit Bleu de Gascogne
-PBGA000003,18.93,Petit Bleu de Gascogne
-PBGA000004,19.54,Petit Bleu de Gascogne
-PBGR000001,22.01,Brussels Griffon (smooth)
-PBGR000002,20.65,Brussels Griffon (smooth)
-PBGV000001,20.45,Petit Basset Griffon Vendeen
-PBGV000002,18.47,Petit Basset Griffon Vendeen
-PBGV000003,18.93,Petit Basset Griffon Vendeen
-PBGV000004,20.78,Petit Basset Griffon Vendeen
-PBGV000005,21.91,Petit Basset Griffon Vendeen
-PBGV000006,21.06,Petit Basset Griffon Vendeen
-PBGV000007,22.79,Petit Basset Griffon Vendeen
-PBGV000008,23.43,Petit Basset Griffon Vendeen
-PBGV000009,17.29,Petit Basset Griffon Vendeen
-PBGV000010,19.01,Petit Basset Griffon Vendeen
-PBGV000011,18.27,Unknown
-PBGV000012,21.71,Petit Basset Griffon Vendeen
-PEKE000001,19.48,Pekingese
-PEKE000002,19.98,Pekingese
-PEKE000003,19.87,Pekingese
-PEMB000001,20.54,Pembroke Welsh Corgi
-PERH000001,19.76,Peruvian Hairless
-PERH000002,16.99,Peruvian Hairless
-PERH000003,18.18,Peruvian Hairless
-PERH000004,18.07,Peruvian Hairless
-PERH000005,19.01,Peruvian Hairless
-PHAL000001,18.29,Continental Toy Spaniel (Phalene)
-PHAL000002,17.47,Continental Toy Spaniel (Phalene)
-PHAL000003,18.93,Continental Toy Spaniel (Phalene)
-PHAL000004,21.41,Continental Toy Spaniel (Phalene)
-PHAL000005,21.87,Continental Toy Spaniel (Phalene)
-PHAR000001,17.8,Pharaoh Hound
-PHAR000002,19.29,Pharaoh Hound
-PHAR000003,18.69,Pharaoh Hound
-PHAR000004,18.23,Pharaoh Hound
-PHAR000005,19.92,Pharaoh Hound
-PHAR000006,20.98,Pharaoh Hound
-PISH000001,18.67,Picardy Shepherd
-PISH000002,18.36,Picardy Shepherd
-PISH000003,17.89,Picardy Shepherd
-PISH000004,20.02,Picardy Shepherd
-PISH000005,20.03,Picardy Shepherd
-PISH000006,19.22,Picardy Shepherd
-PISP000001,17.83,Picardy Spaniel
-PISP000002,18.48,Picardy Spaniel
-PISP000003,19.93,Picardy Spaniel
-PISP000004,20.49,Picardy Spaniel
-PLOT000001,18,Plott Hound
-POLG000001,18.64,Polish Greyhound
-POLG000002,17.57,Polish Greyhound
-POLG000003,20.7,Polish Greyhound
-POLG000004,19.81,Polish Greyhound
-POLG000005,18.53,Polish Greyhound
-POLG000006,19.23,Polish Greyhound
-POLG000007,17.19,Polish Greyhound
-POLS000001,18.63,Polish Lowland Sheepdog
-POLS000002,20.23,Polish Lowland Sheepdog
-POLS000003,19.08,Polish Tatra Sheepdog
-POLS000004,20.62,Polish Tatra Sheepdog
-POMR000001,9.34,Pomeranian
-POMR000002,18.96,Pomeranian
-POMR000003,16.56,Pomeranian
-POMR000004,18.14,Pomeranian
-POMR000005,18.64,Pomeranian
-POMR000006,17.61,Pomeranian
-POMR000007,20.19,Pomeranian
-POMR000008,17.52,Pomeranian
-POOD000001,20.06,Poodle
-POPT000001,19.08,Portuguese Pointer
-PORC000001,18.56,Porcelaine
-POSD000001,17.81,Portuguese Sheepdog
-POSD000002,18.1,Portuguese Sheepdog
-POSD000003,18.06,Portuguese Sheepdog
-POSD000004,18.53,Portuguese Sheepdog
-POSD000005,18.29,Portuguese Sheepdog
-POSD000006,17.84,Portuguese Sheepdog
-POSH000001,18.47,Posavac Hound
-PPOD000001,18.19,Portuguese Podengo
-PPOD000002,17.49,Portuguese Podengo
-PPOD000003,17.55,Portuguese Podengo Pequeno
-PPOD000004,19.25,Portuguese Podengo Pequeno
-PPOP000001,18.52,Portuguese Podengo Pequeno
-PPOP000002,14.91,Portuguese Podengo Pequeno
-PRKR000001,18.56,Prague Ratter
-PRKR000002,19.17,Prague Ratter
-PRKR000003,20.27,Prague Ratter
-PRKR000004,18.58,Prague Ratter
-PRKR000005,18.89,Prague Ratter
-PTAS000001,18.02,Polish Tatra Sheepdog
-PTAS000002,18.72,Polish Tatra Sheepdog
-PTAS000003,18.65,Polish Tatra Sheepdog
-PTAS000004,18.93,Polish Tatra Sheepdog
-PTAS000005,20.18,Polish Tatra Sheepdog
-PTAS000006,17.63,Polish Tatra Sheepdog
-PTWD000001,15.74,Portuguese Water Dog
-PTWD000002,17.13,Portuguese Water Dog
-PTWD000003,17.3,Portuguese Water Dog
-PTWD000004,17.74,Portuguese Water Dog
-PTWD000005,19.24,Portuguese Water Dog
-PTWD000006,18.79,Portuguese Water Dog
-PTWD000007,17.13,Portuguese Water Dog
-PTWD000008,20.31,Portuguese Water Dog
-PUDL000001,18.21,Pudelpointer
-PUDL000002,17.46,Pudelpointer
-PUDL000003,17.76,Pudelpointer
-PUDL000004,19.49,Unknown
-PUGD000001,19.5,Pug
-PULI000001,17.63,Puli
-PULI000002,17.37,Puli
-PULI000003,17.72,Puli
-PULI000004,19.87,Puli
-PULI000005,19.75,Puli
-PULI000006,20.52,Puli
-PUMI000001,16.68,Pumi
-PUMI000002,19.41,Pumi
-PUMI000003,17.35,Pumi
-PUMI000004,18.33,Pumi
-PUMI000005,17.94,Pumi
-PUMI000006,17.47,Pumi
-PYMF000001,18.68,Pyrenean Mastiff
-PYMF000002,18.08,Pyrenean Mastiff
-PYMF000003,18.2,Pyrenean Mastiff
-PYMF000004,19.21,Pyrenean Mastiff
-PYMF000005,19.36,Pyrenean Mastiff
-PYMF000006,18.79,Pyrenean Mastiff
-PYSH000001,18.05,Pyrenean Shepherd
-PYSH000002,19.55,Great Pyrenees
-PYSH000003,19.35,Pyrenean Shepherd
-PYSH000004,19.56,Pyrenean Shepherd
-PYSH000005,20.23,Pyrenean Shepherd
-PYSH000006,19.36,Pyrenean Shepherd
-PYSH000007,20.55,Pyrenean Shepherd
-PYSH000008,18.75,Pyrenean Shepherd
-PYSH000009,19.7,Pyrenean Shepherd
-PYSH000010,17.92,Pyrenean Shepherd
-PYSH000011,17.58,Pyrenean Shepherd
-PYSH000012,19,Pyrenean Shepherd
-RABA000002,20.12,Ratonero Bodeguero Andaluz
-RATT000001,20.23,Rat Terrier
-RATT000002,20.56,Rat Terrier
-REDB000001,21.22,Redbone Coonhound
-REDB000002,18.73,Redbone Coonhound
-REDB000003,19.27,Redbone Coonhound
-RHOD000001,19.77,Rhodesian Ridgeback
-RHOD000002,18.39,Rhodesian Ridgeback
-ROOS000001,19.62,Teddy Roosevelt Terrier
-ROOS000002,19.98,Teddy Roosevelt Terrier
-RTOY000001,18.24,Russian Toy
-RTOY000002,18.13,Russian Toy
-RUSH000001,17.72,Russian Hound
-RUSH000002,16.97,Russian Hound
-RUSH000003,18.71,Russian Hound
-RUSH000004,25.75,Russian Hound
-RUSH000005,25.09,Russian Hound
-RUSH000006,17.02,Russian Hound
-RUTY000001,19.24,Russian Toy
-RUTY000002,17.43,Russian Toy
-RUTY000003,18.66,Russian Toy
-RUTY000004,18.42,Russian Toy
-RWSE000001,20.42,Irish Red and White Setter
-SAAR000001,19.31,Saarloos Wolfdog
-SAAR000002,17.55,Saarloos Wolfdog
-SAAR000003,17.25,Saarloos Wolfdog
-SAAR000004,17.12,Saarloos Wolfdog
-SALU000001,22.34,Saluki
-SALU000002,22.3,Saluki
-SALU000003,18.39,Saluki
-SAMO000001,17.56,Samoyed
-SAMO000002,18.28,Samoyed
-SAMO000003,18.55,Samoyed
-SAMO000004,17.88,Samoyed
-SARP000001,18.56,Sarplaninac
-SARP000002,18.51,Sarplaninac
-SARP000003,17.74,Sarplaninac
-SARP000004,19.47,Sarplaninac
-SCPD000001,18.66,Schapendoes
-SCPD000002,19.07,Schapendoes
-SCPD000003,23.07,Schapendoes
-SCPD000004,20.74,Schapendoes
-SEAL000001,4.86,Sealyham Terrier
-SEAL000002,17.89,Sealyham Terrier
-SEAL000003,17.57,Sealyham Terrier
-SEAL000004,13.58,Sealyham Terrier
-SEAL000005,17.64,Sealyham Terrier
-SEAL000006,16.62,Sealyham Terrier
-SEAL000007,17.97,Sealyham Terrier
-SEAL000008,17.17,Sealyham Terrier
-SEAL000009,16.87,Sealyham Terrier
-SEAL000010,18.57,Sealyham Terrier
-SGGO000001,19.6,Segugio Italiano
-SGGO000002,19.92,Segugio Italiano
-SGGO000003,18.64,Segugio Italiano
-SGGO000004,22.58,Segugio Italiano
-SHAR000001,17.1,Chinese Shar-Pei
-SHAR000002,17.96,Chinese Shar-Pei
-SHAR000003,21.27,Chinese Shar-Pei
-SHIB000001,19.13,Shiba Inu
-SHIB000002,18.14,Shiba Inu
-SHIB000003,17.9,Shiba Inu
-SHIH000001,19.93,Shih Tzu
-SHIH000002,18.02,Shih Tzu
-SHIH000003,17.23,Shih Tzu
-SHIH000004,22.85,Shih Tzu
-SHIH000005,20.98,Shih Tzu
-SHIL000001,18.47,Shiloh Shepherd
-SIKU000001,18.57,Shikoku
-SILK000001,20.33,Silky Terrier
-SILK000002,23.95,Silky Terrier
-SILK000003,18.9,Silky Terrier
-SILK000004,12.95,Skye Terrier
-SILK000005,17.64,Skye Terrier
-SKIP000001,21.67,Schipperke
-SKIP000002,19.01,Rhodesian Ridgeback
-SKIP000003,18.33,Schipperke
-SKIP000004,23.4,Schipperke
-SKIP000005,18.67,Schipperke
-SKIP000006,18.38,Schipperke
-SKWH000001,19.86,Silken Windhound
-SKWH000002,17.46,Silken Windhound
-SKYE000003,17.35,Skye Terrier
-SLAP000001,16.36,Swedish Lapphund
-SLAP000002,18.33,Swedish Lapphund
-SLAP000003,18.6,Swedish Lapphund
-SLCU000001,17.62,Slovak Cuvac
-SLCU000002,17.41,Slovak Cuvac
-SLCU000003,17.75,Slovak Cuvac
-SLCU000004,17.55,Slovak Cuvac
-SLCU000005,18.62,Slovak Cuvac
-SLCU000006,17.48,Slovak Cuvac
-SLCU000007,18.23,Slovak Cuvac
-SLKV000001,17.99,Slovensky Kopov
-SLKV000002,19.74,Slovensky Kopov
-SLOU000001,15.91,Sloughi
-SLOU000002,18.76,Sloughi
-SLOU000003,18.56,Sloughi
-SLWP000001,19.48,Slovakian Wirehaired Pointer
-SLWP000002,18.13,Slovakian Wirehaired Pointer
-SLWP000003,17.82,Slovakian Wirehaired Pointer
-SLWP000004,18.81,Slovakian Wirehaired Pointer
-SMCD000001,19.44,Saint Miguel Cattle Dog
-SMCD000002,18.39,Saint Miguel Cattle Dog
-SMFX000001,19.09,Smooth Fox Terrier
-SMFX000002,20.36,Smooth Fox Terrier
-SMFX000003,17.51,Smooth Fox Terrier
-SMFX000004,16.5,Smooth Fox Terrier
-SMFX000005,20.2,Smooth Fox Terrier
-SMFX000006,5.04,Smooth Fox Terrier
-SMSH000001,17.66,Small Swiss Hound
-SMSH000002,16.53,Small Swiss Hound
-SMSH000003,16.57,Small Swiss Hound
-SMSH000004,17.71,Small Swiss Hound
-SMSH000005,19.11,Small Swiss Hound
-SMSH000006,16.1,Small Swiss Hound
-SMSH000007,17.61,Small Swiss Hound
-SMSH000008,18.18,Small Swiss Hound
-SMSH000009,18.46,Small Swiss Hound
-SMSH000010,19.13,Small Swiss Hound
-SMSH000011,18.64,Small Swiss Hound
-SMSH000012,18.1,Small Swiss Hound
-SPEI000001,18.21,Chinese Shar-Pei
-SPEI000002,18.73,Chinese Shar-Pei
-SPEI000003,18.81,Chinese Shar-Pei
-SPEI000004,20.9,Chinese Shar-Pei
-SPEI000005,20.06,Chinese Shar-Pei
-SPEI000006,20.49,Chinese Shar-Pei
-SPIN000001,20.41,Spinone Italiano
-SPIN000002,18.51,Spinone Italiano
-SPIN000003,17.82,Spinone Italiano
-SPIN000004,22.44,Spinone Italiano
-SPIN000005,20.22,Spinone Italiano
-SPIN000006,18.52,Spinone Italiano
-SPIN000007,17.44,Spinone Italiano
-SPIN000008,19.49,Spinone Italiano
-SPMT000001,20.88,Spanish Mastiff
-SPMT000002,17.72,Spanish Mastiff
-SPMT000003,17.73,Spanish Mastiff
-SPMT000004,18.3,Spanish Mastiff
-SPMT000005,21.07,Spanish Mastiff
-SPMT000006,18.12,Spanish Mastiff
-SPWD000001,18.24,Spanish Water Dog
-SPWD000002,20.64,Spanish Water Dog
-SPWD000003,21.73,Spanish Water Dog
-SPWD000004,17.3,Spanish Water Dog
-SRAB000001,18.06,Sarabi
-SRAB000002,19.79,Sarabi
-SROV000001,17.94,South Russian Ovcharka
-SROV000002,18.83,Unknown
-SROV000003,17.95,South Russian Ovcharka
-SROV000004,19.01,South Russian Ovcharka
-SSHP000001,21.26,Shetland Sheepdog
-SSHP000002,19.05,Shetland Sheepdog
-SSHP000003,18.72,Shetland Sheepdog
-SSHP000004,18.94,Shetland Sheepdog
-SSNZ000001,18.13,Standard Schnauzer
-STAF000001,18.6,Staffordshire Bull Terrier
-STAF000002,17.83,Staffordshire Bull Terrier
-STAF000003,20.09,Staffordshire Bull Terrier
-STAF000004,18.18,Staffordshire Bull Terrier
-STAF000005,19.64,Staffordshire Bull Terrier
-STAF000006,18.8,Staffordshire Bull Terrier
-STBD000001,17.5,Saint Bernard
-STBD000002,17.44,Saint Bernard
-STBD000003,16.4,Saint Bernard
-STBD000004,17.7,Saint Bernard
-STBD000005,23.63,Saint Bernard
-STBD000006,18.9,Saint Bernard
-STBD000007,23.2,Saint Bernard
-STBD000008,16.05,Saint Bernard
-STBD000009,16.49,Saint Bernard
-STBD000010,20.09,Saint Bernard
-STBD000011,17.8,Saint Bernard
-STBD000012,17.57,Saint Bernard
-STBD000013,17.75,Saint Bernard
-STBY000001,23.1,Stabyhoun
-STBY000002,16.99,Stabyhoun
-STBY000003,17.87,Stabyhoun
-STBY000004,18.74,Stabyhoun
-SUSP000001,21.54,Saint-Usuge Spaniel
-SUSX000001,17.43,Sussex Spaniel
-SUSX000002,16.27,Sussex Spaniel
-SUSX000003,16.05,Sussex Spaniel
-SUSX000004,19.28,Sussex Spaniel
-SUSX000005,16.82,Sussex Spaniel
-SUSX000006,20.8,Sussex Spaniel
-SVAL000007,17.82,Swedish Vallhund
-SVAL000008,20.01,Swedish Vallhund
-SVAL000009,19.82,Swedish Vallhund
-SVAL000010,18.77,Swedish Vallhund
-SWEH000001,20.58,Swedish Elkhound
-SWEH000002,18.69,Swedish Elkhound
-SWEH000003,18.96,Swedish Elkhound
-SWEH000004,20.8,Swedish Elkhound
-SWHN000001,17.33,Swiss Hound
-SWHN000002,18.38,Swiss Hound
-SWHN000003,17.58,Swiss Hound
-SWHN000004,20.24,Swiss Hound
-SWHN000005,20.16,Swiss Hound
-SWHN000006,20.49,Swiss Hound
-SWHN000007,17.75,Swiss Hound
-SWHN000008,17,Swiss Hound
-SWHN000009,20.14,Swiss Hound
-SWHN000010,24.07,Swiss Hound
-SWHN000011,25.31,Swiss Hound
-SWHN000012,22.25,Swiss Hound
-SWWE000001,17.86,Swedish White Elkhound
-SWWE000002,18.02,Swedish White Elkhound
-SWWE000003,16.9,Swedish White Elkhound
-SWWE000004,18.28,Swedish White Elkhound
-SWWE000005,17.98,Swedish White Elkhound
-SWWE000006,17.06,Swedish White Elkhound
-SWWE000007,19.8,Swedish White Elkhound
-SWWE000008,18.5,Swedish White Elkhound
-TAZI000001,19.63,Tazi
-TAZI000002,20.1,Tazi
-TAZI000003,19.76,Tazi
-TERV000001,17.88,Cardigan Welsh Corgi
-TERV000002,17.24,Belgian Tervuren
-TERV000003,21.87,Belgian Tervuren
-TERV000004,18.83,Belgian Tervuren
-TERV000005,21.17,Belgian Tervuren
-TERV000006,20.12,Belgian Tervuren
-THAI000001,17.91,Thai Ridgeback
-THAI000002,17.2,Thai Ridgeback
-THAI000003,17.04,Thai Ridgeback
-THAI000004,19.09,Thai Ridgeback
-THAI000005,18.85,Thai Ridgeback
-THAI000006,17.02,Thai Ridgeback
-THAI000007,16.8,Thai Ridgeback
-THAI000008,17.6,Thai Ridgeback
-THAI000009,17.13,Thai Ridgeback
-TIBS000001,16.88,Tibetan Spaniel
-TIBS000002,20.37,Tibetan Spaniel
-TIBS000003,11.44,Tibetan Spaniel
-TIBS000004,11.26,Tibetan Spaniel
-TIBS000005,17.28,Tibetan Spaniel
-TIBS000006,19.35,Tibetan Spaniel
-TIBS000007,21.01,Tibetan Spaniel
-TIBT000001,19.99,Tibetan Terrier
-TIBT000002,19.9,Tibetan Terrier
-TIBT000003,22.27,Tibetan Terrier
-TMSK000001,18.21,Tamaskan
-TOSA000001,17.02,Tosa Inu
-TOSA000002,17.36,Tosa Inu
-TOSA000003,19.33,Tosa Inu
-TPOO000001,17.86,Toy Poodle
-TPOO000002,20.08,Toy Poodle
-TURM000001,18.72,Turkish Mastiff
-TURM000002,19.71,Turkish Mastiff
-TURM000003,19.04,Turkish Mastiff
-TURM000004,20.68,Turkish Mastiff
-TURM000005,18.78,Turkish Mastiff
-TWCH000001,17.22,Unknown
-TWCH000002,18.38,Treeing Walker Coonhound
-TYFX000001,18.49,Toy Fox Terrier
-TYFX000002,22.13,Toy Fox Terrier
-TYFX000003,22.3,Toy Fox Terrier
-TYFX000004,18.26,Toy Fox Terrier
-TYFX000005,21,Toy Fox Terrier
-TYFX000006,22.44,Toy Fox Terrier
-TYFX000007,17.6,Toy Fox Terrier
-TYFX000008,19.17,Toy Fox Terrier
-TYFX000009,20.19,Toy Fox Terrier
-TYFX000010,17.2,Toy Fox Terrier
-VIZS000001,19.04,Vizsla
-VIZS000002,15.51,Vizsla
-VIZS000003,18.2,Vizsla
-VIZS000004,19.79,Vizsla
-VIZS000005,18.74,Vizsla
-VIZS000006,16.98,Vizsla
-VIZS000007,18.75,Vizsla
-VPIN000001,18.09,Volpino Italiano
-VPIN000002,20.09,Volpino Italiano
-VPIN000003,20.86,Volpino Italiano
-VPIN000004,20.19,Volpino Italiano
-VPIN000005,18.79,Volpino Italiano
-VPIN000006,18.49,Volpino Italiano
-WEIM000001,16.99,Weimaraner
-WEIM000002,18.83,Weimaraner
-WEIM000003,19.31,Weimaraner
-WEIM000004,17.62,Weimaraner
-WEIM000005,18.55,Weimaraner
-WELT000001,18.16,Welsh Terrier
-WELT000002,17.85,Welsh Terrier
-WELT000003,18.69,Welsh Terrier
-WELT000004,17.81,Welsh Terrier
-WELT000005,21.42,Welsh Terrier
-WELT000006,1.66,Welsh Terrier
-WHIP000001,20.26,Whippet
-WHIP000002,19.31,Whippet
-WHIP000003,19.09,Whippet
-WHIP000004,19.11,Whippet
-WHIP000005,17.57,Whippet
-WHIP000006,21.24,Whippet
-WHPG000001,19.99,Wirehaired Pointing Griffon
-WHPG000002,20.31,Wirehaired Pointing Griffon
-WHPG000003,17.53,Wirehaired Pointing Griffon
-WHPG000004,19.97,Wirehaired Pointing Griffon
-WHPG000005,19.12,Wirehaired Pointing Griffon
-WHPG000006,18.84,Wirehaired Pointing Griffon
-WIFX000001,17.88,Wire Fox Terrier
-WIFX000002,22.35,Wire Fox Terrier
-WSSD000003,19.9,White Swiss Shepherd Dog
-WSSD000004,19.76,White Swiss Shepherd Dog
-WSSD000005,20.11,White Swiss Shepherd Dog
-WSSD000006,16.38,White Swiss Shepherd Dog
-WSSD000007,25.47,White Swiss Shepherd Dog
-WSSD000008,22.33,White Swiss Shepherd Dog
-WSSD000009,20.99,White Swiss Shepherd Dog
-WSSD000010,24.53,White Swiss Shepherd Dog
-WSSP000001,13.49,Welsh Springer Spaniel
-WSSP000002,22.61,Welsh Springer Spaniel
-WSSP000003,19.71,Welsh Springer Spaniel
-WSSP000004,17.57,Welsh Springer Spaniel
-WSSP000005,18.06,Welsh Springer Spaniel
-XOLO000001,14.93,Xoloitzcuintli
-XOLO000002,11.13,Xoloitzcuintli
-XOLO000003,17.19,Xoloitzcuintli
-XOLO000004,17.63,Xoloitzcuintli
-XOLO000005,16.96,Xoloitzcuintli
-XOLO000006,18.85,Xoloitzcuintli
-XOLO000007,21.24,Xoloitzcuintli
-YORK000001,18.24,Yorkshire Terrier
-YORK000002,17.65,Yorkshire Terrier
-YORK000003,18.67,Yorkshire Terrier
-YORK000004,17.93,Yorkshire Terrier
-YORK000005,18.77,Yorkshire Terrier
-ZAGR000001,21.59,Zagar
-ZAGR000002,23.57,Zagar
-ZAGR000003,23.19,Zagar
-ZAGR000004,22.14,Zagar
-ZAGR000005,18.76,Zagar
-ZAGR000006,19.68,Zagar
-ZAGR000007,21.23,Zagar
-ZAGR000008,19.46,Zagar
-ZERD000001,19.12,Turkish Zerdava
-ZERD000002,19.36,Turkish Zerdava
-ZERD000003,20.12,Turkish Zerdava
-ZERD000004,19.22,Turkish Zerdava
+Sample_id,Coverage,Breed,SampleName,DiseaseAcronym,Status,The_reason_to_exclude
+ACKR000001,18.91,Cocker Spaniel,ACKR000001,NA,Normal,Pass QC
+ACKR000002,18.4,Cocker Spaniel,ACKR000002,NA,Normal,Pass QC
+ACKR000003,26.3,Cocker Spaniel,ACKR000003,NA,Normal,Pass QC
+AESK000001,21.81,American Eskimo Dog,AESK000001,NA,Normal,Pass QC
+AESK000002,17.62,American Eskimo Dog,AESK000002,NA,Normal,Pass QC
+AESK000003,18.11,American Eskimo Dog,AESK000003,NA,Normal,Pass QC
+AESK000004,18.78,American Eskimo Dog,AESK000004,NA,Normal,Pass QC
+AESK000005,17.45,American Eskimo Dog,AESK000005,NA,Normal,Pass QC
+AESK000006,17.61,American Eskimo Dog,AESK000006,NA,Normal,Pass QC
+AFFN000001,14.36,Affenpinscher,AFFN000001,NA,Normal,Pass QC
+AFFN000002,10.1,Affenpinscher,AFFN000002,NA,Normal,Pass QC
+AFFN000003,18.1,Affenpinscher,AFFN000003,NA,Normal,Pass QC
+AFFN000004,21.23,Affenpinscher,AFFN000004,NA,Normal,Pass QC
+AFFN000005,18.43,Affenpinscher,AFFN000005,NA,Normal,Pass QC
+AFFN000006,20.09,Affenpinscher,AFFN000006,NA,Normal,Pass QC
+AFGH000001,19.65,Afghan Hound,AFGH000001,NA,Normal,Pass QC
+AFOX000001,17.77,American Foxhound,AFOX000001,NA,Normal,Pass QC
+AFOX000002,19.18,American Foxhound,AFOX000002,NA,Normal,Pass QC
+AFOX000003,16.67,American Foxhound,AFOX000003,NA,Normal,Pass QC
+AFOX000004,19.21,American Foxhound,AFOX000004,NA,Normal,Pass QC
+AFOX000005,19.41,American Foxhound,AFOX000005,NA,Normal,Pass QC
+AFOX000006,19.23,American Foxhound,AFOX000006,NA,Normal,Pass QC
+AFOX000007,22.12,American Foxhound,AFOX000007,NA,Normal,Pass QC
+AHRT000001,19.36,American Hairless Terrier,AHRT000001,NA,Normal,Pass QC
+AHRT000002,15.93,American Hairless Terrier,AHRT000002,NA,Normal,Pass QC
+AHRT000003,16.1,American Hairless Terrier,AHRT000003,NA,Normal,Pass QC
+AHRT000004,19.75,American Hairless Terrier,AHRT000004,NA,Normal,Pass QC
+AHRT000005,18,American Hairless Terrier,AHRT000005,NA,Normal,Pass QC
+AIRT000001,23.39,Airedale Terrier,AIRT000001,NA,Normal,Pass QC
+AKBH000001,20.17,Akbash,AKBH000001,NA,Normal,Pass QC
+AKBH000002,19.69,Akbash,AKBH000002,NA,Normal,Pass QC
+AKBH000003,20.34,Akbash,AKBH000003,NA,Normal,Pass QC
+AKIN000001,21.02,Japanese Akita,AKIN000001,NA,Normal,Pass QC
+AKIN000002,17.82,Japanese Akita,AKIN000002,NA,Normal,Pass QC
+AKIT000001,18.2,American Akita,AKIT000001,NA,Normal,Pass QC
+AKIT000002,18.55,Japanese Akita,AKIT000002,NA,Normal,Pass QC
+AKIT000003,21.94,Japanese Akita,AKIT000003,NA,Normal,Pass QC
+AKIT000004,18.25,American Akita,AKIT000004,NA,Normal,Pass QC
+AKIT000005,19.31,American Akita,AKIT000005,NA,Normal,Pass QC
+AKIT000006,21.78,American Akita,AKIT000006,NA,Normal,Pass QC
+AKIT000007,21.76,American Akita,AKIT000007,NA,Normal,Pass QC
+AKIT000008,19.06,American Akita,AKIT000008,NA,Normal,Pass QC
+AKIT000009,21.29,American Akita,AKIT000009,NA,Normal,Pass QC
+ALDB000001,19.31,Alpine Dachsbracke,ALDB000001,NA,Normal,Pass QC
+ALDB000002,17.08,Alpine Dachsbracke,ALDB000002,NA,Normal,Pass QC
+ALDB000003,16.96,Alpine Dachsbracke,ALDB000003,NA,Normal,Pass QC
+ALDB000004,16.71,Alpine Dachsbracke,ALDB000004,NA,Normal,Pass QC
+ALDB000005,17.59,Alpine Dachsbracke,ALDB000005,NA,Normal,Pass QC
+ALDB000006,20.94,Alpine Dachsbracke,ALDB000006,NA,Normal,Pass QC
+ALDB000007,18.9,Alpine Dachsbracke,ALDB000007,NA,Normal,Pass QC
+AMAL000001,18.19,Alaskan Malamute,AMAL000001,NA,Normal,Pass QC
+AMAL000002,17.99,Alaskan Malamute,AMAL000002,NA,Normal,Pass QC
+AMAL000003,19.75,Alaskan Malamute,AMAL000003,NA,Normal,Pass QC
+AMBD000001,19.43,American Bulldog,AMBD000001,NA,Normal,Pass QC
+AMBD000002,17.01,American Bulldog,AMBD000002,NA,Normal,Pass QC
+AMBD000003,17.67,American Bulldog,AMBD000003,NA,Normal,Pass QC
+AMBD000004,18.95,American Bulldog,AMBD000004,NA,Normal,Pass QC
+AMBD000005,17.85,American Bulldog,AMBD000005,NA,Normal,Pass QC
+AMBD000006,17.95,American Bulldog,AMBD000006,NA,Normal,Pass QC
+AMBD000007,18.16,American Bulldog,AMBD000007,NA,Normal,Pass QC
+AMST000001,17.46,American Staffordshire Terrier,AMST000001,NA,Normal,Pass QC
+AMST000002,18.61,American Staffordshire Terrier,AMST000002,NA,Normal,Pass QC
+AMST000003,20.41,American Staffordshire Terrier,AMST000003,NA,Normal,Pass QC
+AMST000004,17.63,American Staffordshire Terrier,AMST000004,NA,Normal,Pass QC
+AMST000005,18.96,American Staffordshire Terrier,AMST000005,NA,Normal,Pass QC
+AMST000006,20.68,American Staffordshire Terrier,AMST000006,NA,Normal,Pass QC
+AMWS000001,19.38,American Water Spaniel,AMWS000001,NA,Normal,Pass QC
+AMWS000002,19.94,American Water Spaniel,AMWS000002,NA,Normal,Pass QC
+AMWS000003,17.48,American Water Spaniel,AMWS000003,NA,Normal,Pass QC
+AMWS000004,17.61,American Water Spaniel,AMWS000004,NA,Normal,Pass QC
+AMWS000005,20.24,American Water Spaniel,AMWS000005,NA,Normal,Pass QC
+AMWS000006,20.77,American Water Spaniel,AMWS000006,NA,Normal,Pass QC
+ANAT000001,16.82,Anatolian Shepherd Dog,ANAT000001,NA,Normal,Pass QC
+ANAT000002,20.29,Anatolian Shepherd Dog,ANAT000002,NA,Normal,Pass QC
+ANAT000003,19.66,Anatolian Shepherd Dog,ANAT000003,NA,Normal,Pass QC
+ANAT000004,21.62,Anatolian Shepherd Dog,ANAT000004,NA,Normal,Pass QC
+ANAT000005,17.25,Anatolian Shepherd Dog,ANAT000005,NA,Normal,Pass QC
+ANAT000006,16.83,Anatolian Shepherd Dog,ANAT000006,NA,Normal,Pass QC
+ANAT000007,20.54,Anatolian Shepherd Dog,ANAT000007,NA,Normal,Pass QC
+APPZ000001,17.03,Appenzeller Sennenhund,APPZ000001,NA,Normal,Pass QC
+APPZ000002,18.5,Appenzeller Sennenhund,APPZ000002,NA,Normal,Pass QC
+APPZ000003,19.83,Appenzeller Sennenhund,APPZ000003,NA,Normal,Pass QC
+APPZ000004,18.01,Appenzeller Sennenhund,APPZ000004,NA,Normal,Pass QC
+APPZ000005,18.05,Appenzeller Sennenhund,APPZ000005,NA,Normal,Pass QC
+APPZ000006,17.39,Appenzeller Sennenhund,APPZ000006,NA,Normal,Pass QC
+APPZ000007,21.39,Appenzeller Sennenhund,APPZ000007,NA,Normal,Pass QC
+APPZ000008,18.72,Appenzeller Sennenhund,APPZ000008,NA,Normal,Pass QC
+APPZ000009,18.26,Appenzeller Sennenhund,APPZ000009,NA,Normal,Pass QC
+APPZ000010,17.18,Appenzeller Sennenhund,APPZ000010,NA,Normal,Pass QC
+APPZ000011,17.43,Appenzeller Sennenhund,APPZ000011,NA,Normal,Pass QC
+APPZ000012,17.88,Appenzeller Sennenhund,APPZ000012,NA,Normal,Pass QC
+APPZ000013,18.86,Appenzeller Sennenhund,APPZ000013,NA,Normal,Pass QC
+APPZ000014,17.71,Appenzeller Sennenhund,APPZ000014,NA,Normal,Pass QC
+ARHO000001,18.29,Artois Hound,ARHO000001,NA,Normal,Pass QC
+ARHO000002,18.19,Artois Hound,ARHO000002,NA,Normal,Pass QC
+ARIE000001,19.86,Ariegeois,ARIE000001,NA,Normal,Pass QC
+ARIP000001,17.96,Ariege Pointer,ARIP000001,NA,Normal,Pass QC
+ARIP000002,18.57,Ariege Pointer,ARIP000002,NA,Normal,Pass QC
+ARIP000003,21.12,Ariege Pointer,ARIP000003,NA,Normal,Pass QC
+ARIP000004,19.22,Ariege Pointer,ARIP000004,NA,Normal,Pass QC
+ARIP000005,19.69,Ariege Pointer,ARIP000005,NA,Normal,Pass QC
+ARIP000006,24.21,Ariege Pointer,ARIP000006,NA,Normal,Pass QC
+ASKT000001,20.75,Silky Terrier,ASKT000001,NA,Normal,Pass QC
+ASKT000002,18.44,Silky Terrier,ASKT000002,NA,Normal,Pass QC
+ASKT000003,18.06,Silky Terrier,ASKT000003,NA,Normal,Pass QC
+AUCD000001,18.52,Australian Cattle Dog,AUCD000001,NA,Normal,Pass QC
+AUCD000002,18.64,Australian Cattle Dog,AUCD000002,NA,Normal,Pass QC
+AUCD000003,17.81,Australian Cattle Dog,AUCD000003,NA,Normal,Pass QC
+AUCD000004,17.93,Australian Cattle Dog,AUCD000004,NA,Normal,Pass QC
+AUCD000005,18.47,Australian Cattle Dog,AUCD000005,NA,Normal,Pass QC
+AUPO000001,18.37,Auvergne Pointer,AUPO000001,NA,Normal,Pass QC
+AUPO000002,17.22,Auvergne Pointer,AUPO000002,NA,Normal,Pass QC
+AUPO000003,20.6,Auvergne Pointer,AUPO000003,NA,Normal,Pass QC
+AUPO000004,17.78,Auvergne Pointer,AUPO000004,NA,Normal,Pass QC
+AUPO000005,20.55,Auvergne Pointer,AUPO000005,NA,Normal,Pass QC
+AUPO000006,19.95,Auvergne Pointer,AUPO000006,NA,Normal,Pass QC
+AUSK000001,19.46,Australian Kelpie,AUSK000001,NA,Normal,Pass QC
+AUSK000002,18.99,Australian Kelpie,AUSK000002,NA,Normal,Pass QC
+AUSK000003,17.38,Australian Kelpie,AUSK000003,NA,Normal,Pass QC
+AUSK000004,20.82,Australian Kelpie,AUSK000004,NA,Normal,Pass QC
+AUSK000005,19.94,Australian Kelpie,AUSK000005,NA,Normal,Pass QC
+AUSK000006,21.4,Australian Kelpie,AUSK000006,NA,Normal,Pass QC
+AUSS000001,20.25,Australian Shepherd,AUSS000001,NA,Normal,Pass QC
+AUSS000002,17.67,Australian Shepherd,AUSS000002,NA,Normal,Pass QC
+AUSS000003,21.7,Australian Shepherd,AUSS000003,NA,Normal,Pass QC
+AUST000001,16.34,Australian Terrier,AUST000001,NA,Normal,Pass QC
+AUST000002,22.02,Australian Terrier,AUST000002,NA,Normal,Pass QC
+AUST000003,21.93,Australian Terrier,AUST000003,NA,Normal,Pass QC
+AUST000004,22.63,Australian Terrier,AUST000004,NA,Normal,Pass QC
+AUST000005,18.22,Australian Terrier,AUST000005,NA,Normal,Pass QC
+AZWK000001,20.74,Azawakh,AZWK000001,NA,Normal,Pass QC
+BANO000001,23.16,Basset Artesien Normand,BANO000001,NA,Normal,Pass QC
+BANO000002,18.45,Basset Artesien Normand,BANO000002,NA,Normal,Pass QC
+BANO000003,17.87,Basset Artesien Normand,BANO000003,NA,Normal,Pass QC
+BANO000004,20.36,Basset Artesien Normand,BANO000004,NA,Normal,Pass QC
+BANO000005,17.46,Basset Artesien Normand,BANO000005,NA,Normal,Pass QC
+BANO000006,16.95,Basset Artesien Normand,BANO000006,NA,Normal,Pass QC
+BASS000001,19.22,Basset Hound,BASS000001,NA,Normal,Pass QC
+BASS000002,21.96,Basset Hound,BASS000002,NA,Normal,Pass QC
+BASS000003,17.92,Basset Hound,BASS000003,NA,Normal,Pass QC
+BASS000004,17.89,Basset Hound,BASS000004,NA,Normal,Pass QC
+BASS000005,17.89,Basset Hound,BASS000005,NA,Normal,Pass QC
+BASS000006,17.1,Basset Hound,BASS000006,NA,Normal,Pass QC
+BASS000007,20.91,Basset Hound,BASS000007,NA,Normal,Pass QC
+BBLS000001,18.34,White Swiss Shepherd Dog,BBLS000001,NA,Normal,Pass QC
+BBLS000002,18.78,White Swiss Shepherd Dog,BBLS000002,NA,Normal,Pass QC
+BBLS000003,19.21,White Swiss Shepherd Dog,BBLS000003,NA,Normal,Pass QC
+BEAU000001,17.73,Beauceron,BEAU000001,NA,Normal,Pass QC
+BEAU000002,17.51,Belgian Tervuren,BEAU000002,NA,Normal,Pass QC
+BEAU000003,18.74,Beauceron,BEAU000003,NA,Normal,Pass QC
+BEAU000004,18.26,Beauceron,BEAU000004,NA,Normal,Pass QC
+BEAU000006,17.1,Beauceron,BEAU000006,NA,Normal,Pass QC
+BEDT000001,18.59,Bedlington Terrier,BEDT000001,NA,Normal,Pass QC
+BEDT000002,10.75,Bedlington Terrier,BEDT000002,NA,Normal,Pass QC
+BEDT000003,16.43,Bedlington Terrier,BEDT000003,NA,Normal,Pass QC
+BEDT000004,18.67,Bedlington Terrier,BEDT000004,NA,Normal,Pass QC
+BEDT000005,20.37,Bedlington Terrier,BEDT000005,NA,Normal,Pass QC
+BEDT000006,21.7,Bedlington Terrier,BEDT000006,NA,Normal,Pass QC
+BEDT000007,17.9,Bedlington Terrier,BEDT000007,NA,Normal,Pass QC
+BEDT000008,17.35,Bedlington Terrier,BEDT000008,NA,Normal,Pass QC
+BELS000001,20.22,Belgian Sheepdog,BELS000001,NA,Normal,Pass QC
+BELS000002,18.62,Belgian Sheepdog,BELS000002,NA,Normal,Pass QC
+BELS000003,22.04,Belgian Sheepdog,BELS000003,NA,Normal,Pass QC
+BERG000001,16.98,Bergamasco Sheepdog,BERG000001,NA,Normal,Pass QC
+BERG000002,17.06,Bergamasco Sheepdog,BERG000002,NA,Normal,Pass QC
+BERG000003,18.11,Bergamasco Sheepdog,BERG000003,NA,Normal,Pass QC
+BERG000004,17.12,Bergamasco Sheepdog,BERG000004,NA,Normal,Pass QC
+BERG000005,18.01,Bergamasco Sheepdog,BERG000005,NA,Normal,Pass QC
+BERG000006,18.06,Bergamasco Sheepdog,BERG000006,NA,Normal,Pass QC
+BFDB000001,18.38,Basset Fauve de Bretagne,BFDB000001,NA,Normal,Pass QC
+BFDB000002,21.48,Basset Fauve de Bretagne,BFDB000002,NA,Normal,Pass QC
+BFDB000003,21.14,Basset Fauve de Bretagne,BFDB000003,NA,Normal,Pass QC
+BFDB000004,18.87,Unknown,BFDB000004,NA,Normal,Pass QC
+BFDB000005,18.24,Basset Fauve de Bretagne,BFDB000005,NA,Normal,Pass QC
+BFDB000006,18.13,Basset Fauve de Bretagne,BFDB000006,NA,Normal,Pass QC
+BGBA000001,19,Blue Gascony Griffon,BGBA000001,NA,Normal,Pass QC
+BGGR000001,20.38,Blue Gascony Griffon,BGGR000001,NA,Normal,Pass QC
+BGGR000002,19.5,Blue Gascony Griffon,BGGR000002,NA,Normal,Pass QC
+BHSP000001,18.86,Bohemian Shepherd,BHSP000001,NA,Normal,Pass QC
+BHSP000002,18.66,Bohemian Shepherd,BHSP000002,NA,Normal,Pass QC
+BHSP000003,19.88,Bohemian Shepherd,BHSP000003,NA,Normal,Pass QC
+BHSP000004,21.46,Bohemian Shepherd,BHSP000004,NA,Normal,Pass QC
+BHSP000005,21.97,Bohemian Shepherd,BHSP000005,NA,Normal,Pass QC
+BHSP000006,20.88,Bohemian Shepherd,BHSP000006,NA,Normal,Pass QC
+BICH000001,18.24,Bichon Frise,BICH000001,NA,Normal,Pass QC
+BICH000002,19.15,Bichon Frise,BICH000002,NA,Normal,Pass QC
+BICH000003,17.86,Bichon Frise,BICH000003,NA,Normal,Pass QC
+BICH000004,21.72,Bichon Frise,BICH000004,NA,Normal,Pass QC
+BICH000005,20.28,Bichon Frise,BICH000005,NA,Normal,Pass QC
+BICH000006,18.17,Havanese,BICH000006,NA,Normal,Pass QC
+BICH000007,18.94,Bichon Frise,BICH000007,NA,Normal,Pass QC
+BILL000001,17.11,Billy,BILL000001,NA,Normal,Pass QC
+BILL000002,19.24,Billy,BILL000002,NA,Normal,Pass QC
+BLDH000001,17.86,Bloodhound,BLDH000001,NA,Normal,Pass QC
+BLDH000002,20.66,Bloodhound,BLDH000002,NA,Normal,Pass QC
+BLDH000003,18.76,Bloodhound,BLDH000003,NA,Normal,Pass QC
+BLDH000004,18.16,Bloodhound,BLDH000004,NA,Normal,Pass QC
+BLNK000001,18.52,Russian Tsvetnaya Bolonka,BLNK000001,NA,Normal,Pass QC
+BLNK000002,20.14,Russian Tsvetnaya Bolonka,BLNK000002,NA,Normal,Pass QC
+BLNK000003,18.35,Russian Tsvetnaya Bolonka,BLNK000003,NA,Normal,Pass QC
+BLNK000004,17.85,Russian Tsvetnaya Bolonka,BLNK000004,NA,Normal,Pass QC
+BLNK000005,20.18,Russian Tsvetnaya Bolonka,BLNK000005,NA,Normal,Pass QC
+BLNK000006,22.37,Russian Tsvetnaya Bolonka,BLNK000006,NA,Normal,Pass QC
+BLPS000001,17.49,Blue Picardy Spaniel,BLPS000001,NA,Normal,Pass QC
+BLPS000002,17.74,Blue Picardy Spaniel,BLPS000002,NA,Normal,Pass QC
+BLPS000003,19.01,Blue Picardy Spaniel,BLPS000003,NA,Normal,Pass QC
+BLUE000001,19.05,Bluetick Coonhound,BLUE000001,NA,Normal,Pass QC
+BLUE000002,20.06,Bluetick Coonhound,BLUE000002,NA,Normal,Pass QC
+BLUE000003,19.92,Unknown,BLUE000003,NA,Normal,Pass QC
+BMAL000001,19.73,Belgian Malinois,BMAL000001,NA,Normal,Pass QC
+BMAL000002,18.37,Belgian Malinois,BMAL000002,NA,Normal,Pass QC
+BMAL000003,19.55,Belgian Malinois,BMAL000003,NA,Normal,Pass QC
+BMAL000004,17.6,Belgian Malinois,BMAL000004,NA,Normal,Pass QC
+BMSH000001,18.43,Bavarian Mountain Scent Hound,BMSH000001,NA,Normal,Pass QC
+BMSH000002,18.77,Bavarian Mountain Scent Hound,BMSH000002,NA,Normal,Pass QC
+BMSH000003,18.68,Bavarian Mountain Scent Hound,BMSH000003,NA,Normal,Pass QC
+BMSH000004,18.41,Bavarian Mountain Scent Hound,BMSH000004,NA,Normal,Pass QC
+BMSH000005,16.71,Bavarian Mountain Scent Hound,BMSH000005,NA,Normal,Pass QC
+BMSH000006,19.49,Bavarian Mountain Scent Hound,BMSH000006,NA,Normal,Pass QC
+BODA000001,19.14,Bouvier des Ardennes,BODA000001,NA,Normal,Pass QC
+BOER000001,17.71,Boerboel,BOER000001,NA,Normal,Pass QC
+BOER000002,20.01,Boerboel,BOER000002,NA,Normal,Pass QC
+BOER000003,18.75,Boerboel,BOER000003,NA,Normal,Pass QC
+BOER000004,18.55,Boerboel,BOER000004,NA,Normal,Pass QC
+BOER000005,18.86,Boerboel,BOER000005,NA,Normal,Pass QC
+BOLO000001,17.67,Bolognese,BOLO000001,NA,Normal,Pass QC
+BOLO000002,17.56,Bolognese,BOLO000002,NA,Normal,Pass QC
+BOLO000003,16.27,Bolognese,BOLO000003,NA,Normal,Pass QC
+BOLO000004,21.14,Bolognese,BOLO000004,NA,Normal,Pass QC
+BOLO000005,18.47,Bolognese,BOLO000005,NA,Normal,Pass QC
+BOLO000006,22.52,Bolognese,BOLO000006,NA,Normal,Pass QC
+BOPD000001,20.15,Bourbonnais Pointing Dog,BOPD000001,NA,Normal,Pass QC
+BOPD000002,23.33,Bourbonnais Pointing Dog,BOPD000002,NA,Normal,Pass QC
+BOPD000003,17.23,Bourbonnais Pointing Dog,BOPD000003,NA,Normal,Pass QC
+BOPD000004,17.53,Bourbonnais Pointing Dog,BOPD000004,NA,Normal,Pass QC
+BOPD000005,19.88,Bourbonnais Pointing Dog,BOPD000005,NA,Normal,Pass QC
+BOPD000006,20.36,Bourbonnais Pointing Dog,BOPD000006,NA,Normal,Pass QC
+BOPD000007,19.88,Bourbonnais Pointing Dog,BOPD000007,NA,Normal,Pass QC
+BOPD000008,17.42,Bourbonnais Pointing Dog,BOPD000008,NA,Normal,Pass QC
+BOST000001,19.03,Boston Terrier,BOST000001,NA,Normal,Pass QC
+BOST000002,17.78,Boston Terrier,BOST000002,NA,Normal,Pass QC
+BOST000003,20.6,Boston Terrier,BOST000003,NA,Normal,Pass QC
+BOUV000001,20.87,Bouvier des Flandres,BOUV000001,NA,Normal,Pass QC
+BOUV000002,20.31,Bouvier des Flandres,BOUV000002,NA,Normal,Pass QC
+BOXR000001,21.91,Boxer,BOXR000001,NA,Normal,Pass QC
+BOXR000002,20.22,Boxer,BOXR000002,NA,Normal,Pass QC
+BOXR000003,17.54,Boxer,BOXR000003,NA,Normal,Pass QC
+BOXR000004,17.58,Boxer,BOXR000004,NA,Normal,Pass QC
+BOXR000005,21.83,Boxer,BOXR000005,NA,Normal,Pass QC
+BOYK000001,16.71,Boykin Spaniel,BOYK000001,NA,Normal,Pass QC
+BOYK000002,20.55,Boykin Spaniel,BOYK000002,NA,Normal,Pass QC
+BOYK000003,20.83,Boykin Spaniel,BOYK000003,NA,Normal,Pass QC
+BOYK000004,16.44,Boykin Spaniel,BOYK000004,NA,Normal,Pass QC
+BOYK000005,19.79,Boykin Spaniel,BOYK000005,NA,Normal,Pass QC
+BRAC000001,22.11,Bracco Italiano,BRAC000001,NA,Normal,Pass QC
+BRAC000002,16.98,Bracco Italiano,BRAC000002,NA,Normal,Pass QC
+BRAC000003,18.91,Bracco Italiano,BRAC000003,NA,Normal,Pass QC
+BRAC000004,20.8,Bracco Italiano,BRAC000004,NA,Normal,Pass QC
+BRAC000005,19.26,Bracco Italiano,BRAC000005,NA,Normal,Pass QC
+BRAC000006,19.62,Bracco Italiano,BRAC000006,NA,Normal,Pass QC
+BRBT000001,19.54,Barbet,BRBT000001,NA,Normal,Pass QC
+BRBT000002,18.27,Barbet,BRBT000002,NA,Normal,Pass QC
+BRBT000003,19.65,Barbet,BRBT000003,NA,Normal,Pass QC
+BRBT000004,22.64,Barbet,BRBT000004,NA,Normal,Pass QC
+BRBT000005,17.31,Barbet,BRBT000005,NA,Normal,Pass QC
+BRBT000006,16.87,Barbet,BRBT000006,NA,Normal,Pass QC
+BRFR000001,19.15,Braques Francais,BRFR000001,NA,Normal,Pass QC
+BRFR000002,18.89,Braques Francais,BRFR000002,NA,Normal,Pass QC
+BRFR000003,19.28,Braques Francais,BRFR000003,NA,Normal,Pass QC
+BRFR000004,18.64,Braques Francais,BRFR000004,NA,Normal,Pass QC
+BRFR000005,28.02,Braques Francais,BRFR000005,NA,Normal,Pass QC
+BRGV000001,17.39,Briquet Griffon Vendeen,BRGV000001,NA,Normal,Pass QC
+BRGV000002,18.58,Briquet Griffon Vendeen,BRGV000002,NA,Normal,Pass QC
+BRHM000001,21.76,Broholmer,BRHM000001,NA,Normal,Pass QC
+BRHM000002,22.03,Broholmer,BRHM000002,NA,Normal,Pass QC
+BRHM000003,22.66,Broholmer,BRHM000003,NA,Normal,Pass QC
+BRHM000004,17.41,Broholmer,BRHM000004,NA,Normal,Pass QC
+BRHM000005,18.98,Broholmer,BRHM000005,NA,Normal,Pass QC
+BRHM000006,20.69,Broholmer,BRHM000006,NA,Normal,Pass QC
+BRIA000001,17.33,Briard,BRIA000001,NA,Normal,Pass QC
+BRIA000002,17.96,Briard,BRIA000002,NA,Normal,Pass QC
+BRIA000003,18.91,Briard,BRIA000003,NA,Normal,Pass QC
+BRIA000004,19.42,Briard,BRIA000004,NA,Normal,Pass QC
+BRIA000005,20.96,Briard,BRIA000005,NA,Normal,Pass QC
+BRIA000006,16.46,Briard,BRIA000006,NA,Normal,Pass QC
+BRIA000007,19.77,Briard,BRIA000007,NA,Normal,Pass QC
+BRIT000001,16.52,Brittany,BRIT000001,NA,Normal,Pass QC
+BRIT000002,19.83,Brittany,BRIT000002,NA,Normal,Pass QC
+BRIT000003,18.21,Brittany,BRIT000003,NA,Normal,Pass QC
+BRIT000004,19.73,Brittany,BRIT000004,NA,Normal,Pass QC
+BRIT000005,20.62,Brittany,BRIT000005,NA,Normal,Pass QC
+BRIT000006,19.91,Brittany,BRIT000006,NA,Normal,Pass QC
+BRIT000007,17.53,Brittany,BRIT000007,NA,Normal,Pass QC
+BRIT000008,18.15,Brittany,BRIT000008,NA,Normal,Pass QC
+BRJH000001,20.6,Bruno Jura Hound,BRJH000001,NA,Normal,Pass QC
+BRJH000002,17.69,Bloodhound,BRJH000002,NA,Normal,Pass QC
+BRJH000003,19.18,Bruno Jura Hound,BRJH000003,NA,Normal,Pass QC
+BRJH000004,18.09,Bruno Jura Hound,BRJH000004,NA,Normal,Pass QC
+BRJH000005,20.51,Bruno Jura Hound,BRJH000005,NA,Normal,Pass QC
+BRJH000006,19.37,Bruno Jura Hound,BRJH000006,NA,Normal,Pass QC
+BRMD000001,20.49,Bernese Mountain Dog,BRMD000001,NA,Normal,Pass QC
+BRMD000002,16.37,Bernese Mountain Dog,BRMD000002,NA,Normal,Pass QC
+BRMD000003,20.83,Bernese Mountain Dog,BRMD000003,NA,Normal,Pass QC
+BRMD000004,20.41,Bernese Mountain Dog,BRMD000004,NA,Normal,Pass QC
+BRMD000005,20.82,Bernese Mountain Dog,BRMD000005,NA,Normal,Pass QC
+BRMD000006,27.04,Bernese Mountain Dog,BRMD000006,NA,Normal,Pass QC
+BRMD000007,24.38,Bernese Mountain Dog,BRMD000007,NA,Normal,Pass QC
+BRMD000008,18.22,Bernese Mountain Dog,BRMD000008,NA,Normal,Pass QC
+BRMD000009,17.76,Bernese Mountain Dog,BRMD000009,NA,Normal,Pass QC
+BRMD000010,24.8,Bernese Mountain Dog,BRMD000010,NA,Normal,Pass QC
+BRTR000001,20.17,Black Russian Terrier,BRTR000001,NA,Normal,Pass QC
+BRTR000002,20.19,Black Russian Terrier,BRTR000002,NA,Normal,Pass QC
+BRTR000003,17.6,Black Russian Terrier,BRTR000003,NA,Normal,Pass QC
+BRTR000004,18.22,Black Russian Terrier,BRTR000004,NA,Normal,Pass QC
+BRTR000005,18.89,Black Russian Terrier,BRTR000005,NA,Normal,Pass QC
+BRUS000001,17.9,Brussels Griffon,BRUS000001,NA,Normal,Pass QC
+BRUS000002,18.06,Brussels Griffon,BRUS000002,NA,Normal,Pass QC
+BRUS000003,20.38,Brussels Griffon,BRUS000003,NA,Normal,Pass QC
+BRUS000004,18.51,Brussels Griffon,BRUS000004,NA,Normal,Pass QC
+BRUS000005,19.62,Brussels Griffon,BRUS000005,NA,Normal,Pass QC
+BRUS000006,17.46,Brussels Griffon,BRUS000006,NA,Normal,Pass QC
+BRUS000007,18.17,Brussels Griffon,BRUS000007,NA,Normal,Pass QC
+BRZT000001,19.46,Brazilian Terrier,BRZT000001,NA,Normal,Pass QC
+BRZT000002,20.96,Brazilian Terrier,BRZT000002,NA,Normal,Pass QC
+BRZT000003,20.38,Brazilian Terrier,BRZT000003,NA,Normal,Pass QC
+BRZT000004,23.48,Brazilian Terrier,BRZT000004,NA,Normal,Pass QC
+BRZT000005,18.46,Brazilian Terrier,BRZT000005,NA,Normal,Pass QC
+BRZT000006,19.25,Brazilian Terrier,BRZT000006,NA,Normal,Pass QC
+BTAN000001,19.07,Black and Tan Coonhound,BTAN000001,NA,Normal,Pass QC
+BULD000001,18.12,French Bulldog,BULD000001,NA,Normal,Pass QC
+BULD000002,21.01,English Bulldog,BULD000002,NA,Normal,Pass QC
+BULD000003,21.28,English Bulldog,BULD000003,NA,Normal,Pass QC
+BULM000001,19.62,Bullmastiff,BULM000001,NA,Normal,Pass QC
+BULM000002,20.2,Bullmastiff,BULM000002,NA,Normal,Pass QC
+BULM000003,18.12,Bullmastiff,BULM000003,NA,Normal,Pass QC
+BULM000004,17.09,Bullmastiff,BULM000004,NA,Normal,Pass QC
+BULM000005,22.19,Bullmastiff,BULM000005,NA,Normal,Pass QC
+BULM000006,17.47,Bullmastiff,BULM000006,NA,Normal,Pass QC
+BULT000001,17.36,Bull Terrier,BULT000001,NA,Normal,Pass QC
+BULT000002,19.4,Bull Terrier,BULT000002,NA,Normal,Pass QC
+BULT000003,20.31,Bull Terrier,BULT000003,NA,Normal,Pass QC
+BULT000004,18.79,Bull Terrier,BULT000004,NA,Normal,Pass QC
+BWRT000001,15.19,Biewer Terrier,BWRT000001,NA,Normal,Pass QC
+BWRT000002,19.96,Biewer Terrier,BWRT000002,NA,Normal,Pass QC
+BWRT000003,16.78,Biewer Terrier,BWRT000003,NA,Normal,Pass QC
+BWRT000004,16,Biewer Terrier,BWRT000004,NA,Normal,Pass QC
+BWRT000005,15.53,Biewer Terrier,BWRT000005,NA,Normal,Pass QC
+BWRT000006,18.44,Biewer Terrier,BWRT000006,NA,Normal,Pass QC
+CAAN000001,21.96,Canaan Dog,CAAN000001,NA,Normal,Pass QC
+CAAN000002,24.23,Canaan Dog,CAAN000002,NA,Normal,Pass QC
+CAIR000001,16.68,Cairn Terrier,CAIR000001,NA,Normal,Pass QC
+CAIR000002,26.66,Cairn Terrier,CAIR000002,NA,Normal,Pass QC
+CAIR000003,16.97,Cairn Terrier,CAIR000003,NA,Normal,Pass QC
+CAIR000004,20.67,Cairn Terrier,CAIR000004,NA,Normal,Pass QC
+CAIR000005,20.68,Cairn Terrier,CAIR000005,NA,Normal,Pass QC
+CANM000001,17.32,Dogo Canario,CANM000001,NA,Normal,Pass QC
+CANM000002,21.28,Dogo Canario,CANM000002,NA,Normal,Pass QC
+CANM000003,19.61,Dogo Canario,CANM000003,NA,Normal,Pass QC
+CANM000004,19.32,Dogo Canario,CANM000004,NA,Normal,Pass QC
+CANM000005,18.02,Dogo Canario,CANM000005,NA,Normal,Pass QC
+CANM000006,23.72,Dogo Canario,CANM000006,NA,Normal,Pass QC
+CARD000001,19.39,Cardigan Welsh Corgi,CARD000001,NA,Normal,Pass QC
+CARD000002,17,Schipperke,CARD000002,NA,Normal,Pass QC
+CARD000003,21,Cardigan Welsh Corgi,CARD000003,NA,Normal,Pass QC
+CARD000004,19.84,Cardigan Welsh Corgi,CARD000004,NA,Normal,Pass QC
+CARD000005,19.95,Cardigan Welsh Corgi,CARD000005,NA,Normal,Pass QC
+CASD000001,20.3,Central Asian Shepherd Dog,CASD000001,NA,Normal,Pass QC
+CASD000002,17.46,Central Asian Shepherd Dog,CASD000002,NA,Normal,Pass QC
+CASD000003,17.53,Central Asian Shepherd Dog,CASD000003,NA,Normal,Pass QC
+CAUC000001,18.4,Caucasian Ovcharka,CAUC000001,NA,Normal,Pass QC
+CAUC000002,21.12,Caucasian Ovcharka,CAUC000002,NA,Normal,Pass QC
+CAUC000003,20.65,Caucasian Ovcharka,CAUC000003,NA,Normal,Pass QC
+CAUC000004,17.4,Caucasian Ovcharka,CAUC000004,NA,Normal,Pass QC
+CCRT000001,17.75,Curly-Coated Retriever,CCRT000001,NA,Normal,Pass QC
+CCRT000002,19.3,Curly-Coated Retriever,CCRT000002,NA,Normal,Pass QC
+CCRT000003,19.51,Curly-Coated Retriever,CCRT000003,NA,Normal,Pass QC
+CCRT000004,20.01,Curly-Coated Retriever,CCRT000004,NA,Normal,Pass QC
+CFOU000001,18.29,Cesky Fousek,CFOU000001,NA,Normal,Pass QC
+CFOU000002,20.12,Cesky Fousek,CFOU000002,NA,Normal,Pass QC
+CFOU000003,18.86,Cesky Fousek,CFOU000003,NA,Normal,Pass QC
+CFOU000004,18.8,Cesky Fousek,CFOU000004,NA,Normal,Pass QC
+CHBR000001,18.24,Chesapeake Bay Retriever,CHBR000001,NA,Normal,Pass QC
+CHBR000002,18,Chesapeake Bay Retriever,CHBR000002,NA,Normal,Pass QC
+CHBR000003,17.61,Chesapeake Bay Retriever,CHBR000003,NA,Normal,Pass QC
+CHBR000004,21.05,Chesapeake Bay Retriever,CHBR000004,NA,Normal,Pass QC
+CHBR000005,17.19,Chesapeake Bay Retriever,CHBR000005,NA,Normal,Pass QC
+CHIH000005,18.23,Chihuahua,CHIH000005,NA,Normal,Pass QC
+CHIH000006,18.64,Chihuahua,CHIH000006,NA,Normal,Pass QC
+CHIN000001,18.18,Japanese Chin,CHIN000001,NA,Normal,Pass QC
+CHIN000003,18.64,Japanese Chin,CHIN000003,NA,Normal,Pass QC
+CHIN000004,16.33,Japanese Chin,CHIN000004,NA,Normal,Pass QC
+CHIN000005,17.38,Japanese Chin,CHIN000005,NA,Normal,Pass QC
+CHIN000006,19.06,Japanese Chin,CHIN000006,NA,Normal,Pass QC
+CHIN000007,17.97,Japanese Chin,CHIN000007,NA,Normal,Pass QC
+CHIN000008,19.77,Japanese Chin,CHIN000008,NA,Normal,Pass QC
+CHOW000001,19.52,Chow Chow,CHOW000001,NA,Normal,Pass QC
+CHOW000002,19.63,Chow Chow,CHOW000002,NA,Normal,Pass QC
+CHOW000003,18.42,Chow Chow,CHOW000003,NA,Normal,Pass QC
+CHOW000004,20.52,Chow Chow,CHOW000004,NA,Normal,Pass QC
+CIRN000001,18.25,Cirneco dell'Etna,CIRN000001,NA,Normal,Pass QC
+CIRN000002,18.54,Cirneco dell'Etna,CIRN000002,NA,Normal,Pass QC
+CIRN000003,17.54,Cirneco dell'Etna,CIRN000003,NA,Normal,Pass QC
+CIRN000004,19.56,Cirneco dell'Etna,CIRN000004,NA,Normal,Pass QC
+CIRN000005,18.29,Cirneco dell'Etna,CIRN000005,NA,Normal,Pass QC
+CIRN000006,17.65,Cirneco dell'Etna,CIRN000006,NA,Normal,Pass QC
+CKCS000001,16.56,Cavalier King Charles Spaniel,CKCS000001,NA,Normal,Pass QC
+CKCS000002,16.14,Cavalier King Charles Spaniel,CKCS000002,NA,Normal,Pass QC
+CKCS000003,19.98,Cavalier King Charles Spaniel,CKCS000003,NA,Normal,Pass QC
+CKCS000004,18.65,Cavalier King Charles Spaniel,CKCS000004,NA,Normal,Pass QC
+CKCS000005,19.48,Cavalier King Charles Spaniel,CKCS000005,NA,Normal,Pass QC
+CLSP000001,19.13,Clumber Spaniel,CLSP000001,NA,Normal,Pass QC
+CLSP000002,19.9,Clumber Spaniel,CLSP000002,NA,Normal,Pass QC
+CLSP000003,18.85,Clumber Spaniel,CLSP000003,NA,Normal,Pass QC
+CLSP000004,17.52,Clumber Spaniel,CLSP000004,NA,Normal,Pass QC
+CLSP000005,17.55,Clumber Spaniel,CLSP000005,NA,Normal,Pass QC
+CNCS000001,21.11,Cane Corso,CNCS000001,NA,Normal,Pass QC
+CNCS000002,18.37,Cane Corso,CNCS000002,NA,Normal,Pass QC
+CNCS000003,18.7,Cane Corso,CNCS000003,NA,Normal,Pass QC
+CNCS000004,21.24,Cane Corso,CNCS000004,NA,Normal,Pass QC
+CNTI000001,17.32,Continental Bulldog,CNTI000001,NA,Normal,Pass QC
+CNTI000002,19.76,Continental Bulldog,CNTI000002,NA,Normal,Pass QC
+CNTI000003,18.81,Continental Bulldog,CNTI000003,NA,Normal,Pass QC
+CNTI000004,17.69,Continental Bulldog,CNTI000004,NA,Normal,Pass QC
+CNTI000005,18.06,Continental Bulldog,CNTI000005,NA,Normal,Pass QC
+CNTI000006,18.9,Continental Bulldog,CNTI000006,NA,Normal,Pass QC
+COLL000001,20.01,Collie,COLL000001,NA,Normal,Pass QC
+COLL000002,19.2,Collie,COLL000002,NA,Normal,Pass QC
+COLL000003,19.73,Collie,COLL000003,NA,Normal,Pass QC
+COLL000004,18.78,Collie,COLL000004,NA,Normal,Pass QC
+COLL000005,20.76,Collie,COLL000005,NA,Normal,Pass QC
+COLL000006,16.72,Collie,COLL000006,NA,Normal,Pass QC
+COLL000007,22.28,Collie,COLL000007,NA,Normal,Pass QC
+COLL000008,19.16,Collie,COLL000008,NA,Normal,Pass QC
+COLL000009,18.89,Collie,COLL000009,NA,Normal,Pass QC
+COLL000010,19.7,Collie,COLL000010,NA,Normal,Pass QC
+COLL000011,19.67,Collie,COLL000011,NA,Normal,Pass QC
+COLL000012,20.26,Collie,COLL000012,NA,Normal,Pass QC
+COLL000013,28.7,Collie,COLL000013,NA,Normal,Pass QC
+COOK000001,17.46,Chinook,COOK000001,NA,Normal,Pass QC
+COOK000002,20.21,Chinook,COOK000002,NA,Normal,Pass QC
+COOK000003,19.47,Chinook,COOK000003,NA,Normal,Pass QC
+COOK000004,17.51,Chinook,COOK000004,NA,Normal,Pass QC
+COOK000005,16.48,Chinook,COOK000005,NA,Normal,Pass QC
+COOK000006,16.16,Chinook,COOK000006,NA,Normal,Pass QC
+COOK000007,11.45,Chinook,COOK000007,NA,Normal,Pass QC
+COOK000008,8.77,Chinook,COOK000008,NA,Normal,Pass QC
+COOK000009,10.19,Chinook,COOK000009,NA,Normal,Pass QC
+COTO000001,18.85,Coton de Tulear,COTO000001,NA,Normal,Pass QC
+COTO000002,16.64,Coton de Tulear,COTO000002,NA,Normal,Pass QC
+COTO000003,18.11,Coton de Tulear,COTO000003,NA,Normal,Pass QC
+COTO000004,17.74,Coton de Tulear,COTO000004,NA,Normal,Pass QC
+CRES000001,18.83,Chinese Crested,CRES000001,NA,Normal,Pass QC
+CRES000002,18.16,Chinese Crested,CRES000002,NA,Normal,Pass QC
+CRSP000001,16.86,Croatian Sheepdog,CRSP000001,NA,Normal,Pass QC
+CRSP000002,20.14,Croatian Sheepdog,CRSP000002,NA,Normal,Pass QC
+CRSP000003,17.24,Croatian Sheepdog,CRSP000003,NA,Normal,Pass QC
+CRSP000004,17.97,Croatian Sheepdog,CRSP000004,NA,Normal,Pass QC
+CRTR000001,18.15,Cretan Tracer,CRTR000001,NA,Normal,Pass QC
+CRTR000002,18.63,Cretan Tracer,CRTR000002,NA,Normal,Pass QC
+CRTR000003,17.34,Cretan Tracer,CRTR000003,NA,Normal,Pass QC
+CRTR000004,18.28,Cretan Tracer,CRTR000004,NA,Normal,Pass QC
+CRTR000005,19.18,Cretan Tracer,CRTR000005,NA,Normal,Pass QC
+CRTR000006,17.32,Cretan Tracer,CRTR000006,NA,Normal,Pass QC
+CRTR000007,17.5,Cretan Tracer,CRTR000007,NA,Normal,Pass QC
+CRTR000008,17.77,Hellenic Hound,CRTR000008,NA,Normal,Pass QC
+CRTR000009,18.92,Hellenic Hound,CRTR000009,NA,Normal,Pass QC
+CRTR000010,18.59,Hellenic Hound,CRTR000010,NA,Normal,Pass QC
+CRTR000011,17.12,Hellenic Hound,CRTR000011,NA,Normal,Pass QC
+CRTR000012,17.31,Hellenic Hound,CRTR000012,NA,Normal,Pass QC
+CSHD000001,17.29,Catalan Sheepdog,CSHD000001,NA,Normal,Pass QC
+CSHD000002,18.98,Catalan Sheepdog,CSHD000002,NA,Normal,Pass QC
+CSHD000003,18.31,Catalan Sheepdog,CSHD000003,NA,Normal,Pass QC
+CSHD000004,19.36,Catalan Sheepdog,CSHD000004,NA,Normal,Pass QC
+CSHD000005,19.74,Catalan Sheepdog,CSHD000005,NA,Normal,Pass QC
+CSKT000001,7.7,Cesky Terrier,CSKT000001,NA,Normal,Pass QC
+CSKT000002,14.09,Cesky Terrier,CSKT000002,NA,Normal,Pass QC
+CSKT000003,20.24,Cesky Terrier,CSKT000003,NA,Normal,Pass QC
+CSKT000004,16.72,Cesky Terrier,CSKT000004,NA,Normal,Pass QC
+CSKT000005,19.23,Cesky Terrier,CSKT000005,NA,Normal,Pass QC
+CSKT000006,19.67,Cesky Terrier,CSKT000006,NA,Normal,Pass QC
+CSKT000007,18.72,Cesky Terrier,CSKT000007,NA,Normal,Pass QC
+CSKT000008,17.67,Cesky Terrier,CSKT000008,NA,Normal,Pass QC
+CTLB000001,18.68,Catalburun,CTLB000001,NA,Normal,Pass QC
+CTLB000002,19.14,Catalburun,CTLB000002,NA,Normal,Pass QC
+CTLB000003,20.21,Catalburun,CTLB000003,NA,Normal,Pass QC
+CZEC000001,18.05,Czechoslovakian Wolfdog,CZEC000001,NA,Normal,Pass QC
+CZEC000002,18.56,Czechoslovakian Wolfdog,CZEC000002,NA,Normal,Pass QC
+CZEC000003,20.69,Czechoslovakian Wolfdog,CZEC000003,NA,Normal,Pass QC
+CZEC000004,19.6,Czechoslovakian Wolfdog,CZEC000004,NA,Normal,Pass QC
+DACH000001,18.56,Dachshund,DACH000001,NA,Normal,Pass QC
+DACH000002,21.29,Dachshund,DACH000002,NA,Normal,Pass QC
+DACH000003,18.31,Dachshund,DACH000003,NA,Normal,Pass QC
+DACH000004,18.05,Dachshund,DACH000004,NA,Normal,Pass QC
+DACH000005,18.28,Dachshund,DACH000005,NA,Normal,Pass QC
+DACH000006,19.74,Dachshund,DACH000006,NA,Normal,Pass QC
+DACH000007,18.6,Dachshund,DACH000007,NA,Normal,Pass QC
+DACH000008,17.55,Dachshund,DACH000008,NA,Normal,Pass QC
+DACH000009,19.74,Dachshund,DACH000009,NA,Normal,Pass QC
+DACH000010,18.76,Dachshund,DACH000010,NA,Normal,Pass QC
+DACH000011,16.8,Dachshund,DACH000011,NA,Normal,Pass QC
+DACH000012,17.95,Dachshund,DACH000012,NA,Normal,Pass QC
+DACH000013,18.08,Dachshund,DACH000013,NA,Normal,Pass QC
+DACH000014,20.91,Dachshund,DACH000014,NA,Normal,Pass QC
+DACH000015,19.71,Dachshund,DACH000015,NA,Normal,Pass QC
+DACH000016,18.01,Dachshund,DACH000016,NA,Normal,Pass QC
+DACH000017,19,Dachshund,DACH000017,NA,Normal,Pass QC
+DALM000001,23.06,Dalmatian,DALM000001,NA,Normal,Pass QC
+DALM000002,18.39,Dalmatian,DALM000002,NA,Normal,Pass QC
+DALM000003,18.44,Dalmatian,DALM000003,NA,Normal,Pass QC
+DALM000004,17.98,Dalmatian,DALM000004,NA,Normal,Pass QC
+DALM000005,22.02,Dalmatian,DALM000005,NA,Normal,Pass QC
+DAND000001,21.35,Dandie Dinmont Terrier,DAND000001,NA,Normal,Pass QC
+DAND000002,18.62,Dandie Dinmont Terrier,DAND000002,NA,Normal,Pass QC
+DAND000003,20.38,Dandie Dinmont Terrier,DAND000003,NA,Normal,Pass QC
+DAND000004,20.24,Dandie Dinmont Terrier,DAND000004,NA,Normal,Pass QC
+DAND000005,21.83,Dandie Dinmont Terrier,DAND000005,NA,Normal,Pass QC
+DAND000006,19.26,Dandie Dinmont Terrier,DAND000006,NA,Normal,Pass QC
+DARG000001,15.38,Dogo Argentino,DARG000001,NA,Normal,Pass QC
+DARG000002,14.43,Dogo Argentino,DARG000002,NA,Normal,Pass QC
+DARG000003,17.65,Dogo Argentino,DARG000003,NA,Normal,Pass QC
+DARG000004,17.77,Dogo Argentino,DARG000004,NA,Normal,Pass QC
+DARG000005,17.28,Dogo Argentino,DARG000005,NA,Normal,Pass QC
+DDBX000001,16.26,Dogue de Bordeaux,DDBX000001,NA,Normal,Pass QC
+DDBX000002,20.35,Dogue de Bordeaux,DDBX000002,NA,Normal,Pass QC
+DDBX000003,17.73,Dogue de Bordeaux,DDBX000003,NA,Normal,Pass QC
+DDBX000004,16.95,Dogue de Bordeaux,DDBX000004,NA,Normal,Pass QC
+DDBX000005,20.02,Dogue de Bordeaux,DDBX000005,NA,Normal,Pass QC
+DEER000001,17.21,Scottish Deerhound,DEER000001,NA,Normal,Pass QC
+DEER000002,20.48,Scottish Deerhound,DEER000002,NA,Normal,Pass QC
+DEER000003,22.05,Scottish Deerhound,DEER000003,NA,Normal,Pass QC
+DEER000004,22.16,Scottish Deerhound,DEER000004,NA,Normal,Pass QC
+DOBP000001,19.49,Doberman Pinscher,DOBP000001,NA,Normal,Pass QC
+DOBP000002,17.77,Doberman Pinscher,DOBP000002,NA,Normal,Pass QC
+DOBP000003,18.05,Doberman Pinscher,DOBP000003,NA,Normal,Pass QC
+DOBP000004,17.56,Doberman Pinscher,DOBP000004,NA,Normal,Pass QC
+DOBP000005,16.27,Doberman Pinscher,DOBP000005,NA,Normal,Pass QC
+DOBP000006,16.87,Doberman Pinscher,DOBP000006,NA,Normal,Pass QC
+DOBP000007,17.85,Doberman Pinscher,DOBP000007,NA,Normal,Pass QC
+DREV000001,18.94,Drever,DREV000001,NA,Normal,Pass QC
+DREV000002,20.32,Drever,DREV000002,NA,Normal,Pass QC
+DREV000003,17.68,Drever,DREV000003,NA,Normal,Pass QC
+DREV000004,18.84,Drever,DREV000004,NA,Normal,Pass QC
+DREV000005,17.25,Drever,DREV000005,NA,Normal,Pass QC
+DREV000006,19.01,Drever,DREV000006,NA,Normal,Pass QC
+DSFD000001,21.98,Danish-Swedish Farmdog,DSFD000001,NA,Normal,Pass QC
+DSFD000002,19.95,Danish-Swedish Farmdog,DSFD000002,NA,Normal,Pass QC
+DSFD000003,17.69,Danish-Swedish Farmdog,DSFD000003,NA,Normal,Pass QC
+DSFD000004,19.35,Danish-Swedish Farmdog,DSFD000004,NA,Normal,Pass QC
+DSFD000005,18.65,Danish-Swedish Farmdog,DSFD000005,NA,Normal,Pass QC
+DSFD000006,18.46,Danish-Swedish Farmdog,DSFD000006,NA,Normal,Pass QC
+DSHP000001,17.77,Unknown,DSHP000001,NA,Normal,Pass QC
+DSHP000002,13.02,Dutch Shepherd,DSHP000002,NA,Normal,Pass QC
+DSHP000003,20.47,Dutch Shepherd,DSHP000003,NA,Normal,Pass QC
+DSHP000004,20.84,Dutch Shepherd,DSHP000004,NA,Normal,Pass QC
+DSHP000005,19.89,Dutch Shepherd,DSHP000005,NA,Normal,Pass QC
+DSHP000006,19.97,Dutch Shepherd,DSHP000006,NA,Normal,Pass QC
+DUPD000001,18.72,Dutch Partridge Dog,DUPD000001,NA,Normal,Pass QC
+ECKR000001,18.09,English Cocker Spaniel,ECKR000001,NA,Normal,Pass QC
+ECKR000002,20.06,English Cocker Spaniel,ECKR000002,NA,Normal,Pass QC
+ECKR000003,18.47,English Cocker Spaniel,ECKR000003,NA,Normal,Pass QC
+EEUS000001,17.17,East-European shepherd,EEUS000001,NA,Normal,Pass QC
+EEUS000002,17.97,East-European shepherd,EEUS000002,NA,Normal,Pass QC
+EEUS000003,19.13,East-European shepherd,EEUS000003,NA,Normal,Pass QC
+EFXH000002,19.18,English Foxhound,EFXH000002,NA,Normal,Pass QC
+EFXH000003,16.75,English Foxhound,EFXH000003,NA,Normal,Pass QC
+EGTT000001,18.69,English Toy Spaniel,EGTT000001,NA,Normal,Pass QC
+EGTT000002,18.71,English Toy Spaniel,EGTT000002,NA,Normal,Pass QC
+EGTT000003,21.73,English Toy Spaniel,EGTT000003,NA,Normal,Pass QC
+EGTT000004,18.13,English Shepherd,EGTT000004,NA,Normal,Pass QC
+EGTT000005,18.23,English Shepherd,EGTT000005,NA,Normal,Pass QC
+EGTT000006,19.93,English Shepherd,EGTT000006,NA,Normal,Pass QC
+EGTT000007,20.03,English Toy Terrier,EGTT000007,NA,Normal,Pass QC
+EGTT000008,18.57,English Toy Terrier,EGTT000008,NA,Normal,Pass QC
+EGTT000009,17.37,English Toy Terrier,EGTT000009,NA,Normal,Pass QC
+EGTT000010,21.93,English Toy Terrier,EGTT000010,NA,Normal,Pass QC
+EGTT000011,17.14,English Toy Terrier,EGTT000011,NA,Normal,Pass QC
+EGTT000012,21.48,English Toy Terrier,EGTT000012,NA,Normal,Pass QC
+EGTT000013,16.89,English Toy Terrier,EGTT000013,NA,Normal,Pass QC
+EGTT000014,19.9,English Toy Terrier,EGTT000014,NA,Normal,Pass QC
+EGTT000015,17.56,English Toy Terrier,EGTT000015,NA,Normal,Pass QC
+EGTT000016,20.49,English Toy Terrier,EGTT000016,NA,Normal,Pass QC
+ELOD000001,22.04,Elo,ELOD000001,NA,Normal,Pass QC
+ELOD000002,18,Elo,ELOD000002,NA,Normal,Pass QC
+ELOD000003,18.62,Elo,ELOD000003,NA,Normal,Pass QC
+ELOD000004,18.11,Elo,ELOD000004,NA,Normal,Pass QC
+ELOD000005,18,Elo,ELOD000005,NA,Normal,Pass QC
+ENTB000001,20.78,Entlebucher Mountain Dog,ENTB000001,NA,Normal,Pass QC
+ENTB000002,19.57,Entlebucher Mountain Dog,ENTB000002,NA,Normal,Pass QC
+ENTB000003,16.07,Entlebucher Mountain Dog,ENTB000003,NA,Normal,Pass QC
+ENTB000004,27.77,Entlebucher Mountain Dog,ENTB000004,NA,Normal,Pass QC
+ENTB000005,20.11,Entlebucher Mountain Dog,ENTB000005,NA,Normal,Pass QC
+ENTB000006,17.78,Entlebucher Mountain Dog,ENTB000006,NA,Normal,Pass QC
+ENTB000007,17.78,Entlebucher Mountain Dog,ENTB000007,NA,Normal,Pass QC
+ENTB000008,18.71,Entlebucher Mountain Dog,ENTB000008,NA,Normal,Pass QC
+ENTB000009,18.91,Entlebucher Mountain Dog,ENTB000009,NA,Normal,Pass QC
+EPNT000001,17.51,English Pointer,EPNT000001,NA,Normal,Pass QC
+EPNT000002,17.97,English Pointer,EPNT000002,NA,Normal,Pass QC
+EPNT000003,20.1,English Pointer,EPNT000003,NA,Normal,Pass QC
+EPNT000004,22.63,English Pointer,EPNT000004,NA,Normal,Pass QC
+EPNT000005,17.09,English Pointer,EPNT000005,NA,Normal,Pass QC
+EPNT000006,18.62,English Pointer,EPNT000006,NA,Normal,Pass QC
+EPNT000007,21.33,English Pointer,EPNT000007,NA,Normal,Pass QC
+EPNT000008,17.53,English Pointer,EPNT000008,NA,Normal,Pass QC
+EPNT000009,18.37,Unknown,EPNT000009,NA,Normal,Pass QC
+ESET000001,17.68,English Setter,ESET000001,NA,Normal,Pass QC
+ESET000002,18.65,English Setter,ESET000002,NA,Normal,Pass QC
+ESET000004,20.63,English Setter,ESET000004,NA,Normal,Pass QC
+ESMD000001,19.25,Estrela Mountain Dog,ESMD000001,NA,Normal,Pass QC
+ESMD000002,20.59,Estrela Mountain Dog,ESMD000002,NA,Normal,Pass QC
+ESMD000003,23.26,Estrela Mountain Dog,ESMD000003,NA,Normal,Pass QC
+ESMD000004,20.5,Estrela Mountain Dog,ESMD000004,NA,Normal,Pass QC
+ESMD000005,17.19,Estrela Mountain Dog,ESMD000005,NA,Normal,Pass QC
+ESMD000006,18.92,Estrela Mountain Dog,ESMD000006,NA,Normal,Pass QC
+ESSP000001,17.43,English Springer Spaniel,ESSP000001,NA,Normal,Pass QC
+ESSP000002,23.34,English Springer Spaniel,ESSP000002,NA,Normal,Pass QC
+ESSP000003,17.85,English Springer Spaniel,ESSP000003,NA,Normal,Pass QC
+ESTH000001,18.07,Estonian Hound,ESTH000001,NA,Normal,Pass QC
+ESTH000002,16.9,Estonian Hound,ESTH000002,NA,Normal,Pass QC
+ESTH000003,18.92,Estonian Hound,ESTH000003,NA,Normal,Pass QC
+EURA000001,19.33,Eurasier,EURA000001,NA,Normal,Pass QC
+EURA000002,17.38,Eurasier,EURA000002,NA,Normal,Pass QC
+EURA000003,20.18,Eurasier,EURA000003,NA,Normal,Pass QC
+EURA000004,18.32,Eurasier,EURA000004,NA,Normal,Pass QC
+FBUL000001,18.58,French Bulldog,FBUL000001,NA,Normal,Pass QC
+FBUL000002,22.38,French Bulldog,FBUL000002,NA,Normal,Pass QC
+FBUL000003,17.61,French Bulldog,FBUL000003,NA,Normal,Pass QC
+FBUL000004,18.4,French Bulldog,FBUL000004,NA,Normal,Pass QC
+FBUL000005,17.38,French Bulldog,FBUL000005,NA,Normal,Pass QC
+FBUL000006,18.27,French Bulldog,FBUL000006,NA,Normal,Pass QC
+FIEL000001,19.91,Field Spaniel,FIEL000001,NA,Normal,Pass QC
+FIEL000002,18.14,Field Spaniel,FIEL000002,NA,Normal,Pass QC
+FIEL000003,22.13,Field Spaniel,FIEL000003,NA,Normal,Pass QC
+FIEL000004,18.85,Field Spaniel,FIEL000004,NA,Normal,Pass QC
+FIEL000005,18.75,Field Spaniel,FIEL000005,NA,Normal,Pass QC
+FINH000001,20.17,Finnish Hound,FINH000001,NA,Normal,Pass QC
+FINH000002,20.55,Finnish Hound,FINH000002,NA,Normal,Pass QC
+FINH000003,20.57,Finnish Hound,FINH000003,NA,Normal,Pass QC
+FINH000004,19.67,Finnish Hound,FINH000004,NA,Normal,Pass QC
+FINH000005,17.54,Finnish Hound,FINH000005,NA,Normal,Pass QC
+FINH000006,19.36,Finnish Hound,FINH000006,NA,Normal,Pass QC
+FINS000001,19.46,Finnish Spitz,FINS000001,NA,Normal,Pass QC
+FINS000002,20.1,Finnish Spitz,FINS000002,NA,Normal,Pass QC
+FINS000003,19.23,Finnish Spitz,FINS000003,NA,Normal,Pass QC
+FINS000004,19.58,Finnish Spitz,FINS000004,NA,Normal,Pass QC
+FINS000005,18.58,Finnish Spitz,FINS000005,NA,Normal,Pass QC
+FINS000006,18.53,Finnish Spitz,FINS000006,NA,Normal,Pass QC
+FLCD000001,20.59,Bouvier des Flandres,FLCD000001,NA,Normal,Pass QC
+FLCD000002,22.64,Bouvier des Flandres,FLCD000002,NA,Normal,Pass QC
+FLCD000003,18.22,Bouvier des Flandres,FLCD000003,NA,Normal,Pass QC
+FLCD000004,17.07,Bouvier des Flandres,FLCD000004,NA,Normal,Pass QC
+FLCD000005,19.3,Bouvier des Flandres,FLCD000005,NA,Normal,Pass QC
+FLCD000006,17.78,Bouvier des Flandres,FLCD000006,NA,Normal,Pass QC
+FLCD000007,25.5,Bouvier des Flandres,FLCD000007,NA,Normal,Pass QC
+FLCD000008,17.75,Bouvier des Flandres,FLCD000008,NA,Normal,Pass QC
+FLCR000001,18,Flat-Coated Retriever,FLCR000001,NA,Normal,Pass QC
+FLCR000002,21.2,Flat-Coated Retriever,FLCR000002,NA,Normal,Pass QC
+FLCR000003,17.74,Flat-Coated Retriever,FLCR000003,NA,Normal,Pass QC
+FOMD000001,19.51,Formosan Mountain Dog,FOMD000001,NA,Normal,Pass QC
+FOMD000002,19.07,Formosan Mountain Dog,FOMD000002,NA,Normal,Pass QC
+FOMD000003,19.96,Formosan Mountain Dog,FOMD000003,NA,Normal,Pass QC
+FRSP000001,17.29,French Spaniel,FRSP000001,NA,Normal,Pass QC
+FRSP000002,17.6,French Spaniel,FRSP000002,NA,Normal,Pass QC
+FRSP000003,27.96,French Spaniel,FRSP000003,NA,Normal,Pass QC
+FRSP000004,17.26,French Spaniel,FRSP000004,NA,Normal,Pass QC
+FRSP000005,20.12,French Spaniel,FRSP000005,NA,Normal,Pass QC
+FRSP000006,17.87,French Spaniel,FRSP000006,NA,Normal,Pass QC
+FXTE000001,18.9,Wire Fox Terrier,FXTE000001,NA,Normal,Pass QC
+FXTE000002,20,Wire Fox Terrier,FXTE000002,NA,Normal,Pass QC
+FXTE000003,18.45,Smooth Fox Terrier,FXTE000003,NA,Normal,Pass QC
+FXTE000004,21.59,Smooth Fox Terrier,FXTE000004,NA,Normal,Pass QC
+FXTE000005,18.11,Smooth Fox Terrier,FXTE000005,NA,Normal,Pass QC
+FXTE000006,23.26,Smooth Fox Terrier,FXTE000006,NA,Normal,Pass QC
+FXTE000007,21.08,Unknown,FXTE000007,NA,Normal,Pass QC
+GAFT000001,19.39,Great Anglo-French Tricolour Hound,GAFT000001,NA,Normal,Pass QC
+GAFT000002,17.44,Great Anglo-French Tricolour Hound,GAFT000002,NA,Normal,Pass QC
+GAFT000003,17.37,Great Anglo-French Tricolour Hound,GAFT000003,NA,Normal,Pass QC
+GAFT000004,18.06,Great Anglo-French Tricolour Hound,GAFT000004,NA,Normal,Pass QC
+GAFT000005,17.9,Great Anglo-French Tricolour Hound,GAFT000005,NA,Normal,Pass QC
+GAFT000006,19.47,Great Anglo-French Tricolour Hound,GAFT000006,NA,Normal,Pass QC
+GALG000001,17.85,Galgo Espanol,GALG000001,NA,Normal,Pass QC
+GALG000002,20.53,Galgo Espanol,GALG000002,NA,Normal,Pass QC
+GALG000003,19.26,Galgo Espanol,GALG000003,NA,Normal,Pass QC
+GALG000004,17.41,Galgo Espanol,GALG000004,NA,Normal,Pass QC
+GALG000005,18.85,Galgo Espanol,GALG000005,NA,Normal,Pass QC
+GALG000006,18.23,Galgo Espanol,GALG000006,NA,Normal,Pass QC
+GAWO000001,21.63,Great Anglo-French White and Orange Hound,GAWO000001,NA,Normal,Pass QC
+GAWO000002,16.82,Great Anglo-French White and Orange Hound,GAWO000002,NA,Normal,Pass QC
+GAWO000003,19.95,Great Anglo-French White and Orange Hound,GAWO000003,NA,Normal,Pass QC
+GAWO000004,19.93,Great Anglo-French White and Orange Hound,GAWO000004,NA,Normal,Pass QC
+GAWO000005,21.94,Great Anglo-French White and Orange Hound,GAWO000005,NA,Normal,Pass QC
+GAWO000006,18.05,Great Anglo-French White and Orange Hound,GAWO000006,NA,Normal,Pass QC
+GBGA000001,18.57,Grand Bleu de Gascogne,GBGA000001,NA,Normal,Pass QC
+GBGV000001,18.81,Grand Basset Griffon Vendeen,GBGV000001,NA,Normal,Pass QC
+GBGV000002,17.33,Grand Basset Griffon Vendeen,GBGV000002,NA,Normal,Pass QC
+GBGV000003,17.37,Grand Basset Griffon Vendeen,GBGV000003,NA,Normal,Pass QC
+GBGV000004,21.17,Grand Basset Griffon Vendeen,GBGV000004,NA,Normal,Pass QC
+GBGV000005,18.38,Grand Basset Griffon Vendeen,GBGV000005,NA,Normal,Pass QC
+GFBR000001,18.02,Griffon Fauve de Bretagne,GFBR000001,NA,Normal,Pass QC
+GGVE000001,19.33,Grand Griffon Vendeen,GGVE000001,NA,Normal,Pass QC
+GGVE000002,19.52,Grand Griffon Vendeen,GGVE000002,NA,Normal,Pass QC
+GHND000001,17.5,German Hound,GHND000001,NA,Normal,Pass QC
+GHND000002,18.62,German Hound,GHND000002,NA,Normal,Pass QC
+GHND000003,18.02,German Hound,GHND000003,NA,Normal,Pass QC
+GHND000004,17.53,German Hound,GHND000004,NA,Normal,Pass QC
+GHND000005,18.26,German Hound,GHND000005,NA,Normal,Pass QC
+GHND000006,17.46,German Hound,GHND000006,NA,Normal,Pass QC
+GHUT000001,20.29,German Hunting Terrier,GHUT000001,NA,Normal,Pass QC
+GHUT000002,20.65,German Hunting Terrier,GHUT000002,NA,Normal,Pass QC
+GHUT000003,17.86,German Hunting Terrier,GHUT000003,NA,Normal,Pass QC
+GHUT000004,19.76,German Hunting Terrier,GHUT000004,NA,Normal,Pass QC
+GHUT000005,21.41,German Hunting Terrier,GHUT000005,NA,Normal,Pass QC
+GHUT000006,18.78,German Hunting Terrier,GHUT000006,NA,Normal,Pass QC
+GLEN000001,20.24,Glen of Imaal Terrier,GLEN000001,NA,Normal,Pass QC
+GLEN000002,15.93,Glen of Imaal Terrier,GLEN000002,NA,Normal,Pass QC
+GLEN000003,24.29,Glen of Imaal Terrier,GLEN000003,NA,Normal,Pass QC
+GLEN000004,20.62,Glen of Imaal Terrier,GLEN000004,NA,Normal,Pass QC
+GLEN000005,20.66,Glen of Imaal Terrier,GLEN000005,NA,Normal,Pass QC
+GLEN000006,21.24,Glen of Imaal Terrier,GLEN000006,NA,Normal,Pass QC
+GMSP000001,17.52,German Spaniel,GMSP000001,NA,Normal,Pass QC
+GMSP000002,16.65,German Spaniel,GMSP000002,NA,Normal,Pass QC
+GMSP000003,20.81,German Spaniel,GMSP000003,NA,Normal,Pass QC
+GMSP000004,19.52,German Spaniel,GMSP000004,NA,Normal,Pass QC
+GMSP000005,18.82,German Spaniel,GMSP000005,NA,Normal,Pass QC
+GMSP000006,17.57,German Spaniel,GMSP000006,NA,Normal,Pass QC
+GOLD000001,18.58,Golden Retriever,GOLD000001,NA,Normal,Pass QC
+GOLD000002,19.84,Golden Retriever,GOLD000002,NA,Normal,Pass QC
+GOLD000003,18.4,Golden Retriever,GOLD000003,NA,Normal,Pass QC
+GOLD000004,18.87,Golden Retriever,GOLD000004,NA,Normal,Pass QC
+GOLD000005,18.36,Golden Retriever,GOLD000005,NA,Normal,Pass QC
+GOLD000007,31.06,Golden Retriever,GOLD000007,NA,Normal,Pass QC
+GORD000002,19.97,Gordon Setter,GORD000002,NA,Normal,Pass QC
+GPIN000001,19.78,German Pinscher,GPIN000001,NA,Normal,Pass QC
+GPIN000002,19.05,German Pinscher,GPIN000002,NA,Normal,Pass QC
+GPIN000003,19.3,German Pinscher,GPIN000003,NA,Normal,Pass QC
+GPIN000004,18.79,German Pinscher,GPIN000004,NA,Normal,Pass QC
+GPYR000001,17.74,Great Pyrenees,GPYR000001,NA,Normal,Pass QC
+GPYR000002,17.94,Great Pyrenees,GPYR000002,NA,Normal,Pass QC
+GPYR000003,20.72,Great Pyrenees,GPYR000003,NA,Normal,Pass QC
+GPYR000004,20.75,Great Pyrenees,GPYR000004,NA,Normal,Pass QC
+GPYR000005,18.73,Great Pyrenees,GPYR000005,NA,Normal,Pass QC
+GPYR000006,19.19,Great Pyrenees,GPYR000006,NA,Normal,Pass QC
+GREE000001,17.85,Greenland Dog,GREE000001,NA,Normal,Pass QC
+GREE000002,17.8,Greenland Dog,GREE000002,NA,Normal,Pass QC
+GREE000003,19.67,Greenland Dog,GREE000003,NA,Normal,Pass QC
+GRIF000001,17.9,Griffon,GRIF000001,NA,Normal,Pass QC
+GRIF000002,20,Griffon,GRIF000002,NA,Normal,Pass QC
+GRND000001,20.11,Groenendael,GRND000001,NA,Normal,Pass QC
+GRND000002,17.58,Groenendael,GRND000002,NA,Normal,Pass QC
+GRND000003,18.6,Groenendael,GRND000003,NA,Normal,Pass QC
+GRNI000001,20.3,Griffon Nivernais,GRNI000001,NA,Normal,Pass QC
+GRNI000002,18.09,Griffon Nivernais,GRNI000002,NA,Normal,Pass QC
+GRNI000003,19,Griffon Nivernais,GRNI000003,NA,Normal,Pass QC
+GRNI000004,18.2,Griffon Nivernais,GRNI000004,NA,Normal,Pass QC
+GRNI000005,18.22,Griffon Nivernais,GRNI000005,NA,Normal,Pass QC
+GRNI000006,18.99,Griffon Nivernais,GRNI000006,NA,Normal,Pass QC
+GRSD000001,18.58,German Shepherd Dog,GRSD000001,NA,Normal,Pass QC
+GRSD000002,19.86,German Shepherd Dog,GRSD000002,NA,Normal,Pass QC
+GRSD000003,18.68,German Shepherd Dog,GRSD000003,NA,Normal,Pass QC
+GSHP000001,17.72,German Shorthaired Pointer,GSHP000001,NA,Normal,Pass QC
+GSHP000002,21.87,German Shorthaired Pointer,GSHP000002,NA,Normal,Pass QC
+GSHP000003,17.12,German Shorthaired Pointer,GSHP000003,NA,Normal,Pass QC
+GSHP000004,17.49,German Shorthaired Pointer,GSHP000004,NA,Normal,Pass QC
+GSMD000001,21.26,Greater Swiss Mountain Dog,GSMD000001,NA,Normal,Pass QC
+GSMD000002,17.34,Greater Swiss Mountain Dog,GSMD000002,NA,Normal,Pass QC
+GSMD000003,17.26,Greater Swiss Mountain Dog,GSMD000003,NA,Normal,Pass QC
+GSMD000004,21.5,Greater Swiss Mountain Dog,GSMD000004,NA,Normal,Pass QC
+GSMD000005,19.11,Greater Swiss Mountain Dog,GSMD000005,NA,Normal,Pass QC
+GSMD000006,19.8,Greater Swiss Mountain Dog,GSMD000006,NA,Normal,Pass QC
+GSMD000007,17.58,Greater Swiss Mountain Dog,GSMD000007,NA,Normal,Pass QC
+GSMD000008,19.31,Greater Swiss Mountain Dog,GSMD000008,NA,Normal,Pass QC
+GSMD000009,23.34,Greater Swiss Mountain Dog,GSMD000009,NA,Normal,Pass QC
+GSMD000010,19.7,Greater Swiss Mountain Dog,GSMD000010,NA,Normal,Pass QC
+GSNZ000001,21.41,Giant Schnauzer,GSNZ000001,NA,Normal,Pass QC
+GSNZ000002,20.17,Giant Schnauzer,GSNZ000002,NA,Normal,Pass QC
+GSNZ000003,19.18,Giant Schnauzer,GSNZ000003,NA,Normal,Pass QC
+GSNZ000004,20.6,Giant Schnauzer,GSNZ000004,NA,Normal,Pass QC
+GSNZ000005,18.97,Giant Schnauzer,GSNZ000005,NA,Normal,Pass QC
+GSNZ000006,21.61,Giant Schnauzer,GSNZ000006,NA,Normal,Pass QC
+GSPK000001,17.88,German Spitz Klein,GSPK000001,NA,Normal,Pass QC
+GSPK000002,18.84,German Spitz Klein,GSPK000002,NA,Normal,Pass QC
+GSPK000003,18.68,German Spitz Klein,GSPK000003,NA,Normal,Pass QC
+GSPK000004,18.01,German Spitz Klein,GSPK000004,NA,Normal,Pass QC
+GSPK000005,19.85,German Spitz Klein,GSPK000005,NA,Normal,Pass QC
+GSPK000006,18.79,German Spitz Klein,GSPK000006,NA,Normal,Pass QC
+GSPK000007,17.97,German Spitz Klein,GSPK000007,NA,Normal,Pass QC
+GSPK000008,24.35,German Spitz Klein,GSPK000008,NA,Normal,Pass QC
+GSPK000009,21.97,German Spitz Klein,GSPK000009,NA,Normal,Pass QC
+GSPK000010,22.03,German Spitz Klein,GSPK000010,NA,Normal,Pass QC
+GSPK000011,22.32,German Spitz Klein,GSPK000011,NA,Normal,Pass QC
+GSPZ000001,19.24,German Spitz,GSPZ000001,NA,Normal,Pass QC
+GSPZ000002,19.74,German Spitz,GSPZ000002,NA,Normal,Pass QC
+GSPZ000003,17.36,German Spitz,GSPZ000003,NA,Normal,Pass QC
+GSPZ000004,17.07,German Spitz,GSPZ000004,NA,Normal,Pass QC
+GSPZ000005,17.32,German Spitz,GSPZ000005,NA,Normal,Pass QC
+GSPZ000006,19.44,German Spitz,GSPZ000006,NA,Normal,Pass QC
+GSZG000001,20.29,German Giant Spitz,GSZG000001,NA,Normal,Pass QC
+GSZG000002,21.47,German Giant Spitz,GSZG000002,NA,Normal,Pass QC
+GSZG000003,17.79,German Giant Spitz,GSZG000003,NA,Normal,Pass QC
+GSZG000004,21.06,German Giant Spitz,GSZG000004,NA,Normal,Pass QC
+GSZG000005,22,German Giant Spitz,GSZG000005,NA,Normal,Pass QC
+GSZG000006,21,German Giant Spitz,GSZG000006,NA,Normal,Pass QC
+GSZG000007,21.57,Pomeranian,GSZG000007,NA,Normal,Pass QC
+GSZM000001,20.68,German Spitz Mittel,GSZM000001,NA,Normal,Pass QC
+GSZM000002,16.73,German Spitz Mittel,GSZM000002,NA,Normal,Pass QC
+GSZM000003,20.98,German Spitz Mittel,GSZM000003,NA,Normal,Pass QC
+GSZM000004,17.9,German Spitz Mittel,GSZM000004,NA,Normal,Pass QC
+GSZM000005,17.67,German Spitz Mittel,GSZM000005,NA,Normal,Pass QC
+GSZM000006,18.51,German Spitz Mittel,GSZM000006,NA,Normal,Pass QC
+GSZM000007,25.65,German Spitz Mittel,GSZM000007,NA,Normal,Pass QC
+GSZM000008,18.39,German Spitz Mittel,GSZM000008,NA,Normal,Pass QC
+GSZM000009,21.03,German Spitz Mittel,GSZM000009,NA,Normal,Pass QC
+GSZM000010,25.02,German Spitz Mittel,GSZM000010,NA,Normal,Pass QC
+GSZM000011,24.31,German Spitz Mittel,GSZM000011,NA,Normal,Pass QC
+GSZM000012,22.71,German Spitz Mittel,GSZM000012,NA,Normal,Pass QC
+GTLH000001,19.58,Gotland Hound,GTLH000001,NA,Normal,Pass QC
+GWHP000001,18.66,German Wirehaired Pointer,GWHP000001,NA,Normal,Pass QC
+GWHP000002,19.79,German Wirehaired Pointer,GWHP000002,NA,Normal,Pass QC
+GWHP000003,17.88,German Wirehaired Pointer,GWHP000003,NA,Normal,Pass QC
+GWHP000004,19.47,German Wirehaired Pointer,GWHP000004,NA,Normal,Pass QC
+GWHP000005,22.31,German Wirehaired Pointer,GWHP000005,NA,Normal,Pass QC
+HAEL000001,20.37,Hallefors Elkhound,HAEL000001,NA,Normal,Pass QC
+HARR000001,17.46,Harrier,HARR000001,NA,Normal,Pass QC
+HARR000002,18.11,Harrier,HARR000002,NA,Normal,Pass QC
+HARR000003,18.29,Harrier,HARR000003,NA,Normal,Pass QC
+HAVA000001,22.06,Havanese,HAVA000001,NA,Normal,Pass QC
+HAVA000002,21.72,Havanese,HAVA000002,NA,Normal,Pass QC
+HAVA000003,22.35,Havanese,HAVA000003,NA,Normal,Pass QC
+HELH000001,20.8,Hellenic Hound,HELH000001,NA,Normal,Pass QC
+HOBO000001,20.72,Hortaya Borzaya,HOBO000001,NA,Normal,Pass QC
+HOBO000002,19.39,Hortaya Borzaya,HOBO000002,NA,Normal,Pass QC
+HOKK000001,18.86,Hokkaido,HOKK000001,NA,Normal,Pass QC
+HOKK000002,18.53,Hokkaido,HOKK000002,NA,Normal,Pass QC
+HOKK000003,17.04,Hokkaido,HOKK000003,NA,Normal,Pass QC
+HOVA000001,16.84,Hovawart,HOVA000001,NA,Normal,Pass QC
+HOVA000002,18.69,Hovawart,HOVA000002,NA,Normal,Pass QC
+HOVA000003,17.81,Hovawart,HOVA000003,NA,Normal,Pass QC
+HOVA000004,19.05,Hovawart,HOVA000004,NA,Normal,Pass QC
+HSHP000001,17.17,Vizsla,HSHP000001,NA,Normal,Pass QC
+HSHP000002,0.24,Vizsla,HSHP000002,NA,Normal,Pass QC
+HTSV000001,20.24,Hamiltonstovare,HTSV000001,NA,Normal,Pass QC
+HTSV000002,18.59,Hamiltonstovare,HTSV000002,NA,Normal,Pass QC
+HTSV000003,19.6,Hamiltonstovare,HTSV000003,NA,Normal,Pass QC
+HTSV000004,21.54,Hamiltonstovare,HTSV000004,NA,Normal,Pass QC
+HTSV000005,21.95,Hamiltonstovare,HTSV000005,NA,Normal,Pass QC
+HTSV000006,20.65,Hamiltonstovare,HTSV000006,NA,Normal,Pass QC
+HTSV000007,19.13,Hamiltonstovare,HTSV000007,NA,Normal,Pass QC
+HUNT000001,5.69,Huntaway,HUNT000001,NA,Normal,Pass QC
+HUNT000002,3.61,Huntaway,HUNT000002,NA,Normal,Pass QC
+HUNT000003,1.7,Huntaway,HUNT000003,NA,Normal,Pass QC
+HVSC000001,20.17,Hanoverian Scenthound,HVSC000001,NA,Normal,Pass QC
+HWHP000001,18.71,Vizsla,HWHP000001,NA,Normal,Pass QC
+IBIZ000001,19.45,Ibizan Hound,IBIZ000001,NA,Normal,Pass QC
+IBIZ000002,19.77,Ibizan Hound,IBIZ000002,NA,Normal,Pass QC
+IBIZ000003,18.1,Ibizan Hound,IBIZ000003,NA,Normal,Pass QC
+IBIZ000004,18.24,Ibizan Hound,IBIZ000004,NA,Normal,Pass QC
+IBIZ000005,20.02,Ibizan Hound,IBIZ000005,NA,Normal,Pass QC
+IBIZ000006,17.54,Ibizan Hound,IBIZ000006,NA,Normal,Pass QC
+IBIZ000007,15.81,Ibizan Hound,IBIZ000007,NA,Normal,Pass QC
+IBIZ000008,18.05,Ibizan Hound,IBIZ000008,NA,Normal,Pass QC
+IBIZ000009,18.24,Ibizan Hound,IBIZ000009,NA,Normal,Pass QC
+IBIZ000010,21.89,Ibizan Hound,IBIZ000010,NA,Normal,Pass QC
+IBIZ000011,19.19,Ibizan Hound,IBIZ000011,NA,Normal,Pass QC
+IBIZ000012,19.9,Ibizan Hound,IBIZ000012,NA,Normal,Pass QC
+IBIZ000013,20.41,Ibizan Hound,IBIZ000013,NA,Normal,Pass QC
+ICES000001,19.28,Icelandic Sheepdog,ICES000001,NA,Normal,Pass QC
+ICES000002,18.66,Icelandic Sheepdog,ICES000002,NA,Normal,Pass QC
+ICES000003,19.15,Icelandic Sheepdog,ICES000003,NA,Normal,Pass QC
+ICES000004,17.93,Icelandic Sheepdog,ICES000004,NA,Normal,Pass QC
+ICES000005,18.59,Icelandic Sheepdog,ICES000005,NA,Normal,Pass QC
+ICES000006,21.61,Icelandic Sheepdog,ICES000006,NA,Normal,Pass QC
+IRIT000001,11.33,Irish Terrier,IRIT000001,NA,Normal,Pass QC
+IRIT000002,20.5,Irish Terrier,IRIT000002,NA,Normal,Pass QC
+IRIT000003,21.42,Irish Terrier,IRIT000003,NA,Normal,Pass QC
+IRSE000001,9.12,Irish Setter,IRSE000001,NA,Normal,Pass QC
+IRSE000002,17.89,Irish Setter,IRSE000002,NA,Normal,Pass QC
+IRSE000003,22.56,Irish Setter,IRSE000003,NA,Normal,Pass QC
+IRSE000004,17.95,Irish Setter,IRSE000004,NA,Normal,Pass QC
+IWSP000001,21.43,Irish Water Spaniel,IWSP000001,NA,Normal,Pass QC
+IWSP000002,20.88,Irish Water Spaniel,IWSP000002,NA,Normal,Pass QC
+IWSP000003,21.31,Irish Water Spaniel,IWSP000003,NA,Normal,Pass QC
+IWSP000004,17.73,Irish Water Spaniel,IWSP000004,NA,Normal,Pass QC
+JSPZ000001,18.36,Japanese Spitz,JSPZ000001,NA,Normal,Pass QC
+JSPZ000002,19.01,Japanese Spitz,JSPZ000002,NA,Normal,Pass QC
+JSPZ000003,19.29,Japanese Spitz,JSPZ000003,NA,Normal,Pass QC
+JSPZ000004,23.94,Japanese Spitz,JSPZ000004,NA,Normal,Pass QC
+JSPZ000005,20.08,Japanese Spitz,JSPZ000005,NA,Normal,Pass QC
+JSPZ000006,19.74,Japanese Spitz,JSPZ000006,NA,Normal,Pass QC
+JSPZ000007,18.22,Japanese Spitz,JSPZ000007,NA,Normal,Pass QC
+JSPZ000008,22.33,Japanese Spitz,JSPZ000008,NA,Normal,Pass QC
+JSPZ000009,19.2,Japanese Spitz,JSPZ000009,NA,Normal,Pass QC
+JSPZ000010,19.26,Japanese Spitz,JSPZ000010,NA,Normal,Pass QC
+JSPZ000011,19.69,Japanese Spitz,JSPZ000011,NA,Normal,Pass QC
+JSPZ000012,25.98,Japanese Spitz,JSPZ000012,NA,Normal,Pass QC
+KAIK000001,17.75,Kai Ken,KAIK000001,NA,Normal,Pass QC
+KAIK000002,19.3,Kai Ken,KAIK000002,NA,Normal,Pass QC
+KAIK000003,19.25,Kai Ken,KAIK000003,NA,Normal,Pass QC
+KAIK000004,16.46,Kai Ken,KAIK000004,NA,Normal,Pass QC
+KAIK000005,20.22,Kai Ken,KAIK000005,NA,Normal,Pass QC
+KANG000001,22.01,Kangal,KANG000001,NA,Normal,Pass QC
+KANG000002,18.09,Kangal,KANG000002,NA,Normal,Pass QC
+KANG000003,20.92,Kangal,KANG000003,NA,Normal,Pass QC
+KARS000001,19.06,Kars,KARS000001,NA,Normal,Pass QC
+KARS000002,18.54,Kars,KARS000002,NA,Normal,Pass QC
+KARS000003,18.33,Kars,KARS000003,NA,Normal,Pass QC
+KARS000004,19.05,Kars,KARS000004,NA,Normal,Pass QC
+KARS000005,24.65,Kars,KARS000005,NA,Normal,Pass QC
+KARS000006,22.99,Kars,KARS000006,NA,Normal,Pass QC
+KEES000001,16.01,Keeshond,KEES000001,NA,Normal,Pass QC
+KEES000002,17.25,Keeshond,KEES000002,NA,Normal,Pass QC
+KEES000003,16.56,Keeshond,KEES000003,NA,Normal,Pass QC
+KEES000004,18.91,Keeshond,KEES000004,NA,Normal,Pass QC
+KEES000005,24.37,Keeshond,KEES000005,NA,Normal,Pass QC
+KEES000006,17.65,Keeshond,KEES000006,NA,Normal,Pass QC
+KEES000007,17.51,Keeshond,KEES000007,NA,Normal,Pass QC
+KEES000008,21.75,Keeshond,KEES000008,NA,Normal,Pass QC
+KEES000009,22.01,Keeshond,KEES000009,NA,Normal,Pass QC
+KEES000010,26.28,Keeshond,KEES000010,NA,Normal,Pass QC
+KEES000011,24.47,Keeshond,KEES000011,NA,Normal,Pass QC
+KEES000012,23.55,Keeshond,KEES000012,NA,Normal,Pass QC
+KERY000001,17.59,Kerry Blue Terrier,KERY000001,NA,Normal,Pass QC
+KERY000002,19.27,Kerry Blue Terrier,KERY000002,NA,Normal,Pass QC
+KINT000001,17.48,Kintamani,KINT000001,NA,Normal,Pass QC
+KISH000001,17.62,Kishu,KISH000001,NA,Normal,Pass QC
+KISH000002,20.34,Kishu,KISH000002,NA,Normal,Pass QC
+KISH000003,16.62,Kishu,KISH000003,NA,Normal,Pass QC
+KMUM000001,19.48,Small Munsterlander,KMUM000001,NA,Normal,Pass QC
+KMUM000002,20.02,Small Munsterlander,KMUM000002,NA,Normal,Pass QC
+KMUM000003,17.53,Small Munsterlander,KMUM000003,NA,Normal,Pass QC
+KMUM000004,17.57,Small Munsterlander,KMUM000004,NA,Normal,Pass QC
+KMUM000005,17.41,Small Munsterlander,KMUM000005,NA,Normal,Pass QC
+KMUM000006,18.58,Small Munsterlander,KMUM000006,NA,Normal,Pass QC
+KMUM000007,18.15,Small Munsterlander,KMUM000007,NA,Normal,Pass QC
+KMUM000008,18.37,Small Munsterlander,KMUM000008,NA,Normal,Pass QC
+KMUM000009,18.25,Small Munsterlander,KMUM000009,NA,Normal,Pass QC
+KMUM000010,18.86,Small Munsterlander,KMUM000010,NA,Normal,Pass QC
+KMUM000011,18.13,Small Munsterlander,KMUM000011,NA,Normal,Pass QC
+KROM000001,19.22,Kromfohrlander,KROM000001,NA,Normal,Pass QC
+KROM000002,18.82,Kromfohrlander,KROM000002,NA,Normal,Pass QC
+KROM000003,20.4,Kromfohrlander,KROM000003,NA,Normal,Pass QC
+KROM000004,18.18,Kromfohrlander,KROM000004,NA,Normal,Pass QC
+KROM000005,17.88,Kromfohrlander,KROM000005,NA,Normal,Pass QC
+KROM000006,16.93,Kromfohrlander,KROM000006,NA,Normal,Pass QC
+KROM000007,19.39,Kromfohrlander,KROM000007,NA,Normal,Pass QC
+KUVZ000001,16.92,Kuvasz,KUVZ000001,NA,Normal,Pass QC
+KUVZ000002,12.5,Kuvasz,KUVZ000002,NA,Normal,Pass QC
+KUVZ000003,15.36,Kuvasz,KUVZ000003,NA,Normal,Pass QC
+KUVZ000004,17.73,Kuvasz,KUVZ000004,NA,Normal,Pass QC
+KUVZ000005,17.63,Kuvasz,KUVZ000005,NA,Normal,Pass QC
+KUVZ000006,19.26,Kuvasz,KUVZ000006,NA,Normal,Pass QC
+KUVZ000007,22.18,Kuvasz,KUVZ000007,NA,Normal,Pass QC
+KUVZ000008,20.7,Kuvasz,KUVZ000008,NA,Normal,Pass QC
+LABR000001,23.19,Labrador Retriever,LABR000001,NA,Normal,Pass QC
+LABR000002,18.03,Labrador Retriever,LABR000002,NA,Normal,Pass QC
+LABR000003,19.26,Labrador Retriever,LABR000003,NA,Normal,Pass QC
+LABR000004,18.02,Labrador Retriever,LABR000004,NA,Normal,Pass QC
+LABR000005,20.87,Labrador Retriever,LABR000005,NA,Normal,Pass QC
+LABR000006,17.51,Labrador Retriever,LABR000006,NA,Normal,Pass QC
+LAEK000001,16.36,Belgian Laekenois,LAEK000001,NA,Normal,Pass QC
+LAEK000002,19.99,Belgian Laekenois,LAEK000002,NA,Normal,Pass QC
+LAEK000003,18.45,Belgian Laekenois,LAEK000003,NA,Normal,Pass QC
+LAEK000004,21.69,Belgian Laekenois,LAEK000004,NA,Normal,Pass QC
+LAEK000005,19.06,Belgian Laekenois,LAEK000005,NA,Normal,Pass QC
+LAGO000001,18.43,Lagotto Romagnolo,LAGO000001,NA,Normal,Pass QC
+LAGO000002,16.68,Lagotto Romagnolo,LAGO000002,NA,Normal,Pass QC
+LAGO000003,18.71,Lagotto Romagnolo,LAGO000003,NA,Normal,Pass QC
+LAGO000004,19.66,Lagotto Romagnolo,LAGO000004,NA,Normal,Pass QC
+LAKE000001,21.06,Lakeland Terrier,LAKE000001,NA,Normal,Pass QC
+LAKE000002,20.44,Lakeland Terrier,LAKE000002,NA,Normal,Pass QC
+LAKE000003,19.39,Lakeland Terrier,LAKE000003,NA,Normal,Pass QC
+LAKE000004,18.08,Lakeland Terrier,LAKE000004,NA,Normal,Pass QC
+LAKE000005,20.91,Lakeland Terrier,LAKE000005,NA,Normal,Pass QC
+LAKE000006,19.81,Lakeland Terrier,LAKE000006,NA,Normal,Pass QC
+LANC000001,18.34,Lancashire Heeler,LANC000001,NA,Normal,Pass QC
+LANC000002,17.31,Lancashire Heeler,LANC000002,NA,Normal,Pass QC
+LANC000003,20.38,Lancashire Heeler,LANC000003,NA,Normal,Pass QC
+LANC000004,18.99,Lancashire Heeler,LANC000004,NA,Normal,Pass QC
+LANC000005,21.33,Lancashire Heeler,LANC000005,NA,Normal,Pass QC
+LANC000006,19.53,Lancashire Heeler,LANC000006,NA,Normal,Pass QC
+LDSR000001,17.25,Landseer,LDSR000001,NA,Normal,Pass QC
+LDSR000002,18.24,Landseer,LDSR000002,NA,Normal,Pass QC
+LDSR000003,18.86,Landseer,LDSR000003,NA,Normal,Pass QC
+LDSR000004,21.45,Landseer,LDSR000004,NA,Normal,Pass QC
+LEON000001,19.93,Leonberger,LEON000001,NA,Normal,Pass QC
+LEON000002,19.63,Leonberger,LEON000002,NA,Normal,Pass QC
+LEON000003,18.6,Leonberger,LEON000003,NA,Normal,Pass QC
+LEON000004,18.62,Leonberger,LEON000004,NA,Normal,Pass QC
+LEON000007,17.44,Leonberger,LEON000007,NA,Normal,Pass QC
+LEON000008,18.3,Leonberger,LEON000008,NA,Normal,Pass QC
+LEON000009,20.67,Leonberger,LEON000009,NA,Normal,Pass QC
+LEON000010,17.3,Leonberger,LEON000010,NA,Normal,Pass QC
+LEON000011,17.84,Leonberger,LEON000011,NA,Normal,Pass QC
+LEON000012,18.46,Leonberger,LEON000012,NA,Normal,Pass QC
+LEON000013,18.83,Leonberger,LEON000013,NA,Normal,Pass QC
+LEON000014,16.66,Leonberger,LEON000014,NA,Normal,Pass QC
+LEOP000002,16.96,Catahoula Leopard Dog,LEOP000002,NA,Normal,Pass QC
+LEOP000003,17.04,Catahoula Leopard Dog,LEOP000003,NA,Normal,Pass QC
+LEOP000004,16.37,Catahoula Leopard Dog,LEOP000004,NA,Normal,Pass QC
+LEOP000005,18.83,Catahoula Leopard Dog,LEOP000005,NA,Normal,Pass QC
+LEOP000007,16.52,Catahoula Leopard Dog,LEOP000007,NA,Normal,Pass QC
+LEOP000008,20.03,Catahoula Leopard Dog,LEOP000008,NA,Normal,Pass QC
+LEOP000009,16.78,Catahoula Leopard Dog,LEOP000009,NA,Normal,Pass QC
+LEOP000010,17.84,Catahoula Leopard Dog,LEOP000010,NA,Normal,Pass QC
+LHSA000001,18.64,Lhasa Apso,LHSA000001,NA,Normal,Pass QC
+LHSA000002,18.29,Lhasa Apso,LHSA000002,NA,Normal,Pass QC
+LHSA000003,17.71,Lhasa Apso,LHSA000003,NA,Normal,Pass QC
+LHSA000004,18.44,Lhasa Apso,LHSA000004,NA,Normal,Pass QC
+LHSA000005,17.59,Lhasa Apso,LHSA000005,NA,Normal,Pass QC
+LHSA000006,21.99,Lhasa Apso,LHSA000006,NA,Normal,Pass QC
+LHSA000007,20.96,Lhasa Apso,LHSA000007,NA,Normal,Pass QC
+LHSA000008,23.73,Lhasa Apso,LHSA000008,NA,Normal,Pass QC
+LMUN000001,18.78,Large Munsterlander,LMUN000001,NA,Normal,Pass QC
+LOWC000001,18.16,Lowchen,LOWC000001,NA,Normal,Pass QC
+LOWC000002,18.85,Lowchen,LOWC000002,NA,Normal,Pass QC
+LOWC000003,19.65,Lowchen,LOWC000003,NA,Normal,Pass QC
+LOWC000004,18.24,Lowchen,LOWC000004,NA,Normal,Pass QC
+MAAG000001,17.85,Magyar Agar,MAAG000001,NA,Normal,Pass QC
+MAAG000002,22.51,Magyar Agar,MAAG000002,NA,Normal,Pass QC
+MAAG000003,17.65,Magyar Agar,MAAG000003,NA,Normal,Pass QC
+MAAG000004,17.7,Magyar Agar,MAAG000004,NA,Normal,Pass QC
+MAAG000005,18.02,Magyar Agar,MAAG000005,NA,Normal,Pass QC
+MAAG000006,21.22,Magyar Agar,MAAG000006,NA,Normal,Pass QC
+MALT000001,23.24,Maltese,MALT000001,NA,Normal,Pass QC
+MALT000002,18.08,Maltese,MALT000002,NA,Normal,Pass QC
+MALT000003,17.94,Maltese,MALT000003,NA,Normal,Pass QC
+MALT000004,18.23,Maltese,MALT000004,NA,Normal,Pass QC
+MALT000005,17.86,Coton de Tulear,MALT000005,NA,Normal,Pass QC
+MANT000001,18.18,Manchester Terrier (Standard),MANT000001,NA,Normal,Pass QC
+MANT000002,21.73,Manchester Terrier (Standard),MANT000002,NA,Normal,Pass QC
+MANT000003,18.04,Manchester Terrier (Standard),MANT000003,NA,Normal,Pass QC
+MANT000004,16.76,Manchester Terrier (Standard),MANT000004,NA,Normal,Pass QC
+MANT000005,20.75,Manchester Terrier (Standard),MANT000005,NA,Normal,Pass QC
+MANT000006,18.35,Manchester Terrier (Standard),MANT000006,NA,Normal,Pass QC
+MANT000007,17.94,Manchester Terrier (Standard),MANT000007,NA,Normal,Pass QC
+MANT000008,18.86,Manchester Terrier (Standard),MANT000008,NA,Normal,Pass QC
+MANT000009,19.68,Manchester Terrier (Standard),MANT000009,NA,Normal,Pass QC
+MARM000001,20.57,Maremma Sheepdog,MARM000001,NA,Normal,Pass QC
+MARM000002,18.56,Maremma Sheepdog,MARM000002,NA,Normal,Pass QC
+MARM000003,18.91,Maremma Sheepdog,MARM000003,NA,Normal,Pass QC
+MARM000004,19.05,Maremma Sheepdog,MARM000004,NA,Normal,Pass QC
+MARM000005,20.43,Maremma Sheepdog,MARM000005,NA,Normal,Pass QC
+MARM000006,20.96,Maremma Sheepdog,MARM000006,NA,Normal,Pass QC
+MAST000001,17.05,Mastiff,MAST000001,NA,Normal,Pass QC
+MAST000002,17.05,Mastiff,MAST000002,NA,Normal,Pass QC
+MAST000003,18.63,Mastiff,MAST000003,NA,Normal,Pass QC
+MAST000004,19.48,Mastiff,MAST000004,NA,Normal,Pass QC
+MAST000005,18.57,Mastiff,MAST000005,NA,Normal,Pass QC
+MAST000006,22.93,Mastiff,MAST000006,NA,Normal,Pass QC
+MBLT000001,16.66,Miniature Bull Terrier,MBLT000001,NA,Normal,Pass QC
+MBLT000002,18.14,Miniature Bull Terrier,MBLT000002,NA,Normal,Pass QC
+MBLT000003,17.23,Miniature Bull Terrier,MBLT000003,NA,Normal,Pass QC
+MBLT000004,17.68,Miniature Bull Terrier,MBLT000004,NA,Normal,Pass QC
+MCUR000001,17.9,Mountain Cur,MCUR000001,NA,Normal,Pass QC
+MCUR000002,17.78,Mountain Cur,MCUR000002,NA,Normal,Pass QC
+MCUR000003,10.46,Mountain Cur,MCUR000003,NA,Normal,Pass QC
+MCUR000004,16.26,Mountain Cur,MCUR000004,NA,Normal,Pass QC
+MJMA000001,19.71,Majorca Mastiff,MJMA000001,NA,Normal,Pass QC
+MJMA000002,18.28,Majorca Mastiff,MJMA000002,NA,Normal,Pass QC
+MJMA000003,19.21,Majorca Mastiff,MJMA000003,NA,Normal,Pass QC
+MPIN000001,16.32,Miniature Pinscher,MPIN000001,NA,Normal,Pass QC
+MPIN000002,17.02,Miniature Pinscher,MPIN000002,NA,Normal,Pass QC
+MPIN000003,19.4,Miniature Pinscher,MPIN000003,NA,Normal,Pass QC
+MPIN000004,18.44,Miniature Pinscher,MPIN000004,NA,Normal,Pass QC
+MPIN000007,20.04,Unknown,MPIN000007,NA,Normal,Pass QC
+MPOO000001,18.29,Miniature Poodle,MPOO000001,NA,Normal,Pass QC
+MSNZ000001,22.57,Miniature Schnauzer,MSNZ000001,NA,Normal,Pass QC
+MSNZ000002,18.3,Miniature Schnauzer,MSNZ000002,NA,Normal,Pass QC
+MSNZ000003,18.14,Miniature Schnauzer,MSNZ000003,NA,Normal,Pass QC
+MSNZ000004,19.77,Miniature Schnauzer,MSNZ000004,NA,Normal,Pass QC
+MUDI000001,19.34,Mudi,MUDI000001,NA,Normal,Pass QC
+MUDI000002,20.45,Mudi,MUDI000002,NA,Normal,Pass QC
+MUDI000003,18.11,Mudi,MUDI000003,NA,Normal,Pass QC
+MUDI000004,11.91,Mudi,MUDI000004,NA,Normal,Pass QC
+MUDI000005,21.87,Mudi,MUDI000005,NA,Normal,Pass QC
+MUDI000006,20.1,Mudi,MUDI000006,NA,Normal,Pass QC
+NBUH000001,20.41,Norwegian Buhund,NBUH000001,NA,Normal,Pass QC
+NBUH000002,11.21,Norwegian Buhund,NBUH000002,NA,Normal,Pass QC
+NBUH000003,20.45,Norwegian Buhund,NBUH000003,NA,Normal,Pass QC
+NBUH000004,19.74,Norwegian Buhund,NBUH000004,NA,Normal,Pass QC
+NBUH000005,19.53,Norwegian Buhund,NBUH000005,NA,Normal,Pass QC
+NBUH000006,17.84,Norwegian Buhund,NBUH000006,NA,Normal,Pass QC
+NEAP000001,22.36,Neapolitan Mastiff,NEAP000001,NA,Normal,Pass QC
+NEAP000002,19.16,Neapolitan Mastiff,NEAP000002,NA,Normal,Pass QC
+NEAP000003,19.96,Neapolitan Mastiff,NEAP000003,NA,Normal,Pass QC
+NEAP000004,17.48,Neapolitan Mastiff,NEAP000004,NA,Normal,Pass QC
+NEAP000005,21.66,Neapolitan Mastiff,NEAP000005,NA,Normal,Pass QC
+NELK000001,19.37,Norwegian Elkhound,NELK000001,NA,Normal,Pass QC
+NELK000002,19.05,Norwegian Elkhound,NELK000002,NA,Normal,Pass QC
+NELK000003,19.94,Norwegian Elkhound,NELK000003,NA,Normal,Pass QC
+NELK000004,20.59,Norwegian Elkhound,NELK000004,NA,Normal,Pass QC
+NELK000005,17.66,Norwegian Elkhound,NELK000005,NA,Normal,Pass QC
+NELK000006,18.54,Norwegian Elkhound,NELK000006,NA,Normal,Pass QC
+NELK000007,20.95,Norwegian Elkhound,NELK000007,NA,Normal,Pass QC
+NEWF000001,15.97,Newfoundland,NEWF000001,NA,Normal,Pass QC
+NEWF000002,18.65,Newfoundland,NEWF000002,NA,Normal,Pass QC
+NEWF000003,16.34,Newfoundland,NEWF000003,NA,Normal,Pass QC
+NEWF000004,19.49,Newfoundland,NEWF000004,NA,Normal,Pass QC
+NEWF000005,18.45,Newfoundland,NEWF000005,NA,Normal,Pass QC
+NEWF000006,19.07,Newfoundland,NEWF000006,NA,Normal,Pass QC
+NLUN000001,16.12,Norwegian Lundehund,NLUN000001,NA,Normal,Pass QC
+NLUN000002,22.31,Norwegian Lundehund,NLUN000002,NA,Normal,Pass QC
+NLUN000003,19.57,Norwegian Lundehund,NLUN000003,NA,Normal,Pass QC
+NLUN000004,21.16,Norwegian Lundehund,NLUN000004,NA,Normal,Pass QC
+NLUN000005,20.66,Norwegian Lundehund,NLUN000005,NA,Normal,Pass QC
+NORB000001,18.11,Norrbottenspitz,NORB000001,NA,Normal,Pass QC
+NORB000002,19.35,Norrbottenspitz,NORB000002,NA,Normal,Pass QC
+NORB000003,17.61,Norrbottenspitz,NORB000003,NA,Normal,Pass QC
+NORB000004,21.2,Norrbottenspitz,NORB000004,NA,Normal,Pass QC
+NORB000005,18.9,Norrbottenspitz,NORB000005,NA,Normal,Pass QC
+NORF000001,21.06,Norfolk Terrier,NORF000001,NA,Normal,Pass QC
+NORF000002,19.22,Norfolk Terrier,NORF000002,NA,Normal,Pass QC
+NORF000003,18.66,Norfolk Terrier,NORF000003,NA,Normal,Pass QC
+NORF000004,17.56,Norfolk Terrier,NORF000004,NA,Normal,Pass QC
+NORF000005,17.87,Norfolk Terrier,NORF000005,NA,Normal,Pass QC
+NORF000006,18.25,Norfolk Terrier,NORF000006,NA,Normal,Pass QC
+NORF000007,19.49,Norfolk Terrier,NORF000007,NA,Normal,Pass QC
+NOWT000001,16.8,Norwich Terrier,NOWT000001,NA,Normal,Pass QC
+NOWT000002,16.84,Norwich Terrier,NOWT000002,NA,Normal,Pass QC
+NOWT000003,19.65,Norwich Terrier,NOWT000003,NA,Normal,Pass QC
+NOWT000004,19.44,Norwich Terrier,NOWT000004,NA,Normal,Pass QC
+NOWT000005,20.55,Norwich Terrier,NOWT000005,NA,Normal,Pass QC
+NOWT000006,19.18,Norwich Terrier,NOWT000006,NA,Normal,Pass QC
+NSDT000001,20.37,Nova Scotia Duck Tolling Retriever,NSDT000001,NA,Normal,Pass QC
+NSDT000002,19.08,Nova Scotia Duck Tolling Retriever,NSDT000002,NA,Normal,Pass QC
+NSDT000003,18.02,Nova Scotia Duck Tolling Retriever,NSDT000003,NA,Normal,Pass QC
+NSDT000004,19.75,Nova Scotia Duck Tolling Retriever,NSDT000004,NA,Normal,Pass QC
+OEBD000001,19.72,Olde English Bulldogge,OEBD000001,NA,Normal,Pass QC
+OEBD000002,18.35,Olde English Bulldogge,OEBD000002,NA,Normal,Pass QC
+OEBD000003,20.4,Olde English Bulldogge,OEBD000003,NA,Normal,Pass QC
+OLES000001,19.35,Old English Sheepdog,OLES000001,NA,Normal,Pass QC
+OLES000002,20.81,Old English Sheepdog,OLES000002,NA,Normal,Pass QC
+OLES000003,17.98,Old English Sheepdog,OLES000003,NA,Normal,Pass QC
+OLES000004,17.19,Old English Sheepdog,OLES000004,NA,Normal,Pass QC
+OLES000005,17.3,Old English Sheepdog,OLES000005,NA,Normal,Pass QC
+OLES000006,19.26,Old English Sheepdog,OLES000006,NA,Normal,Pass QC
+OLES000007,27.37,Old English Sheepdog,OLES000007,NA,Normal,Pass QC
+OLGS000001,19.44,Old German Shepherd,OLGS000001,NA,Normal,Pass QC
+OLGS000002,18.39,Old German Shepherd,OLGS000002,NA,Normal,Pass QC
+OLGS000003,17.14,Old German Shepherd,OLGS000003,NA,Normal,Pass QC
+OLGS000004,17.52,Old German Shepherd,OLGS000004,NA,Normal,Pass QC
+OLGS000005,18.91,Old German Shepherd,OLGS000005,NA,Normal,Pass QC
+OLGS000006,16.95,Old German Shepherd,OLGS000006,NA,Normal,Pass QC
+OTTR000001,20.9,Otterhound,OTTR000001,NA,Normal,Pass QC
+OTTR000002,20.93,Otterhound,OTTR000002,NA,Normal,Pass QC
+OTTR000003,20.78,Otterhound,OTTR000003,NA,Normal,Pass QC
+OTTR000004,16.56,Otterhound,OTTR000004,NA,Normal,Pass QC
+OTTR000005,16.68,Otterhound,OTTR000005,NA,Normal,Pass QC
+OTTR000006,19,Otterhound,OTTR000006,NA,Normal,Pass QC
+OTTR000007,18.83,Otterhound,OTTR000007,NA,Normal,Pass QC
+PAPI000001,19.77,Continental Toy Spaniel (Papillon),PAPI000001,NA,Normal,Pass QC
+PAPI000002,18.44,Continental Toy Spaniel (Papillon),PAPI000002,NA,Normal,Pass QC
+PAPI000003,18.43,Continental Toy Spaniel (Papillon),PAPI000003,NA,Normal,Pass QC
+PAPI000004,19.75,Continental Toy Spaniel (Papillon),PAPI000004,NA,Normal,Pass QC
+PAPI000005,22.88,Continental Toy Spaniel (Papillon),PAPI000005,NA,Normal,Pass QC
+PAPI000006,18.48,Continental Toy Spaniel (Papillon),PAPI000006,NA,Normal,Pass QC
+PARS000001,17.06,Parson Russell Terrier,PARS000001,NA,Normal,Pass QC
+PARS000002,18.84,Parson Russell Terrier,PARS000002,NA,Normal,Pass QC
+PARS000003,17.93,Parson Russell Terrier,PARS000003,NA,Normal,Pass QC
+PARS000004,17.12,Parson Russell Terrier,PARS000004,NA,Normal,Pass QC
+PARS000005,20.52,Parson Russell Terrier,PARS000005,NA,Normal,Pass QC
+PASP000001,19.22,Pont-Audemer spaniel,PASP000001,NA,Normal,Pass QC
+PASP000002,16.89,Pont-Audemer spaniel,PASP000002,NA,Normal,Pass QC
+PASP000003,17.04,Pont-Audemer spaniel,PASP000003,NA,Normal,Pass QC
+PASP000004,18.58,Pont-Audemer spaniel,PASP000004,NA,Normal,Pass QC
+PASP000005,16.46,Pont-Audemer spaniel,PASP000005,NA,Normal,Pass QC
+PASP000006,20.14,Pont-Audemer spaniel,PASP000006,NA,Normal,Pass QC
+PASP000007,18.27,Pont-Audemer spaniel,PASP000007,NA,Normal,Pass QC
+PATR000001,20.41,Patterdale Terrier,PATR000001,NA,Normal,Pass QC
+PATR000002,19.08,Patterdale Terrier,PATR000002,NA,Normal,Pass QC
+PATR000003,20.39,Patterdale Terrier,PATR000003,NA,Normal,Pass QC
+PATR000004,20.07,Patterdale Terrier,PATR000004,NA,Normal,Pass QC
+PBGA000001,21.67,Petit Bleu de Gascogne,PBGA000001,NA,Normal,Pass QC
+PBGA000002,20.01,Petit Bleu de Gascogne,PBGA000002,NA,Normal,Pass QC
+PBGA000003,18.93,Petit Bleu de Gascogne,PBGA000003,NA,Normal,Pass QC
+PBGA000004,19.54,Petit Bleu de Gascogne,PBGA000004,NA,Normal,Pass QC
+PBGR000001,22.01,Brussels Griffon (smooth),PBGR000001,NA,Normal,Pass QC
+PBGR000002,20.65,Brussels Griffon (smooth),PBGR000002,NA,Normal,Pass QC
+PBGV000001,20.45,Petit Basset Griffon Vendeen,PBGV000001,NA,Normal,Pass QC
+PBGV000002,18.47,Petit Basset Griffon Vendeen,PBGV000002,NA,Normal,Pass QC
+PBGV000003,18.93,Petit Basset Griffon Vendeen,PBGV000003,NA,Normal,Pass QC
+PBGV000004,20.78,Petit Basset Griffon Vendeen,PBGV000004,NA,Normal,Pass QC
+PBGV000005,21.91,Petit Basset Griffon Vendeen,PBGV000005,NA,Normal,Pass QC
+PBGV000006,21.06,Petit Basset Griffon Vendeen,PBGV000006,NA,Normal,Pass QC
+PBGV000007,22.79,Petit Basset Griffon Vendeen,PBGV000007,NA,Normal,Pass QC
+PBGV000008,23.43,Petit Basset Griffon Vendeen,PBGV000008,NA,Normal,Pass QC
+PBGV000009,17.29,Petit Basset Griffon Vendeen,PBGV000009,NA,Normal,Pass QC
+PBGV000010,19.01,Petit Basset Griffon Vendeen,PBGV000010,NA,Normal,Pass QC
+PBGV000011,18.27,Unknown,PBGV000011,NA,Normal,Pass QC
+PBGV000012,21.71,Petit Basset Griffon Vendeen,PBGV000012,NA,Normal,Pass QC
+PEKE000001,19.48,Pekingese,PEKE000001,NA,Normal,Pass QC
+PEKE000002,19.98,Pekingese,PEKE000002,NA,Normal,Pass QC
+PEKE000003,19.87,Pekingese,PEKE000003,NA,Normal,Pass QC
+PEMB000001,20.54,Pembroke Welsh Corgi,PEMB000001,NA,Normal,Pass QC
+PERH000001,19.76,Peruvian Hairless,PERH000001,NA,Normal,Pass QC
+PERH000002,16.99,Peruvian Hairless,PERH000002,NA,Normal,Pass QC
+PERH000003,18.18,Peruvian Hairless,PERH000003,NA,Normal,Pass QC
+PERH000004,18.07,Peruvian Hairless,PERH000004,NA,Normal,Pass QC
+PERH000005,19.01,Peruvian Hairless,PERH000005,NA,Normal,Pass QC
+PHAL000001,18.29,Continental Toy Spaniel (Phalene),PHAL000001,NA,Normal,Pass QC
+PHAL000002,17.47,Continental Toy Spaniel (Phalene),PHAL000002,NA,Normal,Pass QC
+PHAL000003,18.93,Continental Toy Spaniel (Phalene),PHAL000003,NA,Normal,Pass QC
+PHAL000004,21.41,Continental Toy Spaniel (Phalene),PHAL000004,NA,Normal,Pass QC
+PHAL000005,21.87,Continental Toy Spaniel (Phalene),PHAL000005,NA,Normal,Pass QC
+PHAR000001,17.8,Pharaoh Hound,PHAR000001,NA,Normal,Pass QC
+PHAR000002,19.29,Pharaoh Hound,PHAR000002,NA,Normal,Pass QC
+PHAR000003,18.69,Pharaoh Hound,PHAR000003,NA,Normal,Pass QC
+PHAR000004,18.23,Pharaoh Hound,PHAR000004,NA,Normal,Pass QC
+PHAR000005,19.92,Pharaoh Hound,PHAR000005,NA,Normal,Pass QC
+PHAR000006,20.98,Pharaoh Hound,PHAR000006,NA,Normal,Pass QC
+PISH000001,18.67,Picardy Shepherd,PISH000001,NA,Normal,Pass QC
+PISH000002,18.36,Picardy Shepherd,PISH000002,NA,Normal,Pass QC
+PISH000003,17.89,Picardy Shepherd,PISH000003,NA,Normal,Pass QC
+PISH000004,20.02,Picardy Shepherd,PISH000004,NA,Normal,Pass QC
+PISH000005,20.03,Picardy Shepherd,PISH000005,NA,Normal,Pass QC
+PISH000006,19.22,Picardy Shepherd,PISH000006,NA,Normal,Pass QC
+PISP000001,17.83,Picardy Spaniel,PISP000001,NA,Normal,Pass QC
+PISP000002,18.48,Picardy Spaniel,PISP000002,NA,Normal,Pass QC
+PISP000003,19.93,Picardy Spaniel,PISP000003,NA,Normal,Pass QC
+PISP000004,20.49,Picardy Spaniel,PISP000004,NA,Normal,Pass QC
+PLOT000001,18,Plott Hound,PLOT000001,NA,Normal,Pass QC
+POLG000001,18.64,Polish Greyhound,POLG000001,NA,Normal,Pass QC
+POLG000002,17.57,Polish Greyhound,POLG000002,NA,Normal,Pass QC
+POLG000003,20.7,Polish Greyhound,POLG000003,NA,Normal,Pass QC
+POLG000004,19.81,Polish Greyhound,POLG000004,NA,Normal,Pass QC
+POLG000005,18.53,Polish Greyhound,POLG000005,NA,Normal,Pass QC
+POLG000006,19.23,Polish Greyhound,POLG000006,NA,Normal,Pass QC
+POLG000007,17.19,Polish Greyhound,POLG000007,NA,Normal,Pass QC
+POLS000001,18.63,Polish Lowland Sheepdog,POLS000001,NA,Normal,Pass QC
+POLS000002,20.23,Polish Lowland Sheepdog,POLS000002,NA,Normal,Pass QC
+POLS000003,19.08,Polish Tatra Sheepdog,POLS000003,NA,Normal,Pass QC
+POLS000004,20.62,Polish Tatra Sheepdog,POLS000004,NA,Normal,Pass QC
+POMR000001,9.34,Pomeranian,POMR000001,NA,Normal,Pass QC
+POMR000002,18.96,Pomeranian,POMR000002,NA,Normal,Pass QC
+POMR000003,16.56,Pomeranian,POMR000003,NA,Normal,Pass QC
+POMR000004,18.14,Pomeranian,POMR000004,NA,Normal,Pass QC
+POMR000005,18.64,Pomeranian,POMR000005,NA,Normal,Pass QC
+POMR000006,17.61,Pomeranian,POMR000006,NA,Normal,Pass QC
+POMR000007,20.19,Pomeranian,POMR000007,NA,Normal,Pass QC
+POMR000008,17.52,Pomeranian,POMR000008,NA,Normal,Pass QC
+POOD000001,20.06,Poodle,POOD000001,NA,Normal,Pass QC
+POPT000001,19.08,Portuguese Pointer,POPT000001,NA,Normal,Pass QC
+PORC000001,18.56,Porcelaine,PORC000001,NA,Normal,Pass QC
+POSD000001,17.81,Portuguese Sheepdog,POSD000001,NA,Normal,Pass QC
+POSD000002,18.1,Portuguese Sheepdog,POSD000002,NA,Normal,Pass QC
+POSD000003,18.06,Portuguese Sheepdog,POSD000003,NA,Normal,Pass QC
+POSD000004,18.53,Portuguese Sheepdog,POSD000004,NA,Normal,Pass QC
+POSD000005,18.29,Portuguese Sheepdog,POSD000005,NA,Normal,Pass QC
+POSD000006,17.84,Portuguese Sheepdog,POSD000006,NA,Normal,Pass QC
+POSH000001,18.47,Posavac Hound,POSH000001,NA,Normal,Pass QC
+PPOD000001,18.19,Portuguese Podengo,PPOD000001,NA,Normal,Pass QC
+PPOD000002,17.49,Portuguese Podengo,PPOD000002,NA,Normal,Pass QC
+PPOD000003,17.55,Portuguese Podengo Pequeno,PPOD000003,NA,Normal,Pass QC
+PPOD000004,19.25,Portuguese Podengo Pequeno,PPOD000004,NA,Normal,Pass QC
+PPOP000001,18.52,Portuguese Podengo Pequeno,PPOP000001,NA,Normal,Pass QC
+PPOP000002,14.91,Portuguese Podengo Pequeno,PPOP000002,NA,Normal,Pass QC
+PRKR000001,18.56,Prague Ratter,PRKR000001,NA,Normal,Pass QC
+PRKR000002,19.17,Prague Ratter,PRKR000002,NA,Normal,Pass QC
+PRKR000003,20.27,Prague Ratter,PRKR000003,NA,Normal,Pass QC
+PRKR000004,18.58,Prague Ratter,PRKR000004,NA,Normal,Pass QC
+PRKR000005,18.89,Prague Ratter,PRKR000005,NA,Normal,Pass QC
+PTAS000001,18.02,Polish Tatra Sheepdog,PTAS000001,NA,Normal,Pass QC
+PTAS000002,18.72,Polish Tatra Sheepdog,PTAS000002,NA,Normal,Pass QC
+PTAS000003,18.65,Polish Tatra Sheepdog,PTAS000003,NA,Normal,Pass QC
+PTAS000004,18.93,Polish Tatra Sheepdog,PTAS000004,NA,Normal,Pass QC
+PTAS000005,20.18,Polish Tatra Sheepdog,PTAS000005,NA,Normal,Pass QC
+PTAS000006,17.63,Polish Tatra Sheepdog,PTAS000006,NA,Normal,Pass QC
+PTWD000001,15.74,Portuguese Water Dog,PTWD000001,NA,Normal,Pass QC
+PTWD000002,17.13,Portuguese Water Dog,PTWD000002,NA,Normal,Pass QC
+PTWD000003,17.3,Portuguese Water Dog,PTWD000003,NA,Normal,Pass QC
+PTWD000004,17.74,Portuguese Water Dog,PTWD000004,NA,Normal,Pass QC
+PTWD000005,19.24,Portuguese Water Dog,PTWD000005,NA,Normal,Pass QC
+PTWD000006,18.79,Portuguese Water Dog,PTWD000006,NA,Normal,Pass QC
+PTWD000007,17.13,Portuguese Water Dog,PTWD000007,NA,Normal,Pass QC
+PTWD000008,20.31,Portuguese Water Dog,PTWD000008,NA,Normal,Pass QC
+PUDL000001,18.21,Pudelpointer,PUDL000001,NA,Normal,Pass QC
+PUDL000002,17.46,Pudelpointer,PUDL000002,NA,Normal,Pass QC
+PUDL000003,17.76,Pudelpointer,PUDL000003,NA,Normal,Pass QC
+PUDL000004,19.49,Unknown,PUDL000004,NA,Normal,Pass QC
+PUGD000001,19.5,Pug,PUGD000001,NA,Normal,Pass QC
+PULI000001,17.63,Puli,PULI000001,NA,Normal,Pass QC
+PULI000002,17.37,Puli,PULI000002,NA,Normal,Pass QC
+PULI000003,17.72,Puli,PULI000003,NA,Normal,Pass QC
+PULI000004,19.87,Puli,PULI000004,NA,Normal,Pass QC
+PULI000005,19.75,Puli,PULI000005,NA,Normal,Pass QC
+PULI000006,20.52,Puli,PULI000006,NA,Normal,Pass QC
+PUMI000001,16.68,Pumi,PUMI000001,NA,Normal,Pass QC
+PUMI000002,19.41,Pumi,PUMI000002,NA,Normal,Pass QC
+PUMI000003,17.35,Pumi,PUMI000003,NA,Normal,Pass QC
+PUMI000004,18.33,Pumi,PUMI000004,NA,Normal,Pass QC
+PUMI000005,17.94,Pumi,PUMI000005,NA,Normal,Pass QC
+PUMI000006,17.47,Pumi,PUMI000006,NA,Normal,Pass QC
+PYMF000001,18.68,Pyrenean Mastiff,PYMF000001,NA,Normal,Pass QC
+PYMF000002,18.08,Pyrenean Mastiff,PYMF000002,NA,Normal,Pass QC
+PYMF000003,18.2,Pyrenean Mastiff,PYMF000003,NA,Normal,Pass QC
+PYMF000004,19.21,Pyrenean Mastiff,PYMF000004,NA,Normal,Pass QC
+PYMF000005,19.36,Pyrenean Mastiff,PYMF000005,NA,Normal,Pass QC
+PYMF000006,18.79,Pyrenean Mastiff,PYMF000006,NA,Normal,Pass QC
+PYSH000001,18.05,Pyrenean Shepherd,PYSH000001,NA,Normal,Pass QC
+PYSH000002,19.55,Great Pyrenees,PYSH000002,NA,Normal,Pass QC
+PYSH000003,19.35,Pyrenean Shepherd,PYSH000003,NA,Normal,Pass QC
+PYSH000004,19.56,Pyrenean Shepherd,PYSH000004,NA,Normal,Pass QC
+PYSH000005,20.23,Pyrenean Shepherd,PYSH000005,NA,Normal,Pass QC
+PYSH000006,19.36,Pyrenean Shepherd,PYSH000006,NA,Normal,Pass QC
+PYSH000007,20.55,Pyrenean Shepherd,PYSH000007,NA,Normal,Pass QC
+PYSH000008,18.75,Pyrenean Shepherd,PYSH000008,NA,Normal,Pass QC
+PYSH000009,19.7,Pyrenean Shepherd,PYSH000009,NA,Normal,Pass QC
+PYSH000010,17.92,Pyrenean Shepherd,PYSH000010,NA,Normal,Pass QC
+PYSH000011,17.58,Pyrenean Shepherd,PYSH000011,NA,Normal,Pass QC
+PYSH000012,19,Pyrenean Shepherd,PYSH000012,NA,Normal,Pass QC
+RABA000002,20.12,Ratonero Bodeguero Andaluz,RABA000002,NA,Normal,Pass QC
+RATT000001,20.23,Rat Terrier,RATT000001,NA,Normal,Pass QC
+RATT000002,20.56,Rat Terrier,RATT000002,NA,Normal,Pass QC
+REDB000001,21.22,Redbone Coonhound,REDB000001,NA,Normal,Pass QC
+REDB000002,18.73,Redbone Coonhound,REDB000002,NA,Normal,Pass QC
+REDB000003,19.27,Redbone Coonhound,REDB000003,NA,Normal,Pass QC
+RHOD000001,19.77,Rhodesian Ridgeback,RHOD000001,NA,Normal,Pass QC
+RHOD000002,18.39,Rhodesian Ridgeback,RHOD000002,NA,Normal,Pass QC
+ROOS000001,19.62,Teddy Roosevelt Terrier,ROOS000001,NA,Normal,Pass QC
+ROOS000002,19.98,Teddy Roosevelt Terrier,ROOS000002,NA,Normal,Pass QC
+RTOY000001,18.24,Russian Toy,RTOY000001,NA,Normal,Pass QC
+RTOY000002,18.13,Russian Toy,RTOY000002,NA,Normal,Pass QC
+RUSH000001,17.72,Russian Hound,RUSH000001,NA,Normal,Pass QC
+RUSH000002,16.97,Russian Hound,RUSH000002,NA,Normal,Pass QC
+RUSH000003,18.71,Russian Hound,RUSH000003,NA,Normal,Pass QC
+RUSH000004,25.75,Russian Hound,RUSH000004,NA,Normal,Pass QC
+RUSH000005,25.09,Russian Hound,RUSH000005,NA,Normal,Pass QC
+RUSH000006,17.02,Russian Hound,RUSH000006,NA,Normal,Pass QC
+RUTY000001,19.24,Russian Toy,RUTY000001,NA,Normal,Pass QC
+RUTY000002,17.43,Russian Toy,RUTY000002,NA,Normal,Pass QC
+RUTY000003,18.66,Russian Toy,RUTY000003,NA,Normal,Pass QC
+RUTY000004,18.42,Russian Toy,RUTY000004,NA,Normal,Pass QC
+RWSE000001,20.42,Irish Red and White Setter,RWSE000001,NA,Normal,Pass QC
+SAAR000001,19.31,Saarloos Wolfdog,SAAR000001,NA,Normal,Pass QC
+SAAR000002,17.55,Saarloos Wolfdog,SAAR000002,NA,Normal,Pass QC
+SAAR000003,17.25,Saarloos Wolfdog,SAAR000003,NA,Normal,Pass QC
+SAAR000004,17.12,Saarloos Wolfdog,SAAR000004,NA,Normal,Pass QC
+SALU000001,22.34,Saluki,SALU000001,NA,Normal,Pass QC
+SALU000002,22.3,Saluki,SALU000002,NA,Normal,Pass QC
+SALU000003,18.39,Saluki,SALU000003,NA,Normal,Pass QC
+SAMO000001,17.56,Samoyed,SAMO000001,NA,Normal,Pass QC
+SAMO000002,18.28,Samoyed,SAMO000002,NA,Normal,Pass QC
+SAMO000003,18.55,Samoyed,SAMO000003,NA,Normal,Pass QC
+SAMO000004,17.88,Samoyed,SAMO000004,NA,Normal,Pass QC
+SARP000001,18.56,Sarplaninac,SARP000001,NA,Normal,Pass QC
+SARP000002,18.51,Sarplaninac,SARP000002,NA,Normal,Pass QC
+SARP000003,17.74,Sarplaninac,SARP000003,NA,Normal,Pass QC
+SARP000004,19.47,Sarplaninac,SARP000004,NA,Normal,Pass QC
+SCPD000001,18.66,Schapendoes,SCPD000001,NA,Normal,Pass QC
+SCPD000002,19.07,Schapendoes,SCPD000002,NA,Normal,Pass QC
+SCPD000003,23.07,Schapendoes,SCPD000003,NA,Normal,Pass QC
+SCPD000004,20.74,Schapendoes,SCPD000004,NA,Normal,Pass QC
+SEAL000001,4.86,Sealyham Terrier,SEAL000001,NA,Normal,Pass QC
+SEAL000002,17.89,Sealyham Terrier,SEAL000002,NA,Normal,Pass QC
+SEAL000003,17.57,Sealyham Terrier,SEAL000003,NA,Normal,Pass QC
+SEAL000004,13.58,Sealyham Terrier,SEAL000004,NA,Normal,Pass QC
+SEAL000005,17.64,Sealyham Terrier,SEAL000005,NA,Normal,Pass QC
+SEAL000006,16.62,Sealyham Terrier,SEAL000006,NA,Normal,Pass QC
+SEAL000007,17.97,Sealyham Terrier,SEAL000007,NA,Normal,Pass QC
+SEAL000008,17.17,Sealyham Terrier,SEAL000008,NA,Normal,Pass QC
+SEAL000009,16.87,Sealyham Terrier,SEAL000009,NA,Normal,Pass QC
+SEAL000010,18.57,Sealyham Terrier,SEAL000010,NA,Normal,Pass QC
+SGGO000001,19.6,Segugio Italiano,SGGO000001,NA,Normal,Pass QC
+SGGO000002,19.92,Segugio Italiano,SGGO000002,NA,Normal,Pass QC
+SGGO000003,18.64,Segugio Italiano,SGGO000003,NA,Normal,Pass QC
+SGGO000004,22.58,Segugio Italiano,SGGO000004,NA,Normal,Pass QC
+SHAR000001,17.1,Chinese Shar-Pei,SHAR000001,NA,Normal,Pass QC
+SHAR000002,17.96,Chinese Shar-Pei,SHAR000002,NA,Normal,Pass QC
+SHAR000003,21.27,Chinese Shar-Pei,SHAR000003,NA,Normal,Pass QC
+SHIB000001,19.13,Shiba Inu,SHIB000001,NA,Normal,Pass QC
+SHIB000002,18.14,Shiba Inu,SHIB000002,NA,Normal,Pass QC
+SHIB000003,17.9,Shiba Inu,SHIB000003,NA,Normal,Pass QC
+SHIH000001,19.93,Shih Tzu,SHIH000001,NA,Normal,Pass QC
+SHIH000002,18.02,Shih Tzu,SHIH000002,NA,Normal,Pass QC
+SHIH000003,17.23,Shih Tzu,SHIH000003,NA,Normal,Pass QC
+SHIH000004,22.85,Shih Tzu,SHIH000004,NA,Normal,Pass QC
+SHIH000005,20.98,Shih Tzu,SHIH000005,NA,Normal,Pass QC
+SHIL000001,18.47,Shiloh Shepherd,SHIL000001,NA,Normal,Pass QC
+SIKU000001,18.57,Shikoku,SIKU000001,NA,Normal,Pass QC
+SILK000001,20.33,Silky Terrier,SILK000001,NA,Normal,Pass QC
+SILK000002,23.95,Silky Terrier,SILK000002,NA,Normal,Pass QC
+SILK000003,18.9,Silky Terrier,SILK000003,NA,Normal,Pass QC
+SILK000004,12.95,Skye Terrier,SILK000004,NA,Normal,Pass QC
+SILK000005,17.64,Skye Terrier,SILK000005,NA,Normal,Pass QC
+SKIP000001,21.67,Schipperke,SKIP000001,NA,Normal,Pass QC
+SKIP000002,19.01,Rhodesian Ridgeback,SKIP000002,NA,Normal,Pass QC
+SKIP000003,18.33,Schipperke,SKIP000003,NA,Normal,Pass QC
+SKIP000004,23.4,Schipperke,SKIP000004,NA,Normal,Pass QC
+SKIP000005,18.67,Schipperke,SKIP000005,NA,Normal,Pass QC
+SKIP000006,18.38,Schipperke,SKIP000006,NA,Normal,Pass QC
+SKWH000001,19.86,Silken Windhound,SKWH000001,NA,Normal,Pass QC
+SKWH000002,17.46,Silken Windhound,SKWH000002,NA,Normal,Pass QC
+SKYE000003,17.35,Skye Terrier,SKYE000003,NA,Normal,Pass QC
+SLAP000001,16.36,Swedish Lapphund,SLAP000001,NA,Normal,Pass QC
+SLAP000002,18.33,Swedish Lapphund,SLAP000002,NA,Normal,Pass QC
+SLAP000003,18.6,Swedish Lapphund,SLAP000003,NA,Normal,Pass QC
+SLCU000001,17.62,Slovak Cuvac,SLCU000001,NA,Normal,Pass QC
+SLCU000002,17.41,Slovak Cuvac,SLCU000002,NA,Normal,Pass QC
+SLCU000003,17.75,Slovak Cuvac,SLCU000003,NA,Normal,Pass QC
+SLCU000004,17.55,Slovak Cuvac,SLCU000004,NA,Normal,Pass QC
+SLCU000005,18.62,Slovak Cuvac,SLCU000005,NA,Normal,Pass QC
+SLCU000006,17.48,Slovak Cuvac,SLCU000006,NA,Normal,Pass QC
+SLCU000007,18.23,Slovak Cuvac,SLCU000007,NA,Normal,Pass QC
+SLKV000001,17.99,Slovensky Kopov,SLKV000001,NA,Normal,Pass QC
+SLKV000002,19.74,Slovensky Kopov,SLKV000002,NA,Normal,Pass QC
+SLOU000001,15.91,Sloughi,SLOU000001,NA,Normal,Pass QC
+SLOU000002,18.76,Sloughi,SLOU000002,NA,Normal,Pass QC
+SLOU000003,18.56,Sloughi,SLOU000003,NA,Normal,Pass QC
+SLWP000001,19.48,Slovakian Wirehaired Pointer,SLWP000001,NA,Normal,Pass QC
+SLWP000002,18.13,Slovakian Wirehaired Pointer,SLWP000002,NA,Normal,Pass QC
+SLWP000003,17.82,Slovakian Wirehaired Pointer,SLWP000003,NA,Normal,Pass QC
+SLWP000004,18.81,Slovakian Wirehaired Pointer,SLWP000004,NA,Normal,Pass QC
+SMCD000001,19.44,Saint Miguel Cattle Dog,SMCD000001,NA,Normal,Pass QC
+SMCD000002,18.39,Saint Miguel Cattle Dog,SMCD000002,NA,Normal,Pass QC
+SMFX000001,19.09,Smooth Fox Terrier,SMFX000001,NA,Normal,Pass QC
+SMFX000002,20.36,Smooth Fox Terrier,SMFX000002,NA,Normal,Pass QC
+SMFX000003,17.51,Smooth Fox Terrier,SMFX000003,NA,Normal,Pass QC
+SMFX000004,16.5,Smooth Fox Terrier,SMFX000004,NA,Normal,Pass QC
+SMFX000005,20.2,Smooth Fox Terrier,SMFX000005,NA,Normal,Pass QC
+SMFX000006,5.04,Smooth Fox Terrier,SMFX000006,NA,Normal,Pass QC
+SMSH000001,17.66,Small Swiss Hound,SMSH000001,NA,Normal,Pass QC
+SMSH000002,16.53,Small Swiss Hound,SMSH000002,NA,Normal,Pass QC
+SMSH000003,16.57,Small Swiss Hound,SMSH000003,NA,Normal,Pass QC
+SMSH000004,17.71,Small Swiss Hound,SMSH000004,NA,Normal,Pass QC
+SMSH000005,19.11,Small Swiss Hound,SMSH000005,NA,Normal,Pass QC
+SMSH000006,16.1,Small Swiss Hound,SMSH000006,NA,Normal,Pass QC
+SMSH000007,17.61,Small Swiss Hound,SMSH000007,NA,Normal,Pass QC
+SMSH000008,18.18,Small Swiss Hound,SMSH000008,NA,Normal,Pass QC
+SMSH000009,18.46,Small Swiss Hound,SMSH000009,NA,Normal,Pass QC
+SMSH000010,19.13,Small Swiss Hound,SMSH000010,NA,Normal,Pass QC
+SMSH000011,18.64,Small Swiss Hound,SMSH000011,NA,Normal,Pass QC
+SMSH000012,18.1,Small Swiss Hound,SMSH000012,NA,Normal,Pass QC
+SPEI000001,18.21,Chinese Shar-Pei,SPEI000001,NA,Normal,Pass QC
+SPEI000002,18.73,Chinese Shar-Pei,SPEI000002,NA,Normal,Pass QC
+SPEI000003,18.81,Chinese Shar-Pei,SPEI000003,NA,Normal,Pass QC
+SPEI000004,20.9,Chinese Shar-Pei,SPEI000004,NA,Normal,Pass QC
+SPEI000005,20.06,Chinese Shar-Pei,SPEI000005,NA,Normal,Pass QC
+SPEI000006,20.49,Chinese Shar-Pei,SPEI000006,NA,Normal,Pass QC
+SPIN000001,20.41,Spinone Italiano,SPIN000001,NA,Normal,Pass QC
+SPIN000002,18.51,Spinone Italiano,SPIN000002,NA,Normal,Pass QC
+SPIN000003,17.82,Spinone Italiano,SPIN000003,NA,Normal,Pass QC
+SPIN000004,22.44,Spinone Italiano,SPIN000004,NA,Normal,Pass QC
+SPIN000005,20.22,Spinone Italiano,SPIN000005,NA,Normal,Pass QC
+SPIN000006,18.52,Spinone Italiano,SPIN000006,NA,Normal,Pass QC
+SPIN000007,17.44,Spinone Italiano,SPIN000007,NA,Normal,Pass QC
+SPIN000008,19.49,Spinone Italiano,SPIN000008,NA,Normal,Pass QC
+SPMT000001,20.88,Spanish Mastiff,SPMT000001,NA,Normal,Pass QC
+SPMT000002,17.72,Spanish Mastiff,SPMT000002,NA,Normal,Pass QC
+SPMT000003,17.73,Spanish Mastiff,SPMT000003,NA,Normal,Pass QC
+SPMT000004,18.3,Spanish Mastiff,SPMT000004,NA,Normal,Pass QC
+SPMT000005,21.07,Spanish Mastiff,SPMT000005,NA,Normal,Pass QC
+SPMT000006,18.12,Spanish Mastiff,SPMT000006,NA,Normal,Pass QC
+SPWD000001,18.24,Spanish Water Dog,SPWD000001,NA,Normal,Pass QC
+SPWD000002,20.64,Spanish Water Dog,SPWD000002,NA,Normal,Pass QC
+SPWD000003,21.73,Spanish Water Dog,SPWD000003,NA,Normal,Pass QC
+SPWD000004,17.3,Spanish Water Dog,SPWD000004,NA,Normal,Pass QC
+SRAB000001,18.06,Sarabi,SRAB000001,NA,Normal,Pass QC
+SRAB000002,19.79,Sarabi,SRAB000002,NA,Normal,Pass QC
+SROV000001,17.94,South Russian Ovcharka,SROV000001,NA,Normal,Pass QC
+SROV000002,18.83,Unknown,SROV000002,NA,Normal,Pass QC
+SROV000003,17.95,South Russian Ovcharka,SROV000003,NA,Normal,Pass QC
+SROV000004,19.01,South Russian Ovcharka,SROV000004,NA,Normal,Pass QC
+SSHP000001,21.26,Shetland Sheepdog,SSHP000001,NA,Normal,Pass QC
+SSHP000002,19.05,Shetland Sheepdog,SSHP000002,NA,Normal,Pass QC
+SSHP000003,18.72,Shetland Sheepdog,SSHP000003,NA,Normal,Pass QC
+SSHP000004,18.94,Shetland Sheepdog,SSHP000004,NA,Normal,Pass QC
+SSNZ000001,18.13,Standard Schnauzer,SSNZ000001,NA,Normal,Pass QC
+STAF000001,18.6,Staffordshire Bull Terrier,STAF000001,NA,Normal,Pass QC
+STAF000002,17.83,Staffordshire Bull Terrier,STAF000002,NA,Normal,Pass QC
+STAF000003,20.09,Staffordshire Bull Terrier,STAF000003,NA,Normal,Pass QC
+STAF000004,18.18,Staffordshire Bull Terrier,STAF000004,NA,Normal,Pass QC
+STAF000005,19.64,Staffordshire Bull Terrier,STAF000005,NA,Normal,Pass QC
+STAF000006,18.8,Staffordshire Bull Terrier,STAF000006,NA,Normal,Pass QC
+STBD000001,17.5,Saint Bernard,STBD000001,NA,Normal,Pass QC
+STBD000002,17.44,Saint Bernard,STBD000002,NA,Normal,Pass QC
+STBD000003,16.4,Saint Bernard,STBD000003,NA,Normal,Pass QC
+STBD000004,17.7,Saint Bernard,STBD000004,NA,Normal,Pass QC
+STBD000005,23.63,Saint Bernard,STBD000005,NA,Normal,Pass QC
+STBD000006,18.9,Saint Bernard,STBD000006,NA,Normal,Pass QC
+STBD000007,23.2,Saint Bernard,STBD000007,NA,Normal,Pass QC
+STBD000008,16.05,Saint Bernard,STBD000008,NA,Normal,Pass QC
+STBD000009,16.49,Saint Bernard,STBD000009,NA,Normal,Pass QC
+STBD000010,20.09,Saint Bernard,STBD000010,NA,Normal,Pass QC
+STBD000011,17.8,Saint Bernard,STBD000011,NA,Normal,Pass QC
+STBD000012,17.57,Saint Bernard,STBD000012,NA,Normal,Pass QC
+STBD000013,17.75,Saint Bernard,STBD000013,NA,Normal,Pass QC
+STBY000001,23.1,Stabyhoun,STBY000001,NA,Normal,Pass QC
+STBY000002,16.99,Stabyhoun,STBY000002,NA,Normal,Pass QC
+STBY000003,17.87,Stabyhoun,STBY000003,NA,Normal,Pass QC
+STBY000004,18.74,Stabyhoun,STBY000004,NA,Normal,Pass QC
+SUSP000001,21.54,Saint-Usuge Spaniel,SUSP000001,NA,Normal,Pass QC
+SUSX000001,17.43,Sussex Spaniel,SUSX000001,NA,Normal,Pass QC
+SUSX000002,16.27,Sussex Spaniel,SUSX000002,NA,Normal,Pass QC
+SUSX000003,16.05,Sussex Spaniel,SUSX000003,NA,Normal,Pass QC
+SUSX000004,19.28,Sussex Spaniel,SUSX000004,NA,Normal,Pass QC
+SUSX000005,16.82,Sussex Spaniel,SUSX000005,NA,Normal,Pass QC
+SUSX000006,20.8,Sussex Spaniel,SUSX000006,NA,Normal,Pass QC
+SVAL000007,17.82,Swedish Vallhund,SVAL000007,NA,Normal,Pass QC
+SVAL000008,20.01,Swedish Vallhund,SVAL000008,NA,Normal,Pass QC
+SVAL000009,19.82,Swedish Vallhund,SVAL000009,NA,Normal,Pass QC
+SVAL000010,18.77,Swedish Vallhund,SVAL000010,NA,Normal,Pass QC
+SWEH000001,20.58,Swedish Elkhound,SWEH000001,NA,Normal,Pass QC
+SWEH000002,18.69,Swedish Elkhound,SWEH000002,NA,Normal,Pass QC
+SWEH000003,18.96,Swedish Elkhound,SWEH000003,NA,Normal,Pass QC
+SWEH000004,20.8,Swedish Elkhound,SWEH000004,NA,Normal,Pass QC
+SWHN000001,17.33,Swiss Hound,SWHN000001,NA,Normal,Pass QC
+SWHN000002,18.38,Swiss Hound,SWHN000002,NA,Normal,Pass QC
+SWHN000003,17.58,Swiss Hound,SWHN000003,NA,Normal,Pass QC
+SWHN000004,20.24,Swiss Hound,SWHN000004,NA,Normal,Pass QC
+SWHN000005,20.16,Swiss Hound,SWHN000005,NA,Normal,Pass QC
+SWHN000006,20.49,Swiss Hound,SWHN000006,NA,Normal,Pass QC
+SWHN000007,17.75,Swiss Hound,SWHN000007,NA,Normal,Pass QC
+SWHN000008,17,Swiss Hound,SWHN000008,NA,Normal,Pass QC
+SWHN000009,20.14,Swiss Hound,SWHN000009,NA,Normal,Pass QC
+SWHN000010,24.07,Swiss Hound,SWHN000010,NA,Normal,Pass QC
+SWHN000011,25.31,Swiss Hound,SWHN000011,NA,Normal,Pass QC
+SWHN000012,22.25,Swiss Hound,SWHN000012,NA,Normal,Pass QC
+SWWE000001,17.86,Swedish White Elkhound,SWWE000001,NA,Normal,Pass QC
+SWWE000002,18.02,Swedish White Elkhound,SWWE000002,NA,Normal,Pass QC
+SWWE000003,16.9,Swedish White Elkhound,SWWE000003,NA,Normal,Pass QC
+SWWE000004,18.28,Swedish White Elkhound,SWWE000004,NA,Normal,Pass QC
+SWWE000005,17.98,Swedish White Elkhound,SWWE000005,NA,Normal,Pass QC
+SWWE000006,17.06,Swedish White Elkhound,SWWE000006,NA,Normal,Pass QC
+SWWE000007,19.8,Swedish White Elkhound,SWWE000007,NA,Normal,Pass QC
+SWWE000008,18.5,Swedish White Elkhound,SWWE000008,NA,Normal,Pass QC
+TAZI000001,19.63,Tazi,TAZI000001,NA,Normal,Pass QC
+TAZI000002,20.1,Tazi,TAZI000002,NA,Normal,Pass QC
+TAZI000003,19.76,Tazi,TAZI000003,NA,Normal,Pass QC
+TERV000001,17.88,Cardigan Welsh Corgi,TERV000001,NA,Normal,Pass QC
+TERV000002,17.24,Belgian Tervuren,TERV000002,NA,Normal,Pass QC
+TERV000003,21.87,Belgian Tervuren,TERV000003,NA,Normal,Pass QC
+TERV000004,18.83,Belgian Tervuren,TERV000004,NA,Normal,Pass QC
+TERV000005,21.17,Belgian Tervuren,TERV000005,NA,Normal,Pass QC
+TERV000006,20.12,Belgian Tervuren,TERV000006,NA,Normal,Pass QC
+THAI000001,17.91,Thai Ridgeback,THAI000001,NA,Normal,Pass QC
+THAI000002,17.2,Thai Ridgeback,THAI000002,NA,Normal,Pass QC
+THAI000003,17.04,Thai Ridgeback,THAI000003,NA,Normal,Pass QC
+THAI000004,19.09,Thai Ridgeback,THAI000004,NA,Normal,Pass QC
+THAI000005,18.85,Thai Ridgeback,THAI000005,NA,Normal,Pass QC
+THAI000006,17.02,Thai Ridgeback,THAI000006,NA,Normal,Pass QC
+THAI000007,16.8,Thai Ridgeback,THAI000007,NA,Normal,Pass QC
+THAI000008,17.6,Thai Ridgeback,THAI000008,NA,Normal,Pass QC
+THAI000009,17.13,Thai Ridgeback,THAI000009,NA,Normal,Pass QC
+TIBS000001,16.88,Tibetan Spaniel,TIBS000001,NA,Normal,Pass QC
+TIBS000002,20.37,Tibetan Spaniel,TIBS000002,NA,Normal,Pass QC
+TIBS000003,11.44,Tibetan Spaniel,TIBS000003,NA,Normal,Pass QC
+TIBS000004,11.26,Tibetan Spaniel,TIBS000004,NA,Normal,Pass QC
+TIBS000005,17.28,Tibetan Spaniel,TIBS000005,NA,Normal,Pass QC
+TIBS000006,19.35,Tibetan Spaniel,TIBS000006,NA,Normal,Pass QC
+TIBS000007,21.01,Tibetan Spaniel,TIBS000007,NA,Normal,Pass QC
+TIBT000001,19.99,Tibetan Terrier,TIBT000001,NA,Normal,Pass QC
+TIBT000002,19.9,Tibetan Terrier,TIBT000002,NA,Normal,Pass QC
+TIBT000003,22.27,Tibetan Terrier,TIBT000003,NA,Normal,Pass QC
+TMSK000001,18.21,Tamaskan,TMSK000001,NA,Normal,Pass QC
+TOSA000001,17.02,Tosa Inu,TOSA000001,NA,Normal,Pass QC
+TOSA000002,17.36,Tosa Inu,TOSA000002,NA,Normal,Pass QC
+TOSA000003,19.33,Tosa Inu,TOSA000003,NA,Normal,Pass QC
+TPOO000001,17.86,Toy Poodle,TPOO000001,NA,Normal,Pass QC
+TPOO000002,20.08,Toy Poodle,TPOO000002,NA,Normal,Pass QC
+TURM000001,18.72,Turkish Mastiff,TURM000001,NA,Normal,Pass QC
+TURM000002,19.71,Turkish Mastiff,TURM000002,NA,Normal,Pass QC
+TURM000003,19.04,Turkish Mastiff,TURM000003,NA,Normal,Pass QC
+TURM000004,20.68,Turkish Mastiff,TURM000004,NA,Normal,Pass QC
+TURM000005,18.78,Turkish Mastiff,TURM000005,NA,Normal,Pass QC
+TWCH000001,17.22,Unknown,TWCH000001,NA,Normal,Pass QC
+TWCH000002,18.38,Treeing Walker Coonhound,TWCH000002,NA,Normal,Pass QC
+TYFX000001,18.49,Toy Fox Terrier,TYFX000001,NA,Normal,Pass QC
+TYFX000002,22.13,Toy Fox Terrier,TYFX000002,NA,Normal,Pass QC
+TYFX000003,22.3,Toy Fox Terrier,TYFX000003,NA,Normal,Pass QC
+TYFX000004,18.26,Toy Fox Terrier,TYFX000004,NA,Normal,Pass QC
+TYFX000005,21,Toy Fox Terrier,TYFX000005,NA,Normal,Pass QC
+TYFX000006,22.44,Toy Fox Terrier,TYFX000006,NA,Normal,Pass QC
+TYFX000007,17.6,Toy Fox Terrier,TYFX000007,NA,Normal,Pass QC
+TYFX000008,19.17,Toy Fox Terrier,TYFX000008,NA,Normal,Pass QC
+TYFX000009,20.19,Toy Fox Terrier,TYFX000009,NA,Normal,Pass QC
+TYFX000010,17.2,Toy Fox Terrier,TYFX000010,NA,Normal,Pass QC
+VIZS000001,19.04,Vizsla,VIZS000001,NA,Normal,Pass QC
+VIZS000002,15.51,Vizsla,VIZS000002,NA,Normal,Pass QC
+VIZS000003,18.2,Vizsla,VIZS000003,NA,Normal,Pass QC
+VIZS000004,19.79,Vizsla,VIZS000004,NA,Normal,Pass QC
+VIZS000005,18.74,Vizsla,VIZS000005,NA,Normal,Pass QC
+VIZS000006,16.98,Vizsla,VIZS000006,NA,Normal,Pass QC
+VIZS000007,18.75,Vizsla,VIZS000007,NA,Normal,Pass QC
+VPIN000001,18.09,Volpino Italiano,VPIN000001,NA,Normal,Pass QC
+VPIN000002,20.09,Volpino Italiano,VPIN000002,NA,Normal,Pass QC
+VPIN000003,20.86,Volpino Italiano,VPIN000003,NA,Normal,Pass QC
+VPIN000004,20.19,Volpino Italiano,VPIN000004,NA,Normal,Pass QC
+VPIN000005,18.79,Volpino Italiano,VPIN000005,NA,Normal,Pass QC
+VPIN000006,18.49,Volpino Italiano,VPIN000006,NA,Normal,Pass QC
+WEIM000001,16.99,Weimaraner,WEIM000001,NA,Normal,Pass QC
+WEIM000002,18.83,Weimaraner,WEIM000002,NA,Normal,Pass QC
+WEIM000003,19.31,Weimaraner,WEIM000003,NA,Normal,Pass QC
+WEIM000004,17.62,Weimaraner,WEIM000004,NA,Normal,Pass QC
+WEIM000005,18.55,Weimaraner,WEIM000005,NA,Normal,Pass QC
+WELT000001,18.16,Welsh Terrier,WELT000001,NA,Normal,Pass QC
+WELT000002,17.85,Welsh Terrier,WELT000002,NA,Normal,Pass QC
+WELT000003,18.69,Welsh Terrier,WELT000003,NA,Normal,Pass QC
+WELT000004,17.81,Welsh Terrier,WELT000004,NA,Normal,Pass QC
+WELT000005,21.42,Welsh Terrier,WELT000005,NA,Normal,Pass QC
+WELT000006,1.66,Welsh Terrier,WELT000006,NA,Normal,Pass QC
+WHIP000001,20.26,Whippet,WHIP000001,NA,Normal,Pass QC
+WHIP000002,19.31,Whippet,WHIP000002,NA,Normal,Pass QC
+WHIP000003,19.09,Whippet,WHIP000003,NA,Normal,Pass QC
+WHIP000004,19.11,Whippet,WHIP000004,NA,Normal,Pass QC
+WHIP000005,17.57,Whippet,WHIP000005,NA,Normal,Pass QC
+WHIP000006,21.24,Whippet,WHIP000006,NA,Normal,Pass QC
+WHPG000001,19.99,Wirehaired Pointing Griffon,WHPG000001,NA,Normal,Pass QC
+WHPG000002,20.31,Wirehaired Pointing Griffon,WHPG000002,NA,Normal,Pass QC
+WHPG000003,17.53,Wirehaired Pointing Griffon,WHPG000003,NA,Normal,Pass QC
+WHPG000004,19.97,Wirehaired Pointing Griffon,WHPG000004,NA,Normal,Pass QC
+WHPG000005,19.12,Wirehaired Pointing Griffon,WHPG000005,NA,Normal,Pass QC
+WHPG000006,18.84,Wirehaired Pointing Griffon,WHPG000006,NA,Normal,Pass QC
+WIFX000001,17.88,Wire Fox Terrier,WIFX000001,NA,Normal,Pass QC
+WIFX000002,22.35,Wire Fox Terrier,WIFX000002,NA,Normal,Pass QC
+WSSD000003,19.9,White Swiss Shepherd Dog,WSSD000003,NA,Normal,Pass QC
+WSSD000004,19.76,White Swiss Shepherd Dog,WSSD000004,NA,Normal,Pass QC
+WSSD000005,20.11,White Swiss Shepherd Dog,WSSD000005,NA,Normal,Pass QC
+WSSD000006,16.38,White Swiss Shepherd Dog,WSSD000006,NA,Normal,Pass QC
+WSSD000007,25.47,White Swiss Shepherd Dog,WSSD000007,NA,Normal,Pass QC
+WSSD000008,22.33,White Swiss Shepherd Dog,WSSD000008,NA,Normal,Pass QC
+WSSD000009,20.99,White Swiss Shepherd Dog,WSSD000009,NA,Normal,Pass QC
+WSSD000010,24.53,White Swiss Shepherd Dog,WSSD000010,NA,Normal,Pass QC
+WSSP000001,13.49,Welsh Springer Spaniel,WSSP000001,NA,Normal,Pass QC
+WSSP000002,22.61,Welsh Springer Spaniel,WSSP000002,NA,Normal,Pass QC
+WSSP000003,19.71,Welsh Springer Spaniel,WSSP000003,NA,Normal,Pass QC
+WSSP000004,17.57,Welsh Springer Spaniel,WSSP000004,NA,Normal,Pass QC
+WSSP000005,18.06,Welsh Springer Spaniel,WSSP000005,NA,Normal,Pass QC
+XOLO000001,14.93,Xoloitzcuintli,XOLO000001,NA,Normal,Pass QC
+XOLO000002,11.13,Xoloitzcuintli,XOLO000002,NA,Normal,Pass QC
+XOLO000003,17.19,Xoloitzcuintli,XOLO000003,NA,Normal,Pass QC
+XOLO000004,17.63,Xoloitzcuintli,XOLO000004,NA,Normal,Pass QC
+XOLO000005,16.96,Xoloitzcuintli,XOLO000005,NA,Normal,Pass QC
+XOLO000006,18.85,Xoloitzcuintli,XOLO000006,NA,Normal,Pass QC
+XOLO000007,21.24,Xoloitzcuintli,XOLO000007,NA,Normal,Pass QC
+YORK000001,18.24,Yorkshire Terrier,YORK000001,NA,Normal,Pass QC
+YORK000002,17.65,Yorkshire Terrier,YORK000002,NA,Normal,Pass QC
+YORK000003,18.67,Yorkshire Terrier,YORK000003,NA,Normal,Pass QC
+YORK000004,17.93,Yorkshire Terrier,YORK000004,NA,Normal,Pass QC
+YORK000005,18.77,Yorkshire Terrier,YORK000005,NA,Normal,Pass QC
+ZAGR000001,21.59,Zagar,ZAGR000001,NA,Normal,Pass QC
+ZAGR000002,23.57,Zagar,ZAGR000002,NA,Normal,Pass QC
+ZAGR000003,23.19,Zagar,ZAGR000003,NA,Normal,Pass QC
+ZAGR000004,22.14,Zagar,ZAGR000004,NA,Normal,Pass QC
+ZAGR000005,18.76,Zagar,ZAGR000005,NA,Normal,Pass QC
+ZAGR000006,19.68,Zagar,ZAGR000006,NA,Normal,Pass QC
+ZAGR000007,21.23,Zagar,ZAGR000007,NA,Normal,Pass QC
+ZAGR000008,19.46,Zagar,ZAGR000008,NA,Normal,Pass QC
+ZERD000001,19.12,Turkish Zerdava,ZERD000001,NA,Normal,Pass QC
+ZERD000002,19.36,Turkish Zerdava,ZERD000002,NA,Normal,Pass QC
+ZERD000003,20.12,Turkish Zerdava,ZERD000003,NA,Normal,Pass QC
+ZERD000004,19.22,Turkish Zerdava,ZERD000004,NA,Normal,Pass QC
