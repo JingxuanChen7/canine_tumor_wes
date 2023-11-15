@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --partition=iob_p
-#SBATCH --job-name=phylogenetics
+#SBATCH --job-name=wgs_master
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --tasks-per-node=8
@@ -8,11 +8,11 @@
 #SBATCH --time=500:00:00
 #SBATCH --mail-user=jc33471@uga.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --output=/scratch/jc33471/canine_tumor/wgs_breed_prediction/vcf/temp.out
+#SBATCH --output=/scratch/jc33471/canine_tumor/wgs_breed_prediction/wgs_master.out
 
 CONDA_BASE=$(conda info --base)
 source ${CONDA_BASE}/etc/profile.d/conda.sh
-conda activate phylogenetics
+conda activate wes_env
 
 project_dir="/home/${USER}/canine_tumor_wes"
 run_dir="/scratch/${USER}/canine_tumor/wgs_breed_prediction"
@@ -20,9 +20,37 @@ breed_dir="/home/${USER}/breed_prediction"
 mkdir -p ${run_dir}
 cd ${run_dir}
 
-mkdir -p vcf/ merge_vcf/
+mkdir -p vcf/ merge_vcf/ logs/
 
-cd $run_dir/vcf
+# cd $run_dir/vcf
+
+config="/home/jc33471/canine_tumor_wes/scripts/wgs/config.json"
+
+snakemake \
+    -np \
+    --jobs 200 \
+    --use-conda \
+    --latency-wait 60 \
+    --keep-going \
+    --rerun-incomplete \
+    --snakefile "${project_dir}/scripts/wgs/Snakefile" \
+    --configfile ${config} \
+    --rerun-triggers mtime \
+    --cluster-cancel 'scancel' \
+    --cluster '
+        sbatch \
+            --partition=batch \
+            --nodes=1 \
+            --ntasks={threads} \
+            --tasks-per-node={threads} \
+            --mem={resources.mem} \
+            --time=72:00:00 \
+            --parsable \
+            --mail-user=jc33471@uga.edu \
+            --mail-type=FAIL \
+            --output=logs/slurm-%j.o \
+            --error=logs/slurm-%j.e'
+
 
 # dog10K
 # wget -O $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs.vcf.gz "https://kiddlabshare.med.umich.edu/dog10K/SNP_and_indel_calls_2021-10-17/AutoAndXPAR.SNPs.vqsr99.vcf.gz"
@@ -92,17 +120,27 @@ for chr in `cat $run_dir/vcf/canfam3_chr.txt`; do
         R="/work/szlab/Lab_shared_PanCancer/source/canFam3.fa"
 
 done
-picard -Xmx60G LiftoverVcf \
-    I=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing.vcf.gz \
-    O=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover.vcf.gz \
-    CHAIN=${run_dir}/vcf/canFam4ToCanFam3.over.chain.gz \
-    REJECT=${run_dir}/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_rejected_variants.vcf.gz \
-    WARN_ON_MISSING_CONTIG=true \
-    R="/work/szlab/Lab_shared_PanCancer/source/canFam3.fa"
 
-# bcftools +liftover \
-#   POPRES_Genotypes_QC2_v2_VCF.vcf \
-#   -- \
-#   -s hg18.fa \
-#   -f hg38.fa \
-#   -c hg18ToHg38.over.chain.gz
+
+bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%VAF]\n' -o $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover.vaf.txt \
+    $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover.vcf.gz
+
+bcftools view --threads ${SLURM_NTASKS} \
+    -S $run_dir/merge_vcf/breedSample.list --force-samples \
+    $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_chr1:1-10000001.vcf.gz |\
+bcftools +fill-tags - -O z --threads $SLURM_NTASKS -o $run_dir/merge_vcf/test.vcf.gz -- -t FORMAT/VAF 
+
+bcftools query -f '%CHROM\t%POS\t%REF\t%ALT[\t%VAF]\n' -o $run_dir/merge_vcf/test.vaf_matrix.txt
+
+bcftools query -l $run_dir/merge_vcf/test.vcf.gz | sed '1i Chromosome\nPosition\nRef\nAlt' | awk 'BEGIN{ORS="\t"}{print}' | sed 's/\t$/\n/' > $run_dir/merge_vcf/test_header.txt
+cat $run_dir/merge_vcf/test_header.txt $run_dir/merge_vcf/test.vaf_matrix.txt > $run_dir/merge_vcf/test.vaf_matrix.header.txt
+awk 'BEGIN{FS=",";OFS="\t"}{print $1,$3,$4,$5,$6,$7}' "/home/jc33471/canine_tumor_wes/metadata/WGS/Dog10K_breeds.csv" > $run_dir/merge_vcf/breed_prediction_metadata.txt
+
+time python /home/jc33471/canine_tumor_wes/scripts/wgs/vaf_matrix.py \
+    test.vcf.gz \
+    py_vaf_matrix.header.txt.gz \
+    8 \
+    "60G"
+
+awk '{if($1=="None"){split($2,locus,":"); split($3,mut,">"); print locus[1]"\t"locus[2]"\t"mut[1]"\t"mut[2]}}' test_specific.txt > test_specific_reformat.txt
+zgrep -f test_specific_reformat.txt py_vaf_matrix.header.txt.gz >  py_vaf_matrix.header.breed.txt

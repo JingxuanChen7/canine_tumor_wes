@@ -1,0 +1,19 @@
+{
+    "project_dir": "/home/jc33471/canine_tumor_wes",
+    "in": {
+        "ref": "/work/szlab/Lab_shared_PanCancer/source/canFam3.fa",
+        "metatable": "/home/jc33471/canine_tumor_wes/metadata/WGS/Dog10K_breeds.csv"
+    },
+    "out": {
+        "outdir": "/scratch/jc33471/canine_tumor/wgs_breed_prediction"
+    },
+    "resources": {
+        "threads": 8,
+        "mem": "60G"
+    },
+    "envs": {
+        "phylogenetics": "phylogenetics"
+    },
+    "scripts": {
+    }
+}
