@@ -170,6 +170,77 @@ snakemake \
 - After QC finished, create dot plots and update metadata to include QC results with r script `scripts/qc/combine_qc_table.R`.
   - Note: One additional step of QC is to exclude outliers in phylogenetic analysis. The list of samples should be manually provided in the r script.
 
+## An example to test individual snakefiles
+```bash
+#!/bin/bash
+#SBATCH --partition=iob_p
+#SBATCH --job-name=test_per_case
+#SBATCH --nodes=1
+#SBATCH --ntasks=8
+#SBATCH --tasks-per-node=8
+#SBATCH --mem=60G
+#SBATCH --time=500:00:00
+#SBATCH --mail-user=jc33471@uga.edu
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --output=/scratch/jc33471/canine_tumor/test_per_case.out
+
+CONDA_BASE=$(conda info --base)
+source ${CONDA_BASE}/etc/profile.d/conda.sh
+conda activate wes_env
+
+project_dir="/home/${USER}/canine_tumor_wes"
+run_dir="/scratch/${USER}/canine_tumor"
+mkdir -p ${run_dir}
+cd ${run_dir}
+mkdir -p logs/ config/ data/ out/ results/
+
+#### test WES germline calling pipeline per case
+config=$run_dir/config/test.json
+
+python ${project_dir}/scripts/per_case/make_snakemake_config.py \
+    --project_dir ${project_dir} \
+    --out ${config} \
+    --outdir ${run_dir} \
+    --Bioproject "PRJEB53653" \
+    --Normal_Run "ERR9923018" \
+    --Tumor_Run "ERR9923074" \
+    --CaseName "24" \
+    --threads 8 \
+    --memory "60G"
+
+snakemake \
+    --cores ${SLURM_NTASKS} \
+    --use-conda \
+    --rerun-incomplete \
+    --rerun-triggers mtime \
+    --configfile ${config} \
+    --snakefile "${project_dir}/scripts/per_case/Snakefile"
+
+
+### test QC
+config=$run_dir/config/test_qc.json
+
+python ${project_dir}/scripts/qc/make_snakemake_config.py \
+    --project_dir ${project_dir} \
+    --out ${config} \
+    --outdir ${run_dir} \
+    --Bioproject "PRJEB53653" \
+    --Normal_Run "ERR9923018" \
+    --Tumor_Run "ERR9923074" \
+    --CaseName "24" \
+    --metadata ${project_dir}/metadata/data_collection_new.csv \
+    --readlength ${project_dir}/metadata/data_new_readlength.csv \
+    --threads 8 \
+    --memory "60G"
+
+snakemake \
+    --cores ${SLURM_NTASKS} \
+    --use-conda \
+    --rerun-incomplete \
+    --rerun-triggers mtime \
+    --configfile ${config} \
+    --snakefile ${project_dir}"/scripts/qc/Snakefile"
+```
 
 # Breed prediction pipeline
 ## Combining individual VCF files into MAF matrix
