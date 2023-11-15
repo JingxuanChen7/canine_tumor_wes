@@ -8,8 +8,10 @@ meta_dir <- "~/Github/canine_tumor_wes/metadata"
 dog10K <- read_excel(paste0(meta_dir, "/WGS/Dog10K_supp_table.xlsx"), skip = 2) %>%
   filter(Category == "Breed_Dogs") %>%
   select(c("Sample Name","Effective Autosomal Mean Coverage","Breed/Type")) %>%
-  rename("Case_ID" = "Sample Name", "Coverage" = "Effective Autosomal Mean Coverage", "Breed" = "Breed/Type")
+  rename("Sample_id" = "Sample Name", "Coverage" = "Effective Autosomal Mean Coverage", "Breed" = "Breed/Type") %>%
+  mutate(SampleName = Sample_id, DiseaseAcronym = "NA", Status = "Normal", The_reason_to_exclude = "Pass QC")
 
+write.csv(dog10K, file = paste0(meta_dir, "/WGS/Dog10K_breeds.csv"), quote = F, row.names = F)
 
 
 nih <- read_excel(paste0(meta_dir, "/WGS/NIH_supp.xlsx"), skip = 1) %>%
