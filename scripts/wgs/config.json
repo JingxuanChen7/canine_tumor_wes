@@ -2,7 +2,8 @@
     "project_dir": "/home/jc33471/canine_tumor_wes",
     "in": {
         "ref": "/work/szlab/Lab_shared_PanCancer/source/canFam3.fa",
-        "metatable": "/home/jc33471/canine_tumor_wes/metadata/WGS/Dog10K_breeds.csv"
+        "metatable": "/home/jc33471/canine_tumor_wes/metadata/WGS/Dog10K_breeds.csv",
+        "interval": "/work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval_list"
     },
     "out": {
         "outdir": "/scratch/jc33471/canine_tumor/wgs_breed_prediction"
@@ -12,7 +13,8 @@
         "mem": "60G"
     },
     "envs": {
-        "phylogenetics": "phylogenetics"
+        "phylogenetics": "phylogenetics",
+        "breed_prediction": "breed_prediction"
     },
     "scripts": {
     }

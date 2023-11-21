@@ -30,13 +30,12 @@ grep -f <(cut -d, -f1 ${project_dir}/metadata/data_collection_new_renamed.csv | 
 # tumor or normal only samples
 grep -f <(cut -d, -f1 ${project_dir}/metadata/data_collection_new_renamed.csv | sort | uniq -u) ${project_dir}/metadata/data_collection_new_renamed.csv > ${run_dir}/unpaired_new_meta.csv
 
-# I want to exclude UC SI samples for now, because the runs have not been completed
-cat ${project_dir}/metadata/data_collection_old.csv ${run_dir}/paired_new_meta.csv | grep -v "UC SI" > ${metadata}
-cat ${project_dir}/metadata/data_collection_old.csv ${run_dir}/paired_new_meta.csv ${run_dir}/unpaired_new_meta.csv | grep -v "UC SI" > ${metadata_wunpaired}
+cat ${project_dir}/metadata/data_collection_old.csv ${run_dir}/paired_new_meta.csv  > ${metadata}
+cat ${project_dir}/metadata/data_collection_old.csv ${run_dir}/paired_new_meta.csv ${run_dir}/unpaired_new_meta.csv > ${metadata_wunpaired}
 
 ##### create input file list #####
 ## backup file list (runs before 2021)
-backup="/scratch/jc33471/canine_tumor/phylogenetics/merge_vcf/backup_vcf_file.list"
+backup="/home/jc33471/canine_tumor_wes/metadata/backup_vcf_file.list"
 ## annovar
 grep "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf-PASS-avinput.exonic_variant_function_WithGeneName" ${backup} |\
   awk '{print "/scratch/jc33471/canine_tumor/phylogenetics/vcf"$0}' \
@@ -75,7 +74,7 @@ python ${project_dir}/scripts/breed_prediction/create_file_list.py \
   --output ${run_dir}/annovar_file_list_paired.txt \
   --vcfout ${run_dir}/vcf_file_list_paired.txt
 
-## reformat annovar file list, only paired
+## reformat annovar file list, with unpaired
 python ${project_dir}/scripts/breed_prediction/create_file_list.py \
   --metatable ${metadata_wunpaired} \
   --filelist ${run_dir}/all_annovar.txt \
@@ -139,7 +138,7 @@ Rscript --vanilla ${project_dir}/scripts/breed_prediction/reformat_meta_text.R \
   ${run_dir}/breed_prediction_metadata.txt \
   ${run_dir}/breed_prediction_cases.txt
 
-awk 'BEGIN{FS=OFS="\t"}{if ($6 ~ "Pass QC" && $5 == "Normal") print $4}' ${run_dir}/breed_prediction_cases.txt | sort | uniq -c | sort -n
+# awk 'BEGIN{FS=OFS="\t"}{if ($6 ~ "Pass QC" && $5 == "Normal") print $4}' ${run_dir}/breed_prediction_cases.txt | sort | uniq -c | sort -n
 
 mkdir -p ${run_dir}"/output_exclude_WGS"
 
@@ -155,9 +154,9 @@ mkdir -p ${run_dir}"/output_exclude_WGS"
 Rscript --vanilla ${project_dir}/scripts/breed_prediction/breed_specific_variants.R \
   ${project_dir}/scripts/breed_prediction/build_sample_meta_data.R \
   ${out_reset_low_coverage}".gz" \
-  ${run_dir}"/output_exclude_WGS/breed_unique_variants_clean.txt" \
-  ${run_dir}"/output_exclude_WGS/breed_enriched_variants_clean.txt" \
-  ${run_dir}"/output_exclude_WGS/all_breed_specific_variants_clean.txt" \
+  ${run_dir}"/output_exclude_WGS/breed_unique_variants.txt" \
+  ${run_dir}"/output_exclude_WGS/breed_enriched_variants.txt" \
+  ${run_dir}"/output_exclude_WGS/all_breed_specific_variants.txt" \
   ${run_dir}"/breed_prediction_metadata.txt" \
   "Yorkshire Terrier" "Shih Tzu" "Poodle" "Maltese" "Rottweiler" "Greyhound" "Golden Retriever" "Cocker Spaniel" "Boxer" "Schnauzer" "Labrador Retriever" "Boston Terrier"
   

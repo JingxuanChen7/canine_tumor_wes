@@ -37,7 +37,7 @@ seperator <- "/"
 # modify directory for I/O files and scripts
 #file_base_dir <- "/scratch/jc33471/canine_tumor_test/breed_prediction"
 #script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
-file_base_dir <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf"
+file_base_dir <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction"
 script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
 ############ Script customization parameters ########################
 # You may modify these parameters as desired
@@ -49,7 +49,7 @@ examined_breeds <- c('Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound
                      'Petit Basset Griffon Vendeen','Pyrenean Shepherd','Small Munsterlander',
                      'White Swiss Shepherd Dog','Bernese Mountain Dog','Bouvier des Flandres',
                      'English Toy Terrier','Greater Swiss Mountain Dog','Sealyham Terrier',
-                     'Smooth Fox Terrier','Toy Fox Terrier')
+                     'Smooth Fox Terrier','Toy Fox Terrier','Vizsla')
 #breed_pallete <- c("lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","#c2b280","green",
 #                   "lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","#c2b280","green");
 
@@ -58,12 +58,14 @@ breed_pallete <- glasbey.colors(24)
 # breed_pallete <- c("lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","black");
 
 breed_order <- 1:24; # This will define the order of which heatmap breed color legends will be displayed
-cancer_types <- c("MT", "OM", "HSA","BCL","TCL","UCL", "OSA", "GLM");
-disease_order <- c(1:8); # This will define the order of which heatmap disease color legends will be displayed
+#cancer_types <- c("MT", "OM", "HSA","BCL","TCL","UCL", "OSA", "GLM");
+#disease_order <- c(1:8); # This will define the order of which heatmap disease color legends will be displayed
 # See Glasbey palette "Polychrome: Creating and Assessing Qualitative Palettes With Many Colors" (https://www.biorxiv.org/content/10.1101/303883v1.full)
-cancer_pallete <- c("blue", "#FF00B6", "#009EFF", "#6f4e37", "#9A4D43", "black", "#FFD300","red","#000032");
+#cancer_pallete <- c("blue", "#FF00B6", "#009EFF", "#6f4e37", "#9A4D43", "black", "#FFD300","red","#000032");
 # See Kelly palette "Polychrome: Creating and Assessing Qualitative Palettes With Many Colors" (https://www.biorxiv.org/content/10.1101/303883v1.full)
 
+# random seed for sampling
+set.seed(4567);
 
 ############ code dependency paths ########################
 # Code to build sample meta data
@@ -71,22 +73,26 @@ build_meta_data_code_path <- paste(script_dir, "build_sample_meta_data.R", sep=s
 
 ############ Input and output paths ########################
 # Please modify these file paths as needed
+region <- "concat"
 
-output_base <- paste(file_base_dir, sep=seperator);
+output_base <- paste(file_base_dir,"breed_variants",region, sep=seperator);
 
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
-VAF_input_file <- paste(file_base_dir,"py_vaf_matrix.header.txt.gz", sep=seperator);
+VAF_input_file <- paste0(file_base_dir,"/vaf_matrix/",region,".breed_specific.vaf_matrix.txt.gz");
 # Input file containing all breed-specific variants
-specific_variants_file <- paste(output_base, "test_specific.txt", sep=seperator);
-# Input file containing all samples meta data
-meta_data_file <- paste(file_base_dir,"breed_prediction_metadata.txt", sep=seperator);
 
-output_png1 <- paste(output_base, "breeds_heatmap_main_beforeQC.png", sep=seperator); # this heatmap won't contain samples with unknown breeds
-output_png2 <- paste(output_base, "breeds_heatmap_assignment_beforeQC.png", sep=seperator); # this heatmap will contain samples with unknown breeds
+specific_variants_file <- paste0(file_base_dir,"/breed_variants/",region,"/breed_specific_variants_CDS.txt");
+# Input file containing all samples meta data
+meta_data_file <- paste(file_base_dir,"/breed_variants/breed_prediction_metadata.txt", sep=seperator);
+
+output_png1 <- paste(output_base, "breeds_heatmap_wgsmain_CDS_beforeQC.png", sep=seperator); # this heatmap won't contain samples with unknown breeds
+output_png2 <- paste(output_base, "breeds_heatmap_wgsassignment_beforeQC.png", sep=seperator); # this heatmap will contain samples with unknown breeds
 output_png <- c(output_png1, output_png2);
 # output_clusters files will have the list of samples ordered as they appear in the heatmaps (used for supplementary tables and breed validation/prediction results)
 output_clusters <- c(paste(output_base, "main_clusters.txt", sep=seperator), 
                      paste(output_base, "assignment_clusters.txt", sep=seperator));
+
+versions <- c(1)
 
 ################ Main code ############################
 
@@ -94,6 +100,7 @@ VAF_data <- fread(VAF_input_file, header=F, sep="\t")
 VAF_data <- setDF(VAF_data)
 #, check.names=F, stringsAsFactors=F);
 specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t", check.names=F, stringsAsFactors=F);
+#specific_variants_data <- specific_variants_data[sample(nrow(specific_variants_data), 10000), ]
 
 ### building meta_data data frame
 source(build_meta_data_code_path);
@@ -149,8 +156,7 @@ heatmap_variants <- apply(specific_variants_data, 1, function(x) {text_tokens_to
 heatmap_variants <- intersect(heatmap_variants, rownames(normal_VAF_data));
 
 heatmap_data_list <- list();
-set.seed(4567);
-for(heatmap_version in c(1,2)) {
+for(heatmap_version in versions) {
   heatmap_samples <- sample_list[[heatmap_version]];
   # building the heatmap data and removing bad samples
   heatmap_data <- normal_VAF_data[heatmap_variants, heatmap_samples];
@@ -168,8 +174,8 @@ for(heatmap_version in c(1,2)) {
 # This variable is for debugging only (it will store the sample order for each heatmap)
 backup_samples <- list();
 
-
-for(heatmap_version in c(1,2)) {
+# no breed missing samples
+for(heatmap_version in versions) {
   heatmap_data <- heatmap_data_list[[heatmap_version]];
   heatmap_samples <- colnames(heatmap_data);
   

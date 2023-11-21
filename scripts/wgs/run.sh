@@ -51,6 +51,15 @@ snakemake \
             --output=logs/slurm-%j.o \
             --error=logs/slurm-%j.e'
 
+snakemake \
+    -p \
+    --latency-wait 60 \
+    --cores ${SLURM_NTASKS} \
+    --rerun-incomplete \
+    --rerun-triggers mtime \
+    --use-conda \
+    --configfile ${config} \
+    --snakefile "${project_dir}/scripts/wgs/Snakefile"
 
 # dog10K
 # wget -O $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs.vcf.gz "https://kiddlabshare.med.umich.edu/dog10K/SNP_and_indel_calls_2021-10-17/AutoAndXPAR.SNPs.vqsr99.vcf.gz"
@@ -144,3 +153,23 @@ time python /home/jc33471/canine_tumor_wes/scripts/wgs/vaf_matrix.py \
 
 awk '{if($1=="None"){split($2,locus,":"); split($3,mut,">"); print locus[1]"\t"locus[2]"\t"mut[1]"\t"mut[2]}}' test_specific.txt > test_specific_reformat.txt
 zgrep -f test_specific_reformat.txt py_vaf_matrix.header.txt.gz >  py_vaf_matrix.header.breed.txt
+
+Rscript --vanilla /home/jc33471/canine_tumor_wes/scripts/wgs/breed_specific_variants_wgs.R             /home/jc33471/canine_tumor_wes/scripts/breed_prediction/build_sample_meta_data.R             /scratch/jc33471/canine_tumor/wgs_breed_prediction/vaf_matrix/chr34:40000001-42124431.vaf_matrix.txt.gz             /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/chr34:40000001-42124431/breed_unique_variants_chr34:40000001-42124431.txt             /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/chr34:40000001-42124431/breed_enriched_variants_chr34:40000001-42124431.txt             /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/chr34:40000001-42124431/breed_specific_variants_chr34:40000001-42124431.txt             /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/breed_prediction_metadata.txt             params.breedlist &> /scratch/jc33471/canine_tumor/wgs_breed_prediction/logs/breed_specific_idenfication_chr34:40000001-42124431.log
+
+bcftools concat --threads ${SLURM_NTASKS} --allow-overlaps \
+    -o $run_dir/merge_vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftoverConcat.vcf.gz -O z \
+    $(ls $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_*.vcf.gz | grep -v "rejected_variants" | sort -V)
+
+grep -v "NA>NA" breed_specific_variants_concat.txt |\
+    sed '1d' |\
+    awk 'BEGIN{FS=OFS="\t"}{split($2,locus,":"); split($3,mut,">"); print locus[1],locus[2]-1,locus[2],mut[1],mut[2],$5}' |\
+    sort -t $'\t' -V -k 1.4,1  -k 2,2  > sorted_breed_specific_variants_concat.txt
+
+awk -F '[:-]' '{print $1"\t"$2"\t"$3}' /work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval_list |\
+    sort -t $'\t' -V -k 1.4,1  -k 2,2 -k 3,3 |\
+    uniq > sorted_canfam3_cds.txt
+
+module load BEDTools/2.30.0-GCC-12.2.0
+bedtools intersect -a sorted_breed_specific_variants_concat.txt -b sorted_canfam3_cds.txt -sorted |\
+    awk 'BEGIN{FS=OFS="\t"}{print "None",$1":"$3,$4">"$5,"None",$6}' 
+head -n1 breed_specific_variants_concat.txt

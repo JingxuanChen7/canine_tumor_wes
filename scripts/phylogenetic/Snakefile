@@ -7,66 +7,66 @@ rule all:
 
 breedlist = ['Shih Tzu','Schnauzer','Golden Retriever','Rottweiler','Greyhound','Maltese','Yorkshire Terrier','Boxer','Poodle','Cocker Spaniel', "Labrador Retriever", "Boston Terrier"]
 
-# rule create_gz_index:
-#     input:
-#         vcf="{file}"
-#     output:
-#         rename=temp("{file}rename_samples_vcf.txt"),
-#         reheader_gz="{file}.reheader.gz",
-#         index="{file}.reheader.gz.csi"
-#     params:
-#         reheader="{file}.reheader"
-#     threads:
-#         1
-#     conda:
-#         config['envs']['phylogenetics']
-#     shell:
-#         '''
-#         rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
-#         sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
-#         echo "${{sample_name}}" > {output.rename}
-#         bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {params.reheader}
-#         bgzip --force --threads {threads} {params.reheader}
-#         bcftools index --threads {threads} {output.reheader_gz}
-#         echo "Compressed and indexed {input.vcf}"
-#         '''
+rule create_gz_index:
+    input:
+        vcf="{file}"
+    output:
+        rename=temp("{file}rename_samples_vcf.txt"),
+        reheader_gz="{file}.reheader.gz",
+        index="{file}.reheader.gz.csi"
+    params:
+        reheader="{file}.reheader"
+    threads:
+        1
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
+        sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
+        echo "${{sample_name}}" > {output.rename}
+        bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {params.reheader}
+        bgzip --force --threads {threads} {params.reheader}
+        bcftools index --threads {threads} {output.reheader_gz}
+        echo "Compressed and indexed {input.vcf}"
+        '''
 
 
 
-# rule merge_vcfs:
-#     input:
-#         vcf=expand("{file}.reheader.gz", file=config['in']['vcffiles']),
-#         index=expand("{file}.reheader.gz.csi", file=config['in']['vcffiles'])
-#     output:
-#         merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
-#     threads:
-#         config['resources']['threads']
-#     conda:
-#         config['envs']['phylogenetics']
-#     shell:
-#         '''
-#         bcftools merge --threads {threads} -Oz \
-#             --force-samples --missing-to-ref \
-#             -o {output.merged_vcf} \
-#             {input.vcf}
-#         '''
+rule merge_vcfs:
+    input:
+        vcf=expand("{file}.reheader.gz", file=config['in']['vcffiles']),
+        index=expand("{file}.reheader.gz.csi", file=config['in']['vcffiles'])
+    output:
+        merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
+    threads:
+        config['resources']['threads']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools merge --threads {threads} -Oz \
+            --force-samples --missing-to-ref \
+            -o {output.merged_vcf} \
+            {input.vcf}
+        '''
 
-# rule filter_merged_vcf:
-#     input:
-#         merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
-#     output:
-#         filtered_vcf=config['out']['outdir']+"/all_merged_germline_variants_SNP.vcf.gz"
-#     threads:
-#         config['resources']['threads']
-#     conda:
-#         config['envs']['phylogenetics']
-#     shell:
-#         '''
-#         bcftools view --threads {threads} -Oz \
-#             -f PASS --types snps \
-#             -o {output.filtered_vcf} \
-#             {input.merged_vcf}
-#         '''
+rule filter_merged_vcf:
+    input:
+        merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
+    output:
+        filtered_vcf=config['out']['outdir']+"/all_merged_germline_variants_SNP.vcf.gz"
+    threads:
+        config['resources']['threads']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools view --threads {threads} -Oz \
+            -f PASS --types snps \
+            -o {output.filtered_vcf} \
+            {input.merged_vcf}
+        '''
 
 # sampleSet = ['breedSample', 'breedPlusMissingSample']
 # sample list inferred from metatable, contains duplicates

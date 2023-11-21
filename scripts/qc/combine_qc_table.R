@@ -26,7 +26,7 @@ wes_qc_meta <- left_join(meta, qc_combine, by = c("Sample_ID" = "File_name")) %>
                                         Uniq_mapped_rate < 0.5 ~ "Uniq mapping rate < 0.5",
                                         Uniq_Exonic_region_mapped_rate < 0.3 ~ "Unique CDS mapping rate < 0.3",
                                         average < 30 ~ "coverage < 30",
-                                        Sample_ID %in% sample_to_exclude ~ "phylogeny outlier",
+                                        #Sample_ID %in% sample_to_exclude ~ "phylogeny outlier",
                                         is.na(Total_Pairs) ~ "fail pipeline",
                                         TRUE ~ "Pass QC"
                                       )) 

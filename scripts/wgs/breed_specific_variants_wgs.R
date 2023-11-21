@@ -39,19 +39,19 @@ if (length(args) < 7) {
 }
 
 # for debug
-build_meta_data_code_path <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction/build_sample_meta_data.R"
-VAF_input_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf/test.vaf_matrix.header.txt"
-unique_variants_output_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf/test_unique.txt"
-enriched_variants_output_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf/test_enriched.txt"
-specific_variants_output_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf/test_specific.txt"
-meta_data_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf/breed_prediction_metadata.txt"
-examined_breeds <- c('Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound',
-                     'Saint Bernard','German Spitz Mittel','Japanese Spitz','Keeshond',
-                     'Leonberger','Small Swiss Hound','Swiss Hound','German Spitz Klein',
-                     'Petit Basset Griffon Vendeen','Pyrenean Shepherd','Small Munsterlander',
-                     'White Swiss Shepherd Dog','Bernese Mountain Dog','Bouvier des Flandres',
-                     'English Toy Terrier','Greater Swiss Mountain Dog','Sealyham Terrier',
-                     'Smooth Fox Terrier','Toy Fox Terrier')
+# build_meta_data_code_path <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction/build_sample_meta_data.R"
+# VAF_input_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/vaf_matrix/chr3:90000001-91889043.vaf_matrix.txt.gz"
+# unique_variants_output_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf/test_unique.txt"
+# enriched_variants_output_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf/test_enriched.txt"
+# specific_variants_output_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/merge_vcf/test_specific.txt"
+# meta_data_file <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/breed_prediction_metadata.txt"
+# examined_breeds <- c('Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound',
+#         'Saint Bernard','German Spitz Mittel','Japanese Spitz','Keeshond',
+#         'Leonberger','Small Swiss Hound','Swiss Hound','German Spitz Klein',
+#         'Petit Basset Griffon Vendeen','Pyrenean Shepherd','Small Munsterlander',
+#         'White Swiss Shepherd Dog','Bernese Mountain Dog','Bouvier des Flandres',
+#         'English Toy Terrier','Greater Swiss Mountain Dog','Sealyham Terrier',
+#         'Smooth Fox Terrier','Toy Fox Terrier','Vizsla')
 
 
 # These parameters are related to the structure of the input file containing VAF values (don't change any of them)

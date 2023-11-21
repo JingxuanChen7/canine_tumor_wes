@@ -1,9 +1,10 @@
-localrules: all,download_vcf,filter_technical,addtag_fractionlowcov,filter_fractionlowcov,combine_lifted_vcf,create_sample_list,add_vaf_region,create_vaf_matrix_region,create_breed_meta,breed_specific_idenfication,breed_specific_vafmatrix
+localrules: all,download_vcf,filter_technical,addtag_fractionlowcov,filter_fractionlowcov,combine_lifted_vcf,create_sample_list,add_vaf_region,create_vaf_matrix_region,create_breed_meta,breed_specific_idenfication,breed_specific_vafmatrix,breed_specific_vafmatrix_concat,breed_specific_variants_concat,get_vaf_matrix_header,breed_unique_variants_concat,breed_specific_variants_CDS
 
 ###### split canfam3 reference into regions for liftover  
 region_size = 10000000
 chrs = []
 with open(config['in']['ref']+".fai", "r") as fasta_index_file:
+# with open("/work/szlab/Lab_shared_PanCancer/source/canFam3.fa.fai", "r") as fasta_index_file:
     for line in fasta_index_file:
         fields = line.strip().split("\t")
         chrom_name = fields[0]
@@ -14,7 +15,11 @@ with open(config['in']['ref']+".fai", "r") as fasta_index_file:
             end = region_start + region_size
             if end > chrom_length:
                 end = chrom_length
-            chrs.append(chrom_name + ":" + str(region_start) + "-" + str(end))
+            if chrom_name != "chrX":
+                chrs.append(chrom_name + ":" + str(region_start) + "-" + str(end))
+            # only the first block of chrX has variants
+            elif chrom_name == "chrX" and region_start == 1:
+                chrs.append(chrom_name + ":" + str(region_start) + "-" + str(end))
             region_start = end
     # for line in ref:
     #     if line.startswith(">"):
@@ -32,8 +37,12 @@ breedlist = ['Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound',
 rule all:
     input:
         # expand(config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_{region}.vcf.gz", region=chrs),
-        expand(config['out']['outdir']+"/breed_variants/{region}/breed_specific_variants_{region}.txt", region=chrs)
-        # config['out']['outdir']+"/breed_variants/chr1:1-10000001/breed_specific_variants_chr1:1-10000001.txt"
+        # expand(config['out']['outdir']+"/vaf_matrix/{region}.vaf_matrix.txt.gz", region=chrs),
+        # expand(config['out']['outdir']+"/breed_variants/{region}/breed_specific_variants_{region}.txt", region=chrs),
+        # config['out']['outdir']+"/vaf_matrix/concat.breed_specific.vaf_matrix.txt.gz",
+        config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_concat.txt",
+        config['out']['outdir']+"/breed_variants/concat/breed_unique_variants_concat.txt",
+        config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_CDS.txt"
         # breedSample=config['out']['outdir']+"/merge_vcf/breedSample.list"
         # config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftoverConcat.vcf.gz"
 
@@ -105,6 +114,14 @@ rule filter_fractionlowcov:
         bcftools index --threads {threads} {output.vcf}
         '''
 
+rule download_liftoverchain:
+    output:
+        config['out']['outdir']+"/vcf/canFam4ToCanFam3.over.chain.gz"
+    shell:
+        '''
+        wget -O {output} "http://hgdownload.soe.ucsc.edu/goldenPath/canFam4/liftOver/canFam4ToCanFam3.over.chain.gz"
+        '''
+        
 ####### not tested in snakemake-end #######
 
 rule vcf_chr:
@@ -168,7 +185,7 @@ rule combine_lifted_vcf:
     input:
         expand(config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_{region}.vcf.gz", region=chrs)
     output:
-        config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftoverConcat.vcf.gz"
+        config['out']['outdir']+"/merge_vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftoverConcat.vcf.gz"
     conda:
         config['envs']['phylogenetics']
     threads: 
@@ -270,7 +287,7 @@ rule breed_specific_idenfication:
     params:
         script=config['project_dir']+"/scripts/wgs/breed_specific_variants_wgs.R",
         meta_code=config['project_dir']+"/scripts/breed_prediction/build_sample_meta_data.R",
-        breedlist=breedlist
+        breedlist=' '.join('"' + item + '"' for item in breedlist)
     conda:
         config['envs']['phylogenetics']
     wildcard_constraints:
@@ -286,7 +303,7 @@ rule breed_specific_idenfication:
             {output.breed_enriched} \
             {output.breed_specific} \
             {input.breed_meta} \
-            params.breedlist &> {log}
+            {params.breedlist} &> {log}
         '''
 
 rule breed_specific_vafmatrix:
@@ -295,14 +312,107 @@ rule breed_specific_vafmatrix:
         breed_specific=config['out']['outdir']+"/breed_variants/{region}/breed_specific_variants_{region}.txt"
     output:
         selected_matrix=config['out']['outdir']+"/breed_variants/{region}/{region}.breed_specific.vaf_matrix.txt"
-    params:
     conda:
         config['envs']['phylogenetics']
     wildcard_constraints:
         region="chr[0-9X]+.*"
     shell:
         '''
-        awk '{{if($1=="None"){{split($2,locus,":"); split($3,mut,">"); print locus[1]"\\t"locus[2]"\\t"mut[1]"\\t"mut[2] }} }}' {input.breed_specific} > {input.breed_specific}"reformat"
-        zgrep -f {input.breed_specific}"reformat" {input.vaf_matrix} >  {output.selected_matrix}
+        awk '{{if($1=="None"){{split($2,locus,":"); split($3,mut,">"); print "^"locus[1]"\\t"locus[2]"\\t"mut[1]"\\t"mut[2] }} }}' {input.breed_specific} > {input.breed_specific}"reformat"
+        zgrep -f {input.breed_specific}"reformat" {input.vaf_matrix} > {output.selected_matrix}
+        rm {input.breed_specific}"reformat"
         '''
 
+rule get_vaf_matrix_header:
+    input:
+        config['out']['outdir']+"/vaf_matrix/"+chrs[0]+".vaf_matrix.txt.gz"
+    output:
+        config['out']['outdir']+"/vaf_matrix/vaf_matrix.header"
+    shell:
+        '''
+        zcat {input} | head -n1 > {output}
+        '''
+
+rule breed_specific_vafmatrix_concat:
+    input:
+        header=config['out']['outdir']+"/vaf_matrix/vaf_matrix.header",
+        matrix=expand(config['out']['outdir']+"/breed_variants/{region}/{region}.breed_specific.vaf_matrix.txt", region=chrs)
+    output:
+        config['out']['outdir']+"/vaf_matrix/concat.breed_specific.vaf_matrix.txt.gz"
+    conda:
+        config['envs']['phylogenetics']
+    params:
+        tmp_matrix=config['out']['outdir']+"/vaf_matrix/concat.breed_specific.vaf_matrix.txt"
+    wildcard_constraints:
+        region="chr[0-9X]+.*"
+    shell:
+        '''
+        cat {input.header} {input.matrix} > {params.tmp_matrix}
+        gzip {params.tmp_matrix}
+        '''
+
+rule breed_specific_variants_concat:
+    input:
+        variant=expand(config['out']['outdir']+"/breed_variants/{region}/breed_specific_variants_{region}.txt", region=chrs)
+    output:
+        config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_concat.txt"
+    params:
+        tmp_header=config['out']['outdir']+"/breed_variants/breed_specific_variants.header",
+        tmp_out=config['out']['outdir']+"/breed_variants/breed_specific_variants.tmp.txt"
+    wildcard_constraints:
+        region="chr[0-9X]+.*"
+    shell:
+        '''
+        head -n1 {input.variant[0]} > {params.tmp_header}
+        cat {input.variant} | grep -v "^Gene" > {params.tmp_out}
+        cat {params.tmp_header} {params.tmp_out} > {output}
+        rm {params.tmp_header} {params.tmp_out}
+        '''
+
+rule breed_specific_variants_CDS:
+    input:
+        variant=config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_concat.txt",
+        interval=config['in']['interval']
+    output:
+        cds_variant=config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_CDS.txt"
+    params:
+        sorted_variant=config['out']['outdir']+"/breed_variants/concat/sorted_breed_specific_variants_concat.txt",
+        sorted_interval=config['out']['outdir']+"/breed_variants/concat/sorted_canfam3_cds.txt",
+        tmp_cds_variant=config['out']['outdir']+"/breed_variants/concat/tmp_breed_specific_variants_CDS.txt"
+    conda:
+        config['envs']['breed_prediction']
+    shell:
+        '''
+        # sort specific variants file
+        grep -v "NA>NA" {input.variant} |\
+            sed '1d' |\
+            awk 'BEGIN{{FS=OFS="\\t"}}{{split($2,locus,":"); split($3,mut,">"); print locus[1],locus[2]-1,locus[2],mut[1],mut[2],$5}}' |\
+            sort -t $'\\t' -V -k 1.4,1  -k 2,2  > {params.sorted_variant}
+        # sort interval file
+        awk -F '[:-]' '{{print $1"\\t"$2"\\t"$3}}' {input.interval} |\
+            sort -t $'\\t' -V -k 1.4,1  -k 2,2 -k 3,3 |\
+            uniq > {params.sorted_interval}
+        # intersect CDS variants and reformat
+        bedtools intersect -a {params.sorted_variant} -b {params.sorted_interval} -sorted |\
+            awk 'BEGIN{{FS=OFS="\\t"}}{{print "None",$1":"$3,$4">"$5,"None",$6}}'> {params.tmp_cds_variant}
+        cat <(head -n1 {input.variant}) {params.tmp_cds_variant} > {output.cds_variant}
+        rm {params.sorted_variant} {params.sorted_interval} {params.tmp_cds_variant}
+        '''
+
+rule breed_unique_variants_concat:
+    input:
+        variant=expand(config['out']['outdir']+"/breed_variants/{region}/breed_unique_variants_{region}.txt", region=chrs)
+    output:
+        config['out']['outdir']+"/breed_variants/concat/breed_unique_variants_concat.txt"
+    params:
+        tmp_header=config['out']['outdir']+"/breed_variants/breed_unique_variants.header",
+        tmp_out=config['out']['outdir']+"/breed_variants/breed_unique_variants.tmp.txt"
+    wildcard_constraints:
+        region="chr[0-9X]+.*"
+    shell:
+        '''
+        head -n1 {input.variant[0]} > {params.tmp_header}
+        cat {input.variant} | grep -v "^Gene" > {params.tmp_out}
+        cat {params.tmp_header} {params.tmp_out} > {output}
+        rm {params.tmp_header} {params.tmp_out}
+        '''
