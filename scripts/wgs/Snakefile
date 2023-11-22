@@ -33,16 +33,24 @@ breedlist = ['Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound',
             'White Swiss Shepherd Dog','Bernese Mountain Dog','Bouvier des Flandres',
             'English Toy Terrier','Greater Swiss Mountain Dog','Sealyham Terrier',
             'Smooth Fox Terrier','Toy Fox Terrier','Vizsla']
+# merge German Spitz groups in breed specific identification
+breedlistVariantIdentification = ['Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound',
+            'Saint Bernard','German Spitz','Japanese Spitz','Keeshond',
+            'Leonberger','Small Swiss Hound','Swiss Hound',
+            'Petit Basset Griffon Vendeen','Pyrenean Shepherd','Small Munsterlander',
+            'White Swiss Shepherd Dog','Bernese Mountain Dog','Bouvier des Flandres',
+            'English Toy Terrier','Greater Swiss Mountain Dog','Sealyham Terrier',
+            'Smooth Fox Terrier','Toy Fox Terrier','Vizsla']
 
 rule all:
     input:
         # expand(config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_{region}.vcf.gz", region=chrs),
         # expand(config['out']['outdir']+"/vaf_matrix/{region}.vaf_matrix.txt.gz", region=chrs),
         # expand(config['out']['outdir']+"/breed_variants/{region}/breed_specific_variants_{region}.txt", region=chrs),
-        # config['out']['outdir']+"/vaf_matrix/concat.breed_specific.vaf_matrix.txt.gz",
         config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_concat.txt",
         config['out']['outdir']+"/breed_variants/concat/breed_unique_variants_concat.txt",
-        config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_CDS.txt"
+        config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_CDS.txt",
+        config['out']['outdir']+"/breed_variants/concat.breed_specific.vaf_matrix.txt.gz"
         # breedSample=config['out']['outdir']+"/merge_vcf/breedSample.list"
         # config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftoverConcat.vcf.gz"
 
@@ -265,6 +273,7 @@ rule create_vaf_matrix_region:
             {threads} {resources.mem}
         '''
 
+# reformat and merge german spitz groups
 rule create_breed_meta:
     input:
         metatable=config['in']['metatable']
@@ -272,7 +281,7 @@ rule create_breed_meta:
         breed_meta=config['out']['outdir']+"/breed_variants/breed_prediction_metadata.txt"
     shell:
         '''
-        awk 'BEGIN{{FS=",";OFS="\\t"}}{{print $1,$3,$4,$5,$6,$7}}' {input.metatable} > {output.breed_meta}
+        awk 'BEGIN{{FS=",";OFS="\\t"}}{{if($3 ~ /German Spitz/) $3="German Spitz"; print $1,$3,$4,$5,$6,$7}}' {input.metatable} > {output.breed_meta}
         '''
 
 
@@ -287,7 +296,7 @@ rule breed_specific_idenfication:
     params:
         script=config['project_dir']+"/scripts/wgs/breed_specific_variants_wgs.R",
         meta_code=config['project_dir']+"/scripts/breed_prediction/build_sample_meta_data.R",
-        breedlist=' '.join('"' + item + '"' for item in breedlist)
+        breedlist=' '.join('"' + item + '"' for item in breedlistVariantIdentification)
     conda:
         config['envs']['phylogenetics']
     wildcard_constraints:
@@ -338,11 +347,11 @@ rule breed_specific_vafmatrix_concat:
         header=config['out']['outdir']+"/vaf_matrix/vaf_matrix.header",
         matrix=expand(config['out']['outdir']+"/breed_variants/{region}/{region}.breed_specific.vaf_matrix.txt", region=chrs)
     output:
-        config['out']['outdir']+"/vaf_matrix/concat.breed_specific.vaf_matrix.txt.gz"
+        config['out']['outdir']+"/breed_variants/concat.breed_specific.vaf_matrix.txt.gz"
     conda:
         config['envs']['phylogenetics']
     params:
-        tmp_matrix=config['out']['outdir']+"/vaf_matrix/concat.breed_specific.vaf_matrix.txt"
+        tmp_matrix=config['out']['outdir']+"/breed_variants/concat.breed_specific.vaf_matrix.txt"
     wildcard_constraints:
         region="chr[0-9X]+.*"
     shell:

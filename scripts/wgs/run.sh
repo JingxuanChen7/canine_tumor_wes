@@ -51,15 +51,7 @@ snakemake \
             --output=logs/slurm-%j.o \
             --error=logs/slurm-%j.e'
 
-snakemake \
-    -p \
-    --latency-wait 60 \
-    --cores ${SLURM_NTASKS} \
-    --rerun-incomplete \
-    --rerun-triggers mtime \
-    --use-conda \
-    --configfile ${config} \
-    --snakefile "${project_dir}/scripts/wgs/Snakefile"
+
 
 # dog10K
 # wget -O $run_dir/vcf/Dog10K_AutoAndXPAR_SNPs.vcf.gz "https://kiddlabshare.med.umich.edu/dog10K/SNP_and_indel_calls_2021-10-17/AutoAndXPAR.SNPs.vqsr99.vcf.gz"

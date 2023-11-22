@@ -388,7 +388,7 @@ cd /project/szlab/Jingxuan_Chen
 mkdir -p /project/szlab/Jingxuan_Chen/pancaner_germline
 rsync -axv /scratch/jc33471/canine_tumor_0908/results/ /project/szlab/Jingxuan_Chen/pancaner_germline
 
-# xfer
+# xfer4, finished
 cd /project/szlab/Jingxuan_Chen
 mkdir -p /project/szlab/Jingxuan_Chen/pancaner_germline_PRJNA525883
 rsync -axv /scratch/jc33471/canine_tumor_rerun/results/ /project/szlab/Jingxuan_Chen/pancaner_germline_PRJNA525883

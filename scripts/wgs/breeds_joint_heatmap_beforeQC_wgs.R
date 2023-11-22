@@ -44,8 +44,8 @@ script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
 non_na_percentage_cutoff <- 0.8; # all samples must have known VAF values in at least 80% of the breed-specific variants
 # only use discovery breed
 examined_breeds <- c('Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound',
-                     'Saint Bernard','German Spitz Mittel','Japanese Spitz','Keeshond',
-                     'Leonberger','Small Swiss Hound','Swiss Hound','German Spitz Klein',
+                     'Saint Bernard','German Spitz','Japanese Spitz','Keeshond',
+                     'Leonberger','Small Swiss Hound','Swiss Hound',
                      'Petit Basset Griffon Vendeen','Pyrenean Shepherd','Small Munsterlander',
                      'White Swiss Shepherd Dog','Bernese Mountain Dog','Bouvier des Flandres',
                      'English Toy Terrier','Greater Swiss Mountain Dog','Sealyham Terrier',
@@ -53,11 +53,11 @@ examined_breeds <- c('Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound
 #breed_pallete <- c("lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","#c2b280","green",
 #                   "lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","#c2b280","green");
 
-breed_pallete <- glasbey.colors(24)
+breed_pallete <- glasbey.colors(23)
 # examined_breeds <- c("Shih Tzu", "Schnauzer","Golden Retriever", "Rottweiler", "Greyhound", "Maltese","Yorkshire Terrier","Boxer","Poodle","Cocker Spaniel");
 # breed_pallete <- c("lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","black");
 
-breed_order <- 1:24; # This will define the order of which heatmap breed color legends will be displayed
+breed_order <- 1:23; # This will define the order of which heatmap breed color legends will be displayed
 #cancer_types <- c("MT", "OM", "HSA","BCL","TCL","UCL", "OSA", "GLM");
 #disease_order <- c(1:8); # This will define the order of which heatmap disease color legends will be displayed
 # See Glasbey palette "Polychrome: Creating and Assessing Qualitative Palettes With Many Colors" (https://www.biorxiv.org/content/10.1101/303883v1.full)
@@ -65,7 +65,7 @@ breed_order <- 1:24; # This will define the order of which heatmap breed color l
 # See Kelly palette "Polychrome: Creating and Assessing Qualitative Palettes With Many Colors" (https://www.biorxiv.org/content/10.1101/303883v1.full)
 
 # random seed for sampling
-set.seed(4567);
+set.seed(9999);
 
 ############ code dependency paths ########################
 # Code to build sample meta data
@@ -78,7 +78,7 @@ region <- "concat"
 output_base <- paste(file_base_dir,"breed_variants",region, sep=seperator);
 
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
-VAF_input_file <- paste0(file_base_dir,"/vaf_matrix/",region,".breed_specific.vaf_matrix.txt.gz");
+VAF_input_file <- paste0(file_base_dir,"/breed_variants/",region,".breed_specific.vaf_matrix.txt.gz");
 # Input file containing all breed-specific variants
 
 specific_variants_file <- paste0(file_base_dir,"/breed_variants/",region,"/breed_specific_variants_CDS.txt");
