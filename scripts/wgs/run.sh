@@ -165,3 +165,11 @@ module load BEDTools/2.30.0-GCC-12.2.0
 bedtools intersect -a sorted_breed_specific_variants_concat.txt -b sorted_canfam3_cds.txt -sorted |\
     awk 'BEGIN{FS=OFS="\t"}{print "None",$1":"$3,$4">"$5,"None",$6}' 
 head -n1 breed_specific_variants_concat.txt
+
+# merge WES with WGS variants
+cd /scratch/jc33471/canine_tumor/breed_prediction
+mkdir -p output_include_WGS
+cat /scratch/jc33471/canine_tumor/breed_prediction/output_exclude_WGS/all_breed_specific_variants.txt \
+    <(sort -u /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/concat/breed_specific_variants_CDS.txt | sed '1d') \
+    > /scratch/jc33471/canine_tumor/breed_prediction/output_include_WGS/all_breed_specific_variants.txt
+

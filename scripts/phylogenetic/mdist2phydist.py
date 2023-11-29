@@ -23,7 +23,12 @@ def main():
         dest = "phydist",
         required = True,
         help = "output distance matrix for phylip neighbor")
-
+    parser.add_argument("--keeptaxa",
+        action = "store_true",
+        dest = "keeptaxa",
+        default = False,
+        required = False,
+        help = "output distance matrix for phylip neighbor")
     args = parser.parse_args()
 
     if os.path.exists(args.mdist):
@@ -71,7 +76,10 @@ def main():
             value = line.split("\t")
             #value2Float = ["{:.4f}".format(float(i)) for i in value]
             # value2Float2value = [str(i) for i in value2Float]
-            value.insert(0, str(count))
+            if args.keeptaxa:
+                value.insert(0, samples[count-1])
+            else:
+                value.insert(0, str(count))
             formatted_row = "".join([str(column)[:9].ljust(10) for column in value])
             output.write(formatted_row+"\n")
             count += 1

@@ -81,7 +81,8 @@ meta <- read.csv(metadata, stringsAsFactors = F) %>% filter(Status=="Normal") %>
 p <- ggtree(all_tr) %<+% meta +
   geom_tiplab( aes(label = taxa), size=1.5 ) +
   geom_tippoint(aes(fill = Breed_info), shape = 21, size = 1.5) +
-  #geom_nodelab(aes(x = branch, label = label, subset = !is.na(as.numeric(label)) & as.numeric(label) > 1), size = 2, color = "black") +
+  theme_tree2() +
+  geom_nodelab(aes(x = branch, label = label, subset = !is.na(as.numeric(label)) & as.numeric(label) > 1), size = 2, color = "black") +
   scale_fill_manual(values = setcolors, name = "Breeds")
 
 # data frame for heat map
@@ -92,10 +93,10 @@ dftree_heat_dis <- meta; rownames(dftree_heat_dis) <- dftree_heat_dis$Sample_ID;
 p2 <- gheatmap(p, dftree_heat_breed, width=0.1, colnames=F, colnames_position = "top", font.size = 3.5, colnames_offset_y = 0, color = NA) +
   scale_fill_manual(values = c(setcolors), name = "Breed") 
 
-p3 <- p2 + new_scale_fill()
+# p3 <- p2 + new_scale_fill()
 
-p_final <- gheatmap(p3, dftree_heat_dis, offset = 0.005, width=0.1, colnames=F, colnames_position = "top", font.size = 3.5, colnames_offset_y = 0, color = NA) +
-    scale_fill_manual(values = c(disease_colors), name = "Disease") 
+# p_final <- gheatmap(p3, dftree_heat_dis, offset = 0.005, width=0.1, colnames=F, colnames_position = "top", font.size = 3.5, colnames_offset_y = 0, color = NA) +
+#     scale_fill_manual(values = c(disease_colors), name = "Disease") 
 
 # print figure
-ggsave(plot = p_final, out_fig, device = "pdf", width = 16, height = 16, units = "in" )
+ggsave(plot = p2, out_fig, device = "pdf", width = 16, height = 16, units = "in" )

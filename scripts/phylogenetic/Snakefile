@@ -1,55 +1,57 @@
 rule all:
     input:
+        # config['out']['outdir']+"/breedSample_all/boots/100/downsampled.vcf.gz",        
         config['out']['outdir']+"/breedSample_all/breedSample_all.pdf",
+        config['out']['outdir']+"/breedSample_all/boots/breedSample_all_boots.pdf",
         config['out']['outdir']+"/breedSample_breedSpecific/breedSample_breedSpecific.pdf",
         config['out']['outdir']+"/breedPlusMissingSample_breedSpecific/breedPlusMissingSample_breedSpecific.pdf"
         # expand(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf", sampleSet = ['breedSample','breedPlusMissingSample'], regionSet = ['all','breedSpecific'])
 
 breedlist = ['Shih Tzu','Schnauzer','Golden Retriever','Rottweiler','Greyhound','Maltese','Yorkshire Terrier','Boxer','Poodle','Cocker Spaniel', "Labrador Retriever", "Boston Terrier"]
 
-rule create_gz_index:
-    input:
-        vcf="{file}"
-    output:
-        rename=temp("{file}rename_samples_vcf.txt"),
-        reheader_gz="{file}.reheader.gz",
-        index="{file}.reheader.gz.csi"
-    params:
-        reheader="{file}.reheader"
-    threads:
-        1
-    conda:
-        config['envs']['phylogenetics']
-    shell:
-        '''
-        rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
-        sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
-        echo "${{sample_name}}" > {output.rename}
-        bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {params.reheader}
-        bgzip --force --threads {threads} {params.reheader}
-        bcftools index --threads {threads} {output.reheader_gz}
-        echo "Compressed and indexed {input.vcf}"
-        '''
+# rule create_gz_index:
+#     input:
+#         vcf="{file}"
+#     output:
+#         rename=temp("{file}rename_samples_vcf.txt"),
+#         reheader_gz="{file}.reheader.gz",
+#         index="{file}.reheader.gz.csi"
+#     params:
+#         reheader="{file}.reheader"
+#     threads:
+#         1
+#     conda:
+#         config['envs']['phylogenetics']
+#     shell:
+#         '''
+#         rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
+#         sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
+#         echo "${{sample_name}}" > {output.rename}
+#         bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {params.reheader}
+#         bgzip --force --threads {threads} {params.reheader}
+#         bcftools index --threads {threads} {output.reheader_gz}
+#         echo "Compressed and indexed {input.vcf}"
+#         '''
 
 
 
-rule merge_vcfs:
-    input:
-        vcf=expand("{file}.reheader.gz", file=config['in']['vcffiles']),
-        index=expand("{file}.reheader.gz.csi", file=config['in']['vcffiles'])
-    output:
-        merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
-    threads:
-        config['resources']['threads']
-    conda:
-        config['envs']['phylogenetics']
-    shell:
-        '''
-        bcftools merge --threads {threads} -Oz \
-            --force-samples --missing-to-ref \
-            -o {output.merged_vcf} \
-            {input.vcf}
-        '''
+# rule merge_vcfs:
+#     input:
+#         vcf=expand("{file}.reheader.gz", file=config['in']['vcffiles']),
+#         index=expand("{file}.reheader.gz.csi", file=config['in']['vcffiles'])
+#     output:
+#         merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
+#     threads:
+#         config['resources']['threads']
+#     conda:
+#         config['envs']['phylogenetics']
+#     shell:
+#         '''
+#         bcftools merge --threads {threads} -Oz \
+#             --force-samples --missing-to-ref \
+#             -o {output.merged_vcf} \
+#             {input.vcf}
+#         '''
 
 rule filter_merged_vcf:
     input:
@@ -401,9 +403,6 @@ rule phylip_neighbor:
         rm {params.outfile}
         '''
 
-# rule phylip_consense:
-
-
 rule phylip_nwk_vis:
     input:
         tree=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.nwk",
@@ -412,6 +411,195 @@ rule phylip_nwk_vis:
         script=config['project_dir']+"/scripts/phylogenetic/phylip_nwk_vis.R"
     output:
         figure=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        Rscript --vanilla {input.script} \
+            {wildcards.sampleSet}_{wildcards.regionSet} \
+            {input.tree} \
+            {input.distid} \
+            {input.metatable} \
+            {output.figure}
+        '''
+
+##### implement bootstrapping #####
+rule sample_id:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned.vcf.gz"
+    output:
+        samplelist=config['out']['outdir']+"/{sampleSet}_{regionSet}/samplelist.txt",
+        sampleid=config['out']['outdir']+"/{sampleSet}_{regionSet}/sampleid.txt",
+        list2id=config['out']['outdir']+"/{sampleSet}_{regionSet}/list2id.txt"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools query -l {input.vcf} > {output.samplelist}
+        awk '{{print NR}}' {output.samplelist} > {output.sampleid}
+        awk '{{print NR,$1}}' {output.samplelist} > {output.list2id}
+        '''
+
+rule rename_samples_vcf:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned.vcf.gz",
+        sampleid=config['out']['outdir']+"/{sampleSet}_{regionSet}/sampleid.txt"
+    output:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned_renamed.vcf.gz"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools reheader -s {input.sampleid} {input.vcf} -o {output.vcf}
+        '''
+
+rule get_variant_counts:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned_renamed.vcf.gz"
+    output:
+        config['out']['outdir']+"/{sampleSet}_{regionSet}/variant_counts.txt"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools index -f {input.vcf}
+        bcftools index -n {input.vcf} > {output}
+        '''
+
+rule resample_variants:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned_renamed.vcf.gz",
+        variant_counts=config['out']['outdir']+"/{sampleSet}_{regionSet}/variant_counts.txt"
+    output:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.vcf.gz"
+    params:
+        seed=lambda wildcards: wildcards.rep,
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.vcf",
+        variant_lines=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/variant_lines.vcf"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        # gatk IndexFeatureFile -I {input.vcf}
+        # gatk SelectVariants \
+        #     --variant {input.vcf} \
+        #     --select-random-fraction 0.1 \
+        #     --output {output.vcf} 
+        subcount=$(($(cat {input.variant_counts}) / 10))
+        bcftools view --header-only {input.vcf} > {params.vcf}
+        bcftools view --no-header {input.vcf} | awk -v seed={params.seed} 'BEGIN{{srand(seed);}}{{printf("%f\\t%s\\n",rand(),$0);}}' | sort -t $'\\t' -k1,1g | cut -f2- > {params.variant_lines}
+        head -n${{subcount}} {params.variant_lines} | sort >> {params.vcf}
+        gzip {params.vcf}
+        rm {params.variant_lines}
+        '''
+
+
+rule distance_matrix_boots:
+    input:
+        vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.vcf.gz"
+    output:
+        matrix=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.mdist.gz",
+        distid=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.mdist.id"
+    threads:
+        1
+    resources:
+        mem="2G"
+    conda:
+        config['envs']['phylogenetics']
+    params:
+        seed=lambda wildcards: wildcards.rep
+    shell:
+        '''
+        mem_mb=`echo {resources.mem} | sed 's/G/000/g'`
+        prefix=`echo {output.matrix} | sed 's/.mdist.gz//g'`
+        plink --threads {threads} --memory ${{mem_mb}} --seed {params.seed} --dog \
+            --distance gz square '1-ibs' \
+            --vcf {input.vcf} \
+            --out ${{prefix}}
+        '''
+
+rule mdist2phydist_boots:
+    input:
+        matrix=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.mdist.gz",
+        distid=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.mdist.id",
+        script=config['project_dir']+"/scripts/phylogenetic/mdist2phydist.py"
+    output:
+        phydist=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.phylip"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        python {input.script} \
+            --mdist {input.matrix} \
+            --id {input.distid} \
+            --phydist {output.phydist} \
+            --keeptaxa
+        '''
+
+
+
+rule phylip_neighbor_boots:
+    input:
+        phydist=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.phylip"
+    output:
+        tree=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.nwk",
+        command=temp(config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.nwk.command")
+    log:
+        config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled_{rep}.log"
+    params:
+        outdir=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}",
+        outfile=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/outfile",
+        outtree=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/outtree"
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        cd {params.outdir}
+        echo "{input.phydist}" > {output.command}
+        echo "Y" >> {output.command}
+        rm -f {params.outfile} {params.outtree}
+        neighbor < {output.command} > {log}
+        mv {params.outtree} {output.tree}
+        cat {params.outfile} >> {log}
+        rm {params.outfile}
+        '''
+
+rule phylip_consense:
+    input:
+        expand(config['out']['outdir']+"/{{sampleSet}}_{{regionSet}}/boots/{rep}/downsampled.nwk", rep = range(1,101))
+    output:
+        trees=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{sampleSet}_{regionSet}_trees.nwk",
+        consensus=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{sampleSet}_{regionSet}_consensus.nwk",
+        command=temp(config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{sampleSet}_{regionSet}.nwk.command")
+    conda:
+        config['envs']['phylogenetics']
+    params:
+        outdir=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/",
+        outfile=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/outfile",
+        outtree=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/outtree"
+    log:
+        config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{sampleSet}_{regionSet}_consensus.log"
+    shell:
+        '''
+        cd {params.outdir}
+        cat {input} > {output.trees}
+        echo "{output.trees}" > {output.command}
+        echo "Y" >> {output.command}
+        consense < {output.command} > {log}
+        mv {params.outtree} {output.consensus}
+        cat {params.outfile} >> {log}
+        rm {params.outfile}
+        '''
+
+
+rule phylip_nwk_vis_boots:
+    input:
+        tree=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{sampleSet}_{regionSet}_consensus.nwk",
+        distid=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.id",
+        metatable=config['in']['metatable'],
+        script=config['project_dir']+"/scripts/phylogenetic/phylip_nwk_vis.R"
+    output:
+        figure=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{sampleSet}_{regionSet}_boots.pdf"
     conda:
         config['envs']['phylogenetics']
     shell:

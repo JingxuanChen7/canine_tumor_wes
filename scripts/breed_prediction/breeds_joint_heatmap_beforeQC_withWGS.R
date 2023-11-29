@@ -42,10 +42,24 @@ script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
 ############ Script customization parameters ########################
 # You may modify these parameters as desired
 non_na_percentage_cutoff <- 0.8; # all samples must have known VAF values in at least 80% of the breed-specific variants
+global_sufficient_cov_cutoff <- 0.8; # all variants must have sufficient coverage in at least 80% of the samples in the discovery dataset
+
 # only use discovery breed
 examined_breeds <- c("Shih Tzu", "Schnauzer","Golden Retriever", "Rottweiler", "Greyhound", "Maltese","Yorkshire Terrier","Boxer","Poodle","Cocker Spaniel","Labrador Retriever", "Boston Terrier");
 breed_pallete <- c("lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","#c2b280","green","black");
 breed_order <- 1:13; # This will define the order of which heatmap breed color legends will be displayed
+
+examined_breeds <- c("Shih Tzu", "Schnauzer","Golden Retriever", "Rottweiler", "Greyhound", "Maltese","Yorkshire Terrier","Boxer","Poodle","Cocker Spaniel","Labrador Retriever", "Boston Terrier",
+                     'Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound',
+                     'Saint Bernard','German Spitz','Japanese Spitz','Keeshond',
+                     'Leonberger','Small Swiss Hound','Swiss Hound',
+                     'Petit Basset Griffon Vendeen','Pyrenean Shepherd','Small Munsterlander',
+                     'White Swiss Shepherd Dog','Bernese Mountain Dog','Bouvier des Flandres',
+                     'English Toy Terrier','Greater Swiss Mountain Dog','Sealyham Terrier',
+                     'Smooth Fox Terrier','Toy Fox Terrier','Vizsla');
+breed_pallete_more <- glasbey.colors(23)
+breed_pallete <- c("lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","#c2b280","green",breed_pallete_more,"black");
+breed_order <- 1:36; # This will define the order of which heatmap breed color legends will be displayed
 
 cancer_types <- c("MT", "OM", "HSA","BCL","TCL","UCL", "OSA", "GLM","UC","HS","BT","NonT");
 disease_order <- c(1:12); # This will define the order of which heatmap disease color legends will be displayed
@@ -61,7 +75,7 @@ build_meta_data_code_path <- paste(script_dir, "build_sample_meta_data.R", sep=s
 ############ Input and output paths ########################
 # Please modify these file paths as needed
 
-output_base <- paste(file_base_dir,"output_exclude_WGS", sep=seperator);
+output_base <- paste(file_base_dir,"output_include_WGS", sep=seperator);
 
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
 VAF_input_file <- paste(file_base_dir,"germline_VAF_matrix.reset_low_coverage.txt.gz", sep=seperator);
@@ -83,6 +97,10 @@ VAF_data <- fread(VAF_input_file, header=F, sep="\t")
 VAF_data <- setDF(VAF_data)
 #, check.names=F, stringsAsFactors=F);
 specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t", check.names=F, stringsAsFactors=F);
+# find duplicated variants
+overlaps <- specific_variants_data[duplicated(specific_variants_data[,c(2,3)],fromLast = T) | duplicated(specific_variants_data[,c(2,3)],fromLast = F),]
+# get rid of duplicated variants
+specific_variants_data <- specific_variants_data[!(rownames(specific_variants_data) %in% rownames(overlaps)),]
 
 ### building meta_data data frame
 source(build_meta_data_code_path);
@@ -102,7 +120,7 @@ meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ 
 # meta_data <- tibble::column_to_rownames(meta_data, var = "rowname")
 
 # now make variant names
-variant_names <- apply(VAF_data[-c(1:meta_row_count), c(1:6)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
+variant_names <- apply(VAF_data[-c(1:meta_row_count), c(2:5)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
 names(variant_names) <- NULL;
 
 # now reading VAF values for normal samples
@@ -111,6 +129,7 @@ normal_VAF_data <- apply(as.matrix(VAF_data[-c(1:meta_row_count), meta_data[, "N
 colnames(normal_VAF_data) <- rownames(meta_data);
 rownames(normal_VAF_data) <- variant_names;
 
+
 # now getting the heatmap samples
 heatmap_breed_samples <- rownames(meta_data)[which(meta_data[, "Breed"] %in% examined_breeds)];
 na_breed_samples <- rownames(meta_data)[which(is.na(meta_data[, "Breed"]) == TRUE)];
@@ -118,6 +137,11 @@ na_breed_samples <- rownames(meta_data)[which(is.na(meta_data[, "Breed"]) == TRU
 heatmap_samples_1 <- c(heatmap_breed_samples); # Samples for first heatmap (no unknown breeds)
 heatmap_samples_2 <- c(heatmap_samples_1, na_breed_samples); # samples for second heatmap (with unknown breeds)
 sample_list <- list(heatmap_samples_1, heatmap_samples_2);
+
+# new samples
+common_breeds <- c("Shih Tzu", "Schnauzer","Golden Retriever", "Rottweiler", "Greyhound", "Maltese","Yorkshire Terrier","Boxer","Poodle","Cocker Spaniel","Labrador Retriever", "Boston Terrier");
+common_breed_samples <- rownames(meta_data)[which(meta_data[, "Breed"] %in% common_breeds)];
+uncommon_samples <- meta_data[heatmap_breed_samples[!heatmap_breed_samples %in% common_breed_samples],]
 
 # now converting breed-specific variants to variant names for the heatmaps
 text_tokens_to_variant_name <- function(text_tokens) {
@@ -129,17 +153,32 @@ text_tokens_to_variant_name <- function(text_tokens) {
   ref_allele <- allele_split[1];
   alt_allele <- allele_split[2];
   protein <- text_tokens[4];
-  return(paste(gene, chromosome, position, ref_allele, alt_allele, protein, sep="_"));
+  return(paste( chromosome, position, ref_allele, alt_allele, sep="_"));
 }
 heatmap_variants <- apply(specific_variants_data, 1, function(x) {text_tokens_to_variant_name(x)});
 heatmap_variants <- intersect(heatmap_variants, rownames(normal_VAF_data));
+tmp_heatmap_variants <- heatmap_variants
+# important for merging dataset! check high qual variants
+non_na_count_cutoff <- ncol(normal_VAF_data) * global_sufficient_cov_cutoff;
+for(variant in heatmap_variants) {
+  variant_VAF <- normal_VAF_data[variant,];
+  non_na_samples <- names(which(is.na(variant_VAF) == FALSE));
+  if(length(non_na_samples) < non_na_count_cutoff) {
+    tmp_heatmap_variants <- tmp_heatmap_variants[tmp_heatmap_variants != variant]
+  }
+}
+heatmap_variants <- tmp_heatmap_variants
+  
+  
 
+set.seed(8888);
 heatmap_data_list <- list();
-set.seed(4567);
 for(heatmap_version in c(1,2)) {
   heatmap_samples <- sample_list[[heatmap_version]];
   # building the heatmap data and removing bad samples
   heatmap_data <- normal_VAF_data[heatmap_variants, heatmap_samples];
+  
+  # check high qual samples
   VAF_non_na_counts <- apply(heatmap_data, 2, function(x) {length(which(is.na(x) == FALSE))});
   sample_count_cutoff <- length(heatmap_variants) * non_na_percentage_cutoff;
   bad_sample_indices <- which(VAF_non_na_counts < sample_count_cutoff);
@@ -216,7 +255,7 @@ for(heatmap_version in c(1,2)) {
                             column_dend_height=unit(22, "mm"),
                             use_raster = F); # previous 22 mm
   
-  png(output_png[heatmap_version], height=8.5, width=11.5, units="in", res=500);
+  png(output_png[heatmap_version], height=12.5, width=11.5, units="in", res=500);
   heatmap_object <- draw(heatmap_object, annotation_legend_side = "bottom",
                          heatmap_legend_side = "bottom",
                          merge_legend = TRUE);
@@ -233,7 +272,7 @@ for(heatmap_version in c(1,2)) {
                              "DiseaseAcronym"= meta_data[ordered_samples,"DiseaseAcronym"]
                              #"Result"= meta_data[ordered_samples, "Breed_Predicted_Results"],
                              #"DataType"= meta_data[ordered_samples, "DataType"]
-                             );
+  );
   write.table(temp_dataset, file=output_clusters[heatmap_version], quote=FALSE, sep="\t", row.names = FALSE, col.names=TRUE);
   
 }

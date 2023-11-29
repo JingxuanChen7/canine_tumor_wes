@@ -1,12 +1,8 @@
 name: phylogenetics
-channels:
-  - bioconda
-  - conda-forge
-  - r
-  - defaults
 dependencies:
-  - python=3.8.2
+  - python=3.8
   - bioconda::seqkit
+  - conda-forge::r-base
   - conda-forge::r-reshape2
   - conda-forge::r-stringi
   - conda-forge::r-dplyr
@@ -24,7 +20,7 @@ dependencies:
   - conda-forge::r-devtools
   - conda-forge::r-pegas
   - conda-forge::r-phangorn
-  - bioconda::mafft=7.508
+  - bioconda::mafft
   - conda-forge::r-ggpubr
   - conda-forge::r-ggimage
   - bioconda::bcftools=1.17
@@ -33,6 +29,5 @@ dependencies:
   - bioconda::phylip
   - bioconda::plink2
   - bioconda::cyvcf2
-  - ipykernel
   - bioconda::picard=2.21.6
-  - bioconda::gatk=3.8
+  - bioconda::gatk4
