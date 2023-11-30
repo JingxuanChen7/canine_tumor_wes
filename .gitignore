@@ -2,4 +2,8 @@
 .DS_Store
 .R*
 .Rproj.user
-Icon 
+Icon?
+
+# Thumbnails
+._*
+
