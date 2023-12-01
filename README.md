@@ -1,6 +1,6 @@
 - This folder includes all related files (codes/figures/presentations/etc.) for the canine breed prediction project during Fall 2023 in Zhao lab.
 - Folder structure explained below:
-  -`scripts/`: All codes for data processing and analysis. `scripts/README.md` includes detailed documentation for each script.
+  - `scripts/`: All codes for data processing and analysis. `scripts/README.md` includes detailed documentation for each script.
   - `results/`: Figures and summarized result files.
   - `metadata/`: Meta tables from SRA run selector and merged meta tables to run the pipeline.
   - `doc/`: Slides for lab meetings.

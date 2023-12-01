@@ -1,7 +1,7 @@
 library(dplyr)
 library(ggtree)
 library(ape)
-library(VennDiagram)
+
 
 vaf_assign <- read.table("/scratch/jc33471/canine_tumor_test/breed_prediction/assignment_clusters.txt", header = T,sep = "\t",stringsAsFactors = F) %>%
   filter(DataType != "WGS")
@@ -60,12 +60,4 @@ inconsistency <- phylo_assign %>%
 # output table for inconsistent clusters
 write.csv(inconsistency, file = "/scratch/jc33471/canine_tumor_test/breed_prediction/assignment_inconsistency.csv", quote = T, row.names = F)
 
-venn <-
-venn.diagram(
-  x = list(phylo_assign$BreedCluster, phylo_assign$BreedPhylo),
-  category.names = c("MAF Cluster" , "Phylogenetics"),
-  filename = "/scratch/jc33471/canine_tumor_test/breed_prediction/assignment.png",
-  output=TRUE,
-  imagetype = "png"
 
-)

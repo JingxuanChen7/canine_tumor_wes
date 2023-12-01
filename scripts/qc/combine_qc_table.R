@@ -3,7 +3,7 @@ library(ggplot2)
 
 project_dir <- "/home/jc33471/canine_tumor_wes"
 meta <- read.csv("/home/jc33471/canine_tumor_wes/metadata/data_collection_new.csv", stringsAsFactors = F)
-qc_dir <- "/scratch/jc33471/canine_tumor_0908"
+qc_dir <- "/home/jc33471/canine_tumor_wes"
 
 bwa_out <- read.table(paste0(qc_dir,"/results/QC/Total_WES_BWA_CDS.combined.txt"), header = T, stringsAsFactors = F, sep = "\t") %>%
   distinct()
@@ -73,7 +73,7 @@ wes_qc_meta %>%
   coord_cartesian(ylim=c(0,200))+
   theme(plot.margin = unit(c(1,0.3,1.5,0.5), "cm"))+
   geom_hline(yintercept=5, linetype="longdash", color = "yellow4", size = 0.7)
-ggsave(file = "/scratch/jc33471/canine_tumor_0908/results/QC/Sequence_read_pairs.pdf", device = "pdf", width = 8, height = 8)
+ggsave(file = paste0(qc_dir,"/results/QC/Sequence_read_pairs.pdf"), device = "pdf", width = 8, height = 8)
 
 # Uniq mapping rate
 wes_qc_meta %>% 
@@ -98,7 +98,7 @@ wes_qc_meta %>%
   scale_fill_manual(values=file_color)+
   theme(plot.margin = unit(c(1,0.3,1.5,0.5), "cm"))+
   geom_hline(yintercept=0.6, linetype="longdash", color = "yellow4", size = 0.7)
-ggsave(file = "/scratch/jc33471/canine_tumor_0908/results/QC/Uniq_mapping_rate.pdf", device = "pdf", width = 8, height = 8)
+ggsave(file = paste0(qc_dir,"/results/QC/Uniq_mapping_rate.pdf"), device = "pdf", width = 8, height = 8)
 
 # fraction of mapping quality > 30
 wes_qc_meta %>% 
@@ -122,7 +122,7 @@ wes_qc_meta %>%
   scale_color_manual(values = file_color)+
   scale_fill_manual(values=file_color)+
   theme(plot.margin = unit(c(1,0.3,1.5,0.5), "cm"))
-ggsave(file = "/scratch/jc33471/canine_tumor_0908/results/QC/Fraction_mapQ30.pdf", device = "pdf", width = 8, height = 8)
+ggsave(file = paste0(qc_dir,"/results/QC/Fraction_mapQ30.pdf"), device = "pdf", width = 8, height = 8)
 
 # Uniq CDS mapping rate
 wes_qc_meta %>% 
@@ -148,10 +148,10 @@ wes_qc_meta %>%
   scale_color_manual(values = file_color)+
   scale_fill_manual(values=file_color)+
   theme(plot.margin = unit(c(1,0.3,1.5,0.5), "cm"))+
-  geom_hline(yintercept=0.3, linetype="longdash", color = "yellow4", size = 0.7)+
-  geom_hline(yintercept=0.2, linetype="longdash", color = "yellow3", size = 0.7)
+  geom_hline(yintercept=0.3, linetype="longdash", color = "yellow4", size = 0.7)#+
+  #geom_hline(yintercept=0.2, linetype="longdash", color = "yellow3", size = 0.7)
+ggsave(file = paste0(qc_dir,"/results/QC/CDS_mapping_rate.pdf"), device = "pdf", width = 8, height = 8)
 
-ggsave(file = "/scratch/jc33471/canine_tumor_0908/results/QC/CDS_mapping_rate.pdf", device = "pdf", width = 8, height = 8)
 
 # mean coverage
 wes_qc_meta %>% 
@@ -177,8 +177,8 @@ wes_qc_meta %>%
   scale_fill_manual(values=file_color)+
   theme(plot.margin = unit(c(1,0.3,1.5,0.5), "cm"))+
   geom_hline(yintercept=30, linetype="longdash", color = "yellow4", size = 0.7)
+ggsave(file = paste0(qc_dir,"/results/QC/mean_coverage.pdf"), device = "pdf", width = 8, height = 8)
 
-ggsave(file = "/scratch/jc33471/canine_tumor_0908/results/QC/mean_coverage.pdf", device = "pdf", width = 8, height = 8)
 
 # RMSE
 wes_qc_meta %>% 
@@ -204,6 +204,6 @@ wes_qc_meta %>%
   scale_fill_manual(values=file_color)+
   theme(plot.margin = unit(c(1,0.3,1.5,0.5), "cm"))+
   geom_hline(yintercept=0.01, linetype="longdash", color = "yellow4", size = 0.7)
+ggsave(file = paste0(qc_dir,"/results/QC/rmse.pdf"), device = "pdf", width = 8, height = 8)
 
-ggsave(file = "/scratch/jc33471/canine_tumor_0908/results/QC/rmse.pdf", device = "pdf", width = 8, height = 8 )
 

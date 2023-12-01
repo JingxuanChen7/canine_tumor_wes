@@ -250,6 +250,7 @@ df_new_meta <- rbind(df_new_meta_normal, df_new_meta_tumor) %>%
                           Organization == "University of Helsinki" ~ "UHel",
                           Organization == "Colorado State University" ~ "CSU",
                           Organization == "SI" ~ "SI",
+                          Organization == "NIPS" ~ "NIPS"
                           )) %>%
   mutate(Symbol = paste(DiseaseAcronym2,Code,sep = " ")) %>%
   rename(Bioproject = BioProject, Sample_ID = Run_ID) %>%
