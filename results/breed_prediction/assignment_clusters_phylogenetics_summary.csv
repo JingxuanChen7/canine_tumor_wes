@@ -1,0 +1,15 @@
+"Breed","Provided_Breeds","BreedCluster","BreedPhylo","BreedFinal"
+"Boston Terrier",10,10,9,10
+"Boxer",33,41,41,41
+"Cocker Spaniel",19,30,27,30
+"Golden Retriever",170,182,182,185
+"Greyhound",27,27,25,27
+"Labrador Retriever",36,50,39,50
+"Maltese",70,73,73,75
+"Other",NA,NA,24,2
+"Poodle",53,53,55,60
+"Rottweiler",25,33,30,33
+"Schnauzer",14,19,19,20
+"Shih Tzu",24,29,33,33
+"Unknown/Missing",182,117,103,94
+"Yorkshire Terrier",17,16,20,20

@@ -39,6 +39,10 @@ file_base_dir <- "/scratch/jc33471/canine_tumor/breed_prediction"
 script_dir <- "/home/jc33471/canine_tumor_wes/scripts/breed_prediction"
 #file_base_dir <- "/Users/jingxuan/Downloads/tmp/breed"
 #script_dir <- "/Users/jingxuan/GitHub/canine_tumor_wes/scripts/breed_prediction"
+
+wgs_residue_column_count <- 4; # number of columns describing each variant
+wgs_base_dir <- "/scratch/jc33471/canine_tumor/wgs_breed_prediction"
+
 ############ Script customization parameters ########################
 # You may modify these parameters as desired
 non_na_percentage_cutoff <- 0.8; # all samples must have known VAF values in at least 80% of the breed-specific variants
@@ -79,10 +83,15 @@ output_base <- paste(file_base_dir,"output_include_WGS", sep=seperator);
 
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
 VAF_input_file <- paste(file_base_dir,"germline_VAF_matrix.reset_low_coverage.txt.gz", sep=seperator);
+wgs_VAF_file <- paste0(wgs_base_dir,"/breed_variants/",region,".cds.vaf_matrix.txt.gz");
+
+
 # Input file containing all breed-specific variants
 specific_variants_file <- paste(output_base, "all_breed_specific_variants.txt", sep=seperator);
 # Input file containing all samples meta data
 meta_data_file <- paste(file_base_dir,"breed_prediction_metadata.txt", sep=seperator);
+meta_data_file_wgs <- paste(wgs_base_dir,"/breed_variants/breed_prediction_metadata.txt", sep=seperator);
+
 
 output_png1 <- paste(output_base, "breeds_heatmap_main_beforeQC.png", sep=seperator); # this heatmap won't contain samples with unknown breeds
 output_png2 <- paste(output_base, "breeds_heatmap_assignment_beforeQC.png", sep=seperator); # this heatmap will contain samples with unknown breeds
@@ -95,19 +104,34 @@ output_clusters <- c(paste(output_base, "main_clusters.txt", sep=seperator),
 
 VAF_data <- fread(VAF_input_file, header=F, sep="\t")
 VAF_data <- setDF(VAF_data)
+
+VAF_data_wgs <- fread(wgs_VAF_file, header=F, sep="\t")
+VAF_data_wgs <- setDF(VAF_data_wgs)
 #, check.names=F, stringsAsFactors=F);
 specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t", check.names=F, stringsAsFactors=F);
 # find duplicated variants
 overlaps <- specific_variants_data[duplicated(specific_variants_data[,c(2,3)],fromLast = T) | duplicated(specific_variants_data[,c(2,3)],fromLast = F),]
 # get rid of duplicated variants
-specific_variants_data <- specific_variants_data[!(rownames(specific_variants_data) %in% rownames(overlaps)),]
+#specific_variants_data <- specific_variants_data[!(rownames(specific_variants_data) %in% rownames(overlaps)),]
 
 ### building meta_data data frame
 source(build_meta_data_code_path);
+## wes
 meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = T, include_unpaired = T);
 meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count, ]));
 # clean breed column
 meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ NA, TRUE ~ Breed))
+
+## wgs
+meta_data_wgs <- build_meta_data(meta_data_file_wgs, exclud_fail_samples = T, include_unpaired = T);
+# samples in vaf matrix
+samples <- as.vector(unlist(VAF_data_wgs[meta_row_count, ]))[-c(1:wgs_residue_column_count)]
+meta_data_wgs <- meta_data_wgs[samples,] 
+meta_data_wgs <- add_tumor_normal_columns(meta_data_wgs, unlist(VAF_data_wgs[meta_row_count, ]));
+# clean breed column
+meta_data_wgs <- mutate(meta_data_wgs, Breed = case_when(Breed == "No breed provided" ~ NA, TRUE ~ Breed), DiseaseAcronym = "NonT")
+
+meta_data_combined <- rbind(meta_data, meta_data_wgs)
 
 #which(is.na(meta_data$Breed_Predicted_Results))
 #is.na(meta_data$Breed_Predicted_Results)
@@ -118,7 +142,7 @@ meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ 
 # more_meta_data <- read.table(paste(file_base_dir,"assignment_clusters_meta.txt", sep=seperator),header=T, sep="\t", check.names=F, stringsAsFactors=F) %>% select(c("SampleName","Breed","DiseaseAcronym"))
 # meta_data <- dplyr::inner_join(tibble::rownames_to_column(meta_data), more_meta_data, by = c("rowname" = "SampleName"))
 # meta_data <- tibble::column_to_rownames(meta_data, var = "rowname")
-
+## wes
 # now make variant names
 variant_names <- apply(VAF_data[-c(1:meta_row_count), c(2:5)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
 names(variant_names) <- NULL;
@@ -129,10 +153,21 @@ normal_VAF_data <- apply(as.matrix(VAF_data[-c(1:meta_row_count), meta_data[, "N
 colnames(normal_VAF_data) <- rownames(meta_data);
 rownames(normal_VAF_data) <- variant_names;
 
+## wgs
+# now make variant names
+variant_names_wgs <- apply(VAF_data_wgs[-c(1:meta_row_count), c(1:wgs_residue_column_count)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
+names(variant_names_wgs) <- NULL;
+
+# now reading VAF values for normal samples
+#normal_VAF_data <- as.matrix(VAF_data[-c(1:meta_row_count), as.vector(meta_data$NormalCol)]); # this line has been modified because data.matrix convert factor to interval codes instead of VAF values (float)
+normal_VAF_data_wgs <- apply(as.matrix(VAF_data_wgs[-c(1:meta_row_count), meta_data_wgs[, "NormalCol"]]), 2,as.numeric);
+colnames(normal_VAF_data_wgs) <- rownames(meta_data_wgs);
+rownames(normal_VAF_data_wgs) <- variant_names_wgs;
+
 
 # now getting the heatmap samples
-heatmap_breed_samples <- rownames(meta_data)[which(meta_data[, "Breed"] %in% examined_breeds)];
-na_breed_samples <- rownames(meta_data)[which(is.na(meta_data[, "Breed"]) == TRUE)];
+heatmap_breed_samples <- rownames(meta_data_combined)[which(meta_data_combined[, "Breed"] %in% examined_breeds)];
+na_breed_samples <- rownames(meta_data_combined)[which(is.na(meta_data_combined[, "Breed"]) == TRUE)];
 
 heatmap_samples_1 <- c(heatmap_breed_samples); # Samples for first heatmap (no unknown breeds)
 heatmap_samples_2 <- c(heatmap_samples_1, na_breed_samples); # samples for second heatmap (with unknown breeds)
@@ -155,28 +190,47 @@ text_tokens_to_variant_name <- function(text_tokens) {
   protein <- text_tokens[4];
   return(paste( chromosome, position, ref_allele, alt_allele, sep="_"));
 }
+## wes
 heatmap_variants <- apply(specific_variants_data, 1, function(x) {text_tokens_to_variant_name(x)});
 heatmap_variants <- intersect(heatmap_variants, rownames(normal_VAF_data));
-tmp_heatmap_variants <- heatmap_variants
+
+# select sites that are breed specific from VAF matrix
+breed_normal_VAF_data <- normal_VAF_data[heatmap_variants,]
+breed_normal_VAF_data <- tibble::rownames_to_column(as.data.frame(breed_normal_VAF_data),"variant_id")
+
+##wgs
+heatmap_variants_wgs <- apply(specific_variants_data, 1, function(x) {text_tokens_to_variant_name(x)});
+heatmap_variants_wgs <- intersect(heatmap_variants_wgs, rownames(normal_VAF_data_wgs));
+# select sites that are breed specific from VAF matrix
+breed_normal_VAF_data_wgs <- normal_VAF_data_wgs[heatmap_variants_wgs,]
+breed_normal_VAF_data_wgs <- tibble::rownames_to_column(as.data.frame(breed_normal_VAF_data_wgs),"variant_id")
+
+breed_normal_VAF_data_combined <- dplyr::full_join(breed_normal_VAF_data,breed_normal_VAF_data_wgs, by = "variant_id")
+breed_normal_VAF_data_combined <- tibble::column_to_rownames(breed_normal_VAF_data_combined, "variant_id")
+breed_normal_VAF_data_combined <- as.matrix(breed_normal_VAF_data_combined)
+
+# get rownames of new matrix
+heatmap_variants_combined <- rownames(breed_normal_VAF_data_combined)
+
+tmp_heatmap_variants <- heatmap_variants_combined
 # important for merging dataset! check high qual variants
-non_na_count_cutoff <- ncol(normal_VAF_data) * global_sufficient_cov_cutoff;
-for(variant in heatmap_variants) {
-  variant_VAF <- normal_VAF_data[variant,];
+non_na_count_cutoff <- ncol(breed_normal_VAF_data_combined) * global_sufficient_cov_cutoff;
+for(variant in heatmap_variants_combined) {
+  variant_VAF <- breed_normal_VAF_data_combined[variant,];
   non_na_samples <- names(which(is.na(variant_VAF) == FALSE));
   if(length(non_na_samples) < non_na_count_cutoff) {
     tmp_heatmap_variants <- tmp_heatmap_variants[tmp_heatmap_variants != variant]
   }
 }
 heatmap_variants <- tmp_heatmap_variants
-  
-  
 
-set.seed(8888);
+
+set.seed(4567);
 heatmap_data_list <- list();
 for(heatmap_version in c(1,2)) {
   heatmap_samples <- sample_list[[heatmap_version]];
   # building the heatmap data and removing bad samples
-  heatmap_data <- normal_VAF_data[heatmap_variants, heatmap_samples];
+  heatmap_data <- breed_normal_VAF_data_combined[heatmap_variants, heatmap_samples];
   
   # check high qual samples
   VAF_non_na_counts <- apply(heatmap_data, 2, function(x) {length(which(is.na(x) == FALSE))});
@@ -214,12 +268,12 @@ for(heatmap_version in c(1,2)) {
   breed_colors <- breed_pallete[c(1:length(examined_breeds), length(breed_pallete))]; # Unknown is always assigned last "black" color
   names(breed_colors) <- heatmap_breeds;
   breed_colors <- breed_colors[breed_order];
-  breed_info <- meta_data[heatmap_samples, "Breed"];
+  breed_info <- meta_data_combined[heatmap_samples, "Breed"];
   breed_info <- factor(breed_info,levels = heatmap_breeds)
   
   disease_colors <- cancer_pallete[disease_order];
   names(disease_colors) <- cancer_types;
-  disease_info <- meta_data[heatmap_samples, "DiseaseAcronym"];
+  disease_info <- meta_data_combined[heatmap_samples, "DiseaseAcronym"];
   disease_info <- factor(disease_info,levels = cancer_types)
   
   
@@ -265,11 +319,11 @@ for(heatmap_version in c(1,2)) {
   ordered_samples <- heatmap_samples[column_order(heatmap_object)];
   backup_samples[[heatmap_version]] <- ordered_samples;
   temp_dataset <- data.frame("SampleName" = ordered_samples,
-                             "Provided_Breeds"= meta_data[ordered_samples, "Breed"],
+                             "Provided_Breeds"= meta_data_combined[ordered_samples, "Breed"],
                              #"BreedCluster"= meta_data[ordered_samples, "BreedCluster"],
                              #"FinalBreed" = meta_data[ordered_samples, "FinalBreed"],
-                             "BreedQC" = meta_data[ordered_samples, "The_reason_to_exclude"],
-                             "DiseaseAcronym"= meta_data[ordered_samples,"DiseaseAcronym"]
+                             "BreedQC" = meta_data_combined[ordered_samples, "The_reason_to_exclude"],
+                             "DiseaseAcronym"= meta_data_combined[ordered_samples,"DiseaseAcronym"]
                              #"Result"= meta_data[ordered_samples, "Breed_Predicted_Results"],
                              #"DataType"= meta_data[ordered_samples, "DataType"]
   );

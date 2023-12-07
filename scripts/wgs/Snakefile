@@ -1,4 +1,4 @@
-localrules: all,download_vcf,filter_technical,addtag_fractionlowcov,filter_fractionlowcov,combine_lifted_vcf,create_sample_list,add_vaf_region,create_vaf_matrix_region,create_breed_meta,breed_specific_idenfication,breed_specific_vafmatrix,breed_specific_vafmatrix_concat,breed_specific_variants_concat,get_vaf_matrix_header,breed_unique_variants_concat,breed_specific_variants_CDS
+localrules: all,download_vcf,filter_technical,addtag_fractionlowcov,filter_fractionlowcov,combine_lifted_vcf,create_sample_list,add_vaf_region,create_vaf_matrix_region,create_breed_meta,breed_specific_idenfication,breed_specific_vafmatrix,breed_specific_vafmatrix_concat,breed_specific_variants_concat,get_vaf_matrix_header,breed_unique_variants_concat,breed_specific_variants_CDS,sort_cds_interval,cds_region_vafmatrix,cds_region_vafmatrix_concat
 
 ###### split canfam3 reference into regions for liftover  
 region_size = 10000000
@@ -47,10 +47,11 @@ rule all:
         # expand(config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftover_{region}.vcf.gz", region=chrs),
         # expand(config['out']['outdir']+"/vaf_matrix/{region}.vaf_matrix.txt.gz", region=chrs),
         # expand(config['out']['outdir']+"/breed_variants/{region}/breed_specific_variants_{region}.txt", region=chrs),
-        config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_concat.txt",
-        config['out']['outdir']+"/breed_variants/concat/breed_unique_variants_concat.txt",
-        config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_CDS.txt",
-        config['out']['outdir']+"/breed_variants/concat.breed_specific.vaf_matrix.txt.gz"
+        # config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_concat.txt",
+        # config['out']['outdir']+"/breed_variants/concat/breed_unique_variants_concat.txt",
+        # config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_CDS.txt",
+        # config['out']['outdir']+"/breed_variants/concat.breed_specific.vaf_matrix.txt.gz"
+        config['out']['outdir']+"/breed_variants/concat.cds.vaf_matrix.txt.gz"
         # breedSample=config['out']['outdir']+"/merge_vcf/breedSample.list"
         # config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftoverConcat.vcf.gz"
 
@@ -315,6 +316,16 @@ rule breed_specific_idenfication:
             {params.breedlist} &> {log}
         '''
 
+rule get_vaf_matrix_header:
+    input:
+        config['out']['outdir']+"/vaf_matrix/"+chrs[0]+".vaf_matrix.txt.gz"
+    output:
+        config['out']['outdir']+"/vaf_matrix/vaf_matrix.header"
+    shell:
+        '''
+        zcat {input} | head -n1 > {output}
+        '''
+
 rule breed_specific_vafmatrix:
     input:
         vaf_matrix=config['out']['outdir']+"/vaf_matrix/{region}.vaf_matrix.txt.gz",
@@ -332,15 +343,6 @@ rule breed_specific_vafmatrix:
         rm {input.breed_specific}"reformat"
         '''
 
-rule get_vaf_matrix_header:
-    input:
-        config['out']['outdir']+"/vaf_matrix/"+chrs[0]+".vaf_matrix.txt.gz"
-    output:
-        config['out']['outdir']+"/vaf_matrix/vaf_matrix.header"
-    shell:
-        '''
-        zcat {input} | head -n1 > {output}
-        '''
 
 rule breed_specific_vafmatrix_concat:
     input:
@@ -424,4 +426,54 @@ rule breed_unique_variants_concat:
         cat {input.variant} | grep -v "^Gene" > {params.tmp_out}
         cat {params.tmp_header} {params.tmp_out} > {output}
         rm {params.tmp_header} {params.tmp_out}
+        '''
+
+# sort interval list
+rule sort_cds_interval:
+    input:
+        config['in']['interval']
+    output:
+        sorted_interval=config['out']['outdir']+"/breed_variants/concat/sorted_canfam3_cds_interval.txt"
+    shell:
+        '''
+        awk -F '[:-]' '{{print $1"\\t"$2"\\t"$3}}' {input} |\
+            sort -t $'\\t' -V -k 1.4,1  -k 2,2 -k 3,3 |\
+            uniq > {output.sorted_interval}
+        '''
+
+# generate vaf matrix for CDS region for WES merging
+rule cds_region_vafmatrix:
+    input:
+        vaf_matrix=config['out']['outdir']+"/vaf_matrix/{region}.vaf_matrix.txt.gz",
+        sorted_interval=config['out']['outdir']+"/breed_variants/concat/sorted_canfam3_cds_interval.txt"
+    output:
+        selected_matrix=config['out']['outdir']+"/breed_variants/{region}/{region}.cds.vaf_matrix.txt"
+    conda:
+        config['envs']['breed_prediction']
+    wildcard_constraints:
+        region="chr[0-9X]+.*"
+    shell:
+        '''
+        # intersect vaf matrix and cds regions
+        bedtools intersect -a <( zcat {input.vaf_matrix} | sed '1d' | awk 'BEGIN{{FS=OFS="\\t"}}{{$2=$2-1 OFS $2}}1' ) \
+            -b {input.sorted_interval} |\
+            cut -f2 --complement > {output.selected_matrix}
+        '''
+
+rule cds_region_vafmatrix_concat:
+    input:
+        header=config['out']['outdir']+"/vaf_matrix/vaf_matrix.header",
+        selected_matrix=expand(config['out']['outdir']+"/breed_variants/{region}/{region}.cds.vaf_matrix.txt", region=chrs)
+    output:
+        config['out']['outdir']+"/breed_variants/concat.cds.vaf_matrix.txt.gz"
+    conda:
+        config['envs']['phylogenetics']
+    params:
+        tmp_matrix=config['out']['outdir']+"/breed_variants/concat.cds.vaf_matrix.txt"
+    wildcard_constraints:
+        region="chr[0-9X]+.*"
+    shell:
+        '''
+        cat {input.header} {input.selected_matrix} > {params.tmp_matrix}
+        gzip {params.tmp_matrix}
         '''

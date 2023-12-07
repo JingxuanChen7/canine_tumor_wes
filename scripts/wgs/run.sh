@@ -173,3 +173,8 @@ cat /scratch/jc33471/canine_tumor/breed_prediction/output_exclude_WGS/all_breed_
     <(sort -u /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/concat/breed_specific_variants_CDS.txt | sed '1d') \
     > /scratch/jc33471/canine_tumor/breed_prediction/output_include_WGS/all_breed_specific_variants.txt
 
+awk -F '[:-]' '{print $1"\t"$2"\t"$3}' "/work/szlab/Lab_shared_PanCancer/source/Canis_familiaris.CanFam3.1.99.gtf-chr1-38X-CDS-forDepthOfCoverage.interval_list" | sort -t $'\t' -V -k 1.4,1  -k 2,2 -k 3,3 | uniq > /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/concat/sorted_canfam3_cds_interval.txt
+bedtools intersect -a <(zcat chr26:1-10000001.vaf_matrix.txt.gz | sed '1d' | awk 'BEGIN{FS=OFS="\t"}{$2=$2-1 OFS $2}1')  -b /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/concat/sorted_canfam3_cds_interval.txt  > test.out
+
+zcat chr26:1-10000001.vaf_matrix.txt.gz | sed '1d' | awk 'BEGIN{FS=OFS="\t"}{$2=$2-1 OFS $2}1' | less -S
+bedtools intersect -a <( zcat /scratch/jc33471/canine_tumor/wgs_breed_prediction/vaf_matrix/chr16:50000001-59632846.vaf_matrix.txt.gz | awk 'BEGIN{FS=OFS="\t"}{$2=$2-1 OFS $2}1' )             -b /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/concat/sorted_canfam3_cds_interval.txt |            cut -f2 --complement > /scratch/jc33471/canine_tumor/wgs_breed_prediction/breed_variants/chr16:50000001-59632846/chr16:50000001-59632846.cds.vaf_matrix.txt

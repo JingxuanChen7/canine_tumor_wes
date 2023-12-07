@@ -14,7 +14,7 @@ table_SampleName <- table(temp_meta_data$Case_ID)
 paired <- temp_meta_data[temp_meta_data$Case_ID %in% names(table_SampleName)[table_SampleName>1],]
 normal_rows <- which(paired[, "Status"] == "Normal");
 meta_data <- paired[normal_rows, c("Sample_ID","Case_ID")];
-
+# check un paired samples
 unpaired <- temp_meta_data[temp_meta_data$Case_ID %in% names(table_SampleName)[table_SampleName==1],]
 unpaired_rows <- which(unpaired[, "Status"] == "Tumor" | unpaired[, "Status"] == "Normal")
 meta_data_unpaired <- unpaired[unpaired_rows, c("Sample_ID","Case_ID")];
@@ -45,7 +45,7 @@ df_validation <- df_assignment %>%
 out_tree <- "/home/jc33471/canine_tumor_wes/results/phylogenetics/breedPlusMissingSample_breedSpecific.nwk"
 all_tr <- read.tree(out_tree) 
 in_id <- "/home/jc33471/canine_tumor_wes/results/phylogenetics/breedPlusMissingSample_breedSpecific_merged_germline_variants_SNP.mdist.id"
-# read id file
+# read id file because of phylip only allow sample name <10 chars
 all_id <- read.table(in_id) %>% mutate(id = row_number())
 # rename taxa
 all_tr <- rename_taxa(all_tr, all_id, 3, 1)
@@ -81,7 +81,7 @@ LabradorRetriever_node <- getMRCA(all_tr, tip = c("SRR17139222","SRR17139233"));
 BostonTerrier_node <- getMRCA(all_tr, tip = c("SRR10351748","SRR10351800")); BostonTerrier_node_taxa <- get_taxa_name(p, node = BostonTerrier_node)
 
 
-phylo_assign <- df_validation %>%
+phylo_assign <- data.frame(Sample_ID = all_tr$tip.label) %>%
   mutate(BreedPhylo = case_when(Sample_ID %in% ShihTzu_node_taxa ~ "Shih Tzu",
                                 Sample_ID %in% Schnauzer_node_taxa ~ "Schnauzer",
                                 Sample_ID %in% GoldenRetriever_node_taxa ~ "Golden Retriever",
@@ -96,10 +96,30 @@ phylo_assign <- df_validation %>%
                                 Sample_ID %in% BostonTerrier_node_taxa ~ "Boston Terrier",
                                 TRUE ~ "Unknown/Missing"))
 
-inconsistency <- phylo_assign %>%
-  filter(BreedCluster != BreedPhylo)
+# join VAF cluster and phylogenetic results
+df_joined <- left_join(df_validation, phylo_assign, by = "Sample_ID") %>%
+  mutate(BreedFinal = case_when(BreedCluster == BreedPhylo ~ BreedCluster,
+                                is.na(BreedPhylo) ~ BreedCluster,
+                                BreedCluster == "Unknown/Missing" & BreedPhylo != "Unknown/Missing" & !is.na(BreedPhylo) ~ BreedPhylo,
+                                BreedCluster != "Unknown/Missing" & BreedPhylo == "Unknown/Missing"  ~ BreedCluster,
+                                BreedCluster != "Unknown/Missing" & BreedPhylo != "Unknown/Missing" & !is.na(BreedPhylo) & BreedCluster != BreedPhylo ~ "Conflict",
+                                TRUE ~ NA)) %>%
+  mutate(Provided_Breeds = case_when(is.na(Provided_Breeds) ~ "Unknown/Missing",
+                                     TRUE ~ Provided_Breeds)) %>%
+  mutate(BreedPhylo = case_when(is.na(BreedPhylo) ~ "Tumor_only",
+                                     TRUE ~ BreedPhylo))
 
+# print out the inconsistency
+inconsistency <- df_joined %>%
+  filter(BreedCluster != BreedPhylo | is.na(BreedPhylo))
 
+# number of missing breeds
+table(df_joined$BreedCluster, useNA = "ifany")
+table(df_joined$BreedPhylo, useNA = "ifany")
+table(df_joined$BreedFinal, useNA = "ifany")
+table(df_joined$Provided_Breeds, useNA = "ifany")
+
+count(df_joined, BreedCluster, BreedPhylo, BreedFinal) 
 # output table with assignment results and phylogenetic assignment results
 write.csv(phylo_assign, file = "/scratch/jc33471/canine_tumor_test/breed_prediction/assignment_clusters_phylogenetics.csv", quote = T, row.names = F)
 
