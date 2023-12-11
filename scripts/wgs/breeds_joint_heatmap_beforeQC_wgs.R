@@ -53,11 +53,11 @@ examined_breeds <- c('Dachshund','Appenzeller Sennenhund','Collie','Ibizan Hound
 #breed_pallete <- c("lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","#c2b280","green",
 #                   "lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","#c2b280","green");
 
-breed_pallete <- glasbey.colors(23)
+breed_pallete <- glasbey.colors(24)
 # examined_breeds <- c("Shih Tzu", "Schnauzer","Golden Retriever", "Rottweiler", "Greyhound", "Maltese","Yorkshire Terrier","Boxer","Poodle","Cocker Spaniel");
 # breed_pallete <- c("lightblue",'blue',"#009EFF", "purple", "gray", "yellow","red","#964B00", "orange","#E58FAC","black");
 
-breed_order <- 1:23; # This will define the order of which heatmap breed color legends will be displayed
+breed_order <- 1:24; # This will define the order of which heatmap breed color legends will be displayed
 #cancer_types <- c("MT", "OM", "HSA","BCL","TCL","UCL", "OSA", "GLM");
 #disease_order <- c(1:8); # This will define the order of which heatmap disease color legends will be displayed
 # See Glasbey palette "Polychrome: Creating and Assessing Qualitative Palettes With Many Colors" (https://www.biorxiv.org/content/10.1101/303883v1.full)
@@ -65,7 +65,7 @@ breed_order <- 1:23; # This will define the order of which heatmap breed color l
 # See Kelly palette "Polychrome: Creating and Assessing Qualitative Palettes With Many Colors" (https://www.biorxiv.org/content/10.1101/303883v1.full)
 
 # random seed for sampling
-set.seed(9999);
+set.seed(4567);
 
 ############ code dependency paths ########################
 # Code to build sample meta data
@@ -78,7 +78,8 @@ region <- "concat"
 output_base <- paste(file_base_dir,"breed_variants",region, sep=seperator);
 
 # Input file containing VAF values for all samples for each germline variant: samples as columns and variants as rows
-VAF_input_file <- paste0(file_base_dir,"/breed_variants/",region,".breed_specific.vaf_matrix.txt.gz");
+# VAF_input_file <- paste0(file_base_dir,"/breed_variants/",region,".breed_specific.vaf_matrix.txt.gz");
+VAF_input_file <- paste0(file_base_dir,"/vaf_matrix/cds.vaf_matrix.txt.gz"); # include all dog10k samples
 # Input file containing all breed-specific variants
 
 specific_variants_file <- paste0(file_base_dir,"/breed_variants/",region,"/breed_specific_variants_CDS.txt");
@@ -92,26 +93,38 @@ output_png <- c(output_png1, output_png2);
 output_clusters <- c(paste(output_base, "main_clusters.txt", sep=seperator), 
                      paste(output_base, "assignment_clusters.txt", sep=seperator));
 
-versions <- c(1)
+versions <- c(1,2)
 
 ################ Main code ############################
 
-VAF_data <- fread(VAF_input_file, header=F, sep="\t")
-VAF_data <- setDF(VAF_data)
+specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t", check.names=F, stringsAsFactors=F) %>%
+  mutate(combine = paste0(Locus, Mutation))
+
+VAF_data <- fread(VAF_input_file, header=T, sep="\t")
+VAF_data[, new_col:=paste0(Chromosome,":",Position,Ref,">",Alt)]
+VAF_data <- VAF_data[new_col %in% specific_variants_data$combine, ]
+VAF_data[, new_col:=NULL]
+
+
 #, check.names=F, stringsAsFactors=F);
-specific_variants_data <- read.table(specific_variants_file, header=T, sep="\t", check.names=F, stringsAsFactors=F);
+
 #specific_variants_data <- specific_variants_data[sample(nrow(specific_variants_data), 10000), ]
 
 ### building meta_data data frame
 source(build_meta_data_code_path);
 meta_data <- build_meta_data(meta_data_file, exclud_fail_samples = T, include_unpaired = T);
 # samples in vaf matrix
-samples <- as.vector(unlist(VAF_data[meta_row_count, ]))[-c(1:residue_column_count)]
+samples_matrix <- as.vector(unlist(colnames(VAF_data)))[-c(1:residue_column_count)]
+# samples in meta data
+samples_meta <- as.vector(rownames(meta_data))
+# make sure samples are in vaf matrix as well as metadata
+samples <- intersect(samples_matrix,samples_meta)
 meta_data <- meta_data[samples,] 
-meta_data <- add_tumor_normal_columns(meta_data, unlist(VAF_data[meta_row_count, ]));
+meta_data <- add_tumor_normal_columns(meta_data, unlist(colnames(VAF_data)));
 # clean breed column
-meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ NA, TRUE ~ Breed))
+meta_data <- mutate(meta_data, Breed = case_when(!Breed %in% examined_breeds ~ NA, TRUE ~ Breed))
 
+VAF_data <- setDF(VAF_data)
 #which(is.na(meta_data$Breed_Predicted_Results))
 #is.na(meta_data$Breed_Predicted_Results)
 #meta_data <- meta_data[!is.na(meta_data$Breed_Predicted_Results),]
@@ -123,18 +136,18 @@ meta_data <- mutate(meta_data, Breed = case_when(Breed == "No breed provided" ~ 
 # meta_data <- tibble::column_to_rownames(meta_data, var = "rowname")
 
 # now make variant names
-variant_names <- apply(VAF_data[-c(1:meta_row_count), c(1:residue_column_count)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
+variant_names <- apply(VAF_data[, c(1:residue_column_count)], MARGIN=1, function(x) {paste(as.vector(unlist(gsub(" ","",x))), collapse="_")});
 names(variant_names) <- NULL;
 
 # now reading VAF values for normal samples
 #normal_VAF_data <- as.matrix(VAF_data[-c(1:meta_row_count), as.vector(meta_data$NormalCol)]); # this line has been modified because data.matrix convert factor to interval codes instead of VAF values (float)
-normal_VAF_data <- apply(as.matrix(VAF_data[-c(1:meta_row_count), meta_data[, "NormalCol"]]), 2,as.numeric);
+normal_VAF_data <- apply(as.matrix(VAF_data[, meta_data[, "NormalCol"]]), 2,as.numeric);
 colnames(normal_VAF_data) <- rownames(meta_data);
 rownames(normal_VAF_data) <- variant_names;
 
 # now getting the heatmap samples
 heatmap_breed_samples <- rownames(meta_data)[which(meta_data[, "Breed"] %in% examined_breeds)];
-na_breed_samples <- rownames(meta_data)[which(is.na(meta_data[, "Breed"]) == TRUE)];
+na_breed_samples <- rownames(meta_data)[which(!meta_data[, "Breed"] %in% examined_breeds)];
 
 heatmap_samples_1 <- c(heatmap_breed_samples); # Samples for first heatmap (no unknown breeds)
 heatmap_samples_2 <- c(heatmap_samples_1, na_breed_samples); # samples for second heatmap (with unknown breeds)
@@ -198,10 +211,10 @@ for(heatmap_version in versions) {
   breed_info <- meta_data[heatmap_samples, "Breed"];
   breed_info <- factor(breed_info,levels = heatmap_breeds)
   
-  disease_colors <- cancer_pallete[disease_order];
-  names(disease_colors) <- cancer_types;
-  disease_info <- meta_data[heatmap_samples, "DiseaseAcronym"];
-  disease_info <- factor(disease_info,levels = cancer_types)
+  #disease_colors <- cancer_pallete[disease_order];
+  #names(disease_colors) <- cancer_types;
+  #disease_info <- meta_data[heatmap_samples, "DiseaseAcronym"];
+  #disease_info <- factor(disease_info,levels = cancer_types)
   
   
   
@@ -213,9 +226,9 @@ for(heatmap_version in versions) {
   
   annotation_legend_param <- list(labels_gp=gpar(fontsize=20), title_gp=gpar(fontsize=20, fontface="plain"), 
                                   grid_height=unit(6, "mm"));
-  disease_legend_param <- annotation_legend_param;
+  #disease_legend_param <- annotation_legend_param;
   breed_legend_param <- annotation_legend_param;
-  disease_legend_param[["ncol"]] <- 2;
+  #disease_legend_param[["ncol"]] <- 2;
   breed_legend_param[["ncol"]] <- 2;
   
   top_annotation <- HeatmapAnnotation(simple_anno_size = unit(1.2,"cm"),

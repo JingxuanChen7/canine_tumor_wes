@@ -102,29 +102,31 @@ df_joined <- left_join(df_validation, phylo_assign, by = "Sample_ID") %>%
                                 is.na(BreedPhylo) ~ BreedCluster,
                                 BreedCluster == "Unknown/Missing" & BreedPhylo != "Unknown/Missing" & !is.na(BreedPhylo) ~ BreedPhylo,
                                 BreedCluster != "Unknown/Missing" & BreedPhylo == "Unknown/Missing"  ~ BreedCluster,
-                                BreedCluster != "Unknown/Missing" & BreedPhylo != "Unknown/Missing" & !is.na(BreedPhylo) & BreedCluster != BreedPhylo ~ "Conflict",
+                                BreedCluster != "Unknown/Missing" & BreedPhylo != "Unknown/Missing" & !is.na(BreedPhylo) & BreedCluster != BreedPhylo ~ "Other",
                                 TRUE ~ NA)) %>%
   mutate(Provided_Breeds = case_when(is.na(Provided_Breeds) ~ "Unknown/Missing",
                                      TRUE ~ Provided_Breeds)) %>%
-  mutate(BreedPhylo = case_when(is.na(BreedPhylo) ~ "Tumor_only",
+  mutate(BreedPhylo = case_when(is.na(BreedPhylo) ~ "Other",
                                      TRUE ~ BreedPhylo))
+
+
+
+# summarize the number of breed and missing for each category
+BreedCluster <- as.data.frame(table(df_joined$BreedCluster, dnn = list("Breed")), responseName = "BreedCluster")
+BreedPhylo <- as.data.frame(table(df_joined$BreedPhylo, dnn = list("Breed")), responseName = "BreedPhylo")
+BreedFinal <- as.data.frame(table(df_joined$BreedFinal, dnn = list("Breed")), responseName = "BreedFinal")
+Provided_Breeds <- as.data.frame(table(df_joined$Provided_Breeds, dnn = list("Breed")), responseName = "Provided_Breeds")
+sum_table <- data.frame(Breed = BreedPhylo$Breed)%>% left_join(Provided_Breeds) %>% left_join(BreedCluster) %>% left_join(BreedPhylo) %>% left_join(BreedFinal) 
+
+
+# output table with assignment results and phylogenetic assignment results
+write.csv(df_joined, file = "/home/jc33471/canine_tumor_wes/results/breed_prediction/assignment_clusters_phylogenetics.csv", quote = T, row.names = F)
+write.csv(sum_table, file = "/home/jc33471/canine_tumor_wes/results/breed_prediction/assignment_clusters_phylogenetics_summary.csv", quote = T, row.names = F)
+
 
 # print out the inconsistency
 inconsistency <- df_joined %>%
   filter(BreedCluster != BreedPhylo | is.na(BreedPhylo))
-
-# number of missing breeds
-table(df_joined$BreedCluster, useNA = "ifany")
-table(df_joined$BreedPhylo, useNA = "ifany")
-table(df_joined$BreedFinal, useNA = "ifany")
-table(df_joined$Provided_Breeds, useNA = "ifany")
-
-count(df_joined, BreedCluster, BreedPhylo, BreedFinal) 
-# output table with assignment results and phylogenetic assignment results
-write.csv(phylo_assign, file = "/scratch/jc33471/canine_tumor_test/breed_prediction/assignment_clusters_phylogenetics.csv", quote = T, row.names = F)
-
-inconsistency <- phylo_assign %>%
-  filter(BreedCluster != BreedPhylo)
 # output table for inconsistent clusters
 write.csv(inconsistency, file = "/scratch/jc33471/canine_tumor_test/breed_prediction/assignment_inconsistency.csv", quote = T, row.names = F)
 

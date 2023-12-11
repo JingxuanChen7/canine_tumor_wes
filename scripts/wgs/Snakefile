@@ -1,4 +1,4 @@
-localrules: all,download_vcf,filter_technical,addtag_fractionlowcov,filter_fractionlowcov,combine_lifted_vcf,create_sample_list,add_vaf_region,create_vaf_matrix_region,create_breed_meta,breed_specific_idenfication,breed_specific_vafmatrix,breed_specific_vafmatrix_concat,breed_specific_variants_concat,get_vaf_matrix_header,breed_unique_variants_concat,breed_specific_variants_CDS,sort_cds_interval,cds_region_vafmatrix,cds_region_vafmatrix_concat
+localrules: all,download_vcf,filter_technical,addtag_fractionlowcov,filter_fractionlowcov,combine_lifted_vcf,create_sample_list,add_vaf_region,create_vaf_matrix_region,create_breed_meta,breed_specific_idenfication,breed_specific_vafmatrix,breed_specific_vafmatrix_concat,breed_specific_variants_concat,get_vaf_matrix_header,breed_unique_variants_concat,breed_specific_variants_CDS,sort_cds_interval,cds_region_vafmatrix,cds_region_vafmatrix_concat,add_vaf_cds
 
 ###### split canfam3 reference into regions for liftover  
 region_size = 10000000
@@ -51,7 +51,8 @@ rule all:
         # config['out']['outdir']+"/breed_variants/concat/breed_unique_variants_concat.txt",
         # config['out']['outdir']+"/breed_variants/concat/breed_specific_variants_CDS.txt",
         # config['out']['outdir']+"/breed_variants/concat.breed_specific.vaf_matrix.txt.gz"
-        config['out']['outdir']+"/breed_variants/concat.cds.vaf_matrix.txt.gz"
+        config['out']['outdir']+"/breed_variants/concat.cds.vaf_matrix.txt.gz",
+        config['out']['outdir']+"/vaf_matrix/cds.vaf_matrix.txt.gz"
         # breedSample=config['out']['outdir']+"/merge_vcf/breedSample.list"
         # config['out']['outdir']+"/vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftoverConcat.vcf.gz"
 
@@ -251,6 +252,28 @@ rule add_vaf_region:
         bcftools +fill-tags - -O z -o {output.vcf} -- -t FORMAT/VAF
         '''
 
+# select CDS region for all samples
+rule add_vaf_cds:
+    input:
+        sorted_interval=config['out']['outdir']+"/breed_variants/concat/sorted_canfam3_cds_interval.txt",
+        vcf=config['out']['outdir']+"/merge_vcf/Dog10K_AutoAndXPAR_SNPs_filtered_added_fmissing_liftoverConcat.vcf.gz"
+    output:
+        vcf=temp(config['out']['outdir']+"/vaf_matrix/cds_vaf.vcf.gz")
+    conda:
+        config['envs']['phylogenetics']
+    threads: 
+        config['resources']['threads']
+    resources:
+        mem=config['resources']['mem'] 
+    shell:
+        '''
+        bcftools index --threads {threads} {input.vcf}
+        bcftools view \
+            -R {input.sorted_interval} \
+            {input.vcf} |\
+        bcftools +fill-tags - --threads {threads} -O z -o {output.vcf} -- -t FORMAT/VAF
+        '''
+
 rule create_vaf_matrix_region:
     input:
         vcf=config['out']['outdir']+"/vaf_matrix/{region}_vaf.vcf.gz"
@@ -265,7 +288,7 @@ rule create_vaf_matrix_region:
     resources:
         mem=config['resources']['mem'] 
     wildcard_constraints:
-        region="chr[0-9X]+.*"
+        region="chr[0-9X]+.*|cds"
     shell:
         '''
         python {params.script} \
