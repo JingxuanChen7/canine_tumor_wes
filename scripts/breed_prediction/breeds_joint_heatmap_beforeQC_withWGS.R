@@ -138,10 +138,7 @@ meta_data_combined <- rbind(meta_data, meta_data_wgs)
 #meta_data <- meta_data[!is.na(meta_data$Breed_Predicted_Results),]
 
 ##### add QC info to metadata for plotting
-# meta_data <- dplyr::select(meta_data, -c("Breed","DiseaseAcronym"))
-# more_meta_data <- read.table(paste(file_base_dir,"assignment_clusters_meta.txt", sep=seperator),header=T, sep="\t", check.names=F, stringsAsFactors=F) %>% select(c("SampleName","Breed","DiseaseAcronym"))
-# meta_data <- dplyr::inner_join(tibble::rownames_to_column(meta_data), more_meta_data, by = c("rowname" = "SampleName"))
-# meta_data <- tibble::column_to_rownames(meta_data, var = "rowname")
+
 ## wes
 # now make variant names
 variant_names <- apply(VAF_data[-c(1:meta_row_count), c(2:5)], MARGIN=1, function(x) {paste(as.vector(unlist(x)), collapse="_")});
@@ -173,10 +170,10 @@ heatmap_samples_1 <- c(heatmap_breed_samples); # Samples for first heatmap (no u
 heatmap_samples_2 <- c(heatmap_samples_1, na_breed_samples); # samples for second heatmap (with unknown breeds)
 sample_list <- list(heatmap_samples_1, heatmap_samples_2);
 
-# new samples
-common_breeds <- c("Shih Tzu", "Schnauzer","Golden Retriever", "Rottweiler", "Greyhound", "Maltese","Yorkshire Terrier","Boxer","Poodle","Cocker Spaniel","Labrador Retriever", "Boston Terrier");
-common_breed_samples <- rownames(meta_data)[which(meta_data[, "Breed"] %in% common_breeds)];
-uncommon_samples <- meta_data[heatmap_breed_samples[!heatmap_breed_samples %in% common_breed_samples],]
+# # new samples
+# common_breeds <- c("Shih Tzu", "Schnauzer","Golden Retriever", "Rottweiler", "Greyhound", "Maltese","Yorkshire Terrier","Boxer","Poodle","Cocker Spaniel","Labrador Retriever", "Boston Terrier");
+# common_breed_samples <- rownames(meta_data)[which(meta_data[, "Breed"] %in% common_breeds)];
+# uncommon_samples <- meta_data[heatmap_breed_samples[!heatmap_breed_samples %in% common_breed_samples],]
 
 # now converting breed-specific variants to variant names for the heatmaps
 text_tokens_to_variant_name <- function(text_tokens) {

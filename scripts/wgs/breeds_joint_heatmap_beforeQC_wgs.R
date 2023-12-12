@@ -130,10 +130,6 @@ VAF_data <- setDF(VAF_data)
 #meta_data <- meta_data[!is.na(meta_data$Breed_Predicted_Results),]
 
 ##### add QC info to metadata for plotting
-# meta_data <- dplyr::select(meta_data, -c("Breed","DiseaseAcronym"))
-# more_meta_data <- read.table(paste(file_base_dir,"assignment_clusters_meta.txt", sep=seperator),header=T, sep="\t", check.names=F, stringsAsFactors=F) %>% select(c("SampleName","Breed","DiseaseAcronym"))
-# meta_data <- dplyr::inner_join(tibble::rownames_to_column(meta_data), more_meta_data, by = c("rowname" = "SampleName"))
-# meta_data <- tibble::column_to_rownames(meta_data, var = "rowname")
 
 # now make variant names
 variant_names <- apply(VAF_data[, c(1:residue_column_count)], MARGIN=1, function(x) {paste(as.vector(unlist(gsub(" ","",x))), collapse="_")});

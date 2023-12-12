@@ -1,58 +1,59 @@
 rule all:
     input:
-        # config['out']['outdir']+"/breedSample_all/boots/100/downsampled.vcf.gz",        
         config['out']['outdir']+"/breedSample_all/breedSample_all.pdf",
         config['out']['outdir']+"/breedSample_all/boots/breedSample_all_boots.pdf",
         config['out']['outdir']+"/breedSample_breedSpecific/breedSample_breedSpecific.pdf",
         config['out']['outdir']+"/breedPlusMissingSample_breedSpecific/breedPlusMissingSample_breedSpecific.pdf"
-        # expand(config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.pdf", sampleSet = ['breedSample','breedPlusMissingSample'], regionSet = ['all','breedSpecific'])
 
+# list of 12 breeds included in WES breed prediction
 breedlist = ['Shih Tzu','Schnauzer','Golden Retriever','Rottweiler','Greyhound','Maltese','Yorkshire Terrier','Boxer','Poodle','Cocker Spaniel', "Labrador Retriever", "Boston Terrier"]
 
-# rule create_gz_index:
-#     input:
-#         vcf="{file}"
-#     output:
-#         rename=temp("{file}rename_samples_vcf.txt"),
-#         reheader_gz="{file}.reheader.gz",
-#         index="{file}.reheader.gz.csi"
-#     params:
-#         reheader="{file}.reheader"
-#     threads:
-#         1
-#     conda:
-#         config['envs']['phylogenetics']
-#     shell:
-#         '''
-#         rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
-#         sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
-#         echo "${{sample_name}}" > {output.rename}
-#         bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {params.reheader}
-#         bgzip --force --threads {threads} {params.reheader}
-#         bcftools index --threads {threads} {output.reheader_gz}
-#         echo "Compressed and indexed {input.vcf}"
-#         '''
+# create index files for individual VCFs
+rule create_gz_index:
+    input:
+        vcf="{file}"
+    output:
+        rename=temp("{file}rename_samples_vcf.txt"),
+        reheader_gz="{file}.reheader.gz",
+        index="{file}.reheader.gz.csi"
+    params:
+        reheader="{file}.reheader"
+    threads:
+        1
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        rm -f {input.vcf}".gz" {input.vcf}".gz.csi"
+        sample_name=`basename {input.vcf} "_rg_added_sorted_dedupped_removed.realigned.bam.filter.vcf"`
+        echo "${{sample_name}}" > {output.rename}
+        bcftools reheader -s {output.rename} --threads {threads} {input.vcf} | awk '{{ if($1 ~ /##/ || NF==10)print}}' > {params.reheader}
+        bgzip --force --threads {threads} {params.reheader}
+        bcftools index --threads {threads} {output.reheader_gz}
+        echo "Compressed and indexed {input.vcf}"
+        '''
 
 
+# merge individual VCFs
+rule merge_vcfs:
+    input:
+        vcf=expand("{file}.reheader.gz", file=config['in']['vcffiles']),
+        index=expand("{file}.reheader.gz.csi", file=config['in']['vcffiles'])
+    output:
+        merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
+    threads:
+        config['resources']['threads']
+    conda:
+        config['envs']['phylogenetics']
+    shell:
+        '''
+        bcftools merge --threads {threads} -Oz \
+            --force-samples --missing-to-ref \
+            -o {output.merged_vcf} \
+            {input.vcf}
+        '''
 
-# rule merge_vcfs:
-#     input:
-#         vcf=expand("{file}.reheader.gz", file=config['in']['vcffiles']),
-#         index=expand("{file}.reheader.gz.csi", file=config['in']['vcffiles'])
-#     output:
-#         merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
-#     threads:
-#         config['resources']['threads']
-#     conda:
-#         config['envs']['phylogenetics']
-#     shell:
-#         '''
-#         bcftools merge --threads {threads} -Oz \
-#             --force-samples --missing-to-ref \
-#             -o {output.merged_vcf} \
-#             {input.vcf}
-#         '''
-
+# initial filtering, only include PASS variants, only include SNPs
 rule filter_merged_vcf:
     input:
         merged_vcf=config['out']['outdir']+"/all_merged_germline_variants.vcf.gz"
@@ -70,8 +71,9 @@ rule filter_merged_vcf:
             {input.merged_vcf}
         '''
 
+# create samples list for breed samples and breed+missing samples for subsequent sample selection
 # sampleSet = ['breedSample', 'breedPlusMissingSample']
-# sample list inferred from metatable, contains duplicates
+# sample list inferred from metatable, possibly contains duplicates
 rule create_sample_list:
     input:
         config['in']['metatable']
@@ -103,6 +105,7 @@ rule create_sample_list:
         out1.close()
         out2.close()
 
+# select samples from merged VCF, duplicated samples are removed in this step
 rule subset_samples:
     input:
         filtered_vcf=config['out']['outdir']+"/all_merged_germline_variants_SNP.vcf.gz",
@@ -124,7 +127,8 @@ rule subset_samples:
         bcftools index {output.breedSample_vcf}
         '''
 
-
+# reformat breed specific variants previously identified by breed predition pipeline
+# scripts/breed_prediction/combine_MAF.sh
 rule prepare_breedSpecific_sites:
     input:
         config['in']['breedSpecific']
@@ -138,7 +142,7 @@ rule prepare_breedSpecific_sites:
 
 # sampleSet = ['breedSample', 'breedPlusMissingSample']
 # regionSet = ['breedSpecific', 'all' ,'genes']
-
+# select breed specific variants from merged VCF
 rule subset_breedSpecific:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_all_merged_germline_variants_SNP.vcf.gz",
@@ -161,6 +165,8 @@ rule subset_breedSpecific:
         bcftools index {output.vcf}
         '''
 
+# reformat DepthOfCoverage results list, 
+# remove duplicated samples to match samples in vcf file
 rule create_depth_file_list:
     input:
         sampleSet=config['out']['outdir']+"/{sampleSet}.list",
@@ -175,6 +181,8 @@ rule create_depth_file_list:
         grep -f <(sort -u {input.sampleSet}) {input.vcffilelist} |  awk 'NR==FNR {{ line[$1] = $0; next }} $1 in line {{ print line[$1] }}' - <(sort -u {input.sampleSet}) | cut -f3 > {output.depthfilelist}
         '''
 
+# create a list of depthofcoverage positions from the first depth file
+# in WES pipeline, positions for DepthOfCoverage output should be identical
 rule depth_position_list:
     input:
         depthfilelist=config['out']['outdir']+"/{sampleSet}_all_depth_file_list.txt"
@@ -191,6 +199,7 @@ rule depth_position_list:
         awk 'BEGIN{{FS=":";OFS="\\t"}}{{print $1,$2}}' {output.depthpositionlist} > {output.depthpositiontab}
         '''
 
+# further prune vcf to only include sites with depth info
 # sites in merged VCF are different from interval of DepthOfCoverage
 rule subset_depth_sites:
     input:
@@ -212,7 +221,7 @@ rule subset_depth_sites:
         # bcftools index {output.out_vcf}
         '''
 
-
+# get list of variants from pruned vcf, just make sure the order of variants is consistent with depth matrix
 rule create_variant_list:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_depth.vcf.gz",
@@ -227,6 +236,7 @@ rule create_variant_list:
             awk 'BEGIN{{OFS=":"}}/^[^#]/{{print $1,$2}}' > {output.variantlist}
         '''
 
+# create depth matrix for phylogenetic analysis
 rule create_depth_matrix:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_depth.vcf.gz",
@@ -260,6 +270,7 @@ rule create_depth_matrix:
         done < {input.depthfilelist}
         '''
 
+# mask low coverage sites in vcf
 rule mask_low_coverage:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_depth.vcf.gz",
@@ -288,6 +299,7 @@ rule mask_low_coverage:
         bcftools index {output.maksed_vcf}
         '''
 
+# reformat known somatic mutation list
 rule prepare_somatic_sites:
     input:
         config['in']['somaticMutation']
@@ -299,6 +311,7 @@ rule prepare_somatic_sites:
             {input} > {output}
         '''
 
+# remove known somatic mutations from vcf
 rule remove_somatic:
     input:
         maksed_vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked.vcf.gz",
@@ -337,7 +350,7 @@ rule remove_somatic:
 #             {input.cleaned_vcf}
 #         '''
 
-
+# generate distance matrix
 rule distance_matrix:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned.vcf.gz"
@@ -360,6 +373,7 @@ rule distance_matrix:
             --out ${{prefix}}
         '''
 
+# reformat distance matrix to phylip format
 rule mdist2phydist:
     input:
         matrix=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.mdist.gz",
@@ -377,6 +391,8 @@ rule mdist2phydist:
             --phydist {output.phydist} 
         '''
 
+# reconstruct NJ tree with phylip,
+# bootstrap is not implemented here
 rule phylip_neighbor:
     input:
         phydist=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}_merged_germline_variants_SNP.phylip"
@@ -403,6 +419,7 @@ rule phylip_neighbor:
         rm {params.outfile}
         '''
 
+# visualize NJ tree
 rule phylip_nwk_vis:
     input:
         tree=config['out']['outdir']+"/{sampleSet}_{regionSet}/{sampleSet}_{regionSet}.nwk",
@@ -424,6 +441,7 @@ rule phylip_nwk_vis:
         '''
 
 ##### implement bootstrapping #####
+# get sample names from vcf
 rule sample_id:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned.vcf.gz"
@@ -440,6 +458,7 @@ rule sample_id:
         awk '{{print NR,$1}}' {output.samplelist} > {output.list2id}
         '''
 
+# rename samples in vcf to 1,2,3...
 rule rename_samples_vcf:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned.vcf.gz",
@@ -453,6 +472,7 @@ rule rename_samples_vcf:
         bcftools reheader -s {input.sampleid} {input.vcf} -o {output.vcf}
         '''
 
+# get the number of variants in vcf
 rule get_variant_counts:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned_renamed.vcf.gz"
@@ -466,6 +486,7 @@ rule get_variant_counts:
         bcftools index -n {input.vcf} > {output}
         '''
 
+# randomly select 10% of variants for 100 times
 rule resample_variants:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}_merged_germline_variants_SNP_masked_cleaned_renamed.vcf.gz",
@@ -493,7 +514,7 @@ rule resample_variants:
         rm {params.variant_lines}
         '''
 
-
+# generate distance matrix for each resampling
 rule distance_matrix_boots:
     input:
         vcf=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.vcf.gz"
@@ -518,6 +539,7 @@ rule distance_matrix_boots:
             --out ${{prefix}}
         '''
 
+# convert distance matrix to phylip format for each resampling
 rule mdist2phydist_boots:
     input:
         matrix=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.mdist.gz",
@@ -536,8 +558,7 @@ rule mdist2phydist_boots:
             --keeptaxa
         '''
 
-
-
+# reconstruct NJ tree for each resampling
 rule phylip_neighbor_boots:
     input:
         phydist=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{rep}/downsampled.phylip"
@@ -564,6 +585,7 @@ rule phylip_neighbor_boots:
         rm {params.outfile}
         '''
 
+# generate consensus tree from 100 resamplings
 rule phylip_consense:
     input:
         expand(config['out']['outdir']+"/{{sampleSet}}_{{regionSet}}/boots/{rep}/downsampled.nwk", rep = range(1,101))
@@ -591,7 +613,7 @@ rule phylip_consense:
         rm {params.outfile}
         '''
 
-
+# visualize consensus tree
 rule phylip_nwk_vis_boots:
     input:
         tree=config['out']['outdir']+"/{sampleSet}_{regionSet}/boots/{sampleSet}_{regionSet}_consensus.nwk",

@@ -1,5 +1,7 @@
 localrules: all
 
+# this snake file can be run in two modes: WES pipeline and QC
+# WES pipeline for all samples must finish prior to starting QC!
 output_reports = []
 for Bioproject in config['in'].keys():
     for CaseName in config['in'][Bioproject].keys():
@@ -40,7 +42,7 @@ rule all:
     #     done
     #     '''
 
-
+# call per case WES pipeline
 rule run_pipeline:
     input:
     output:
@@ -86,6 +88,7 @@ rule run_pipeline:
             --snakefile "{params.project_dir}/scripts/per_case/Snakefile"
         '''
 
+# call per case QC
 rule run_qc:
     output:
         report=config['out']['outdir']+"/report/{Bioproject}/{CaseName}_QC.txt"

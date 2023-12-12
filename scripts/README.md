@@ -393,7 +393,7 @@ cd /project/szlab/Jingxuan_Chen
 mkdir -p /project/szlab/Jingxuan_Chen/pancaner_germline_PRJNA525883
 rsync -axv /scratch/jc33471/canine_tumor_rerun/results/ /project/szlab/Jingxuan_Chen/pancaner_germline_PRJNA525883
 
-#xfer4
+#xfer4, finished
 cd /project/szlab/Jingxuan_Chen
 mkdir -p /project/szlab/Jingxuan_Chen/breed_prediction
 rsync -axv /scratch/jc33471/canine_tumor/breed_prediction/ /project/szlab/Jingxuan_Chen/breed_prediction
@@ -402,9 +402,8 @@ rsync -axv /scratch/jc33471/canine_tumor/phylogenetics/ /project/szlab/Jingxuan_
 mkdir -p /project/szlab/Jingxuan_Chen/wgs_breed_prediction
 rsync -axv /scratch/jc33471/canine_tumor/wgs_breed_prediction/ /project/szlab/Jingxuan_Chen/wgs_breed_prediction
 
-# backup code to work dir, qouta exceeded
-cd /work/szlab/
-mkdir Jingxuan_Chen
-cd Jingxuan_Chen/
-git clone git@github.com:JingxuanChen7/canine_tumor_wes.git
+# backup code, finished
+cd /project/szlab/Jingxuan_Chen
+mkdir breed_prediction_code
+rsync -axv /home/jc33471/canine_tumor_wes/ /project/szlab/Jingxuan_Chen/breed_prediction_code
 ```

@@ -28,7 +28,7 @@ rule all:
     input:
         config['out']['outdir']+"/report/"+config['in']['Bioproject']+"/"+config['in']['CaseName']+"_QC.txt"
 
-
+# check  required output files and create a report
 rule check_output:
     input:
         output_list
@@ -46,7 +46,7 @@ rule check_output:
         printf "QC pipeline finished for {params.Bioproject},{params.CaseName}." > {output}
         '''
     
-
+# convert bam to sam, input QC script is sam
 rule tmp_sam:
     input:
         bam_out+"/{SRR}.bam"
@@ -63,6 +63,7 @@ rule tmp_sam:
         samtools view --threads {threads} {input} > {output.sam}
         '''
 
+# check cds mapping rate, read count, etc.
 rule cds_mapping_sum:
     input:
         qc_out+"/{SRR}.sam"
@@ -95,7 +96,7 @@ rule cds_mapping_sum:
             {params.status} 
         '''
 
-
+# check mapping quality
 rule mapping_quality:
     input:
         qc_out+"/{SRR}.sam"
@@ -122,6 +123,7 @@ rule mapping_quality:
         printf "%s\\t%4f\\t%4f\\t%s\\t%s\\n" {wildcards.SRR} ${{fra30}} ${{fra60}} {params.Cancer_Type} {params.status} > {output.out_line}
         '''
 
+# check rmse
 rule depthofcoverage_randomness:
     input:
         bed=DepthOfCoverage_out+"/{SRR}_DepthofCoverage_CDS.bed",
