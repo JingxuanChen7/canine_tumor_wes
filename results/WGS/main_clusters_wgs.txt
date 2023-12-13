@@ -1,0 +1,279 @@
+SampleName	Provided_Breeds	BreedQC
+JSPZ000010	Japanese Spitz	Pass QC
+JSPZ000003	Japanese Spitz	Pass QC
+JSPZ000002	Japanese Spitz	Pass QC
+JSPZ000012	Japanese Spitz	Pass QC
+JSPZ000008	Japanese Spitz	Pass QC
+JSPZ000001	Japanese Spitz	Pass QC
+JSPZ000011	Japanese Spitz	Pass QC
+JSPZ000009	Japanese Spitz	Pass QC
+JSPZ000004	Japanese Spitz	Pass QC
+JSPZ000007	Japanese Spitz	Pass QC
+GSPZ000005	German Spitz	Pass QC
+JSPZ000005	Japanese Spitz	Pass QC
+JSPZ000006	Japanese Spitz	Pass QC
+COLL000010	Collie	Pass QC
+COLL000012	Collie	Pass QC
+COLL000011	Collie	Pass QC
+COLL000009	Collie	Pass QC
+COLL000008	Collie	Pass QC
+COLL000007	Collie	Pass QC
+COLL000006	Collie	Pass QC
+COLL000013	Collie	Pass QC
+COLL000003	Collie	Pass QC
+COLL000001	Collie	Pass QC
+COLL000002	Collie	Pass QC
+COLL000005	Collie	Pass QC
+COLL000004	Collie	Pass QC
+APPZ000003	Appenzeller Sennenhund	Pass QC
+APPZ000012	Appenzeller Sennenhund	Pass QC
+APPZ000013	Appenzeller Sennenhund	Pass QC
+APPZ000002	Appenzeller Sennenhund	Pass QC
+APPZ000007	Appenzeller Sennenhund	Pass QC
+APPZ000008	Appenzeller Sennenhund	Pass QC
+APPZ000010	Appenzeller Sennenhund	Pass QC
+APPZ000005	Appenzeller Sennenhund	Pass QC
+APPZ000006	Appenzeller Sennenhund	Pass QC
+APPZ000011	Appenzeller Sennenhund	Pass QC
+APPZ000014	Appenzeller Sennenhund	Pass QC
+APPZ000001	Appenzeller Sennenhund	Pass QC
+APPZ000004	Appenzeller Sennenhund	Pass QC
+APPZ000009	Appenzeller Sennenhund	Pass QC
+IBIZ000009	Ibizan Hound	Pass QC
+IBIZ000004	Ibizan Hound	Pass QC
+IBIZ000007	Ibizan Hound	Pass QC
+IBIZ000011	Ibizan Hound	Pass QC
+IBIZ000008	Ibizan Hound	Pass QC
+IBIZ000013	Ibizan Hound	Pass QC
+IBIZ000001	Ibizan Hound	Pass QC
+IBIZ000003	Ibizan Hound	Pass QC
+IBIZ000005	Ibizan Hound	Pass QC
+IBIZ000010	Ibizan Hound	Pass QC
+IBIZ000012	Ibizan Hound	Pass QC
+IBIZ000002	Ibizan Hound	Pass QC
+IBIZ000006	Ibizan Hound	Pass QC
+FLCD000003	Bouvier des Flandres	Pass QC
+FLCD000006	Bouvier des Flandres	Pass QC
+FLCD000004	Bouvier des Flandres	Pass QC
+FLCD000005	Bouvier des Flandres	Pass QC
+BOUV000002	Bouvier des Flandres	Pass QC
+FLCD000007	Bouvier des Flandres	Pass QC
+FLCD000001	Bouvier des Flandres	Pass QC
+BOUV000001	Bouvier des Flandres	Pass QC
+FLCD000002	Bouvier des Flandres	Pass QC
+FLCD000008	Bouvier des Flandres	Pass QC
+EGTT000010	English Toy Terrier	Pass QC
+EGTT000016	English Toy Terrier	Pass QC
+EGTT000007	English Toy Terrier	Pass QC
+EGTT000008	English Toy Terrier	Pass QC
+EGTT000015	English Toy Terrier	Pass QC
+EGTT000011	English Toy Terrier	Pass QC
+EGTT000014	English Toy Terrier	Pass QC
+EGTT000012	English Toy Terrier	Pass QC
+EGTT000009	English Toy Terrier	Pass QC
+EGTT000013	English Toy Terrier	Pass QC
+SMFX000003	Smooth Fox Terrier	Pass QC
+SMFX000005	Smooth Fox Terrier	Pass QC
+SMFX000004	Smooth Fox Terrier	Pass QC
+SMFX000001	Smooth Fox Terrier	Pass QC
+SMFX000002	Smooth Fox Terrier	Pass QC
+FXTE000005	Smooth Fox Terrier	Pass QC
+FXTE000004	Smooth Fox Terrier	Pass QC
+FXTE000003	Smooth Fox Terrier	Pass QC
+GSMD000007	Greater Swiss Mountain Dog	Pass QC
+GSMD000003	Greater Swiss Mountain Dog	Pass QC
+GSMD000010	Greater Swiss Mountain Dog	Pass QC
+GSMD000006	Greater Swiss Mountain Dog	Pass QC
+GSMD000002	Greater Swiss Mountain Dog	Pass QC
+GSMD000008	Greater Swiss Mountain Dog	Pass QC
+GSMD000004	Greater Swiss Mountain Dog	Pass QC
+GSMD000005	Greater Swiss Mountain Dog	Pass QC
+GSMD000009	Greater Swiss Mountain Dog	Pass QC
+GSMD000001	Greater Swiss Mountain Dog	Pass QC
+PBGV000005	Petit Basset Griffon Vendeen	Pass QC
+PBGV000007	Petit Basset Griffon Vendeen	Pass QC
+PBGV000001	Petit Basset Griffon Vendeen	Pass QC
+PBGV000006	Petit Basset Griffon Vendeen	Pass QC
+PBGV000004	Petit Basset Griffon Vendeen	Pass QC
+PBGV000009	Petit Basset Griffon Vendeen	Pass QC
+PBGV000002	Petit Basset Griffon Vendeen	Pass QC
+PBGV000003	Petit Basset Griffon Vendeen	Pass QC
+PBGV000008	Petit Basset Griffon Vendeen	Pass QC
+PBGV000010	Petit Basset Griffon Vendeen	Pass QC
+PBGV000012	Petit Basset Griffon Vendeen	Pass QC
+SEAL000010	Sealyham Terrier	Pass QC
+SEAL000009	Sealyham Terrier	Pass QC
+SEAL000008	Sealyham Terrier	Pass QC
+SEAL000004	Sealyham Terrier	Pass QC
+SEAL000003	Sealyham Terrier	Pass QC
+SEAL000006	Sealyham Terrier	Pass QC
+SEAL000007	Sealyham Terrier	Pass QC
+SEAL000002	Sealyham Terrier	Pass QC
+SEAL000005	Sealyham Terrier	Pass QC
+BRMD000006	Bernese Mountain Dog	Pass QC
+BRMD000009	Bernese Mountain Dog	Pass QC
+BRMD000010	Bernese Mountain Dog	Pass QC
+BRMD000001	Bernese Mountain Dog	Pass QC
+BRMD000007	Bernese Mountain Dog	Pass QC
+BRMD000008	Bernese Mountain Dog	Pass QC
+BRMD000003	Bernese Mountain Dog	Pass QC
+BRMD000005	Bernese Mountain Dog	Pass QC
+BRMD000002	Bernese Mountain Dog	Pass QC
+BRMD000004	Bernese Mountain Dog	Pass QC
+LEON000012	Leonberger	Pass QC
+LEON000009	Leonberger	Pass QC
+LEON000008	Leonberger	Pass QC
+LEON000007	Leonberger	Pass QC
+LEON000001	Leonberger	Pass QC
+LEON000011	Leonberger	Pass QC
+LEON000014	Leonberger	Pass QC
+LEON000004	Leonberger	Pass QC
+LEON000003	Leonberger	Pass QC
+LEON000010	Leonberger	Pass QC
+LEON000013	Leonberger	Pass QC
+KEES000005	Keeshond	Pass QC
+KEES000002	Keeshond	Pass QC
+KEES000006	Keeshond	Pass QC
+KEES000011	Keeshond	Pass QC
+KEES000003	Keeshond	Pass QC
+KEES000007	Keeshond	Pass QC
+KEES000008	Keeshond	Pass QC
+KEES000009	Keeshond	Pass QC
+KEES000004	Keeshond	Pass QC
+KEES000010	Keeshond	Pass QC
+KEES000012	Keeshond	Pass QC
+BBLS000003	White Swiss Shepherd Dog	Pass QC
+WSSD000008	White Swiss Shepherd Dog	Pass QC
+BBLS000001	White Swiss Shepherd Dog	Pass QC
+WSSD000005	White Swiss Shepherd Dog	Pass QC
+WSSD000009	White Swiss Shepherd Dog	Pass QC
+WSSD000006	White Swiss Shepherd Dog	Pass QC
+WSSD000007	White Swiss Shepherd Dog	Pass QC
+WSSD000010	White Swiss Shepherd Dog	Pass QC
+WSSD000004	White Swiss Shepherd Dog	Pass QC
+WSSD000003	White Swiss Shepherd Dog	Pass QC
+BBLS000002	White Swiss Shepherd Dog	Pass QC
+PYSH000006	Pyrenean Shepherd	Pass QC
+PYSH000007	Pyrenean Shepherd	Pass QC
+PYSH000001	Pyrenean Shepherd	Pass QC
+PYSH000003	Pyrenean Shepherd	Pass QC
+PYSH000011	Pyrenean Shepherd	Pass QC
+PYSH000004	Pyrenean Shepherd	Pass QC
+PYSH000005	Pyrenean Shepherd	Pass QC
+PYSH000012	Pyrenean Shepherd	Pass QC
+PYSH000008	Pyrenean Shepherd	Pass QC
+PYSH000009	Pyrenean Shepherd	Pass QC
+PYSH000010	Pyrenean Shepherd	Pass QC
+KMUM000006	Small Munsterlander	Pass QC
+KMUM000001	Small Munsterlander	Pass QC
+KMUM000011	Small Munsterlander	Pass QC
+KMUM000003	Small Munsterlander	Pass QC
+KMUM000004	Small Munsterlander	Pass QC
+KMUM000007	Small Munsterlander	Pass QC
+KMUM000010	Small Munsterlander	Pass QC
+KMUM000008	Small Munsterlander	Pass QC
+KMUM000009	Small Munsterlander	Pass QC
+KMUM000002	Small Munsterlander	Pass QC
+KMUM000005	Small Munsterlander	Pass QC
+GSPZ000001	German Spitz	Pass QC
+GSPZ000002	German Spitz	Pass QC
+GSPZ000003	German Spitz	Pass QC
+GSPZ000004	German Spitz	Pass QC
+GSZM000009	German Spitz	Pass QC
+GSPK000002	German Spitz	Pass QC
+GSZM000004	German Spitz	Pass QC
+GSZM000008	German Spitz	Pass QC
+GSPK000011	German Spitz	Pass QC
+GSPK000010	German Spitz	Pass QC
+GSZM000012	German Spitz	Pass QC
+GSPK000001	German Spitz	Pass QC
+GSPK000003	German Spitz	Pass QC
+GSZM000011	German Spitz	Pass QC
+GSPK000006	German Spitz	Pass QC
+GSPK000007	German Spitz	Pass QC
+GSZM000005	German Spitz	Pass QC
+GSPK000008	German Spitz	Pass QC
+GSPK000005	German Spitz	Pass QC
+GSZM000006	German Spitz	Pass QC
+GSZM000007	German Spitz	Pass QC
+GSZM000003	German Spitz	Pass QC
+GSZM000001	German Spitz	Pass QC
+GSZM000010	German Spitz	Pass QC
+GSPK000009	German Spitz	Pass QC
+FXTE000006	Smooth Fox Terrier	Pass QC
+GSPZ000006	German Spitz	Pass QC
+GSPK000004	German Spitz	Pass QC
+GSZM000002	German Spitz	Pass QC
+SMSH000012	Small Swiss Hound	Pass QC
+SMSH000009	Small Swiss Hound	Pass QC
+SMSH000011	Small Swiss Hound	Pass QC
+SMSH000007	Small Swiss Hound	Pass QC
+SMSH000005	Small Swiss Hound	Pass QC
+SMSH000004	Small Swiss Hound	Pass QC
+SMSH000008	Small Swiss Hound	Pass QC
+DACH000003	Dachshund	Pass QC
+DACH000001	Dachshund	Pass QC
+DACH000005	Dachshund	Pass QC
+DACH000017	Dachshund	Pass QC
+DACH000007	Dachshund	Pass QC
+DACH000002	Dachshund	Pass QC
+DACH000004	Dachshund	Pass QC
+DACH000016	Dachshund	Pass QC
+DACH000015	Dachshund	Pass QC
+DACH000014	Dachshund	Pass QC
+DACH000006	Dachshund	Pass QC
+DACH000011	Dachshund	Pass QC
+DACH000012	Dachshund	Pass QC
+DACH000008	Dachshund	Pass QC
+DACH000013	Dachshund	Pass QC
+DACH000010	Dachshund	Pass QC
+DACH000009	Dachshund	Pass QC
+SWHN000002	Swiss Hound	Pass QC
+SWHN000003	Swiss Hound	Pass QC
+SWHN000001	Swiss Hound	Pass QC
+SWHN000008	Swiss Hound	Pass QC
+SWHN000012	Swiss Hound	Pass QC
+SWHN000004	Swiss Hound	Pass QC
+SWHN000010	Swiss Hound	Pass QC
+SWHN000005	Swiss Hound	Pass QC
+SWHN000009	Swiss Hound	Pass QC
+SWHN000006	Swiss Hound	Pass QC
+SWHN000007	Swiss Hound	Pass QC
+SWHN000011	Swiss Hound	Pass QC
+TYFX000006	Toy Fox Terrier	Pass QC
+TYFX000004	Toy Fox Terrier	Pass QC
+TYFX000002	Toy Fox Terrier	Pass QC
+TYFX000005	Toy Fox Terrier	Pass QC
+TYFX000010	Toy Fox Terrier	Pass QC
+TYFX000009	Toy Fox Terrier	Pass QC
+TYFX000007	Toy Fox Terrier	Pass QC
+TYFX000003	Toy Fox Terrier	Pass QC
+TYFX000008	Toy Fox Terrier	Pass QC
+TYFX000001	Toy Fox Terrier	Pass QC
+SMSH000003	Small Swiss Hound	Pass QC
+SMSH000006	Small Swiss Hound	Pass QC
+SMSH000002	Small Swiss Hound	Pass QC
+SMSH000010	Small Swiss Hound	Pass QC
+SMSH000001	Small Swiss Hound	Pass QC
+VIZS000007	Vizsla	Pass QC
+HSHP000001	Vizsla	Pass QC
+VIZS000001	Vizsla	Pass QC
+HWHP000001	Vizsla	Pass QC
+VIZS000006	Vizsla	Pass QC
+VIZS000003	Vizsla	Pass QC
+VIZS000005	Vizsla	Pass QC
+VIZS000002	Vizsla	Pass QC
+VIZS000004	Vizsla	Pass QC
+STBD000001	Saint Bernard	Pass QC
+STBD000003	Saint Bernard	Pass QC
+STBD000002	Saint Bernard	Pass QC
+STBD000012	Saint Bernard	Pass QC
+STBD000009	Saint Bernard	Pass QC
+STBD000013	Saint Bernard	Pass QC
+STBD000004	Saint Bernard	Pass QC
+STBD000006	Saint Bernard	Pass QC
+STBD000005	Saint Bernard	Pass QC
+STBD000011	Saint Bernard	Pass QC
+STBD000010	Saint Bernard	Pass QC
+STBD000007	Saint Bernard	Pass QC
+STBD000008	Saint Bernard	Pass QC
