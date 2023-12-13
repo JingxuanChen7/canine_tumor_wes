@@ -7,8 +7,8 @@
 
 # Results backup
 - Germline variants (in VCF), DepthOfCoverage (in BED), and QC results are backed up on cluster at `/project/szlab/Jingxuan_Chen`.
-  - `/project/szlab/Jingxuan_Chen/pancaner_germline`: Results for new WES datasets as included in meta table `metadata/https://github.com/JingxuanChen7/canine_tumor_wes/blob/main/metadata/data_collection_new.csv`.
-  - `/project/szlab/Jingxuan_Chen/pancaner_germline_PRJNA525883`: Results for re-run of PRJNA525883, which has already been included in the original publication, but indiviual results were removed.
+  - `/project/szlab/Jingxuan_Chen/pancaner_germline`: Results for newlt published WES datasets as included in meta table `metadata/data_collection_new.csv`.
+  - `/project/szlab/Jingxuan_Chen/pancaner_germline_PRJNA525883`: Results for re-run of PRJNA525883, which has already been included in the original publication, but indiviual results were removed by GACRC.
 
 - Result files for breed prediction are backed up on cluster at `/project/szlab/Jingxuan_Chen/breed_prediction`.
 
