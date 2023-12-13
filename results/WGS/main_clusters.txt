@@ -1,0 +1,778 @@
+SampleName	Provided_Breeds	BreedQC	DiseaseAcronym
+JSPZ000010	Japanese Spitz	Pass QC	NonT
+JSPZ000003	Japanese Spitz	Pass QC	NonT
+JSPZ000008	Japanese Spitz	Pass QC	NonT
+JSPZ000002	Japanese Spitz	Pass QC	NonT
+JSPZ000012	Japanese Spitz	Pass QC	NonT
+JSPZ000007	Japanese Spitz	Pass QC	NonT
+JSPZ000009	Japanese Spitz	Pass QC	NonT
+JSPZ000004	Japanese Spitz	Pass QC	NonT
+JSPZ000001	Japanese Spitz	Pass QC	NonT
+JSPZ000011	Japanese Spitz	Pass QC	NonT
+JSPZ000005	Japanese Spitz	Pass QC	NonT
+JSPZ000006	Japanese Spitz	Pass QC	NonT
+COLL000010	Collie	Pass QC	NonT
+COLL000009	Collie	Pass QC	NonT
+COLL000008	Collie	Pass QC	NonT
+COLL000011	Collie	Pass QC	NonT
+COLL000012	Collie	Pass QC	NonT
+COLL000007	Collie	Pass QC	NonT
+COLL000003	Collie	Pass QC	NonT
+COLL000002	Collie	Pass QC	NonT
+COLL000001	Collie	Pass QC	NonT
+COLL000005	Collie	Pass QC	NonT
+COLL000004	Collie	Pass QC	NonT
+COLL000006	Collie	Pass QC	NonT
+COLL000013	Collie	Pass QC	NonT
+APPZ000011	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000013	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000002	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000006	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000005	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000012	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000003	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000010	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000007	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000008	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000009	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000014	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000001	Appenzeller Sennenhund	Pass QC	NonT
+APPZ000004	Appenzeller Sennenhund	Pass QC	NonT
+CCB010089	Rottweiler	Pass QC	OSA
+CCB050025	Rottweiler	Pass QC	OSA
+HPCI_0045	Rottweiler	Pass QC	OSA
+CCB040464	Rottweiler	Pass QC	OSA
+CCB010026	Rottweiler	Pass QC	OSA
+T-856	Rottweiler	Pass QC	OSA
+T-843	Rottweiler	Pass QC	OSA
+CCB010024	Rottweiler	Pass QC	OSA
+CCB070253	Rottweiler	Pass QC	OSA
+CCB030224	Rottweiler	Pass QC	OSA
+CCB010330	Rottweiler	Pass QC	OSA
+CCB050320	Rottweiler	Pass QC	OSA
+CCB040207	Rottweiler	Pass QC	OSA
+CCB040287	Rottweiler	Pass QC	OSA
+CCB020022	Rottweiler	Pass QC	OSA
+CCB060033	Rottweiler	Pass QC	OSA
+CCB010327	Rottweiler	Pass QC	OSA
+CCB030108	Rottweiler	Pass QC	OSA
+CCB070177	Rottweiler	Pass QC	OSA
+CCB010332	Rottweiler	Pass QC	OSA
+CCB060100	Rottweiler	Pass QC	OSA
+CCB060021	Rottweiler	Pass QC	OSA
+CCB050315	Rottweiler	Pass QC	OSA
+CMT-241	Shih Tzu	Pass QC	MT
+CMT-400	Shih Tzu	Pass QC	MT
+CMT-60	Shih Tzu	Pass QC	MT
+CMT-613	Shih Tzu	Pass QC	MT
+CMT-318	Shih Tzu	Pass QC	MT
+CMT-247	Shih Tzu	Pass QC	MT
+CMT-2	Shih Tzu	Pass QC	MT
+CMT-63	Shih Tzu	Pass QC	MT
+CMT-232	Shih Tzu	Pass QC	MT
+CMT-686	Shih Tzu	Pass QC	MT
+024	Maltese	Pass QC	MT
+i_2C25	Shih Tzu	Pass QC	GLM
+CMT-184	Shih Tzu	Pass QC	MT
+CMT-523	Shih Tzu	Pass QC	MT
+CMT-292	Shih Tzu	Pass QC	MT
+CMT-365	Shih Tzu	Pass QC	MT
+CMT-348	Shih Tzu	Pass QC	MT
+CMT-156	Shih Tzu	Pass QC	MT
+CMT-233	Shih Tzu	Pass QC	MT
+CMT-129	Shih Tzu	Pass QC	MT
+CMT-495	Shih Tzu	Pass QC	MT
+CMT-111	Shih Tzu	Pass QC	MT
+CMT-659	Shih Tzu	Pass QC	MT
+CMT-74	Shih Tzu	Pass QC	MT
+CMT-417	Shih Tzu	Pass QC	MT
+CMT-344	Yorkshire Terrier	Pass QC	MT
+CMT-354	Yorkshire Terrier	Pass QC	MT
+HSA_30	Golden Retriever	Pass QC	HSA
+CCB030300	Golden Retriever	Pass QC	TCL
+HSA_12	Golden Retriever	Pass QC	HSA
+CCB030130	Golden Retriever	Pass QC	BCL
+HSA_42	Golden Retriever	Pass QC	HSA
+HSA_35	Golden Retriever	Pass QC	HSA
+HSA_26	Golden Retriever	Pass QC	HSA
+HSA_44	Golden Retriever	Pass QC	HSA
+HSA_23	Golden Retriever	Pass QC	HSA
+RENJOH	Golden Retriever	Pass QC	BCL
+HSA_20	Golden Retriever	Pass QC	HSA
+HSA_39	Golden Retriever	Pass QC	HSA
+CCB040038	Golden Retriever	Pass QC	BCL
+CCB040292	Golden Retriever	Pass QC	TCL
+CCB040222	Golden Retriever	Pass QC	BCL
+HSA_37	Golden Retriever	Pass QC	HSA
+HSA_41	Golden Retriever	Pass QC	HSA
+CCB010233	Golden Retriever	Pass QC	TCL
+BenGal	Golden Retriever	Pass QC	BCL
+CCB070080	Golden Retriever	Pass QC	TCL
+BENTUC	Golden Retriever	Pass QC	BCL
+HSA_24	Golden Retriever	Pass QC	HSA
+CCB010307	Golden Retriever	Pass QC	BCL
+CCB070139	Golden Retriever	Pass QC	TCL
+HSA_31	Golden Retriever	Pass QC	HSA
+PabWil	Golden Retriever	Pass QC	BCL
+HSA_28	Golden Retriever	Pass QC	HSA
+RAIEVA	Golden Retriever	Pass QC	BCL
+CHIMUN	Golden Retriever	Pass QC	BCL
+CCB010289	Golden Retriever	Pass QC	TCL
+CCB010059	Golden Retriever	Pass QC	OSA
+HSA_16	Golden Retriever	Pass QC	HSA
+HSA_4	Golden Retriever	Pass QC	HSA
+HSA_8	Golden Retriever	Pass QC	HSA
+HSA_19	Golden Retriever	Pass QC	HSA
+HSA_27	Golden Retriever	Pass QC	HSA
+HSA_21	Golden Retriever	Pass QC	HSA
+HSA_29	Golden Retriever	Pass QC	HSA
+CCB010036	Golden Retriever	Pass QC	BCL
+CCB030201_URen	Golden Retriever	Pass QC	OM
+HSA_1	Golden Retriever	Pass QC	HSA
+CCB070115	Golden Retriever	Pass QC	BCL
+CCB030317	Golden Retriever	Pass QC	TCL
+HSA_7	Golden Retriever	Pass QC	HSA
+N150309	Golden Retriever	Pass QC	BCL
+HPCI_0003	Golden Retriever	Pass QC	OSA
+HSA_45	Golden Retriever	Pass QC	HSA
+HSA_18	Golden Retriever	Pass QC	HSA
+CCB070230	Golden Retriever	Pass QC	BCL
+CCB010040	Golden Retriever	Pass QC	BCL
+T-134	Golden Retriever	Pass QC	OSA
+CCB030075_URen	Golden Retriever	Pass QC	OM
+CCB010253	Golden Retriever	Pass QC	TCL
+CCB010010	Golden Retriever	Pass QC	BCL
+CASLAB	Golden Retriever	Pass QC	BCL
+CCB070252	Golden Retriever	Pass QC	BCL
+HSA_33	Golden Retriever	Pass QC	HSA
+CCB060066	Golden Retriever	Pass QC	OSA
+BelBer	Golden Retriever	Pass QC	BCL
+CCB060008	Golden Retriever	Pass QC	TCL
+CCB020071	Golden Retriever	Pass QC	OSA
+CCB050007_URen	Golden Retriever	Pass QC	OM
+HSA_17	Golden Retriever	Pass QC	HSA
+CCB010005	Golden Retriever	Pass QC	OSA
+CCB070051	Golden Retriever	Pass QC	OSA
+CCB060047	Golden Retriever	Pass QC	BCL
+CCB050351_URen	Golden Retriever	Pass QC	OM
+CCB030165_URen	Golden Retriever	Pass QC	OM
+i_42D9	Golden Retriever	Pass QC	GLM
+CCB030273_URen	Golden Retriever	Pass QC	OM
+CCB070049	Golden Retriever	Pass QC	OSA
+P23	Golden Retriever	Pass QC	HSA
+CCB010069	Golden Retriever	Pass QC	OSA
+CCB030232_URen	Golden Retriever	Pass QC	OM
+MBGRD14	Golden Retriever	Pass QC	BCL
+CCB070053	Golden Retriever	Pass QC	OSA
+HSA_32	Golden Retriever	Pass QC	HSA
+CCB030145	Golden Retriever	Pass QC	BCL
+CCB010214	Golden Retriever	Pass QC	BCL
+CCB010060	Golden Retriever	Pass QC	OSA
+CCB010243	Golden Retriever	Pass QC	TCL
+CCB010284_URen	Golden Retriever	Pass QC	OM
+HSA_6	Golden Retriever	Pass QC	HSA
+CCB010035	Golden Retriever	Pass QC	OSA
+N149867	Golden Retriever	Pass QC	BCL
+HSA_34	Golden Retriever	Pass QC	HSA
+CCB050193	Golden Retriever	Pass QC	BCL
+HSA_25	Golden Retriever	Pass QC	HSA
+CCB050015	Golden Retriever	Pass QC	OSA
+CCB040033	Golden Retriever	Pass QC	OSA
+CCB040143	Golden Retriever	Pass QC	BCL
+CCB010032_URen	Golden Retriever	Pass QC	OM
+CCB020009	Golden Retriever	Pass QC	BCL
+HSA_46	Golden Retriever	Pass QC	HSA
+CCB030156	Golden Retriever	Pass QC	TCL
+JakRan	Golden Retriever	Pass QC	BCL
+CCB050061_URen	Golden Retriever	Pass QC	OM
+CCB070292	Golden Retriever	Pass QC	TCL
+CCB030078	Golden Retriever	Pass QC	OSA
+CCB030251	Golden Retriever	Pass QC	BCL
+CCB030003	Golden Retriever	Pass QC	TCL
+CCB030026	Golden Retriever	Pass QC	TCL
+CCB030044_URen	Golden Retriever	Pass QC	OM
+HSA_22	Golden Retriever	Pass QC	HSA
+CCB070044	Golden Retriever	Pass QC	OSA
+CCB010346	Golden Retriever	Pass QC	BCL
+CCB030120_URen	Golden Retriever	Pass QC	OM
+CCB050206	Golden Retriever	Pass QC	BCL
+CCB030117	Golden Retriever	Pass QC	BCL
+B00E024-5	Golden Retriever	Pass QC	OM
+Golden8	Golden Retriever	Pass QC	UCL
+CCB020104	Golden Retriever	Pass QC	BCL
+CCB060148	Golden Retriever	Pass QC	OSA
+CCB070081	Golden Retriever	Pass QC	BCL
+CCB030016	Golden Retriever	Pass QC	TCL
+CCB070012	Golden Retriever	Pass QC	BCL
+CCB070243	Golden Retriever	Pass QC	BCL
+Golden7	Golden Retriever	Pass QC	UCL
+B00E022-3	Golden Retriever	Pass QC	OM
+CCB010102	Golden Retriever	Pass QC	OSA
+HSA_38	Golden Retriever	Pass QC	HSA
+CCB030342_URen	Golden Retriever	Pass QC	OM
+CCB030265	Golden Retriever	Pass QC	TCL
+CCB030268	Golden Retriever	Pass QC	BCL
+CCB030258	Golden Retriever	Pass QC	TCL
+CCB030061	Golden Retriever	Pass QC	OSA
+CCB060099	Golden Retriever	Pass QC	OSA
+CCB020249	Golden Retriever	Pass QC	BCL
+CCB050102	Golden Retriever	Pass QC	OSA
+CCB010023	Golden Retriever	Pass QC	OSA
+CCB020156	Golden Retriever	Pass QC	OSA
+HPCI_0013	Golden Retriever	Pass QC	OSA
+HPCI_0001	Golden Retriever	Pass QC	OSA
+4120	Golden Retriever	Pass QC	BCL
+CCB030259	Golden Retriever	Pass QC	TCL
+CCB030059	Golden Retriever	Pass QC	TCL
+HSA_15	Golden Retriever	Pass QC	HSA
+CCB030346	Golden Retriever	Pass QC	BCL
+CCB030271	Golden Retriever	Pass QC	TCL
+CCB010182	Golden Retriever	Pass QC	BCL
+HSA_11	Golden Retriever	Pass QC	HSA
+HSA_47	Golden Retriever	Pass QC	HSA
+BITRIC	Golden Retriever	Pass QC	BCL
+HSA_2	Golden Retriever	Pass QC	HSA
+HSA_14	Golden Retriever	Pass QC	HSA
+HSA_13	Golden Retriever	Pass QC	HSA
+CCB040497	Golden Retriever	Pass QC	BCL
+CCB040425	Golden Retriever	Pass QC	TCL
+HSA_10	Golden Retriever	Pass QC	HSA
+CCB060052	Golden Retriever	Pass QC	BCL
+CCB050042_URen	Labrador Retriever	Pass QC	OM
+CCB030362	Golden Retriever	Pass QC	BCL
+CCB030227_URen	Golden Retriever	Pass QC	OM
+CCB060138	Golden Retriever	Pass QC	OSA
+B00E026-7	Golden Retriever	Pass QC	OM
+Golden9	Golden Retriever	Pass QC	UCL
+Golden6	Golden Retriever	Pass QC	UCL
+B00E020-1	Golden Retriever	Pass QC	OM
+Golden12	Golden Retriever	Pass QC	UCL
+B00E02C-D	Golden Retriever	Pass QC	OM
+B00E01W-X	Golden Retriever	Pass QC	OM
+4189	Golden Retriever	Pass QC	BCL
+B00E01U-V	Golden Retriever	Pass QC	OM
+Golden3	Golden Retriever	Pass QC	UCL
+Golden11	Golden Retriever	Pass QC	UCL
+B00E02A-B	Golden Retriever	Pass QC	OM
+IBIZ000013	Ibizan Hound	Pass QC	NonT
+IBIZ000009	Ibizan Hound	Pass QC	NonT
+IBIZ000004	Ibizan Hound	Pass QC	NonT
+IBIZ000007	Ibizan Hound	Pass QC	NonT
+IBIZ000012	Ibizan Hound	Pass QC	NonT
+IBIZ000011	Ibizan Hound	Pass QC	NonT
+IBIZ000010	Ibizan Hound	Pass QC	NonT
+IBIZ000001	Ibizan Hound	Pass QC	NonT
+IBIZ000003	Ibizan Hound	Pass QC	NonT
+IBIZ000005	Ibizan Hound	Pass QC	NonT
+IBIZ000002	Ibizan Hound	Pass QC	NonT
+IBIZ000008	Ibizan Hound	Pass QC	NonT
+IBIZ000006	Ibizan Hound	Pass QC	NonT
+BRMD000001	Bernese Mountain Dog	Pass QC	NonT
+BRMD000008	Bernese Mountain Dog	Pass QC	NonT
+BRMD000007	Bernese Mountain Dog	Pass QC	NonT
+BRMD000003	Bernese Mountain Dog	Pass QC	NonT
+BRMD000006	Bernese Mountain Dog	Pass QC	NonT
+BRMD000010	Bernese Mountain Dog	Pass QC	NonT
+BRMD000009	Bernese Mountain Dog	Pass QC	NonT
+BRMD000002	Bernese Mountain Dog	Pass QC	NonT
+BRMD000005	Bernese Mountain Dog	Pass QC	NonT
+BRMD000004	Bernese Mountain Dog	Pass QC	NonT
+HPCI_0005	Greyhound	Pass QC	OSA
+TacRei	Greyhound	Pass QC	OSA
+ShaRin	Greyhound	Pass QC	OSA
+PhaMor	Greyhound	Pass QC	OSA
+JacMay	Greyhound	Pass QC	OSA
+PepRey	Greyhound	Pass QC	OSA
+MinMei	Greyhound	Pass QC	OSA
+JohMar	Greyhound	Pass QC	OSA
+AllSmi	Greyhound	Pass QC	OSA
+GenCon	Greyhound	Pass QC	OSA
+PurRow	Greyhound	Pass QC	OSA
+T-458	Greyhound	Pass QC	OSA
+ColWym	Greyhound	Pass QC	OSA
+AleKee	Greyhound	Pass QC	OSA
+GalLyo	Greyhound	Pass QC	OSA
+HPCI_0044	Greyhound	Pass QC	OSA
+GraWie	Greyhound	Pass QC	OSA
+TriPar	Greyhound	Pass QC	OSA
+GarLar	Greyhound	Pass QC	OSA
+HemBig	Greyhound	Pass QC	OSA
+AlvWen	Greyhound	Pass QC	OSA
+DiaPar	Greyhound	Pass QC	OSA
+FBB	Greyhound	Pass QC	OSA
+SanSte	Greyhound	Pass QC	OSA
+JoeVar	Greyhound	Pass QC	OSA
+HBB	Greyhound	Pass QC	OSA
+GSMD000007	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000008	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000003	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000009	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000010	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000004	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000005	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000001	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000002	Greater Swiss Mountain Dog	Pass QC	NonT
+GSMD000006	Greater Swiss Mountain Dog	Pass QC	NonT
+CMT-53	Maltese	Pass QC	MT
+CMT-405	Maltese	Pass QC	MT
+CMT-374	Maltese	Pass QC	MT
+CMT-207	Maltese	Pass QC	MT
+CMT-162	Maltese	Pass QC	MT
+CMT-197	Maltese	Pass QC	MT
+CMT-99	Maltese	Pass QC	MT
+CMT-414	Maltese	Pass QC	MT
+CMT-651	Maltese	Pass QC	MT
+119	Maltese	Pass QC	MT
+CMT-217	Maltese	Pass QC	MT
+CMT-719	Maltese	Pass QC	MT
+CMT-725	Maltese	Pass QC	MT
+CMT-91	Maltese	Pass QC	MT
+CMT-272	Maltese	Pass QC	MT
+022	Maltese	Pass QC	MT
+CMT-114	Maltese	Pass QC	MT
+CMT-278	Maltese	Pass QC	MT
+CMT-107	Maltese	Pass QC	MT
+CMT-59	Maltese	Pass QC	MT
+CMT-149	Maltese	Pass QC	MT
+CMT-168	Maltese	Pass QC	MT
+CMT-776	Maltese	Pass QC	MT
+072	Maltese	Pass QC	MT
+CMT-239	Maltese	Pass QC	MT
+CMT-201	Maltese	Pass QC	MT
+009	Maltese	Pass QC	MT
+CMT-667	Maltese	Pass QC	MT
+CMT-332	Maltese	Pass QC	MT
+007	Maltese	Pass QC	MT
+CMT-276	Maltese	Pass QC	MT
+CMT-774	Maltese	Pass QC	MT
+CMT-756	Maltese	Pass QC	MT
+CMT-452	Maltese	Pass QC	MT
+132	Maltese	Pass QC	MT
+CMT-93	Maltese	Pass QC	MT
+CMT-505	Maltese	Pass QC	MT
+CMT-173	Maltese	Pass QC	MT
+073	Maltese	Pass QC	MT
+CMT-724	Maltese	Pass QC	MT
+CMT-730	Maltese	Pass QC	MT
+CMT-97	Maltese	Pass QC	MT
+CMT-190	Maltese	Pass QC	MT
+CMT-392	Maltese	Pass QC	MT
+CMT-102	Maltese	Pass QC	MT
+095	Maltese	Pass QC	MT
+CMT-9	Maltese	Pass QC	MT
+CMT-30	Maltese	Pass QC	MT
+CMT-480	Maltese	Pass QC	MT
+CMT-48	Maltese	Pass QC	MT
+CMT-21	Maltese	Pass QC	MT
+CMT-355	Maltese	Pass QC	MT
+CMT-642	Maltese	Pass QC	MT
+CMT-178	Maltese	Pass QC	MT
+CMT-227	Maltese	Pass QC	MT
+CMT-112	Maltese	Pass QC	MT
+CMT-311	Maltese	Pass QC	MT
+CMT-57	Maltese	Pass QC	MT
+CMT-103	Maltese	Pass QC	MT
+153	Maltese	Pass QC	MT
+CMT-262	Maltese	Pass QC	MT
+4184	Maltese	Pass QC	BCL
+CMT-685	Maltese	Pass QC	MT
+CMT-182	Maltese	Pass QC	MT
+CMT-188	Maltese	Pass QC	MT
+CMT-381	Maltese	Pass QC	MT
+013	Maltese	Pass QC	MT
+CMT-377	Maltese	Pass QC	MT
+STBD000001	Saint Bernard	Pass QC	NonT
+STBD000003	Saint Bernard	Pass QC	NonT
+STBD000002	Saint Bernard	Pass QC	NonT
+STBD000013	Saint Bernard	Pass QC	NonT
+STBD000004	Saint Bernard	Pass QC	NonT
+STBD000012	Saint Bernard	Pass QC	NonT
+STBD000007	Saint Bernard	Pass QC	NonT
+STBD000005	Saint Bernard	Pass QC	NonT
+STBD000010	Saint Bernard	Pass QC	NonT
+STBD000011	Saint Bernard	Pass QC	NonT
+STBD000009	Saint Bernard	Pass QC	NonT
+STBD000006	Saint Bernard	Pass QC	NonT
+STBD000008	Saint Bernard	Pass QC	NonT
+T-999	Saint Bernard	Pass QC	OSA
+SEAL000010	Sealyham Terrier	Pass QC	NonT
+SEAL000009	Sealyham Terrier	Pass QC	NonT
+SEAL000008	Sealyham Terrier	Pass QC	NonT
+SEAL000004	Sealyham Terrier	Pass QC	NonT
+SEAL000003	Sealyham Terrier	Pass QC	NonT
+SEAL000006	Sealyham Terrier	Pass QC	NonT
+SEAL000002	Sealyham Terrier	Pass QC	NonT
+SEAL000007	Sealyham Terrier	Pass QC	NonT
+SEAL000005	Sealyham Terrier	Pass QC	NonT
+LEON000008	Leonberger	Pass QC	NonT
+LEON000014	Leonberger	Pass QC	NonT
+LEON000009	Leonberger	Pass QC	NonT
+LEON000007	Leonberger	Pass QC	NonT
+T-907	Leonberger	Pass QC	OSA
+LEON000010	Leonberger	Pass QC	NonT
+LEON000013	Leonberger	Pass QC	NonT
+LEON000001	Leonberger	Pass QC	NonT
+LEON000003	Leonberger	Pass QC	NonT
+LEON000004	Leonberger	Pass QC	NonT
+LEON000011	Leonberger	Pass QC	NonT
+LEON000012	Leonberger	Pass QC	NonT
+WSSD000004	White Swiss Shepherd Dog	Pass QC	NonT
+WSSD000003	White Swiss Shepherd Dog	Pass QC	NonT
+BBLS000002	White Swiss Shepherd Dog	Pass QC	NonT
+BBLS000003	White Swiss Shepherd Dog	Pass QC	NonT
+WSSD000009	White Swiss Shepherd Dog	Pass QC	NonT
+WSSD000008	White Swiss Shepherd Dog	Pass QC	NonT
+WSSD000005	White Swiss Shepherd Dog	Pass QC	NonT
+WSSD000007	White Swiss Shepherd Dog	Pass QC	NonT
+BBLS000001	White Swiss Shepherd Dog	Pass QC	NonT
+WSSD000006	White Swiss Shepherd Dog	Pass QC	NonT
+WSSD000010	White Swiss Shepherd Dog	Pass QC	NonT
+EGTT000015	English Toy Terrier	Pass QC	NonT
+EGTT000007	English Toy Terrier	Pass QC	NonT
+EGTT000010	English Toy Terrier	Pass QC	NonT
+EGTT000016	English Toy Terrier	Pass QC	NonT
+EGTT000008	English Toy Terrier	Pass QC	NonT
+EGTT000012	English Toy Terrier	Pass QC	NonT
+EGTT000014	English Toy Terrier	Pass QC	NonT
+EGTT000011	English Toy Terrier	Pass QC	NonT
+EGTT000013	English Toy Terrier	Pass QC	NonT
+EGTT000009	English Toy Terrier	Pass QC	NonT
+CCB060153	Golden Retriever	Pass QC	BCL
+CCB010054	Cocker Spaniel	Pass QC	BCL
+CCB010099	Cocker Spaniel	Pass QC	BCL
+CCB070124	Cocker Spaniel	Pass QC	BCL
+CCB070086	Cocker Spaniel	Pass QC	BCL
+CCB070289	Cocker Spaniel	Pass QC	BCL
+CCB070131	Cocker Spaniel	Pass QC	BCL
+CCB030193	Cocker Spaniel	Pass QC	BCL
+CMT-586	Cocker Spaniel	Pass QC	MT
+CMT-737	Cocker Spaniel	Pass QC	MT
+CCB040180	Cocker Spaniel	Pass QC	BCL
+CMT-471	Cocker Spaniel	Pass QC	MT
+CMT-459	Cocker Spaniel	Pass QC	MT
+CMT-630	Cocker Spaniel	Pass QC	MT
+CMT-78	Cocker Spaniel	Pass QC	MT
+CMT-100	Cocker Spaniel	Pass QC	MT
+CMT-283	Cocker Spaniel	Pass QC	MT
+CMT-436	Cocker Spaniel	Pass QC	MT
+CCB060135	Cocker Spaniel	Pass QC	BCL
+4117	Cocker Spaniel	Pass QC	BCL
+CMT-128	Yorkshire Terrier	Pass QC	MT
+CMT-109	Yorkshire Terrier	Pass QC	MT
+CMT-711	Yorkshire Terrier	Pass QC	MT
+CMT-638	Yorkshire Terrier	Pass QC	MT
+CMT-153	Yorkshire Terrier	Pass QC	MT
+CMT-136	Yorkshire Terrier	Pass QC	MT
+CMT-24	Yorkshire Terrier	Pass QC	MT
+CMT-353	Yorkshire Terrier	Pass QC	MT
+CMT-340	Yorkshire Terrier	Pass QC	MT
+CMT-634	Yorkshire Terrier	Pass QC	MT
+CMT-538	Yorkshire Terrier	Pass QC	MT
+070	Maltese	Pass QC	MT
+CMT-116	Yorkshire Terrier	Pass QC	MT
+CMT-33	Yorkshire Terrier	Pass QC	MT
+CMT-106	Yorkshire Terrier	Pass QC	MT
+CMT-124	Yorkshire Terrier	Pass QC	MT
+KMUM000005	Small Munsterlander	Pass QC	NonT
+KMUM000006	Small Munsterlander	Pass QC	NonT
+KMUM000010	Small Munsterlander	Pass QC	NonT
+KMUM000003	Small Munsterlander	Pass QC	NonT
+KMUM000004	Small Munsterlander	Pass QC	NonT
+KMUM000007	Small Munsterlander	Pass QC	NonT
+KMUM000009	Small Munsterlander	Pass QC	NonT
+KMUM000001	Small Munsterlander	Pass QC	NonT
+KMUM000002	Small Munsterlander	Pass QC	NonT
+KMUM000008	Small Munsterlander	Pass QC	NonT
+KMUM000011	Small Munsterlander	Pass QC	NonT
+GSZM000009	German Spitz	Pass QC	NonT
+GSPK000002	German Spitz	Pass QC	NonT
+GSPK000011	German Spitz	Pass QC	NonT
+GSZM000008	German Spitz	Pass QC	NonT
+GSZM000004	German Spitz	Pass QC	NonT
+GSPK000010	German Spitz	Pass QC	NonT
+GSZM000011	German Spitz	Pass QC	NonT
+GSPK000007	German Spitz	Pass QC	NonT
+GSPK000008	German Spitz	Pass QC	NonT
+GSZM000007	German Spitz	Pass QC	NonT
+GSPK000006	German Spitz	Pass QC	NonT
+GSZM000005	German Spitz	Pass QC	NonT
+GSPK000005	German Spitz	Pass QC	NonT
+GSPK000001	German Spitz	Pass QC	NonT
+GSPK000003	German Spitz	Pass QC	NonT
+GSZM000006	German Spitz	Pass QC	NonT
+GSZM000012	German Spitz	Pass QC	NonT
+GSPK000004	German Spitz	Pass QC	NonT
+CCB050023_URen	Labrador Retriever	Pass QC	OM
+CCB010217	Rottweiler	Pass QC	OSA
+CCB060151	Golden Retriever	Pass QC	TCL
+CMT-158	Dachshund	Pass QC	MT
+CMT-402	Dachshund	Pass QC	MT
+CMT-449	Dachshund	Pass QC	MT
+DACH000017	Dachshund	Pass QC	NonT
+CMT-301	Dachshund	Pass QC	MT
+DACH000007	Dachshund	Pass QC	NonT
+GSZM000001	German Spitz	Pass QC	NonT
+GSZM000010	German Spitz	Pass QC	NonT
+GSZM000003	German Spitz	Pass QC	NonT
+GSZM000002	German Spitz	Pass QC	NonT
+GSPK000009	German Spitz	Pass QC	NonT
+CCB050031_URen	Labrador Retriever	Pass QC	OM
+FLCD000008	Bouvier des Flandres	Pass QC	NonT
+B00E02I-J	Labrador Retriever	Pass QC	OM
+13ZOP	Rottweiler	Pass QC	BCL
+B00E02M-N	Labrador Retriever	Pass QC	OM
+CCB030002_URen	Poodle	Pass QC	OM
+SWHN000006	Swiss Hound	Pass QC	NonT
+SWHN000010	Swiss Hound	Pass QC	NonT
+SWHN000011	Swiss Hound	Pass QC	NonT
+i_63FE	Boxer	Pass QC	GLM
+i_3688	Boxer	Pass QC	GLM
+CCB020030	Boxer	Pass QC	TCL
+i_E2CD	Boxer	Pass QC	GLM
+i_D026	Boxer	Pass QC	GLM
+SopCas	Boxer	Pass QC	TCL
+SteHel	Boxer	Pass QC	TCL
+CasLea	Boxer	Pass QC	TCL
+RoxRho	Boxer	Pass QC	TCL
+i_1165	Boxer	Pass QC	GLM
+CCB030166	Boxer	Pass QC	TCL
+i_03A6	Boxer	Pass QC	GLM
+CCB060032	Boxer	Pass QC	TCL
+CCB060027	Boxer	Pass QC	TCL
+i_05CA	Boxer	Pass QC	GLM
+i_E271	Boxer	Pass QC	GLM
+CCB040265	Boxer	Pass QC	TCL
+i_E952	Boxer	Pass QC	GLM
+i_6638	Boxer	Pass QC	GLM
+i_BF76	Boxer	Pass QC	GLM
+CCB030212	Boxer	Pass QC	TCL
+CCB060034	Boxer	Pass QC	TCL
+i_92AC	Boxer	Pass QC	GLM
+i_22C7	Boxer	Pass QC	GLM
+SopDix	Boxer	Pass QC	TCL
+MurVoe	Boxer	Pass QC	TCL
+CCB030292	Boxer	Pass QC	TCL
+i_D756	Boxer	Pass QC	GLM
+CCB010028	Boxer	Pass QC	TCL
+NygRoy	Boxer	Pass QC	TCL
+i_607E	Boxer	Pass QC	GLM
+i_81E2	Boxer	Pass QC	GLM
+i_4BAC	Boxer	Pass QC	GLM
+SWHN000002	Swiss Hound	Pass QC	NonT
+SWHN000003	Swiss Hound	Pass QC	NonT
+SWHN000008	Swiss Hound	Pass QC	NonT
+SWHN000004	Swiss Hound	Pass QC	NonT
+SWHN000005	Swiss Hound	Pass QC	NonT
+SWHN000012	Swiss Hound	Pass QC	NonT
+SWHN000007	Swiss Hound	Pass QC	NonT
+SWHN000001	Swiss Hound	Pass QC	NonT
+SWHN000009	Swiss Hound	Pass QC	NonT
+SMSH000003	Small Swiss Hound	Pass QC	NonT
+SMSH000002	Small Swiss Hound	Pass QC	NonT
+SMSH000010	Small Swiss Hound	Pass QC	NonT
+SMSH000006	Small Swiss Hound	Pass QC	NonT
+SMSH000001	Small Swiss Hound	Pass QC	NonT
+SMSH000012	Small Swiss Hound	Pass QC	NonT
+SMSH000009	Small Swiss Hound	Pass QC	NonT
+SMSH000011	Small Swiss Hound	Pass QC	NonT
+SMSH000005	Small Swiss Hound	Pass QC	NonT
+SMSH000007	Small Swiss Hound	Pass QC	NonT
+SMSH000004	Small Swiss Hound	Pass QC	NonT
+SMSH000008	Small Swiss Hound	Pass QC	NonT
+FXTE000006	Smooth Fox Terrier	Pass QC	NonT
+TYFX000004	Toy Fox Terrier	Pass QC	NonT
+TYFX000002	Toy Fox Terrier	Pass QC	NonT
+TYFX000006	Toy Fox Terrier	Pass QC	NonT
+TYFX000005	Toy Fox Terrier	Pass QC	NonT
+TYFX000007	Toy Fox Terrier	Pass QC	NonT
+TYFX000010	Toy Fox Terrier	Pass QC	NonT
+TYFX000009	Toy Fox Terrier	Pass QC	NonT
+TYFX000003	Toy Fox Terrier	Pass QC	NonT
+TYFX000008	Toy Fox Terrier	Pass QC	NonT
+TYFX000001	Toy Fox Terrier	Pass QC	NonT
+DACH000006	Dachshund	Pass QC	NonT
+DACH000014	Dachshund	Pass QC	NonT
+DACH000003	Dachshund	Pass QC	NonT
+DACH000004	Dachshund	Pass QC	NonT
+DACH000016	Dachshund	Pass QC	NonT
+DACH000015	Dachshund	Pass QC	NonT
+DACH000001	Dachshund	Pass QC	NonT
+DACH000005	Dachshund	Pass QC	NonT
+DACH000002	Dachshund	Pass QC	NonT
+DACH000012	Dachshund	Pass QC	NonT
+DACH000013	Dachshund	Pass QC	NonT
+DACH000011	Dachshund	Pass QC	NonT
+DACH000008	Dachshund	Pass QC	NonT
+DACH000009	Dachshund	Pass QC	NonT
+DACH000010	Dachshund	Pass QC	NonT
+i_B023	Boston Terrier	Pass QC	GLM
+i_6E45	Boston Terrier	Pass QC	GLM
+i_FC65	Boston Terrier	Pass QC	GLM
+i_F840	Boston Terrier	Pass QC	GLM
+i_2C4F	Boston Terrier	Pass QC	GLM
+i_1793	Boston Terrier	Pass QC	GLM
+i_49E6	Boston Terrier	Pass QC	GLM
+i_E7AB	Boston Terrier	Pass QC	GLM
+i_A71E	Boston Terrier	Pass QC	GLM
+i_0FF0	Boston Terrier	Pass QC	GLM
+B00E014-5	Poodle	Pass QC	OM
+CMT-210	Poodle	Pass QC	MT
+CMT-695	Poodle	Pass QC	MT
+B00E00K-L	Poodle	Pass QC	OM
+Poodle18	Poodle	Pass QC	UCL
+B00E01C-D	Poodle	Pass QC	OM
+Poodle22	Poodle	Pass QC	UCL
+B00E01M-N	Poodle	Pass QC	OM
+B00E010-1	Poodle	Pass QC	OM
+B00E00U-V	Poodle	Pass QC	OM
+Poodle9	Poodle	Pass QC	UCL
+Poodle7	Poodle	Pass QC	UCL
+B00E00Q-R	Poodle	Pass QC	OM
+B00E01I-J	Poodle	Pass QC	OM
+B00E018-9	Poodle	Pass QC	OM
+B00E00E-F	Poodle	Pass QC	OM
+Poodle19	Poodle	Pass QC	UCL
+B00E01G-H	Poodle	Pass QC	OM
+B00E00Y-Z	Poodle	Pass QC	OM
+Poodle23	Poodle	Pass QC	UCL
+B00E01O-P	Poodle	Pass QC	OM
+Poodle10	Poodle	Pass QC	UCL
+B00E00W-X	Poodle	Pass QC	OM
+CCB070213_URen	Poodle	Pass QC	OM
+B00E00I-J	Poodle	Pass QC	OM
+CMT-271	Poodle	Pass QC	MT
+CMT-660	Poodle	Pass QC	MT
+B00E01K-L	Poodle	Pass QC	OM
+Poodle21	Poodle	Pass QC	UCL
+Poodle2	Poodle	Pass QC	UCL
+B00E00G-H	Poodle	Pass QC	OM
+B00E012-3	Poodle	Pass QC	OM
+B00E016-7	Poodle	Pass QC	OM
+B00E00O-P	Poodle	Pass QC	OM
+Poodle6	Poodle	Pass QC	UCL
+Poodle17	Poodle	Pass QC	UCL
+B00E01A-B	Poodle	Pass QC	OM
+CMT-250	Poodle	Pass QC	MT
+Poodle5	Poodle	Pass QC	UCL
+B00E00M-N	Poodle	Pass QC	OM
+CMT-54	Poodle	Pass QC	MT
+CMT-360	Poodle	Pass QC	MT
+CMT-606	Poodle	Pass QC	MT
+CMT-252	Poodle	Pass QC	MT
+CMT-307	Poodle	Pass QC	MT
+CMT-257	Poodle	Pass QC	MT
+CMT-215	Poodle	Pass QC	MT
+CMT-246	Poodle	Pass QC	MT
+B00E00S-T	Poodle	Pass QC	OM
+Poodle8	Poodle	Pass QC	UCL
+CMT-652	Poodle	Pass QC	MT
+CMT-456	Poodle	Pass QC	MT
+PYSH000001	Pyrenean Shepherd	Pass QC	NonT
+PYSH000004	Pyrenean Shepherd	Pass QC	NonT
+PYSH000003	Pyrenean Shepherd	Pass QC	NonT
+PYSH000006	Pyrenean Shepherd	Pass QC	NonT
+PYSH000007	Pyrenean Shepherd	Pass QC	NonT
+PYSH000011	Pyrenean Shepherd	Pass QC	NonT
+PYSH000012	Pyrenean Shepherd	Pass QC	NonT
+PYSH000005	Pyrenean Shepherd	Pass QC	NonT
+PYSH000009	Pyrenean Shepherd	Pass QC	NonT
+PYSH000008	Pyrenean Shepherd	Pass QC	NonT
+PYSH000010	Pyrenean Shepherd	Pass QC	NonT
+PBGV000005	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000008	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000012	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000006	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000007	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000010	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000004	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000001	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000002	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000009	Petit Basset Griffon Vendeen	Pass QC	NonT
+PBGV000003	Petit Basset Griffon Vendeen	Pass QC	NonT
+VIZS000007	Vizsla	Pass QC	NonT
+HWHP000001	Vizsla	Pass QC	NonT
+VIZS000003	Vizsla	Pass QC	NonT
+HSHP000001	Vizsla	Pass QC	NonT
+VIZS000002	Vizsla	Pass QC	NonT
+VIZS000005	Vizsla	Pass QC	NonT
+VIZS000001	Vizsla	Pass QC	NonT
+VIZS000006	Vizsla	Pass QC	NonT
+VIZS000004	Vizsla	Pass QC	NonT
+KEES000005	Keeshond	Pass QC	NonT
+KEES000002	Keeshond	Pass QC	NonT
+KEES000006	Keeshond	Pass QC	NonT
+KEES000007	Keeshond	Pass QC	NonT
+KEES000004	Keeshond	Pass QC	NonT
+KEES000003	Keeshond	Pass QC	NonT
+KEES000011	Keeshond	Pass QC	NonT
+KEES000008	Keeshond	Pass QC	NonT
+KEES000009	Keeshond	Pass QC	NonT
+KEES000012	Keeshond	Pass QC	NonT
+KEES000010	Keeshond	Pass QC	NonT
+FLCD000003	Bouvier des Flandres	Pass QC	NonT
+FLCD000006	Bouvier des Flandres	Pass QC	NonT
+FLCD000004	Bouvier des Flandres	Pass QC	NonT
+FLCD000005	Bouvier des Flandres	Pass QC	NonT
+FLCD000007	Bouvier des Flandres	Pass QC	NonT
+BOUV000002	Bouvier des Flandres	Pass QC	NonT
+FLCD000001	Bouvier des Flandres	Pass QC	NonT
+BOUV000001	Bouvier des Flandres	Pass QC	NonT
+FLCD000002	Bouvier des Flandres	Pass QC	NonT
+008	Schnauzer	Pass QC	MT
+088	Schnauzer	Pass QC	MT
+CMT-644	Schnauzer	Pass QC	MT
+CMT-193	Schnauzer	Pass QC	MT
+063	Schnauzer	Pass QC	MT
+125	Schnauzer	Pass QC	MT
+CMT-26	Schnauzer	Pass QC	MT
+CMT-118	Schnauzer	Pass QC	MT
+CMT-92	Schnauzer	Pass QC	MT
+026	Schnauzer	Pass QC	MT
+062	Schnauzer	Pass QC	MT
+047	Schnauzer	Pass QC	MT
+CMT-577	Schnauzer	Pass QC	MT
+004	Schnauzer	Pass QC	MT
+SMFX000004	Smooth Fox Terrier	Pass QC	NonT
+SMFX000005	Smooth Fox Terrier	Pass QC	NonT
+SMFX000003	Smooth Fox Terrier	Pass QC	NonT
+FXTE000005	Smooth Fox Terrier	Pass QC	NonT
+FXTE000003	Smooth Fox Terrier	Pass QC	NonT
+SMFX000001	Smooth Fox Terrier	Pass QC	NonT
+FXTE000004	Smooth Fox Terrier	Pass QC	NonT
+SMFX000002	Smooth Fox Terrier	Pass QC	NonT
+P6	Labrador Retriever	Pass QC	HSA
+B00E030-1	Labrador Retriever	Pass QC	OM
+B00E02K-L	Labrador Retriever	Pass QC	OM
+B00E02Q-R	Labrador Retriever	Pass QC	OM
+CCB050096_URen	Labrador Retriever	Pass QC	OM
+Labrador2	Labrador Retriever	Pass QC	UCL
+B00E02G-H	Labrador Retriever	Pass QC	OM
+B00E01Y-Z	Labrador Retriever	Pass QC	OM
+Golden5	Golden Retriever	Pass QC	UCL
+B00E02W-X	Labrador Retriever	Pass QC	OM
+B00E02U-V	Labrador Retriever	Pass QC	OM
+B00E02S-T	Labrador Retriever	Pass QC	OM
+B00E02Y-Z	Labrador Retriever	Pass QC	OM
+i_8228	Labrador Retriever	Pass QC	GLM
+P21	Labrador Retriever	Pass QC	HSA
+T-399	Greyhound	Pass QC	OSA
+T-554	Labrador Retriever	Pass QC	OSA
+CCB040334_URen	Labrador Retriever	Pass QC	OM
+CCB030269_URen	Labrador Retriever	Pass QC	OM
+T-1192	Labrador Retriever	Pass QC	OSA
+T-1272	Labrador Retriever	Pass QC	OSA
+CCB050228_URen	Labrador Retriever	Pass QC	OM
+B00E02O-P	Labrador Retriever	Pass QC	OM
+CCB070280	Golden Retriever	Pass QC	BCL
+B00E032-3	Labrador Retriever	Pass QC	OM
+CCB030039_URen	Labrador Retriever	Pass QC	OM
+CCB030038_URen	Labrador Retriever	Pass QC	OM
+i_750B	Labrador Retriever	Pass QC	GLM
+CCB030183_URen	Labrador Retriever	Pass QC	OM
+T-1247	Labrador Retriever	Pass QC	OSA
+CCB030097_URen	Labrador Retriever	Pass QC	OM
+HPCI_0008	Labrador Retriever	Pass QC	OSA
+Golden1	Golden Retriever	Pass QC	UCL
+B00E01Q-R	Golden Retriever	Pass QC	OM
+HPCI_0004	Labrador Retriever	Pass QC	OSA
+T-1023	Labrador Retriever	Pass QC	OSA
