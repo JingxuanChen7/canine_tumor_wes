@@ -220,7 +220,7 @@ for(variant in heatmap_variants_combined) {
   }
 }
 heatmap_variants <- tmp_heatmap_variants
-
+writeLines(heatmap_variants, paste(output_base, "heatmap_variants_mergeWGS.txt",sep=seperator))
 
 set.seed(4567);
 heatmap_data_list <- list();
